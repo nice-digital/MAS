@@ -1,7 +1,3 @@
-
-console.log("ENV FILE");
-console.log(process.env);
-
 exports.create = {
 	User: [
 		{

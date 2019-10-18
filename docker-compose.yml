@@ -10,7 +10,7 @@ services:
     environment:
       PORT: 3010
       MONGO_URL: "mongodb://mongo:27017"
-      COOKIE_SECRET: "something"
+      COOKIE_SECRET: ${KEYSTONE_COOKIE_SECRET}
       KEYSTONE_ADMIN_EMAIL: ${KEYSTONE_ADMIN_EMAIL}
       KEYSTONE_ADMIN_PASSWORD: ${KEYSTONE_ADMIN_PASSWORD}
     volumes:
