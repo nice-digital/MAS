@@ -1,0 +1,29 @@
+version: "3.2"
+services:
+
+  # Keystone CMS
+  cms:
+    container_name: cms
+    build: ./cms
+    ports:
+      - 3010:3010
+    environment:
+      PORT: 3010
+      MONGO_URL: "mongodb://mongo:27017"
+      COOKIE_SECRET: "something"
+    volumes:
+      - $PWD/cms:/app
+      # Ignore node_modules from mounting to avoid binaries compiled on host machine architecture not working on docker machine: https://stackoverflow.com/a/37898591/486434
+      - /app/node_modules
+    depends_on:
+      - mongo
+
+  # MongoDB for the CMS
+  mongo:
+    container_name: mongo
+    image: mongo:4.2
+    volumes:
+     - ./mongodb-data:/data/db/mongo # - /path/from/host:/path/to/container
+    command: --quiet # See https://stackoverflow.com/a/54696259/486434
+    ports:
+      - 27017:27017
