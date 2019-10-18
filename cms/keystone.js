@@ -13,8 +13,8 @@ var handlebars = require("express-handlebars");
 keystone.init({
 	name: "MAS",
 	brand: "MAS",
-	mongo: process.env.MONGO_URL || "mongodb://localhost:27017",
-	port: process.env.PORT || "3010",
+	mongo: process.env.MONGO_URL,
+	port: process.env.PORT,
 	"auto update": true,
 	session: true,
 	auth: true,

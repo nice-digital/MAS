@@ -11,6 +11,8 @@ services:
       PORT: 3010
       MONGO_URL: "mongodb://mongo:27017"
       COOKIE_SECRET: "something"
+      KEYSTONE_ADMIN_EMAIL: ${KEYSTONE_ADMIN_EMAIL}
+      KEYSTONE_ADMIN_PASSWORD: ${KEYSTONE_ADMIN_PASSWORD}
     volumes:
       - $PWD/cms:/app
       # Ignore node_modules from mounting to avoid binaries compiled on host machine architecture not working on docker machine: https://stackoverflow.com/a/37898591/486434
@@ -27,3 +29,19 @@ services:
     command: --quiet # See https://stackoverflow.com/a/54696259/486434
     ports:
       - 27017:27017
+
+  # Use minio to create a mock, local s3 bucket
+  s3backend:
+    image: minio/minio:latest
+    container_name: s3backend
+    ports:
+      - "9000:9000"
+    entrypoint: sh
+    command: -c '/usr/bin/minio server /data'
+    # Mount a volume from the host machine to persist files
+    # Note: the $PWD var is a bash thing so this won't work in cmd on Windows
+    volumes:
+      - $PWD/s3-mock/data:/data
+    environment:
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
