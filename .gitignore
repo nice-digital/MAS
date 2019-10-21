@@ -1,3 +1,4 @@
 # Ignore .env configuration files
 .env
 
+/s3-mock
