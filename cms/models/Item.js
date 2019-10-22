@@ -1,7 +1,7 @@
 var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
-const http = require("http");
+const request = require("request");
 
 var Item = new keystone.List("Item", {
 	map: { name: "title" },
@@ -47,46 +47,29 @@ Item.add({
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", function(doc, next) {
-	// This should probably be a POST and use a library like request to make it easier without having to use the low-levek node API
+	// This should probably be a POST
 	console.log("Post save, sending request...", doc);
 
 	// Use host.docker.internal as it's host address on Docker for Windows
 	// TODO: Make this configurable via ENV var?
+
+	var contentpath = process.env.CONTENT_PATH;
+	var hostname = process.env.HOST_NAME;
+
 	var options = {
-		host: "host.docker.internal",
-		port: 63963,
-		path: "/api/content/" + doc._id,
+		uri: hostname + contentpath + doc._id,
 		method: "PUT",
 		headers: {
 			host: "localhost"
 		}
 	};
 
-	var req = http.request(options, res => {
-		console.log(`response statusCode: ${res.statusCode}`);
-
-		var body = "";
-		res.on("data", function(d) {
-			body += d;
-		});
-		res.on("end", function() {
-			console.log("response body", body);
-
-			// Data reception is done, do whatever with it!
-			var parsed = JSON.parse(body);
-			console.log("loaded data", parsed);
-
-			next();
-		});
-	});
-
-	req.on("error", err => {
-		console.error("Error sending post publish: " + err.message);
-
+	request(options, function (error, response, body) {
+		if (error) {
+			console.log('Error sending post publish :', error);
+		}
 		next();
 	});
-
-	req.end();
 
 	console.log("...sent PUT request", options);
 });
