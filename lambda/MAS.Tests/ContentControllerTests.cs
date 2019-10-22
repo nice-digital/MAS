@@ -1,27 +1,33 @@
-using System.IO;
 using System.Threading.Tasks;
-
 using Xunit;
-using Amazon.Lambda.TestUtilities;
-using Amazon.Lambda.APIGatewayEvents;
-
 using Newtonsoft.Json;
+using MAS.Tests.Infrastructure;
+using System.Net.Http;
+using System.Text;
+using System.Net;
+using Shouldly;
+using MAS.Configuration;
 
 namespace MAS.Tests
 {
-    public class ContentControllerTests
+    public class ContentControllerTests : TestBase
     {
-        [Fact]
-        public async Task TestPut()
+        public ContentControllerTests()
         {
-            var lambdaFunction = new LambdaEntryPoint();
+            AppSettings.AWSConfig = TestAppSettings.GetAWSConfig();
+        }
 
-            var requestStr = File.ReadAllText("./SampleRequests/ContentController-Put.json");
-            var request = JsonConvert.DeserializeObject<APIGatewayProxyRequest>(requestStr);
-            var context = new TestLambdaContext();
-            var response = await lambdaFunction.FunctionHandlerAsync(request, context);
+        [Fact]
+        public async Task Put()
+        {
+            //Arrange
+            var content = new StringContent(JsonConvert.SerializeObject(""), Encoding.UTF8, "application/json");
 
-            Assert.Equal(200, response.StatusCode);
+            //Act
+            var response = await _client.PutAsync("/api/content/1234", content);
+
+            // Assert
+            response.StatusCode.ShouldBe(HttpStatusCode.OK);
         }
     }
 }

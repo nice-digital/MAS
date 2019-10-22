@@ -9,8 +9,8 @@ namespace MAS.Configuration
         // this is a static class for storing appsettings so we don't have to use DI for passing configuration stuff
         // (i.e. to stop us having to pass IOptions<SomeConfig> through the stack)
         public static EnvironmentConfig EnvironmentConfig { get; private set; }
-        public static AWSConfig AWSConfig { get; private set; }
-        public static CMSConfig CMSConfig { get; private set; }
+        public static AWSConfig AWSConfig { get; set; }
+        public static CMSConfig CMSConfig { get; set; }
         
         public static void Configure(IServiceCollection services, IConfiguration configuration)
         {

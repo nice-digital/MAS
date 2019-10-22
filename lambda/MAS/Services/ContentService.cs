@@ -18,10 +18,8 @@ namespace MAS.Services
         {
             using (WebClient client = new WebClient())
             {
-                string jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI + itemId));
-
+                var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI + itemId));
                 Item json = JsonConvert.DeserializeObject<Item>(jsonStr);
-
                 return json;
             }
         }
