@@ -14,14 +14,15 @@ namespace MAS.Controllers
     public class ContentController : ControllerBase
     {
         private readonly IContentService _contentService;
+        private readonly IS3Service _s3Service;
         private readonly ILogger<ContentController> _logger;
         private readonly IAmazonS3 _amazonS3;
 
-        public ContentController(IContentService contentService, ILogger<ContentController> logger, IAmazonS3 amazonS3)
+        public ContentController(IContentService contentService, IS3Service s3Service, ILogger<ContentController> logger)
         {
             _contentService = contentService;
+            _s3Service = s3Service;
             _logger = logger; //TODO: Log response errors
-            _amazonS3 = amazonS3;
         }
 
         //PUT api/content/5dac429284dd4afe5eb8fae6
@@ -29,16 +30,9 @@ namespace MAS.Controllers
         public async Task<IActionResult> PutAsync(string key)
         {
             var item = await _contentService.GetItemAsync(key);
+            var response = _s3Service.WriteToS3(item);
 
-            PutObjectRequest request = new PutObjectRequest()
-            {
-                BucketName = AppSettings.AWSConfig.BucketName,
-                Key = key + ".txt",
-                ContentBody = item.Title
-            };
-            var response = await _amazonS3.PutObjectAsync(request);
-
-            return Validate(response.HttpStatusCode);
+            return Validate(response.Result.HttpStatusCode);
         }
     }
 }

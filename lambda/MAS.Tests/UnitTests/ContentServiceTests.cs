@@ -1,15 +1,16 @@
-﻿using MAS.Configuration;
+﻿using Amazon.S3;
+using MAS.Configuration;
 using MAS.Services;
 using MAS.Tests.Infrastructure;
 using Shouldly;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace MAS.Tests
+namespace MAS.Tests.UnitTests
 {
-    public class ContentServerTests : TestBase
+    public class ContentServiceTests : TestBase
     {
-        public ContentServerTests()
+        public ContentServiceTests()
         {
             AppSettings.CMSConfig = TestAppSettings.GetCMSConfig();
         }
@@ -18,10 +19,10 @@ namespace MAS.Tests
         public async Task Get_ItemAsync()
         {
             //Arrange
-            var contentSerivce = new ContentService();
+            var contentService = new ContentService();
 
             //Act
-            var result = await contentSerivce.GetItemAsync("");
+            var result = await contentService.GetItemAsync("");
 
             //Assert
             result.Id.ShouldBe("5daeb5af22565a82530d7373"); 

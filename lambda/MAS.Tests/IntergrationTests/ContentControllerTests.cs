@@ -8,7 +8,7 @@ using System.Net;
 using Shouldly;
 using MAS.Configuration;
 
-namespace MAS.Tests
+namespace MAS.Tests.IntergrationTests
 {
     public class ContentControllerTests : TestBase
     {

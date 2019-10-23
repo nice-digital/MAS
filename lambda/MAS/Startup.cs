@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Amazon;
 using Amazon.S3;
 using MAS.Configuration;
+using MAS.Logging;
 using MAS.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,9 +31,10 @@ namespace MAS
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             AppSettings.Configure(services, Configuration);
-
+            
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IContentService, ContentService>();
+            services.TryAddSingleton<IS3Service, S3Service>();
 
             services.AddTransient<IAmazonS3>((sP) => {
                 var s3config = new AmazonS3Config()

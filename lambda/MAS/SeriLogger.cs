@@ -6,11 +6,8 @@ using NICE.Logging;
 using NICE.Logging.Sinks.RabbitMQ;
 using Serilog;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace MAS
+namespace MAS.Logging
 {
     public interface ISeriLogger
     {
