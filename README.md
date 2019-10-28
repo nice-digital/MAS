@@ -1,10 +1,10 @@
 # MAS (Medicines awareness service)
 
-- [Medicines awareness service (MAS) rebuild](#mas-medicines-awareness-service)
+- [MAS (Medicines awareness service)](#mas-medicines-awareness-service)
   - [What is it?](#what-is-it)
     - [Architecture](#architecture)
       - [Diagram](#diagram)
-  - [What you will need](#what-you-will-need)
+  - [Requirements](#requirements)
     - [IDE](#ide)
   - [Local development](#local-development)
     - [Lambdas](#lambdas)
@@ -67,12 +67,16 @@ The overall Medicines awareness service system consists of the following applica
 
 > Note: to edit the diagram, copy the source into http://asciiflow.com/ or similar.
 
-## What you will need
+## Requirements
 
 - Docker
-- AWS SDK
+- AWS CLI
 - SAM CLI
-- Global tools?
+- Amazon.lambda.tools 
+  - Install this with the following command: 
+  - `dotnet tool install --global Amazon.Lambda.Tools --version 3.3.1`
+  - > Note: If you encounter an error try disabling all non-standard nuget sources
+
 
 ### IDE
 
@@ -86,12 +90,20 @@ You can run each part of the application (CMS, lambdas, S3 etc) independently. S
 However, the easiest way to run the [lambdas](#lambdas) via Visual Studio and the [rest of the app](#rest-of-the-app) via Docker:
 
 ### Lambdas
+Firstly build the AWS Sam template - this represents the architecture of the application (For more info: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-template-basics.html). To build the template open command prompt (not bash) within the MAS/lambda directory and the command:
+`sam build -t serverless.template`
 
-Open up [lambdas/MAS.sln](lambdas/MAS.sln) in Visual Studio, restore packages and run the *MAS* project. This runs up a mock API gateway on http://localhost:61233 via IIS express.
+Next run the lambda execution environmention via SAM CLI with this command ```sam local start-api```
+
+Now get a copy of user-securets.json from a member of the MAS team. Open up [lambdas/MAS.sln](lambdas/MAS.sln) in Visual Studio and right click the MAS project in solution explorer before selecting "Manage user secrets". In the blank file that opens paste in the contents from user-securets.json.
+
+Restore packages and run the *MAS* project. This runs up a mock API gateway on http://localhost:61233 via IIS express.
 
 > Note: you will need to reference the NICE NuGet server(s) to be able to restore packages.
 
 ### Rest of the app
+Before starting the docker containers the environmental variables creating. These live in the .env file which docker uses for variable replacement. (For more info read: https://docs.docker.com/compose/environment-variables/#the-env-file)
+To create the variables get a copy of the .env file from a member of the MAS team and replace the some of the variables to make them relivant to you. Place this it in the root MAS directory.
 
 Install Docker and run `docker-compose up` from the root of the repository. This creates:
 
