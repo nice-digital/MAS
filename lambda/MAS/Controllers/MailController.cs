@@ -20,8 +20,14 @@ namespace MAS.Controllers
         [HttpPut("daily")]
         public async Task<IActionResult> PutAsync()
         {
-            var item = await _contentService.GetItemsAsync();
-            var body = item.Title;
+            var items = await _contentService.GetItemsAsync();
+
+            var body = "";
+            foreach (var item in items)
+            {
+                body += item.Title + "<br><br><br>";
+            }
+
             var subject = "Subject";
             var previewText = "Preview text";
 
