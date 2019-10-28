@@ -1,9 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Amazon;
-using Amazon.Runtime;
 using Amazon.S3;
-using Amazon.S3.Model;
-using MAS.Configuration;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,7 +12,6 @@ namespace MAS.Controllers
         private readonly IContentService _contentService;
         private readonly IS3Service _s3Service;
         private readonly ILogger<ContentController> _logger;
-        private readonly IAmazonS3 _amazonS3;
 
         public ContentController(IContentService contentService, IS3Service s3Service, ILogger<ContentController> logger)
         {

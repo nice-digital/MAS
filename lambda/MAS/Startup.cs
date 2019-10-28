@@ -35,6 +35,7 @@ namespace MAS
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IContentService, ContentService>();
             services.TryAddSingleton<IS3Service, S3Service>();
+            services.TryAddSingleton<IMailService, MailService>();
 
             services.AddTransient<IAmazonS3>((sP) => {
                 var s3config = new AmazonS3Config()
