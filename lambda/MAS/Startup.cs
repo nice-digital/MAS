@@ -1,5 +1,7 @@
 using Amazon;
 using Amazon.S3;
+using MailChimp.Net;
+using MailChimp.Net.Interfaces;
 using MAS.Configuration;
 using MAS.Logging;
 using MAS.Services;
@@ -35,7 +37,9 @@ namespace MAS
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IContentService, ContentService>();
             services.TryAddSingleton<IS3Service, S3Service>();
-            services.TryAddSingleton<IMailService, MailService>();
+            services.TryAddTransient<IMailService, MailService>();
+
+            services.AddMailChimpClient(AppSettings.MailConfig.ApiKey);
 
             services.AddTransient<IAmazonS3>((sP) => {
                 var s3config = new AmazonS3Config()

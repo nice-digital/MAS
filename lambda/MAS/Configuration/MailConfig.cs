@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MAS.Configuration
+﻿namespace MAS.Configuration
 {
     public class MailConfig
     {

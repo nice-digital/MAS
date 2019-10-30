@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Amazon.S3;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -25,9 +24,9 @@ namespace MAS.Controllers
         public async Task<IActionResult> PutAsync(string key)
         {
             var item = await _contentService.GetItemAsync(key);
-            var response = _s3Service.WriteToS3(item);
-
-            return Validate(response.Result.HttpStatusCode);
+            var response = await _s3Service.WriteToS3(item);
+            
+            return Validate(response.HttpStatusCode);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MAS.Models;
 using MAS.Services;
 
@@ -16,6 +17,11 @@ namespace MAS.Tests.Infrastructure
                     Title = "My Test Drug"
                 };
             });
+        }
+
+        public Task<IEnumerable<Item>> GetItemsAsync()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -6,17 +6,11 @@ using System.Net.Http;
 using System.Text;
 using System.Net;
 using Shouldly;
-using MAS.Configuration;
 
 namespace MAS.Tests.IntergrationTests
 {
     public class ContentControllerTests : TestBase
     {
-        public ContentControllerTests()
-        {
-            AppSettings.AWSConfig = TestAppSettings.GetAWSConfig();
-        }
-
         [Fact]
         public async Task Put()
         {

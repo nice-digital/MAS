@@ -1,5 +1,6 @@
 ﻿using MailChimp.Net;
 using MailChimp.Net.Core;
+using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MAS.Configuration;
 using System.Collections.Generic;
@@ -14,18 +15,16 @@ namespace MAS.Services
 
     public class MailService: IMailService
     {
-        //private readonly IMailChimpManager _mailChimpManager;
+        private readonly IMailChimpManager _mailChimpManager;
 
-        //public MailService(IMailChimpManager mailChimpManager)
-        //{
-        //    _mailChimpManager = mailChimpManager;
-        //}
+        public MailService(IMailChimpManager mailChimpManager)
+        {
+            _mailChimpManager = mailChimpManager;
+        }
 
         public async Task SendToMailChimpAsync(string subject, string previewText, string body)
         {
-            var _mailChimpManager = new MailChimpManager(AppSettings.MailConfig.ApiKey);
-
-            var campaignDetails = new Campaign
+            var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
             {
                 Type = CampaignType.Regular,
                 Settings = new Setting
@@ -41,9 +40,7 @@ namespace MAS.Services
                 {
                     ListId = AppSettings.MailConfig.ListId
                 }
-            };
-
-            var campaign = await _mailChimpManager.Campaigns.AddAsync(campaignDetails);
+            });
 
             await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
             {
