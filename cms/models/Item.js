@@ -9,10 +9,28 @@ var Item = new keystone.List("Item", {
 });
 
 Item.add({
-	publicationDate: { type: Date, default: Date.now },
-	createdDate: { type: Date, default: Date.now },
-	category: {type:String, required: true},
-	title: { type: String, required: true, initial: true },
+	publicationDate: { 
+		type: Types.Datetime, 
+		default: Date.now,
+		required: true,
+		initial: true
+	},
+	createdDate: { 
+		type: Types.Datetime, 
+		default: Date.now,
+		required: true,
+		initial: true
+	},
+	category: {
+		type:Types.Text, 
+		required: true,
+		initial: true
+	},
+	title: { 
+		type: Types.Text, 
+		required: true, 
+		initial: true
+	 },
 	source: {
 		type: Types.Relationship,
 		ref: "Source",
@@ -20,9 +38,10 @@ Item.add({
 		initial: true
 	},
 	geographicalCoverage:{
-		type: Select, 
+		type: Types.Select, 
 		options: 'International, UK',
-		required: true
+		required: true,
+		initial: true
 	},
 	speciality: {
 		type: Types.Relationship,
@@ -30,20 +49,29 @@ Item.add({
 		many: true,
 		initial: true
 	},
-	shortSummary: { type: Types.Textarea, required: true, initial: true, min: 10, max: 280 },
-	resourceLinks: {type: Types.Url, required: false, initial: true },
-	publishedDate: {
-		type: Types.Date,
-		index: true,
-		dependsOn: { state: "published" }
+	shortSummary: { 
+		type: Types.Textarea,
+		required: true,
+		initial: true,
+		min: 10, 
+		max: 280
+	 },
+	resourceLinks: {
+		type: Types.Url, 
+		required: false, 
+		initial: true 
 	},
 	UKMiComment: {
-		type: Types.Html,
-		wysiwyg: true,
-		required: false,
+		type: Types.Textarea,
+		required: true,
+		initial: true,
 		height: 400
 	},
-	MAWScore: { type:integer, required:true }
+	MAWScore: { 
+		type:Types.Number, 
+		required:true,
+		initial: true
+	 }
 });
 
 // Post save hook to trigger a lambda with the document details
