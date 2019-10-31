@@ -62,15 +62,14 @@ Item.add({
 		initial: true 
 	},
 	UKMiComment: {
-		type: Types.Textarea,
-		required: true,
-		initial: true,
-		height: 400
+		type: Types.Textarea, 
+		required:true, 
+		initial: true 
 	},
 	MAWScore: { 
 		type:Types.Number, 
-		required:true,
-		initial: true
+		required:true, 
+		initial: true 
 	 }
 });
 
