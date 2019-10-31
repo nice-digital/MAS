@@ -9,40 +9,68 @@ var Item = new keystone.List("Item", {
 });
 
 Item.add({
-	title: { type: String, required: true, initial: true },
-	url: { type: Types.Url, required: true, initial: true },
-	summary: { type: Types.Textarea, required: true, initial: true },
-	specialities: {
-		type: Types.Relationship,
-		ref: "Speciality",
-		many: true,
+	publicationDate: { 
+		type: Types.Datetime, 
+		default: Date.now,
+		required: true,
 		initial: true
 	},
+	createdDate: { 
+		type: Types.Datetime, 
+		default: Date.now,
+		required: true,
+		initial: true
+	},
+	category: {
+		type:Types.Text, 
+		required: true,
+		initial: true
+	},
+	title: { 
+		type: Types.Text, 
+		required: true, 
+		initial: true
+	 },
 	source: {
 		type: Types.Relationship,
 		ref: "Source",
 		many: false,
 		initial: true
 	},
+	geographicalCoverage:{
+		type: Types.Select, 
+		options: 'International, UK',
+		required: true,
+		initial: true
+	},
+	speciality: {
+		type: Types.Relationship,
+		ref: "Speciality",
+		many: true,
+		initial: true
+	},
+	shortSummary: { 
+		type: Types.Textarea,
+		required: true,
+		initial: true,
+		min: 10, 
+		max: 280
+	 },
+	resourceLinks: {
+		type: Types.Url, 
+		required: false, 
+		initial: true 
+	},
 	UKMiComment: {
-		type: Types.Html,
-		wysiwyg: true,
-		required: false,
-		height: 400
+		type: Types.Textarea, 
+		required:true, 
+		initial: true 
 	},
-	state: {
-		type: Types.Select,
-		options: "draft, published, archived",
-		default: "draft",
-		index: true
-	},
-	createdDate: { type: Date, default: Date.now },
-	author: { type: Types.Relationship, ref: "User", index: true },
-	publishedDate: {
-		type: Types.Date,
-		index: true,
-		dependsOn: { state: "published" }
-	}
+	MAWScore: { 
+		type:Types.Number, 
+		required:true, 
+		initial: true 
+	 }
 });
 
 // Post save hook to trigger a lambda with the document details
