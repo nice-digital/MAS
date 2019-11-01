@@ -21,10 +21,10 @@ namespace MAS.Tests.UnitTests
             mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
 
-            var _mailService = new MailService(mockMailChimpManager.Object);
+            var mailService = new MailService(mockMailChimpManager.Object);
 
             //Act
-            var ex = Record.ExceptionAsync(async () => await _mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text"));
+            var ex = Record.ExceptionAsync(async () => await mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text"));
 
             //Assert
             ex.Exception.ShouldBe(null);
