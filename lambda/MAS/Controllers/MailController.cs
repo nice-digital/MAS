@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,10 +29,10 @@ namespace MAS.Controllers
                 body += item.Title + "<br><br><br>";
             }
 
-            var subject = "Subject";
-            var previewText = "Preview text";
+            var subject = "MAS Email";
+            var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
 
-            await _mailService.SendToMailChimpAsync(subject, previewText, body);
+            await _mailService.CreateAndSendCampaignAsync(subject, previewText, body);
 
             return new JsonResult("posted");
         }

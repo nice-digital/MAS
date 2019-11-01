@@ -1,10 +1,8 @@
-﻿using MailChimp.Net;
-using MAS.Configuration;
+﻿using MAS.Configuration;
 using MAS.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Net.Http;
 

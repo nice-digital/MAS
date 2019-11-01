@@ -10,7 +10,7 @@ namespace MAS.Services
 {
     public interface IMailService
     {
-        Task SendToMailChimpAsync(string subject, string previewText, string body);
+        Task CreateAndSendCampaignAsync(string subject, string previewText, string body);
     }
 
     public class MailService: IMailService
@@ -22,8 +22,10 @@ namespace MAS.Services
             _mailChimpManager = mailChimpManager;
         }
 
-        public async Task SendToMailChimpAsync(string subject, string previewText, string body)
+        public async Task CreateAndSendCampaignAsync(string subject, string previewText, string body)
         {
+            //add icampaign here
+
             var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
             {
                 Type = CampaignType.Regular,
@@ -41,7 +43,7 @@ namespace MAS.Services
                     ListId = AppSettings.MailConfig.ListId
                 }
             });
-
+            
             await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
             {
                 Template = new ContentTemplate
@@ -53,7 +55,7 @@ namespace MAS.Services
                 }
             });
 
-            await _mailChimpManager.Campaigns.SendAsync(campaign.Id);
+            await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
         }
     }
 }
