@@ -24,8 +24,6 @@ namespace MAS.Services
 
         public async Task CreateAndSendCampaignAsync(string subject, string previewText, string body)
         {
-            //add icampaign here
-
             var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
             {
                 Type = CampaignType.Regular,

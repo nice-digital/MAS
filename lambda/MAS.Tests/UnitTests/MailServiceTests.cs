@@ -3,37 +3,32 @@ using System.Threading.Tasks;
 using Xunit;
 using MAS.Services;
 using MailChimp.Net.Interfaces;
-using MailChimp.Net;
-using MAS.Configuration;
 using Moq;
 using MailChimp.Net.Models;
+using MailChimp.Net.Core;
+using Shouldly;
 
 namespace MAS.Tests.UnitTests
 {
     public class MailServiceTests : TestBase
     {
         [Fact]
-        public async Task SendToMailChimpAsync()
+        public void SendToMailChimp()
         {
             //Arrange
-            var campaign = new Campaign();
-            var ReturnedCampaign = Task.Run(() =>
-            {
-                return new Campaign()
-                {
-                    Id = "1234"
-                };
-            });
-
             var mockMailChimpManager = new Mock<IMailChimpManager>();
-            mockMailChimpManager.Setup(x => x.Campaigns.AddAsync(campaign)).Returns(() => ReturnedCampaign);
+            mockMailChimpManager.Setup(x => x.Campaigns.AddAsync(It.IsAny<Campaign>())).ReturnsAsync(new Campaign() { Id = "1234" });
+            mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
+            mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
 
             var _mailService = new MailService(mockMailChimpManager.Object);
 
             //Act
-            await _mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text");
+            var ex = Record.ExceptionAsync(async () => await _mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text"));
 
             //Assert
+            ex.Exception.ShouldBe(null);
+            ex.Status.ShouldBe(TaskStatus.RanToCompletion);
         }
     }
 }
