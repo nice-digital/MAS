@@ -25,8 +25,6 @@ namespace MAS.Tests.Infrastructure
                 .UseContentRoot("../../../../MAS")
                 .ConfigureServices(services =>
                 {
-                    services.TryAddTransient<IContentService>(provider => new FakeContentService());
-
                     AppSettings.Configure(services, _config);
                 })
                 .UseEnvironment("Production")

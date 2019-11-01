@@ -7,6 +7,7 @@ using MAS.Services;
 using MAS.Models;
 using MAS.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace MAS.Tests.IntergrationTests
 {
@@ -17,7 +18,7 @@ namespace MAS.Tests.IntergrationTests
         {
             //Arrange
             var mockContentService = new Mock<IContentService>();
-            mockContentService.Setup(x => x.GetItemAsync(It.IsAny<string>())).ReturnsAsync(new Item() { Id = "123", Title = "My Test Drug" });
+            mockContentService.Setup(x => x.GetItemAsync(It.IsAny<string>())).ReturnsAsync(JsonConvert.DeserializeObject<Item>("{ \"Id\" : \"1234\", \"Title\" : \"My Test Drug\" }"));
 
             var mockMailService = new Mock<IMailService>();
             mockMailService.Setup(x => x.CreateAndSendCampaignAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
