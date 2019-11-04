@@ -12,9 +12,9 @@ namespace MAS.Models
         public DateTime PublicationDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Category { get; set; }
-        public string Source { get; set; }
+        public string Source { get; set; } //TODO: Needs source item values instead of source item Ids
         public string GeographicalCoverage { get; set; }
-        public IEnumerable<string> Speciality { get; set; }
+        public IEnumerable<string> Speciality { get; set; } //TODO: Needs speciality item values instead of Ids
         public string ShortSummary { get; set; }
         public string ResourceLinks { get; set; }
         public string UKMiComment { get; set; }
