@@ -22,7 +22,7 @@ namespace MAS.Tests.UnitTests
         public async Task Get_ItemAsync()
         {
             //Arrange
-            var contentService = new ContentService();
+            var contentService = new ContentService(null);
 
             //Act
             var result = await contentService.GetItemAsync("");
