@@ -4,10 +4,10 @@ using MAS.Models;
 using MAS.Services;
 using MAS.Tests.Infrastructure;
 using Newtonsoft.Json;
-using Shouldly;
 using System.IO;
 using System.Threading.Tasks;
 using Xunit;
+using System;
 
 namespace MAS.Tests.UnitTests
 {
@@ -28,14 +28,9 @@ namespace MAS.Tests.UnitTests
             var result = await contentService.GetItemAsync("");
 
             //Assert
-            string actualOutputJson = JsonConvert.SerializeObject(result);
-			//Ensure the json is formatted the same
-            var expectedOutputObject = JsonConvert.DeserializeObject<Item>(File.ReadAllText("C:/_src/MAS/lambda/MAS.Tests/Feeds/single-item.json"));
-            string expectedOutputJson = JsonConvert.SerializeObject(expectedOutputObject);
-
-            actualOutputJson.ShouldBe(expectedOutputJson);
+            string actualJson = JsonConvert.SerializeObject(result);
+            actualJson.ShouldMatchApproved();
             
-
         }
     }
 }
