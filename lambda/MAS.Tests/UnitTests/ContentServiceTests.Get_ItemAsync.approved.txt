@@ -1,17 +1,16 @@
 ﻿{
-    "_id":"5dc05c909b3275498a99454e",
-    "Title":"Some title",
-    "PublicationDate":"2019-11-04T17:14:00Z",
-    "CreatedDate":"2019-11-04T17:14:01Z",
+    "_id":"5dc30790b01357811811c43d",
+    "Title":"some title",
+    "PublicationDate":"2019-11-06T17:48:02Z",
+    "CreatedDate":"2019-11-06T17:48:02Z",
     "Category":"Some category",
-    "Source":"5dc05c0b9b3275295e993f64",
-    "GeographicalCoverage":"International",
+    "Source":"5dc306e9b01357d0f311be50",
     "Speciality":[
-        "5dc05c109b32752f73994526",
-        "5dc05c109b32755dad994528"
+        "5dc306ebb01357a06411c416",
+        "5dc306ebb01357438611c417"
     ],
-    "ShortSummary":"This is a short summary",
-    "ResourceLinks":"http://www.google.com",
-    "UKMiComment":"This is a UKMi comment",
-    "MAWScore":2
+    "ShortSummary":"Short summary",
+    "ResourceLinks":"https://www.google.com",
+    "UKMiComment":"<p>This is a UKMi comment</p>",
+    "RelevancyScore":1
 }
