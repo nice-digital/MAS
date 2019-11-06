@@ -20,8 +20,6 @@ namespace MAS.Models
         [Required, JsonRequired]
         public string Source { get; set; } //TODO: Needs source item values instead of source item Ids
         [Required, JsonRequired]
-        public string GeographicalCoverage { get; set; }
-        [Required, JsonRequired]
         public IEnumerable<string> Speciality { get; set; } //TODO: Needs speciality item values instead of Ids
         [Required, JsonRequired]
         public string ShortSummary { get; set; }
@@ -29,6 +27,6 @@ namespace MAS.Models
         [Required, JsonRequired]
         public string UKMiComment { get; set; }
         [Required, JsonRequired]
-        public int MAWScore { get; set; }
+        public int RelevancyScore { get; set; }
     }
 }
