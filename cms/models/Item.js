@@ -11,7 +11,6 @@ var Item = new keystone.List("Item", {
 Item.add({
 	publicationDate: { 
 		type: Types.Datetime, 
-		default: Date.now,
 		required: true,
 		initial: true
 	},
@@ -37,12 +36,6 @@ Item.add({
 		many: false,
 		initial: true
 	},
-	geographicalCoverage:{
-		type: Types.Select, 
-		options: 'International, UK',
-		required: true,
-		initial: true
-	},
 	speciality: {
 		type: Types.Relationship,
 		ref: "Speciality",
@@ -62,12 +55,14 @@ Item.add({
 		initial: true 
 	},
 	UKMiComment: {
-		type: Types.Textarea, 
+		type: Types.Html,
+		wysiwyg: true,
 		required:true, 
 		initial: true 
 	},
-	MAWScore: { 
-		type:Types.Number, 
+	RelevancyScore: { 
+		type: Types.Select, 
+		options: '1,2,3',
 		required:true, 
 		initial: true 
 	 }
