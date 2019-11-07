@@ -9,22 +9,22 @@ var Item = new keystone.List("Item", {
 });
 
 Item.add({
-	publicationDate: { 
-		type: Types.Datetime, 
-		required: true,
-		initial: true
-	},
-	createdDate: { 
-		type: Types.Datetime, 
-		default: Date.now,
-		required: true,
-		initial: true
-	},
-	category: {
-		type:Types.Text, 
-		required: true,
-		initial: true
-	},
+	// publicationDate: { 
+	// 	type: Types.Datetime, 
+	// 	required: true,
+	// 	initial: true
+	// },
+	// createdDate: { 
+	// 	type: Types.Datetime, 
+	// 	default: Date.now,
+	// 	required: true,
+	// 	initial: true
+	// },
+	// category: {
+	// 	type:Types.Text, 
+	// 	required: true,
+	// 	initial: true
+	// },
 	title: { 
 		type: Types.Text, 
 		required: true, 
@@ -36,12 +36,12 @@ Item.add({
 		many: false,
 		initial: true
 	},
-	speciality: {
-		type: Types.Relationship,
-		ref: "Speciality",
-		many: true,
-		initial: true
-	},
+	// speciality: {
+	// 	type: Types.Relationship,
+	// 	ref: "Speciality",
+	// 	many: true,
+	// 	initial: true
+	// },
 	shortSummary: { 
 		type: Types.Textarea,
 		required: true,
@@ -49,23 +49,23 @@ Item.add({
 		min: 10, 
 		max: 280
 	 },
-	resourceLinks: {
-		type: Types.Url, 
-		required: false, 
-		initial: true 
-	},
-	UKMiComment: {
-		type: Types.Html,
-		wysiwyg: true,
-		required:true, 
-		initial: true 
-	},
-	RelevancyScore: { 
-		type: Types.Select, 
-		options: '1,2,3',
-		required:true, 
-		initial: true 
-	 }
+	// resourceLinks: {
+	// 	type: Types.Url, 
+	// 	required: false, 
+	// 	initial: true 
+	// },
+	// UKMiComment: {
+	// 	type: Types.Html,
+	// 	wysiwyg: true,
+	// 	required:true, 
+	// 	initial: true 
+	// },
+	// RelevancyScore: { 
+	// 	type: Types.Select, 
+	// 	options: '1,2,3',
+	// 	required:true, 
+	// 	initial: true 
+	//  }
 });
 
 // Post save hook to trigger a lambda with the document details
