@@ -1,12 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using Amazon;
 using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Configuration;
+using MAS.Models;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace MAS.Controllers
 {
@@ -26,10 +29,10 @@ namespace MAS.Controllers
         }
 
         //PUT api/content/5dac429284dd4afe5eb8fae6
-        [HttpPut("{key}")]
-        public async Task<IActionResult> PutAsync(string key)
+        [HttpPut]
+        public async Task<IActionResult> PutAsync([FromBody] string json)
         {
-            var item = await _contentService.GetItemAsync(key);
+            var item = JsonConvert.DeserializeObject<Item>(json);
             var response = _s3Service.WriteToS3(item);
 
             return Validate(response.Result.HttpStatusCode);
