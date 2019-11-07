@@ -1,16 +1,6 @@
 ﻿{
     "_id":"5dc30790b01357811811c43d",
     "Title":"some title",
-    "PublicationDate":"2019-11-06T17:48:02Z",
-    "CreatedDate":"2019-11-06T17:48:02Z",
-    "Category":"Some category",
     "Source":"5dc306e9b01357d0f311be50",
-    "Speciality":[
-        "5dc306ebb01357a06411c416",
-        "5dc306ebb01357438611c417"
-    ],
-    "ShortSummary":"Short summary",
-    "ResourceLinks":"https://www.google.com",
-    "UKMiComment":"<p>This is a UKMi comment</p>",
-    "RelevancyScore":1
+    "ShortSummary":"Short summary"
 }
