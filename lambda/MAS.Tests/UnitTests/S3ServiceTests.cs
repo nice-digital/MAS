@@ -9,12 +9,12 @@ using System.Threading;
 using Xunit;
 using Shouldly;
 
-namespace MAS.Tests.IntergrationTests
+namespace MAS.Tests.UnitTests
 {
     public class S3ServiceTests : TestBase
     {
         [Fact]
-        public void WriteToS3()
+        public void WriteItemToS3()
         {
             //Arrange
             var mockAmazonS3 = new Mock<IAmazonS3>();

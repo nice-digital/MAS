@@ -14,7 +14,7 @@ namespace MAS.Tests.IntergrationTests
     public class MailControllerTests : TestBase
     {
         [Fact]
-        public async Task Put()
+        public async Task CreateAndSendCampaign()
         {
             //Arrange
             var mockContentService = new Mock<IContentService>();

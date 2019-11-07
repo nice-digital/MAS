@@ -13,7 +13,7 @@ namespace MAS.Tests.UnitTests
     public class MailServiceTests : TestBase
     {
         [Fact]
-        public void SendToMailChimp()
+        public void CreateCampaignAndSendToMailChimp()
         {
             //Arrange
             var mockMailChimpManager = new Mock<IMailChimpManager>();

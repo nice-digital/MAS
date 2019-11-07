@@ -1,5 +1,4 @@
-﻿using Amazon.S3;
-using MAS.Configuration;
+﻿using MAS.Configuration;
 using MAS.Services;
 using MAS.Tests.Infrastructure;
 using Shouldly;
@@ -12,7 +11,7 @@ namespace MAS.Tests.UnitTests
     public class ContentServiceTests : TestBase
     {
         [Fact]
-        public async Task Get_ItemAsync()
+        public async Task ReadSingleItem()
         {
             //Arrange
             AppSettings.CMSConfig = TestAppSettings.GetSingleItemFeed();
@@ -27,7 +26,7 @@ namespace MAS.Tests.UnitTests
         }
 
         [Fact]
-        public async Task Get_ItemsAsync()
+        public async Task ReadMultipleItems()
         {
             //Arrange
             AppSettings.CMSConfig = TestAppSettings.GetMultipleItemsFeed();

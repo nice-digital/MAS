@@ -33,7 +33,7 @@ namespace MAS.Tests.IntergrationTests
             var contentController = new ContentController(mockContentService.Object, mockS3Service.Object, mockLogger.Object);
 
             //Act
-            var response = await contentController.PutAsync("/api/content/1234") as Microsoft.AspNetCore.Mvc.StatusCodeResult;
+            var response = await contentController.PutAsync("/api/content/1234") as StatusCodeResult;
 
             // Assert
             response.StatusCode.ShouldBe(200);
