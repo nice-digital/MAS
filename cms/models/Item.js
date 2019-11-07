@@ -79,12 +79,15 @@ Item.schema.post("save", function(doc, next) {
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
 
+	var data = JSON.stringify(this); 
 	var options = {
-		uri: hostname + contentpath + doc._id,
+		uri: hostname + contentpath,
 		method: "PUT",
 		headers: {
 			host: "localhost"
-		}
+		},
+		body: data,
+		json: true
 	};
 
 	request(options, function (error, response, body) {
