@@ -10,13 +10,11 @@ namespace MAS.Controllers
     {
         private readonly IContentService _contentService;
         private readonly IS3Service _s3Service;
-        private readonly ILogger<ContentController> _logger;
 
-        public ContentController(IContentService contentService, IS3Service s3Service, ILogger<ContentController> logger)
+        public ContentController(IContentService contentService, IS3Service s3Service)
         {
             _contentService = contentService;
             _s3Service = s3Service;
-            _logger = logger; //TODO: Log response errors
         }
 
         //PUT api/content/5dac429284dd4afe5eb8fae6

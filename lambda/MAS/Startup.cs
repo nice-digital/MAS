@@ -1,9 +1,7 @@
 using Amazon;
 using Amazon.S3;
 using MailChimp.Net;
-using MailChimp.Net.Interfaces;
 using MAS.Configuration;
-using MAS.Logging;
 using MAS.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,13 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
 
 namespace MAS
 {
     public class Startup
     {
-        public const string AppS3BucketKey = "AppS3Bucket";
         public readonly static RegionEndpoint Region = RegionEndpoint.EUWest1;
 
         public Startup(IConfiguration configuration)
@@ -33,8 +29,7 @@ namespace MAS
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             AppSettings.Configure(services, Configuration);
-            
-            services.TryAddSingleton<ISeriLogger, SeriLogger>();
+
             services.TryAddSingleton<IContentService, ContentService>();
             services.TryAddSingleton<IS3Service, S3Service>();
             services.TryAddTransient<IMailService, MailService>();
@@ -45,8 +40,7 @@ namespace MAS
                 var s3config = new AmazonS3Config()
                 {
                     RegionEndpoint = Region,
-                    ServiceURL = AppSettings.AWSConfig.ServiceURL,
-                    ForcePathStyle = true
+                    ForcePathStyle = true,
                 };
 
                 return new AmazonS3Client(AppSettings.AWSConfig.AccessKey, AppSettings.AWSConfig.SecretKey, s3config);
@@ -54,16 +48,12 @@ namespace MAS
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ISeriLogger seriLogger, IApplicationLifetime appLifetime )
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            seriLogger.Configure(loggerFactory, Configuration, appLifetime, env);
-            loggerFactory.CreateLogger<Startup>();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-                loggerFactory.AddDebug();
             }
             else
             {
