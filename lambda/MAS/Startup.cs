@@ -40,7 +40,6 @@ namespace MAS
                 var s3config = new AmazonS3Config()
                 {
                     RegionEndpoint = Region,
-                    ServiceURL = AppSettings.AWSConfig.ServiceURL,
                     ForcePathStyle = true
                 };
 
