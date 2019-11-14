@@ -17,15 +17,15 @@ namespace MAS
 {
     public class Startup
     {
-        public const string AppS3BucketKey = "AppS3Bucket";
         public readonly static RegionEndpoint Region = RegionEndpoint.EUWest1;
+        public static IConfiguration Configuration { get; private set; }
+        public IHostingEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            Environment = env;
         }
-
-        public static IConfiguration Configuration { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
@@ -41,14 +41,25 @@ namespace MAS
 
             services.AddMailChimpClient(AppSettings.MailConfig.ApiKey);
 
-            services.AddTransient<IAmazonS3>((sP) => {
-                var s3config = new AmazonS3Config()
+            AmazonS3Config s3config;
+            if (AppSettings.EnvironmentConfig.Name == "local")  //TODO: Should use Environment.IsDevelopment() here. When running tests it returns "Production"
+            {
+                s3config = new AmazonS3Config()
                 {
                     RegionEndpoint = Region,
                     ServiceURL = AppSettings.AWSConfig.ServiceURL,
                     ForcePathStyle = true
                 };
-
+            }
+            else
+            {
+                s3config = new AmazonS3Config()
+                {
+                    RegionEndpoint = Region,
+                    ForcePathStyle = true
+                };
+            }
+            services.AddTransient<IAmazonS3>((sP) => {
                 return new AmazonS3Client(AppSettings.AWSConfig.AccessKey, AppSettings.AWSConfig.SecretKey, s3config);
             });
         }

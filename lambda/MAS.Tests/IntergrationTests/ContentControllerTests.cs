@@ -1,17 +1,8 @@
 using System.Threading.Tasks;
 using Xunit;
-using Newtonsoft.Json;
 using MAS.Tests.Infrastructure;
-using System.Net.Http;
-using System.Text;
-using System.Net;
 using Shouldly;
-using MAS.Services;
-using Moq;
-using MAS.Models;
-using MAS.Controllers;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Mvc;
+using Amazon.S3;
 
 namespace MAS.Tests.IntergrationTests
 {
@@ -20,23 +11,11 @@ namespace MAS.Tests.IntergrationTests
         [Fact]
         public async Task Put()
         {
-            //Arrange
-            var mockContentService = new Mock<IContentService>();
-            mockContentService.Setup(x => x.GetItemAsync(It.IsAny<string>())).ReturnsAsync(JsonConvert.DeserializeObject<Item>("{ \"Id\" : \"1234\", \"Title\" : \"My Test Drug\" }"));
-
-            var mockS3Service = new Mock<IS3Service>();
-            mockS3Service.Setup(x => x.WriteToS3(It.IsAny<Item>())).ReturnsAsync(new Amazon.S3.Model.PutObjectResponse { HttpStatusCode = HttpStatusCode.OK });
-
-            var mockLogger = new Mock<ILogger<ContentController>>();
-
-            var content = new StringContent(JsonConvert.SerializeObject(""), Encoding.UTF8, "application/json");
-            var contentController = new ContentController(mockContentService.Object, mockS3Service.Object, mockLogger.Object);
-
             //Act
-            var response = await contentController.PutAsync("/api/content/1234") as StatusCodeResult;
+            var response = await _client.PutAsync("/api/content/5dc9402a79798e2ab20c6ab6", null);
 
             // Assert
-            response.StatusCode.ShouldBe(200);
+            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
         }
     }
 }
