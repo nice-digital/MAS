@@ -33,7 +33,6 @@ namespace MAS
             AppSettings.Configure(services, Configuration);
             
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
-            services.TryAddSingleton<IContentService, ContentService>();
             services.TryAddSingleton<IS3Service, S3Service>();
 
             services.AddTransient<IAmazonS3>((sP) => {

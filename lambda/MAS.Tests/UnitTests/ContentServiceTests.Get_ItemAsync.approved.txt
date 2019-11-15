@@ -1,6 +1,0 @@
-﻿{
-    "_id":"5dc30790b01357811811c43d",
-    "Title":"some title",
-    "Source":"5dc306e9b01357d0f311be50",
-    "ShortSummary":"Short summary"
-}

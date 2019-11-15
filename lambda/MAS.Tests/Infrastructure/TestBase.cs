@@ -15,10 +15,6 @@ namespace MAS.Tests.Infrastructure
         {
             var builder = new WebHostBuilder()
                 .UseContentRoot("../../../../MAS")
-                .ConfigureServices(services =>
-                {
-                    services.TryAddTransient<IContentService>(provider => new FakeContentService());
-                })
                 .UseEnvironment("Production")
                 .UseStartup(typeof(Startup));
             _server = new TestServer(builder);
