@@ -31,7 +31,4 @@
   <ItemGroup>
     <ProjectReference Include="..\MAS\MAS.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UnitTests\" />
-  </ItemGroup>
 </Project>
