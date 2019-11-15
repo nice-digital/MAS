@@ -10,7 +10,7 @@ namespace MAS.Services
 {
     public interface IMailService
     {
-        Task CreateAndSendCampaignAsync(string subject, string previewText, string body);
+        Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
     }
 
     public class MailService: IMailService
@@ -22,7 +22,7 @@ namespace MAS.Services
             _mailChimpManager = mailChimpManager;
         }
 
-        public async Task CreateAndSendCampaignAsync(string subject, string previewText, string body)
+        public async Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body)
         {
             var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
             {
@@ -54,6 +54,8 @@ namespace MAS.Services
             });
 
             await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
+
+            return campaign.Id;
         }
     }
 }

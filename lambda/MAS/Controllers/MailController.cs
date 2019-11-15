@@ -19,7 +19,7 @@ namespace MAS.Controllers
 
         //PUT api/mail/daily
         [HttpPut("daily")]
-        public async Task<IActionResult> PutAsync()
+        public async Task<string> PutMailAsync()
         {
             var items = await _contentService.GetItemsAsync();
 
@@ -32,9 +32,9 @@ namespace MAS.Controllers
             var subject = "MAS Email";
             var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
 
-            await _mailService.CreateAndSendCampaignAsync(subject, previewText, body);
+            var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body);
 
-            return new JsonResult("posted");
+            return campaignId;
         }
     }
 }
