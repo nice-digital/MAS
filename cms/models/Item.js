@@ -82,6 +82,9 @@ Item.schema.post("save", function(doc, next) {
 	var data = JSON.stringify(this); 
 	var options = {
 		uri: hostname + contentpath,
+		agentOptions: {
+        	secureProtocol: 'TLSv1_2_method'
+    	}
 		method: "PUT",
 		headers: {
 			host: "localhost"
