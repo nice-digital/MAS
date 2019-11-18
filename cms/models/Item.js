@@ -83,19 +83,16 @@ Item.schema.post("save", function(doc, next) {
 	var options = {
 		uri: hostname + contentpath,
 		agentOptions: {
-        	secureProtocol: 'TLSv1_2_method'
-    	}
+        	secureProtocol: "TLSv1_2_method"
+    	},
 		method: "PUT",
-		headers: {
-			host: "localhost"
-		},
 		body: data,
 		json: true
 	};
 
 	request(options, function (error, response, body) {
 		if (error) {
-			console.log('Error sending post publish :', error);
+			console.log("Error sending post publish :", error);
 		}
 		next();
 	});
