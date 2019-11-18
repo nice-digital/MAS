@@ -1,0 +1,43 @@
+{
+  "name": "@nice-digital/frontend-testing-base",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A place from which to start browser driven testing",
+  "main": "wdio.conf.js",
+  "scripts": {
+    "test": "node node_modules/webdriverio/bin/wdio",
+    "test:allbrowsers": "cross-env ALL_BROWSERS=true npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nice-digital/frontend-testing-base.git"
+  },
+  "author": "NICE Digital Services",
+  "contributors": [
+    "Ian Routledge <ian@ediblecode.com>",
+    "Dave Wong"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nice-digital/frontend-testing-base#readme",
+  "engines": {
+    "node": ">= 6.3"
+  },
+  "devDependencies": {
+    "@nice-digital/wdio-cucumber-steps": "^0.6.1",
+    "axe-core": "^3.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.0.2",
+    "cross-env": "^5.2.0",
+    "wdio-cucumber-framework": "^1.1.0",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.4",
+    "wdio-teamcity-reporter": "^1.1.1",
+    "webdriverio": "^4.12.0"
+  },
+  "dependencies": {
+    "fibers": "^3.1.1"
+  }
+}
