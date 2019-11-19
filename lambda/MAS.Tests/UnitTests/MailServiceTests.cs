@@ -24,11 +24,12 @@ namespace MAS.Tests.UnitTests
             var mailService = new MailService(mockMailChimpManager.Object);
 
             //Act
-            var ex = Record.ExceptionAsync(async () => await mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text"));
-
+            var response = mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text");
+            
             //Assert
-            ex.Exception.ShouldBe(null);
-            ex.Status.ShouldBe(TaskStatus.RanToCompletion);
+            response.Exception.ShouldBe(null);
+            response.Result.ShouldBe("1234");
+            response.Status.ShouldBe(TaskStatus.RanToCompletion);
         }
     }
 }
