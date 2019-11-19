@@ -7,14 +7,16 @@ using Amazon;
 using MAS.Configuration;
 using System.IO;
 
-namespace MAS.Tests.IntergrationTests
+namespace MAS.Tests.IntergrationTests.Content
 {
     public class ContentControllerTests : TestBase
     {
         [Fact]
-        public async Task PutCMSItemIntoS3()
+        public async Task PutCMSItemSavesItemIntoS3()
         {
             //Arrange 
+            AppSettings.CMSConfig = TestAppSettings.GetSingleItemFeed();
+
             AmazonS3Config config = new AmazonS3Config()
             {
                 RegionEndpoint = RegionEndpoint.EUWest1,
@@ -24,17 +26,17 @@ namespace MAS.Tests.IntergrationTests
             AmazonS3Client s3Client = new AmazonS3Client(AppSettings.AWSConfig.AccessKey, AppSettings.AWSConfig.SecretKey, config);
 
             //Act
-            var response = await _client.PutAsync("/api/content/5dc9402a79798e2ab20c6ab6", null);
+            var response = await _client.PutAsync("/api/content/5daeb5af22565a82530d7373", null);
 
             // Assert
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
 
-            using (var item = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "5dc9402a79798e2ab20c6ab6.txt"))
+            using (var item = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "5daeb5af22565a82530d7373.txt"))
             {
                 using (StreamReader reader = new StreamReader(item.ResponseStream))
                 {
                     string contents = reader.ReadToEnd();
-                    contents.ShouldBe("My Wonder Drug");
+                    contents.ShouldBe("Wonder drug");
                 }
             }
         }

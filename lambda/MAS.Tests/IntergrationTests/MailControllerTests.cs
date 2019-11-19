@@ -11,14 +11,16 @@ using System.Net.Http;
 using MailChimp.Net.Models;
 using Newtonsoft.Json;
 
-namespace MAS.Tests.IntergrationTests
+namespace MAS.Tests.IntergrationTests.Mail
 {
     public class MailControllerTests : TestBase
     {
         [Fact]
-        public async Task CreateAndSendCampaign()
+        public async Task PutRequestCreatesAndSendsCampaign()
         {
             //Arrange
+            AppSettings.CMSConfig = TestAppSettings.GetMultipleItemsFeed();
+
             var authValue = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"anystring:{AppSettings.MailConfig.ApiKey}")));
             var client = new HttpClient()
             {
@@ -28,6 +30,7 @@ namespace MAS.Tests.IntergrationTests
             //Act
             var response = await _client.PutAsync("/api/mail/daily", null);
 
+            //Get campaign to check if it saved
             var campaignId = await response.Content.ReadAsStringAsync();
             var campaign = await client.GetAsync("https://us5.api.mailchimp.com/3.0/campaigns/" + campaignId);
             var campaignJson = await campaign.Content.ReadAsStringAsync();
