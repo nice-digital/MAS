@@ -48,17 +48,17 @@ Item.add({
 	UKMiComment: {
 		type: Types.Html,
 		wysiwyg: true,
-		//label: "UKMi comment",
+		label: "UKMi comment",
 	},
 	createdDate: { 
 		type: Types.Datetime, 
 		default: Date.now,
-		//label: "Created date",
+		label: "Created date",
 	},
-	version: { 
-		type: Types.Number,
+	isInitial: { 
+		type: Types.Boolean ,
 		hidden: true,
-		default: 1,
+		default: true,
 	},
 	// relevancyScore: { 
 	// 	type: Types.Select, 
@@ -69,9 +69,8 @@ Item.add({
 
 Item.schema.pre('validate', function(next) {
 
-	//Skip custom validation on inital create
-	if(this.version == 1){
-		this.version = 2;
+	if(this.isInitial){
+		this.isInitial = false;
 		next();
 	}	
 	
@@ -84,7 +83,6 @@ Item.schema.pre('validate', function(next) {
 		}
 		else if (!this.speciality || String(this.speciality).match(/^\s*$/) !== null) {
 			next(Error('Speciality is required.'));
-			//next(Error(JSON.stringify(this.speciality.getExpandedData())));
 		}
 		else if (!this.resourceLinks) {
 			next(Error('Resource links is required.'));
@@ -96,7 +94,6 @@ Item.schema.pre('validate', function(next) {
 			next(Error('Created date is required.'));
 		}
 		else {
-			this.version = this.version + 1;
 			next();
 		}
 	}
