@@ -78,16 +78,18 @@ Item.schema.post("save", function(doc, next) {
 
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
+	var headerhost = process.env.HEADER_HOST;
 
 	var data = JSON.stringify(this); 
 	var options = {
-		uri: hostname + contentpath,
+		uri: hostname + contentpath + doc._id,
 		agentOptions: {
         	secureProtocol: "TLSv1_2_method"
     	},
-		method: "PUT",
-		body: data,
-		json: true
+		headers: {
+			host: headerhost
+		},
+		method: "PUT"
 	};
 
 	request(options, function (error, response, body) {
