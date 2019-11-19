@@ -2,6 +2,7 @@ var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
 const request = require("request");
+const https = require('https')
 
 var Item = new keystone.List("Item", {
 	map: { name: "title" },
@@ -81,23 +82,42 @@ Item.schema.post("save", function(doc, next) {
 	var headerhost = process.env.HEADER_HOST;
 
 	var data = JSON.stringify(this); 
+	// var options = {
+	// 	uri: hostname + contentpath + doc._id,
+ //  //       	secureProtocol: "TLSv1_2_method",
+	// 	headers: {
+	// 		host: headerhost
+	// 	},
+	// 	method: "PUT"
+	// };
+
 	var options = {
-		uri: hostname + contentpath + doc._id,
-		agentOptions: {
-        	secureProtocol: "TLSv1_2_method"
-    	},
-		headers: {
-			host: headerhost
-		},
+		hostname: headerhost,
+		path: "/test" + contentpath + doc._id,
+   		secureProtocol: "TLSv1_2_method",
 		method: "PUT"
 	};
 
-	request(options, function (error, response, body) {
-		if (error) {
-			console.log("Error sending post publish :", error);
-		}
-		next();
-	});
+	const req = https.request(options, res => {
+	console.log(`statusCode: ${res.statusCode}`)
+
+	  res.on('data', d => {
+	    process.stdout.write(d)
+	  })
+	})
+
+	req.on('error', error => {
+	  console.error(error)
+	})
+
+	req.end()
+
+	// request(options, function (error, response, body) {
+	// 	if (error) {
+	// 		console.log("Error sending post publish :", error);
+	// 	}
+	// 	next();
+	// });
 
 	console.log("...sent PUT request", options);
 });
