@@ -6,6 +6,8 @@ using Amazon.S3;
 using Amazon;
 using MAS.Configuration;
 using System.IO;
+using Amazon.S3.Model;
+using Newtonsoft.Json;
 
 namespace MAS.Tests.IntergrationTests.Content
 {
@@ -28,9 +30,13 @@ namespace MAS.Tests.IntergrationTests.Content
             //Act
             var response = await _client.PutAsync("/api/content/5daeb5af22565a82530d7373", null);
 
+            var responseJson = await response.Content.ReadAsStringAsync();
+            var responseObject = JsonConvert.DeserializeObject<PutObjectResponse>(responseJson);
+
             // Assert
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
-
+            responseObject.ETag.ShouldNotBeNull();
+           
             using (var item = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "5daeb5af22565a82530d7373.txt"))
             {
                 using (StreamReader reader = new StreamReader(item.ResponseStream))

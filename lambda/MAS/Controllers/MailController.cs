@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MAS.Controllers
 {
     [Route("api/[controller]")]
-    public class MailController : ControllerBase
+    public class MailController
     {
         private readonly IMailService _mailService;
         private readonly IContentService _contentService;
