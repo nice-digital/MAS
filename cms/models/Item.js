@@ -83,8 +83,6 @@ Item.schema.post("save", function(doc, next) {
 		path: contentpath,
 		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
-		body: data,
-		json: true
 	};
 
 	const req = https.request(options, res => {
