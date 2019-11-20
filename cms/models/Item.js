@@ -86,14 +86,14 @@ Item.schema.post("save", function(doc, next) {
 	};
 
 	const req = https.request(options, res => {
-	console.log(`statusCode: ${res.statusCode}`);
-	  res.on('data', d => {
-	    process.stdout.write(d);
-	  });
+		console.log("statusCode: ", res.statusCode);
+		res.on('data', d => {
+	    	process.stdout.write(d);
+		});
 	});
 
 	req.on('error', error => {
-	  console.error(error);
+	  console.log("Error sending post publish :", error);
 	});
 
 	req.end();
