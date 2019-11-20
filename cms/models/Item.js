@@ -1,7 +1,7 @@
 var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
-const https = require('https')
+const https = require("https");
 
 var Item = new keystone.List("Item", {
 	map: { name: "title" },
@@ -80,8 +80,8 @@ Item.schema.post("save", function(doc, next) {
 
 	var options = {
 		hostname: hostname,
-		path: contentpath + doc._id,
-   		secureProtocol: "TLSv1_2_method",
+		path: contentpath,
+		secureProtocol: "TLSv1_2_method",
 		method: "PUT"
 	};
 
