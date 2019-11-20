@@ -91,6 +91,7 @@ Item.schema.post("save", function(doc, next) {
 
 	const req = https.request(options, res => {
 		console.log("statusCode: ", res.statusCode);
+		
 		res.on('data', d => {
 	    	process.stdout.write(d);
 		});
@@ -100,6 +101,7 @@ Item.schema.post("save", function(doc, next) {
 	  console.log("Error sending post publish :", error);
 	});
 
+	req.write(data);
 	req.end();
 
 	next();
