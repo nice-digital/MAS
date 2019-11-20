@@ -1,7 +1,6 @@
 var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
-const request = require("request");
 const https = require('https')
 
 var Item = new keystone.List("Item", {
@@ -74,22 +73,11 @@ Item.schema.post("save", function(doc, next) {
 	// This should probably be a POST
 	console.log("Post save, sending request...", doc);
 
-	// Use host.docker.internal as it's host address on Docker for Windows
-	// TODO: Make this configurable via ENV var?
-
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
 	var headerhost = process.env.HEADER_HOST;
 
 	var data = JSON.stringify(this); 
-	// var options = {
-	// 	uri: hostname + contentpath + doc._id,
- //  //       	secureProtocol: "TLSv1_2_method",
-	// 	headers: {
-	// 		host: headerhost
-	// 	},
-	// 	method: "PUT"
-	// };
 
 	var options = {
 		hostname: headerhost,
@@ -99,25 +87,19 @@ Item.schema.post("save", function(doc, next) {
 	};
 
 	const req = https.request(options, res => {
-	console.log(`statusCode: ${res.statusCode}`)
-
+	console.log(`statusCode: ${res.statusCode}`);
 	  res.on('data', d => {
-	    process.stdout.write(d)
-	  })
-	})
+	    process.stdout.write(d);
+	  });
+	});
 
 	req.on('error', error => {
-	  console.error(error)
-	})
+	  console.error(error);
+	});
 
-	req.end()
+	req.end();
 
-	// request(options, function (error, response, body) {
-	// 	if (error) {
-	// 		console.log("Error sending post publish :", error);
-	// 	}
-	// 	next();
-	// });
+	next();
 
 	console.log("...sent PUT request", options);
 });
