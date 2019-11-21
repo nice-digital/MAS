@@ -2,6 +2,10 @@ var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
 const https = require("https");
+var log4js = require("log4js");
+
+var logger = log4js.getLogger("Item.js");
+logger.level = "debug";
 
 var Item = new keystone.List("Item", {
 	map: { name: "title" },
@@ -70,8 +74,7 @@ Item.add({
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", function(doc, next) {
-	// This should probably be a POST
-	console.log("Post save, sending request...", doc);
+	logger.info("Post save, sending request...", doc);
 
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
@@ -84,29 +87,29 @@ Item.schema.post("save", function(doc, next) {
 		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
 		headers: {
-			"Content-Type": "application/json",
-			"Content-Length": data.length
+			"Content-Type": "application/json"
 		}
 	};
 
 	const req = https.request(options, res => {
-		console.log("statusCode: ", res.statusCode);
-
-		res.on('data', d => {
-	    	process.stdout.write(d);
-		});
+		if (res.statusCode == "200") {
+			next();
+		}
+		else {
+		 	logger.error("Post save PUT request error: Status code ", res.statusCode);
+			next(new Error(`An error has occurred. Status code ${res.statusCode}`));
+		}
 	});
 
-	req.on('error', error => {
-	  console.log("Error sending post publish :", error);
+	req.on("error", error => {
+	  logger.error("Post save PUT request error :", error);
+	  next(new Error(`An error has occurred : ${error}`));
 	});
 
 	req.write(data);
 	req.end();
 
-	next();
-
-	console.log("...sent PUT request", options);
+	logger.info("...sent PUT request", options);
 });
 
 Item.defaultColumns = "title, source|20%, specialities|20%";
