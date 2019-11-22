@@ -1,7 +1,11 @@
 var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
-const request = require("request");
+const https = require("https");
+var log4js = require("log4js");
+
+var logger = log4js.getLogger("Item.js");
+logger.level = "debug";
 
 var Item = new keystone.List("Item", {
 	map: { name: "title" },
@@ -70,34 +74,42 @@ Item.add({
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", function(doc, next) {
-	// This should probably be a POST
-	console.log("Post save, sending request...", doc);
-
-	// Use host.docker.internal as it's host address on Docker for Windows
-	// TODO: Make this configurable via ENV var?
+	logger.info("Post save, sending request...", doc);
 
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
 
 	var data = JSON.stringify(this); 
+
 	var options = {
-		uri: hostname + contentpath,
+		hostname: hostname,
+		path: contentpath,
+		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
 		headers: {
-			host: "localhost"
-		},
-		body: data,
-		json: true
+			"Content-Type": "application/json"
+		}
 	};
 
-	request(options, function (error, response, body) {
-		if (error) {
-			console.log('Error sending post publish :', error);
+	const req = https.request(options, res => {
+		if (res.statusCode == "200") {
+			next();
 		}
-		next();
+		else {
+		 	logger.error("Post save PUT request error: Status code ", res.statusCode);
+			next(new Error(`An error has occurred. Status code ${res.statusCode}`));
+		}
 	});
 
-	console.log("...sent PUT request", options);
+	req.on("error", error => {
+	  logger.error("Post save PUT request error :", error);
+	  next(new Error(`An error has occurred : ${error}`));
+	});
+
+	req.write(data);
+	req.end();
+
+	logger.info("...sent PUT request", options);
 });
 
 Item.defaultColumns = "title, source|20%, specialities|20%";
