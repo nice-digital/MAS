@@ -1,0 +1,13 @@
+{
+    "cucumberautocomplete.steps": [
+        "node_modules/@nice-digital/wdio-cucumber-steps/src/given/definitions.js",
+        "node_modules/@nice-digital/wdio-cucumber-steps/src/when/definitions.js",
+        "node_modules/@nice-digital/wdio-cucumber-steps/src/then/definitions.js",
+    ],
+    "cucumberautocomplete.customParameters": [
+        {
+            "parameter": "(window|tab)",
+            "value": "window/tab"
+        }
+    ]
+}
