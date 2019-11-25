@@ -1,17 +1,15 @@
 {
-  "_id": "5daeb5af22565a82530d7373",
-  "slug": "wonder-drug",
-  "source": "5daeae8522565a4cad0d6d8a",
-  "summary": "This will cure all",
-  "url": "http://wonderdrug.com",
-  "title": "Wonder drug",
+  "_id": "5dc30790b01357811811c43d",
+  "slug": "some-title",
+  "RelevancyScore": "1",
+  "UKMiComment": "<p>This is a UKMi comment</p>",
+  "resourceLinks": "https://www.google.com",
+  "shortSummary": "Short summary",
+  "source": "5dc306e9b01357d0f311be50",
+  "title": "some title",
+  "category": "Some category",
+  "publicationDate": "2019-11-06T17:48:02.000Z",
   "__v": 0,
-  "UKMiComment": "<p>This definitely works.</p>",
-  "author": "5daeae8522565ac5d60d6d84",
-  "publishedDate": "2019-10-22T00:00:00.000Z",
-  "createdDate": "2019-10-22T07:54:23.000Z",
-  "state": "published",
-  "specialities": [
-    "5daeae8722565ab64c0d734d"
-  ]
+  "speciality": [ "5dc306ebb01357a06411c416", "5dc306ebb01357438611c417" ],
+  "createdDate": "2019-11-06T17:48:02.000Z"
 }

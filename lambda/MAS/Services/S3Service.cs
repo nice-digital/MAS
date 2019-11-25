@@ -25,8 +25,9 @@ namespace MAS.Services
             {
                 BucketName = AppSettings.AWSConfig.BucketName,
                 Key = item.Id + ".txt",
-                ContentBody = item.Title
+                ContentBody = $"Id: {item.Id}\r\nTitle: {item.Title}\r\nSummary: {item.ShortSummary}\r\nSource: {item.Source}"
             };
+
             var response = await _amazonS3.PutObjectAsync(request);
 
             return response;
