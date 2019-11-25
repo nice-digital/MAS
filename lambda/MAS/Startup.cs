@@ -1,7 +1,6 @@
 using Amazon;
 using Amazon.S3;
 using MailChimp.Net;
-using MailChimp.Net.Interfaces;
 using MAS.Configuration;
 using MAS.Logging;
 using MAS.Services;

@@ -1,9 +1,7 @@
 ﻿using MAS.Configuration;
-using MAS.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Net.Http;
 
 namespace MAS.Tests.Infrastructure
