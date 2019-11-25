@@ -3,6 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Test output
+*.actual.txt
+*.approved.txt.orig
+*.received.txt
+
+
+
 # User-specific files
 *.suo
 *.user

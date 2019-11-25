@@ -48,12 +48,12 @@ namespace MAS.Tests.IntergrationTests.Content
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
             responseObject.ETag.ShouldNotBeNull();
            
-            using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "5daeb5af22565a82530d7373.txt"))
+            using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "1234.txt"))
             {
                 using (StreamReader reader = new StreamReader(bucketItem.ResponseStream))
                 {
                     string contents = reader.ReadToEnd();
-                    contents.ShouldBe("Wonder drug");
+                    contents.ShouldMatchApproved();
                 }
             }
         }

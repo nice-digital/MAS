@@ -37,6 +37,7 @@ namespace MAS
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IS3Service, S3Service>();
             services.TryAddTransient<IMailService, MailService>();
+            services.TryAddTransient<IContentService, ContentService>();
 
             services.AddMailChimpClient(AppSettings.MailConfig.ApiKey);
 
@@ -46,7 +47,7 @@ namespace MAS
                 s3config = new AmazonS3Config()
                 {
                     RegionEndpoint = Region,
-                    //ServiceURL = AppSettings.AWSConfig.ServiceURL,
+                    ServiceURL = AppSettings.AWSConfig.ServiceURL,
                     ForcePathStyle = true
                 };
             }
@@ -54,8 +55,7 @@ namespace MAS
             {
                 s3config = new AmazonS3Config()
                 {
-                    RegionEndpoint = Region,
-                    ForcePathStyle = true
+                    RegionEndpoint = Region
                 };
             }
             services.AddTransient<IAmazonS3>((sP) => {
