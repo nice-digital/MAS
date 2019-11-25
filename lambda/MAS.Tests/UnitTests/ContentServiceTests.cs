@@ -11,21 +11,6 @@ namespace MAS.Tests.UnitTests
     public class ContentServiceTests : TestBase
     {
         [Fact]
-        public async Task ReadSingleItem()
-        {
-            //Arrange
-            AppSettings.CMSConfig = TestAppSettings.GetSingleItemFeed();
-            var contentService = new ContentService();
-
-            //Act
-            var result = await contentService.GetItemAsync("");
-
-            //Assert
-            result.Id.ShouldBe("5daeb5af22565a82530d7373"); 
-            result.Title.ShouldBe("Wonder drug");
-        }
-
-        [Fact]
         public async Task ReadMultipleItems()
         {
             //Arrange

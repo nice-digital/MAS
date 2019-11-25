@@ -10,22 +10,11 @@ namespace MAS.Services
 {
     public interface IContentService
     {
-        Task<Item> GetItemAsync(string itemId);
         Task<IEnumerable<Item>> GetItemsAsync();
     }
 
     public class ContentService : IContentService
     {
-        public async Task<Item> GetItemAsync(string itemId)
-        {
-            using (WebClient client = new WebClient())
-            {
-                var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI + itemId));
-                var json = JsonConvert.DeserializeObject<Item>(jsonStr);
-                return json;
-            }
-        }
-
         public async Task<IEnumerable<Item>> GetItemsAsync()
         {
             using (WebClient client = new WebClient())
