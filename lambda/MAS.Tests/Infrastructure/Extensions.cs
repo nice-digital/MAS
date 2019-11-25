@@ -25,10 +25,8 @@ namespace MAS.Tests.Infrastructure
                 var normalisedExpectedText = expectedText.Replace("\r", "");//normalising line endings.
                 var normalisedContent = content.Replace("\r", "");
 
-                if (normalisedExpectedText.Equals(normalisedContent))
-                { //this is the happy path. everything matches, so just exit without throwing and the test will be green.
-                    return;
-                }
+                if (normalisedExpectedText.Equals(normalisedContent)) 
+                    return; //this is the happy path. everything matches, so just exit without throwing and the test will be green.
             }
             else
             {
