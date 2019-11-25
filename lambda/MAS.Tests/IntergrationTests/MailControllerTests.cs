@@ -19,6 +19,7 @@ namespace MAS.Tests.IntergrationTests.Mail
         public async Task PutRequestCreatesAndSendsCampaign()
         {
             //Arrange
+            const string mailChimpCampaignsURI = "https://us5.api.mailchimp.com/3.0/campaigns/";
             AppSettings.CMSConfig = TestAppSettings.GetMultipleItemsFeed();
 
             var authValue = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"anystring:{AppSettings.MailConfig.ApiKey}")));
@@ -32,7 +33,7 @@ namespace MAS.Tests.IntergrationTests.Mail
 
             //Get campaign to check if it saved
             var campaignId = await response.Content.ReadAsStringAsync();
-            var campaign = await client.GetAsync("https://us5.api.mailchimp.com/3.0/campaigns/" + campaignId);
+            var campaign = await client.GetAsync(mailChimpCampaignsURI + campaignId);
             var campaignJson = await campaign.Content.ReadAsStringAsync();
             var campaignResult = JsonConvert.DeserializeObject<Campaign>(campaignJson);
 
