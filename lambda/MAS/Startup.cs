@@ -15,7 +15,6 @@ namespace MAS
 {
     public class Startup
     {
-        public const string AppS3BucketKey = "AppS3Bucket";
         public readonly static RegionEndpoint Region = RegionEndpoint.EUWest1;
 
         public Startup(IConfiguration configuration)
@@ -39,7 +38,7 @@ namespace MAS
                 var s3config = new AmazonS3Config()
                 {
                     RegionEndpoint = Region,
-                    //ServiceURL = AppSettings.AWSConfig.ServiceURL,
+                    ServiceURL = AppSettings.AWSConfig.ServiceURL,
                     ForcePathStyle = true
                 };
 
