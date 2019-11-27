@@ -1,0 +1,70 @@
+[
+  {
+    "_id": "5daf1aa18a34d4bb8405b5e0",
+    "slug": "testing-789",
+    "source": "5daf1a5a8a34d4a3ac05affe",
+    "shortSummary": "testing",
+    "resourceLinks": "http://localhost:3010/keystone/items",
+    "title": "Wonder Drug",
+    "__v": 0,
+    "UKMiComment": "<p>A</p>",
+    "publicationDate": "2019-11-25T13:48:36.000Z",
+    "createdDate": "2019-10-22T15:05:05.927Z",
+    "speciality": [
+      "5daf1a5c8a34d485cb05b5ba"
+    ],
+    "evidenceType": "drug",
+    "isInitial": false
+  },
+  {
+    "_id": "5db02d6d8a34d43bde05b5e1",
+    "slug": "my-medicine",
+    "source": "5daf1a5a8a34d4319f05b000",
+    "shortSummary": "this is my medicine",
+    "resourceLinks": "http://localhost:3010/keystone/items",
+    "title": "MY MEDICINE",
+    "__v": 0,
+    "UKMiComment": "<p>this is my comment</p>",
+    "publicationDate": "2019-11-23T13:48:36.000Z",
+    "createdDate": "2019-10-23T10:38:43.000Z",
+    "speciality": [
+      "5daf1a5c8a34d478fd05b5d4"
+    ],
+    "evidenceType": "drug",
+    "isInitial": false
+  },
+  {
+    "_id": "5db031d78a34d4a69905b5e3",
+    "slug": "hello-world",
+    "source": "5daf1a5a8a34d49a8605aff3",
+    "shortSummary": "test",
+    "resourceLinks": "http://localhost:3010/keystone/items",
+    "title": "Hello world",
+    "__v": 0,
+    "UKMiComment": "<p>comment</p>",
+    "publicationDate": "2019-10-23T00:00:00.000Z",
+    "createdDate": "2019-10-23T10:56:40.000Z",
+    "speciality": [
+      "5daf1a5c8a34d4d6e505b5b9"
+    ],
+    "evidenceType": "trial",
+    "isInitial": false
+  },
+  {
+    "_id": "5db6cbcc8a34d4ca5905b5e4",
+    "slug": "hello-there",
+    "source": "5daf1a5a8a34d4a3ac05affe",
+    "shortSummary": "hello",
+    "resourceLinks": "http://localhost:3010/keystone/items",
+    "title": "A Placebo",
+    "__v": 0,
+    "UKMiComment": "<p>test</p>",
+    "publicationDate": "2019-10-28T00:00:00.000Z",
+    "createdDate": "2019-10-28T11:07:11.000Z",
+    "speciality": [
+      "5daf1a5c8a34d485cb05b5ba"
+    ],
+    "evidenceType": "drug",
+    "isInitial": false
+  }
+]
