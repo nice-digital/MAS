@@ -110,11 +110,13 @@ Item.schema.post("save", function(doc, next) {
 
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
+	var hostport = process.env.HOST_PORT;
 
 	var data = JSON.stringify(this); 
 
 	var options = {
 		hostname: hostname,
+		port: hostport,
 		path: contentpath,
 		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
