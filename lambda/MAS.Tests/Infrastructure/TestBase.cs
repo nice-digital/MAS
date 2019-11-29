@@ -1,7 +1,7 @@
-﻿using MAS.Services;
+﻿using MAS.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 
 namespace MAS.Tests.Infrastructure
@@ -10,15 +10,25 @@ namespace MAS.Tests.Infrastructure
     {
         protected readonly TestServer _server;
         protected readonly HttpClient _client;
+        protected readonly IConfigurationRoot _config;
 
         public TestBase()
         {
+            _config = new ConfigurationBuilder()
+               .AddJsonFile("appsettings.json")
+               .AddUserSecrets("adafe3d8-65fb-49fd-885e-03341a36dc88")
+               .Build();
+
             var builder = new WebHostBuilder()
                 .UseContentRoot("../../../../MAS")
+                .ConfigureServices(services =>
+                {
+                    AppSettings.Configure(services, _config);
+                })
                 .UseEnvironment("Production")
                 .UseStartup(typeof(Startup));
             _server = new TestServer(builder);
-            _client = _server.CreateClient();
+            _client = _server.CreateClient(); 
         }
     }
 }

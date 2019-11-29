@@ -1,0 +1,4 @@
+Id: 1234
+Title: Some title
+Summary: Wonder drug
+Source: https://www.google.com

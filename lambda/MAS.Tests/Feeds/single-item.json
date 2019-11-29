@@ -1,15 +1,15 @@
 {
   "_id": "5dc30790b01357811811c43d",
   "slug": "some-title",
-  "RelevancyScore": "1",
   "UKMiComment": "<p>This is a UKMi comment</p>",
   "resourceLinks": "https://www.google.com",
   "shortSummary": "Short summary",
   "source": "5dc306e9b01357d0f311be50",
   "title": "some title",
-  "category": "Some category",
   "publicationDate": "2019-11-06T17:48:02.000Z",
   "__v": 0,
   "speciality": [ "5dc306ebb01357a06411c416", "5dc306ebb01357438611c417" ],
-  "createdDate": "2019-11-06T17:48:02.000Z"
+  "createdDate": "2019-11-06T17:48:02.000Z",
+  "evidenceType": "drug",
+  "isInitial": false
 }
