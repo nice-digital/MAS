@@ -7,6 +7,7 @@ using Moq;
 using MailChimp.Net.Models;
 using MailChimp.Net.Core;
 using Shouldly;
+using Microsoft.Extensions.Logging;
 
 namespace MAS.Tests.UnitTests
 {
@@ -16,12 +17,14 @@ namespace MAS.Tests.UnitTests
         public void CreateCampaignAndSendToMailChimp()
         {
             //Arrange
+            var mockLogger = new Mock<ILogger<MailService>>();
+
             var mockMailChimpManager = new Mock<IMailChimpManager>();
             mockMailChimpManager.Setup(x => x.Campaigns.AddAsync(It.IsAny<Campaign>())).ReturnsAsync(new Campaign() { Id = "1234" });
             mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
 
-            var mailService = new MailService(mockMailChimpManager.Object);
+            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
 
             //Act
             var response = mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text");

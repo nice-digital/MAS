@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MAS.Models;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,15 @@ namespace MAS.Controllers
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] Item item)
         {
-            var response = await _s3Service.WriteToS3(item);
-
-            return Validate(response.HttpStatusCode, _logger);
+            try
+            {
+                var response = await _s3Service.WriteToS3(item);
+                return Validate(response.HttpStatusCode, _logger);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using MAS.Configuration;
 using MAS.Services;
 using MAS.Tests.Infrastructure;
+using Microsoft.Extensions.Logging;
+using Moq;
 using Shouldly;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,8 +16,10 @@ namespace MAS.Tests.UnitTests
         public async Task ReadMultipleItems()
         {
             //Arrange
+            var mockLogger = new Mock<ILogger<ContentService>>();
+
             AppSettings.CMSConfig = TestAppSettings.GetMultipleItemsFeed();
-            var contentService = new ContentService();
+            var contentService = new ContentService(mockLogger.Object);
 
             //Act
             var result = await contentService.GetItemsAsync();
