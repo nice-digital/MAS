@@ -8,6 +8,8 @@ using MailChimp.Net.Models;
 using MailChimp.Net.Core;
 using Shouldly;
 using Microsoft.Extensions.Logging;
+using MAS.Configuration;
+using System;
 
 namespace MAS.Tests.UnitTests
 {
@@ -33,6 +35,23 @@ namespace MAS.Tests.UnitTests
             response.Exception.ShouldBe(null);
             response.Result.ShouldBe("1234");
             response.Status.ShouldBe(TaskStatus.RanToCompletion);
+        }
+
+        [Fact]
+        public void ErrorInSendingCampaignShouldThrowError()
+        {
+            //Arrange
+            var mockLogger = new Mock<ILogger<MailService>>();
+
+            var mockMailChimpManager = new Mock<IMailChimpManager>();
+            mockMailChimpManager.Setup(x => x.Campaigns.AddAsync(It.IsAny<Campaign>())).ReturnsAsync(new Campaign() { Id = "1234" });
+            mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
+            mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>())).Throws(new Exception());
+
+            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
+
+            //Act + Assert
+            Should.Throw<Exception>(() => mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text"));
         }
     }
 }
