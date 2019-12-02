@@ -26,7 +26,7 @@ namespace MAS.Controllers
             var body = "";
             foreach (var item in items)
             {
-                body += item.Title + "<br><br><br>";
+                body += _mailService.CreateEmailBody(item);
             }
 
             var subject = "MAS Email";
