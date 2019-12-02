@@ -108,11 +108,23 @@ Item.schema.pre('validate', function(next) {
 Item.schema.post("save", function(doc, next) {
 	logger.info("Post save, sending request...", doc);
 
+	var item = "";
+
+	keystone.list('Item').model.findById(doc._id)
+	.populate("source")
+	.then((source) => {
+		item = source;
+	})
+	.catch((err) => {
+		logger.error("An error occurred finding source: ", err);
+		next(new Error(`An error occurred finding source: ${err}`));
+	})
+
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
 
-	var data = JSON.stringify(this); 
-
+	var data = JSON.stringify(item); 
+	
 	var options = {
 		hostname: hostname,
 		path: contentpath,

@@ -3,15 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MAS.Models
 {
-    public class Item
+    public class Source
     {
         [JsonProperty("_id"), Required, JsonRequired]
         public string Id { get; set; }
         [Required, JsonRequired]
         public string Title { get; set; }
-        [Required, JsonRequired]
-        public Source Source { get; set; }
-        [Required, JsonRequired]
-        public string ShortSummary { get; set; }
     }
 }

@@ -27,13 +27,17 @@ namespace MAS.Tests.IntergrationTests.Content
                 ForcePathStyle = true
             };
             AmazonS3Client s3Client = new AmazonS3Client(AppSettings.AWSConfig.AccessKey, AppSettings.AWSConfig.SecretKey, config);
-            
+
             Item item = new Item()
             {
                 Id = "1234",
                 Title = "Some title",
                 ShortSummary = "Wonder drug",
-                Source = "https://www.google.com"
+                Source = new Source()
+                {
+                    Id = "789",
+                    Title = "The Journal of Medicine"
+                }
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");

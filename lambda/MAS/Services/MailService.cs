@@ -68,7 +68,7 @@ namespace MAS.Services
             emailBody.Append("<br>");
             emailBody.Append(item.ShortSummary);
             emailBody.Append("<br>");
-            emailBody.Append(item.Source);
+            emailBody.Append(item.Source.Title);
             emailBody.Append("<br><br><br>");
             return emailBody.ToString();
         }
