@@ -2,6 +2,7 @@
 using Amazon.S3.Model;
 using MAS.Configuration;
 using MAS.Models;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MAS.Services
@@ -25,12 +26,29 @@ namespace MAS.Services
             {
                 BucketName = AppSettings.AWSConfig.BucketName,
                 Key = item.Id + ".txt",
-                ContentBody = $"Id: {item.Id}\r\nTitle: {item.Title}\r\nSummary: {item.ShortSummary}\r\nSource: {item.Source}"
+                ContentBody = CreateContentBody(item)
             };
 
             var response = await _amazonS3.PutObjectAsync(request);
 
             return response;
+        }
+
+        private string CreateContentBody(Item item)
+        {
+            var contentBody = new StringBuilder();
+            contentBody.Append(item.Title);
+            contentBody.Append("<br>");
+            contentBody.Append(item.ShortSummary);
+            contentBody.Append("<br>");
+            contentBody.Append(item.EvidenceType);
+            contentBody.Append("<br>");
+            contentBody.Append(item.UKMiComment);
+            contentBody.Append("<br>");
+            if (item.ResourceLinks != null)
+                contentBody.Append(item.ResourceLinks);
+
+            return contentBody.ToString();
         }
     }
 }

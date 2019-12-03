@@ -20,6 +20,6 @@ namespace MAS.Models
         [Required, JsonRequired]
         public string UKMiComment { get; set; }
         [Required, JsonRequired]
-        public int RelatedLinks { get; set; }
+        public string ResourceLinks { get; set; }
     }
 }
