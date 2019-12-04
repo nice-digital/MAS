@@ -16,14 +16,19 @@ Item.add({
 	title: { 
 		type: Types.Text, 
 		required: true, 
-		initial: true
-	 },
+		initial: true,
+	},
+	url: {
+		type: Types.Url, 
+		label: "URL",
+		initial: true,
+	},
 	source: {
 		type: Types.Relationship,
 		ref: "Source",
 		many: false,
 		required: true,
-		initial: true
+		initial: true,
 	},
 	shortSummary: { 
 		type: Types.Textarea,
@@ -45,14 +50,15 @@ Item.add({
 		ref: "Speciality",
 		many: true,
 	},
-	resourceLinks: {
-		type: Types.Url, 
-		label: "Resource links",
-	},
 	UKMiComment: {
 		type: Types.Html,
 		wysiwyg: true,
 		label: "UKMi comment",
+	},
+	resourceLinks: {
+		type: Types.Html,
+		label: "Resource links",
+		wysiwyg: true,
 	},
 	createdDate: { 
 		type: Types.Datetime, 
