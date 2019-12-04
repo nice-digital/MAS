@@ -12,6 +12,8 @@ var Item = new keystone.List("Item", {
 	autokey: { path: "slug", from: "title", unique: true }
 });
 
+var shouldPostLambda = this.isInitial ;
+
 Item.add({
 	title: { 
 		type: Types.Text, 
@@ -106,6 +108,12 @@ Item.schema.pre('validate', function(next) {
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", function(doc, next) {
+
+	if(!shouldPostLambda){
+		shouldPostLambda = this.isInitial;
+		next();
+	}	
+
 	logger.info("Post save, sending request...", doc);
 
 	var contentpath = process.env.CONTENT_PATH;
