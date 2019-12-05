@@ -12,7 +12,14 @@ var Item = new keystone.List("Item", {
 	autokey: { path: "slug", from: "title", unique: true }
 });
 
-var shouldPostLambda = this.isInitial ;
+var shouldPostLambda = false;
+
+if (this.isInitial === false) {
+	shouldPostLambda = true;
+}
+
+logger.info("1. Should post to Lambda: ", shouldPostLambda);
+logger.info("1. Is initial: ", this.isInitial);
 
 Item.add({
 	title: { 
@@ -114,7 +121,8 @@ Item.schema.pre('validate', function(next) {
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", function(doc, next) {
-	logger.info("Should post to Lambda: ", shouldPostLambda);
+	logger.info("2. Should post to Lambda: ", shouldPostLambda);
+	logger.info("2. Is initial: ", this.isInitial);
 
 
 	if(!shouldPostLambda){
@@ -172,6 +180,7 @@ Item.schema.post("save", function(doc, next) {
 	req.end();
 
 	logger.info("...sent PUT request", options);
+	logger.info("Data: ", data);
 });
 
 
