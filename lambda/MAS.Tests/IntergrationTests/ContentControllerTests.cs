@@ -33,7 +33,11 @@ namespace MAS.Tests.IntergrationTests.Content
                 Id = "1234",
                 Title = "Some title",
                 ShortSummary = "Wonder drug",
-                Source = "https://www.google.com",
+                Source = new Source()
+                {
+                    Id = "789",
+                    Title = "The Journal of Medicine"
+                },
                 EvidenceType = "Evidence Type",
                 UKMiComment = "UKMI Comment",
                 ResourceLinks = "<p><a title=\"Link 1\" href=\"items/5de65fe432281d43fbfcd15a\">Link 1</a></p>\r\n<p><a title=\"sadada\" href=\"items/5de65fe432281d43fbfcd15a\">Link 2</a></p>"

@@ -12,7 +12,7 @@ namespace MAS.Models
         [Required, JsonRequired]
         public string Title { get; set; }
         [Required, JsonRequired]
-        public string Source { get; set; }
+        public Source Source { get; set; }
         [Required, JsonRequired]
         public string ShortSummary { get; set; }
         [Required, JsonRequired]

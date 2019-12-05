@@ -2,7 +2,12 @@
   {
     "_id": "5daf1aa18a34d4bb8405b5e0",
     "slug": "testing-789",
-    "source": "5daf1a5a8a34d4a3ac05affe",
+    "source": {
+      "_id": "5de526fc43e373581b7810c8",
+      "oldEPiServerId": 2,
+      "title": "ACP Journal Club",
+      "__v": 0
+    },
     "shortSummary": "testing",
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "Wonder Drug",
@@ -19,7 +24,12 @@
   {
     "_id": "5db02d6d8a34d43bde05b5e1",
     "slug": "my-medicine",
-    "source": "5daf1a5a8a34d4319f05b000",
+    "source": {
+      "_id": "5de5261b8ce66f142e44cd08",
+      "oldEPiServerId": 1394,
+      "title": "ADHD Awareness Month",
+      "__v": 0
+    },
     "shortSummary": "this is my medicine",
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "MY MEDICINE",
@@ -36,7 +46,12 @@
   {
     "_id": "5db031d78a34d4a69905b5e3",
     "slug": "hello-world",
-    "source": "5daf1a5a8a34d49a8605aff3",
+    "source": {
+      "_id": "5de52a02c676eee677e97f41",
+      "oldEPiServerId": 2,
+      "title": "Substance Misuse Management in General Practice",
+      "__v": 0
+    },
     "shortSummary": "test",
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "Hello world",
@@ -53,7 +68,12 @@
   {
     "_id": "5db6cbcc8a34d4ca5905b5e4",
     "slug": "hello-there",
-    "source": "5daf1a5a8a34d4a3ac05affe",
+    "source": {
+      "_id": "5de52a01c676ee589ae97d2a",
+      "oldEPiServerId": 2,
+      "title": "Journal of Surgical Oncology",
+      "__v": 0
+    },
     "shortSummary": "hello",
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "A Placebo",
