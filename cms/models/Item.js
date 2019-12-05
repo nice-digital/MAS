@@ -114,9 +114,11 @@ Item.schema.pre('validate', function(next) {
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", function(doc, next) {
+	logger.info("Should post to Lambda: ", shouldPostLambda);
+
 
 	if(!shouldPostLambda){
-		shouldPostLambda = this.isInitial;
+		shouldPostLambda = !this.isInitial;
 		next();
 	}	
 
