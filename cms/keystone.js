@@ -13,6 +13,7 @@ var handlebars = require("express-handlebars");
 keystone.init({
 	name: "Medicines Awareness Service",
 	brand: "Medicines Awareness Service",
+	favicon: "public/favicon.ico",
 	mongo: process.env.MONGO_URL,
 	port: process.env.PORT,
 	"auto update": true,
@@ -45,6 +46,7 @@ keystone.set("nav", {
 });
 
 keystone.set("signin logo", "/images/sps-logo.png");
+keystone.set("adminui custom styles", "./public/styles/keystone.less");
 
 // Start Keystone to connect to your database and initialise the web server
 
