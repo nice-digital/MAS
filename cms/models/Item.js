@@ -12,6 +12,12 @@ var Item = new keystone.List("Item", {
 	autokey: { path: "slug", from: "title", unique: true }
 });
 
+var shouldPostLambda = false;
+
+if (this.isInitial === false) {
+	shouldPostLambda = true;
+}
+
 Item.add({
 	title: { 
 		type: Types.Text, 
@@ -105,12 +111,17 @@ Item.schema.pre('validate', function(next) {
 });
 
 // Post save hook to trigger a lambda with the document details
-Item.schema.post("save", function(doc, next) {
+Item.schema.post("save", async function(doc, next) {
+	if(!shouldPostLambda){
+		shouldPostLambda = !this.isInitial;
+		next();
+	}	
+
 	logger.info("Post save, sending request...", doc);
 
 	var item = "";
 
-	keystone.list('Item').model.findById(doc._id)
+	await keystone.list("Item").model.findById(doc._id)
 	.populate("source")
 	.then((source) => {
 		item = source;
