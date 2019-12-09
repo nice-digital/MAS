@@ -18,9 +18,6 @@ if (this.isInitial === false) {
 	shouldPostLambda = true;
 }
 
-logger.info("1. Should post to Lambda: ", shouldPostLambda);
-logger.info("1. Is initial: ", this.isInitial);
-
 Item.add({
 	title: { 
 		type: Types.Text, 
@@ -121,9 +118,6 @@ Item.schema.pre('validate', function(next) {
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", async function(doc, next) {
-	logger.info("2. Should post to Lambda: ", shouldPostLambda);
-	logger.info("2. Is initial: ", this.isInitial);
-
 	if(!shouldPostLambda){
 		shouldPostLambda = !this.isInitial;
 		next();
@@ -148,7 +142,6 @@ Item.schema.post("save", async function(doc, next) {
 	var hostport = process.env.HOST_PORT;
 
 	var data = JSON.stringify(item); 
-	logger.error("Found Item: ", item);
 
 	var options = {
 		hostname: hostname,
