@@ -120,10 +120,9 @@ Item.schema.pre('validate', function(next) {
 });
 
 // Post save hook to trigger a lambda with the document details
-Item.schema.post("save", function(doc, next) {
+Item.schema.post("save", async function(doc, next) {
 	logger.info("2. Should post to Lambda: ", shouldPostLambda);
 	logger.info("2. Is initial: ", this.isInitial);
-
 
 	if(!shouldPostLambda){
 		shouldPostLambda = !this.isInitial;
@@ -134,7 +133,7 @@ Item.schema.post("save", function(doc, next) {
 
 	var item = "";
 
-	keystone.list('Item').model.findById(doc._id)
+	await keystone.list('Item').model.findById(doc._id)
 	.populate("source")
 	.then((source) => {
 		item = source;
@@ -149,6 +148,7 @@ Item.schema.post("save", function(doc, next) {
 	var hostport = process.env.HOST_PORT;
 
 	var data = JSON.stringify(item); 
+	logger.error("Found Item: ", item);
 
 	var options = {
 		hostname: hostname,
@@ -180,7 +180,6 @@ Item.schema.post("save", function(doc, next) {
 	req.end();
 
 	logger.info("...sent PUT request", options);
-	logger.info("Data: ", data);
 });
 
 
