@@ -1,4 +1,5 @@
-﻿using Amazon.S3;
+﻿using Amazon.Lambda.Core;
+using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Configuration;
 using MAS.Models;
@@ -23,6 +24,7 @@ namespace MAS.Services
 
         public async Task<PutObjectResponse> WriteToS3(Item item)
         {
+            LambdaLogger.Log("Item: " + item);
             PutObjectRequest request = new PutObjectRequest()
             {
                 BucketName = AppSettings.AWSConfig.BucketName,
