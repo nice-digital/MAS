@@ -22,14 +22,19 @@ Item.add({
 	title: { 
 		type: Types.Text, 
 		required: true, 
-		initial: true
-	 },
+		initial: true,
+	},
+	url: {
+		type: Types.Url, 
+		label: "URL",
+		initial: true,
+	},
 	source: {
 		type: Types.Relationship,
 		ref: "Source",
 		many: false,
 		required: true,
-		initial: true
+		initial: true,
 	},
 	shortSummary: { 
 		type: Types.Textarea,
@@ -51,14 +56,15 @@ Item.add({
 		ref: "Speciality",
 		many: true,
 	},
-	resourceLinks: {
-		type: Types.Url, 
-		label: "Resource links",
-	},
 	UKMiComment: {
 		type: Types.Html,
 		wysiwyg: true,
 		label: "UKMi comment",
+	},
+	resourceLinks: {
+		type: Types.Html,
+		label: "Resource links",
+		wysiwyg: true,
 	},
 	createdDate: { 
 		type: Types.Datetime, 
@@ -133,11 +139,13 @@ Item.schema.post("save", async function(doc, next) {
 
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
+	var hostport = process.env.HOST_PORT;
 
 	var data = JSON.stringify(item); 
 	
 	var options = {
 		hostname: hostname,
+		port: hostport,
 		path: contentpath,
 		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
