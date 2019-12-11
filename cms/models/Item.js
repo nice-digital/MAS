@@ -12,6 +12,12 @@ var Item = new keystone.List("Item", {
 	autokey: { path: "slug", from: "title", unique: true }
 });
 
+var shouldPostLambda = false;
+
+if (this.isInitial === false) {
+	shouldPostLambda = true;
+}
+
 Item.add({
 	title: { 
 		type: Types.Text, 
@@ -111,16 +117,35 @@ Item.schema.pre('validate', function(next) {
 });
 
 // Post save hook to trigger a lambda with the document details
-Item.schema.post("save", function(doc, next) {
+Item.schema.post("save", async function(doc, next) {
+	if(!shouldPostLambda){
+		shouldPostLambda = !this.isInitial;
+		next();
+	}	
+
 	logger.info("Post save, sending request...", doc);
+
+	var item = "";
+
+	await keystone.list('Item').model.findById(doc._id)
+	.populate("source")
+	.then((source) => {
+		item = source;
+	})
+	.catch((err) => {
+		logger.error("An error occurred finding source: ", err);
+		next(new Error(`An error occurred finding source: ${err}`));
+	})
 
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;
+	var hostport = process.env.HOST_PORT;
 
-	var data = JSON.stringify(this); 
+	var data = JSON.stringify(item); 
 
 	var options = {
 		hostname: hostname,
+		port: hostport,
 		path: contentpath,
 		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
