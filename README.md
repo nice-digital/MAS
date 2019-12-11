@@ -35,7 +35,7 @@ The overall Medicines awareness service system consists of the following applica
 ```
 +----------+           +---------------------------+                 +--------------+
 |          |  Manages  |                           |                 |              |
-|  UKMi    +--daily---->      CMS                  |                 | CloudWatch   |
+|  SPS     +--daily---->      CMS                  |                 | CloudWatch   |
 |          |  content  |                           |                 | events       |
 +----------+           |  +----------+  +-------+  |                 |              |
                        |  |          |  |       |  |                 +------+-------+
@@ -58,7 +58,7 @@ The overall Medicines awareness service system consists of the following applica
                                |pushes HTML                          |  +------------+  +------------+  |
                                |                   +----------+      |  |            |  |            |  |
                           +----v-----+             |          |      |  | Subscriber |  | Template   |  |
-                          |          |  Views UKMi | User     |      |  | management |  | management |  |
+                          |          |  Views SPS  | User     |      |  | management |  | management |  |
                           |  Static  |  comment    | receives |      |  |            |  |            |  |
                           |  site    +<------------+ email    <------+  -------------+  +------------+  |
                           |          |             |          |      |                                  |
