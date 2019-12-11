@@ -76,6 +76,11 @@ Item.add({
 		hidden: true,
 		default: true,
 	},
+	weekly: {
+		type: Types.Relationship,
+		ref: "Weekly",
+		label: "Weekly newsletter",
+	},
 	// relevancyScore: { 
 	// 	type: Types.Select, 
 	// 	options: '1,2,3', 
