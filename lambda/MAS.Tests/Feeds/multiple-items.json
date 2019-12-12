@@ -12,7 +12,7 @@
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "Wonder Drug",
     "__v": 0,
-    "UKMiComment": "<p>A</p>",
+    "comment": "<p>A</p>",
     "publicationDate": "2019-11-25T13:48:36.000Z",
     "createdDate": "2019-10-22T15:05:05.927Z",
     "speciality": [
@@ -34,7 +34,7 @@
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "MY MEDICINE",
     "__v": 0,
-    "UKMiComment": "<p>this is my comment</p>",
+    "comment": "<p>this is my comment</p>",
     "publicationDate": "2019-11-23T13:48:36.000Z",
     "createdDate": "2019-10-23T10:38:43.000Z",
     "speciality": [
@@ -56,7 +56,7 @@
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "Hello world",
     "__v": 0,
-    "UKMiComment": "<p>comment</p>",
+    "comment": "<p>comment</p>",
     "publicationDate": "2019-10-23T00:00:00.000Z",
     "createdDate": "2019-10-23T10:56:40.000Z",
     "speciality": [
@@ -78,7 +78,7 @@
     "resourceLinks": "http://localhost:3010/keystone/items",
     "title": "A Placebo",
     "__v": 0,
-    "UKMiComment": "<p>test</p>",
+    "comment": "<p>test</p>",
     "publicationDate": "2019-10-28T00:00:00.000Z",
     "createdDate": "2019-10-28T11:07:11.000Z",
     "speciality": [

@@ -44,11 +44,11 @@ Item.add({
 		label: "Short summary",
 	},
 	publicationDate: { 
-		type: Types.Datetime, 
+		type: Types.Date, 
 		label: "Publication date",
 	},
 	evidenceType: {
-		type:Types.Text, 
+		type: Types.Text, 
 		label: "Evidence type",
 	},
 	speciality: {
@@ -56,31 +56,45 @@ Item.add({
 		ref: "Speciality",
 		many: true,
 	},
-	UKMiComment: {
+	comment: {
 		type: Types.Html,
+		label: "SPS comment",
 		wysiwyg: true,
-		label: "UKMi comment",
 	},
 	resourceLinks: {
 		type: Types.Html,
 		label: "Resource links",
 		wysiwyg: true,
 	},
+	isInitial: { 
+		type: Types.Boolean,
+		hidden: true,
+		default: true,
+	},
+	relevancy: { 
+		type: Types.Select,
+		numeric: true,
+		options:  [
+			{ value: 1, label: "High" },
+			{ value: 2, label: "Medium" },
+			{ value: 3, label: "Low" }
+		], 
+		label: "Weekly relevancy score",
+	},
 	createdDate: { 
 		type: Types.Datetime, 
 		default: Date.now,
 		label: "Created date",
+		noedit: true
 	},
-	isInitial: { 
-		type: Types.Boolean ,
-		hidden: true,
-		default: true,
+	modifiedDate: { 
+		type: Types.Datetime, 
+		default: Date.now,
+		label: "Modified date",
+		noedit: true,
+		watch: true,
+		value: Date.now
 	},
-	// relevancyScore: { 
-	// 	type: Types.Select, 
-	// 	options: '1,2,3', 
-	//  label: "Relevancy score",
-	//  },
 });
 
 Item.schema.pre('validate', function(next) {
@@ -91,10 +105,7 @@ Item.schema.pre('validate', function(next) {
 	}	
 	
 	else {
-		if (!this.publicationDate) {
-			next(Error('Publication date is required.'));
-		}
-		else if (!this.evidenceType) {
+		if (!this.evidenceType) {
 			next(Error('Evidence type is required.'));
 		}
 		else if (!this.speciality || String(this.speciality).match(/^\s*$/) !== null) {
@@ -102,9 +113,6 @@ Item.schema.pre('validate', function(next) {
 		}
 		else if (!this.resourceLinks) {
 			next(Error('Resource links is required.'));
-		}
-		else if (!this.UKMiComment) {
-			next(Error('UKMi comment is required.'));
 		}
 		else if (!this.createdDate) {
 			next(Error('Created date is required.'));

@@ -5,18 +5,19 @@ var keystone = require("keystone");
  * ==================
  */
 
-var ItemCateogry = new keystone.List("ItemCategory", {
-	autokey: { from: "name", path: "key", unique: true }
+var ItemCategory = new keystone.List("ItemCategory", {
+	autokey: { from: "name", path: "key", unique: true },
+	plural: "Categories"
 });
 
-ItemCateogry.add({
+ItemCategory.add({
 	name: { type: String, required: true }
 });
 
-ItemCateogry.relationship({
+ItemCategory.relationship({
 	ref: "Items",
 	path: "items",
 	refPath: "categories"
 });
 
-ItemCateogry.register();
+ItemCategory.register();
