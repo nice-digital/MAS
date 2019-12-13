@@ -13,7 +13,7 @@ namespace MAS.Services
     public interface IMailService
     {
         Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
-        string CreateEmailBody(Item item);
+        string CreateEmailBody(IEnumerable<Item> item);
     }
 
     public class MailService: IMailService
@@ -61,16 +61,21 @@ namespace MAS.Services
             return campaign.Id;
         }
 
-        public string CreateEmailBody(Item item)
+        public string CreateEmailBody(IEnumerable<Item> items)
         {
-            var emailBody = new StringBuilder();
-            emailBody.Append(item.Source.Title);
-            emailBody.Append("<br>");
-            emailBody.Append(item.Title);
-            emailBody.Append("<br>");
-            emailBody.Append(item.ShortSummary);
-            emailBody.Append("<br><br><br>");
-            return emailBody.ToString();
+            var body = new StringBuilder();
+
+            foreach (var item in items)
+            {
+                body.Append(item.Source.Title);
+                body.Append("<br>");
+                body.Append(item.Title);
+                body.Append("<br>");
+                body.Append(item.ShortSummary);
+                body.Append("<br><br><br>");
+            }
+
+            return body.ToString();
         }
     }
 }
