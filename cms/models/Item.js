@@ -2,6 +2,7 @@ var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
 const https = require("https");
+const http = require("http");
 var log4js = require("log4js");
 
 var logger = log4js.getLogger("Item.js");
@@ -147,14 +148,19 @@ Item.schema.post("save", async function(doc, next) {
 		hostname: hostname,
 		port: hostport,
 		path: contentpath,
-		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json"
 		}
 	};
 
-	const req = https.request(options, res => {
+	 if (hostport === "443")
+	 	options.secureProtocol = "TLSv1_2_method";
+	 else
+	 	options.headers.host = "localhost";
+		
+
+	const req = (hostport === "443" ? https : http).request(options, res => {
 		if (res.statusCode == "200") {
 			next();
 		}
