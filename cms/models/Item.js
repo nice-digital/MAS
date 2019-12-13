@@ -1,12 +1,10 @@
 const keystone = require("keystone"),
-	moment = require("moment");
+	moment = require("moment"),
+	https = require("https"),
+	http = require("http"),
+	log4js = require("log4js");;
 
 const Types = keystone.Field.Types;
-
-const https = require("https");
-const log4js = require("log4js");
-const http = require("http");
-var log4js = require("log4js");
 
 const logger = log4js.getLogger("Item.js");
 logger.level = "debug";
@@ -105,15 +103,9 @@ Item.add({
 		label: "Weekly newsletter",
 		note: "For use by the NICE MPT only"
 	},
-	// relevancyScore: { 
-	// 	type: Types.Select, 
-	// 	options: '1,2,3', 
-	//  label: "Relevancy score",
-	//  },
 });
 
 Item.schema.pre('validate', function(next) {
-
 	if(this.isInitial){
 		this.isInitial = false;
 		next();
@@ -136,7 +128,6 @@ Item.schema.pre('validate', function(next) {
 			next();
 		}
 	}
-    
 });
 
 const createWeeklyIfNeeded = async () => {
