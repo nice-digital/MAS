@@ -43,6 +43,19 @@ keystone.set("nav", {
 	items: ["items", "specialities"]
 });
 
+keystone.set("wysiwyg override toolbar", true);
+keystone.set("wysiwyg additional buttons", "bold italic | bullist numlist | link | code");
+
+keystone.set("wysiwyg additional options", {
+	// Remove the 'p' etc from status bar at the bottom of the editor
+	// See https://www.tiny.cloud/docs-4x/configure/editor-appearance/#elementpath
+	elementpath: false,
+	// Remove title and target from the link dialog
+	// See https://www.tiny.cloud/docs-4x/plugins/link/#link_title
+	link_title: false,
+	target_list: false
+});
+
 // Start Keystone to connect to your database and initialise the web server
 
 keystone.start();
