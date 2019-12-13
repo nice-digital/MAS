@@ -11,14 +11,16 @@ var handlebars = require("express-handlebars");
 // and documentation.
 
 keystone.init({
-	name: "MAS",
-	brand: "MAS",
+	name: "Medicines Awareness Service",
+	brand: "Medicines Awareness Service",
+	favicon: "public/favicon.ico",
 	mongo: process.env.MONGO_URL,
 	port: process.env.PORT,
 	"auto update": true,
 	session: true,
 	auth: true,
-	"user model": "User"
+	"user model": "User",
+	static: "public"
 });
 
 // Load your project's Models
@@ -66,6 +68,9 @@ keystone.set("wysiwyg additional options", {
 		{ title: "Paragraph", format: "p" }
 	]
 });
+
+keystone.set("signin logo", "/images/sps-logo.png");
+keystone.set("adminui custom styles", "./public/styles/keystone.less");
 
 // Start Keystone to connect to your database and initialise the web server
 

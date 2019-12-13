@@ -6,7 +6,7 @@
   "resourceLinks": "http://wonderdrug.com",
   "title": "Wonder drug",
   "__v": 0,
-  "UKMiComment": "<p>This definitely works.</p>",
+  "comment": "<p>This definitely works.</p>",
   "publicationDate": "2019-10-22T00:00:00.000Z",
   "createdDate": "2019-10-22T07:54:23.000Z",
   "speciality": [
