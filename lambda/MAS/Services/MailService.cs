@@ -64,11 +64,11 @@ namespace MAS.Services
         public string CreateEmailBody(Item item)
         {
             var emailBody = new StringBuilder();
+            emailBody.Append(item.Source.Title);
+            emailBody.Append("<br>");
             emailBody.Append(item.Title);
             emailBody.Append("<br>");
             emailBody.Append(item.ShortSummary);
-            emailBody.Append("<br>");
-            emailBody.Append(item.Source.Title);
             emailBody.Append("<br><br><br>");
             return emailBody.ToString();
         }
