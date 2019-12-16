@@ -2,7 +2,7 @@ const keystone = require("keystone"),
 	moment = require("moment"),
 	https = require("https"),
 	http = require("http"),
-	log4js = require("log4js");;
+	log4js = require("log4js");
 
 const Types = keystone.Field.Types;
 
@@ -38,6 +38,12 @@ Item.add({
 		required: true,
 		initial: true,
 	},
+	evidenceType: {
+		type: Types.Relationship, 
+		ref: "EvidenceType",
+		initial: true,
+		many: false,
+	},
 	shortSummary: { 
 		type: Types.Textarea,
 		required: true,
@@ -48,10 +54,6 @@ Item.add({
 	publicationDate: { 
 		type: Types.Date, 
 		label: "Publication date",
-	},
-	evidenceType: {
-		type: Types.Text, 
-		label: "Evidence type",
 	},
 	speciality: {
 		type: Types.Relationship,
