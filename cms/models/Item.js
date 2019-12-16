@@ -52,7 +52,7 @@ Item.add({
 		type: Types.Text, 
 		label: "Evidence type",
 	},
-	speciality: {
+	specialities: {
 		type: Types.Relationship,
 		ref: "Speciality",
 		many: true,
