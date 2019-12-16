@@ -1,14 +1,15 @@
-var keystone = require("keystone");
-var Types = keystone.Field.Types;
+const keystone = require("keystone"),
+	moment = require("moment"),
+	https = require("https"),
+	http = require("http"),
+	log4js = require("log4js");;
 
-const https = require("https");
-const http = require("http");
-var log4js = require("log4js");
+const Types = keystone.Field.Types;
 
-var logger = log4js.getLogger("Item.js");
+const logger = log4js.getLogger("Item.js");
 logger.level = "debug";
 
-var Item = new keystone.List("Item", {
+const Item = new keystone.List("Item", {
 	map: { name: "title" },
 	autokey: { path: "slug", from: "title", unique: true }
 });
@@ -96,10 +97,15 @@ Item.add({
 		watch: true,
 		value: Date.now
 	},
+	weekly: {
+		type: Types.Relationship,
+		ref: "Weekly",
+		label: "Weekly newsletter",
+		note: "For use by the NICE MPT only"
+	},
 });
 
 Item.schema.pre('validate', function(next) {
-
 	if(this.isInitial){
 		this.isInitial = false;
 		next();
@@ -122,11 +128,36 @@ Item.schema.pre('validate', function(next) {
 			next();
 		}
 	}
-    
 });
+
+const createWeeklyIfNeeded = async () => {
+	const sendDateMoment = moment().startOf("isoweek").add(7, "days");
+
+	const WeeklyModel = keystone.list("Weekly").model;
+
+	const weeklyEntity = await WeeklyModel.findOne({
+		sendDate: sendDateMoment.toDate()
+	}).exec();
+
+	if(!weeklyEntity) {
+		const startDateMoment = sendDateMoment.clone().subtract(1, "week"),
+			endDateMoment = startDateMoment.clone().add(4, "days"),
+			dateFormat = "Do MMMM YYYY";
+
+		var newWeekly = new WeeklyModel({
+			title: startDateMoment.format(dateFormat) + " to " + endDateMoment.format(dateFormat),
+			sendDate: sendDateMoment.toDate(),
+			startDate: startDateMoment.toDate(),
+			endDate: endDateMoment.toDate(),
+		});
+		await newWeekly.save();
+	}
+};
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", async function(doc, next) {
+	await createWeeklyIfNeeded();
+
 	if(!shouldPostLambda){
 		shouldPostLambda = !this.isInitial;
 		next();
@@ -188,8 +219,6 @@ Item.schema.post("save", async function(doc, next) {
 
 	logger.info("...sent PUT request", options);
 });
-
-
 
 Item.defaultColumns = "title, source|20%, specialities|20%";
 Item.register();
