@@ -11,7 +11,9 @@ logger.level = "debug";
 
 const Item = new keystone.List("Item", {
 	map: { name: "title" },
-	autokey: { path: "slug", from: "title", unique: true }
+	track: true,
+	autokey: { path: "slug", from: "title", unique: true },
+	defaultSort: '-createdAt'
 });
 
 var shouldPostLambda = false;
@@ -30,6 +32,7 @@ Item.add({
 		type: Types.Url, 
 		label: "URL",
 		initial: true,
+		note: "The URL needs to contain http:// or https://",
 	},
 	source: {
 		type: Types.Relationship,
@@ -86,20 +89,6 @@ Item.add({
 		], 
 		label: "Weekly relevancy score",
 	},
-	createdDate: { 
-		type: Types.Datetime, 
-		default: Date.now,
-		label: "Created date",
-		noedit: true
-	},
-	modifiedDate: { 
-		type: Types.Datetime, 
-		default: Date.now,
-		label: "Modified date",
-		noedit: true,
-		watch: true,
-		value: Date.now
-	},
 	weekly: {
 		type: Types.Relationship,
 		ref: "Weekly",
@@ -123,9 +112,6 @@ Item.schema.pre('validate', function(next) {
 		}
 		else if (!this.resourceLinks) {
 			next(Error('Resource links is required.'));
-		}
-		else if (!this.createdDate) {
-			next(Error('Created date is required.'));
 		}
 		else {
 			next();
@@ -223,5 +209,6 @@ Item.schema.post("save", async function(doc, next) {
 	logger.info("...sent PUT request", options);
 });
 
-Item.defaultColumns = "title, source|20%, specialities|20%";
+
+Item.defaultColumns = "title, source, relevancy";
 Item.register();
