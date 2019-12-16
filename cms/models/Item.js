@@ -42,6 +42,7 @@ Item.add({
 		type: Types.Relationship, 
 		ref: "EvidenceType",
 		initial: true,
+		required: true,
 		many: false,
 	},
 	shortSummary: { 
