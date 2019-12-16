@@ -41,8 +41,32 @@ keystone.set("routes", require("./routes"));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set("nav", {
-	users: "users",
-	items: ["items", "specialities"]
+	content: ["Item", "Weekly"],
+	admin: ["Source", "Speciality", "ItemCategory"],
+	users: "User",
+});
+
+keystone.set("wysiwyg override toolbar", true);
+keystone.set("wysiwyg additional buttons", "bold italic | bullist numlist | link | code");
+
+keystone.set("wysiwyg additional options", {
+	// Remove the 'p' etc from status bar at the bottom of the editor
+	// See https://www.tiny.cloud/docs-4x/configure/editor-appearance/#elementpath
+	elementpath: false,
+	// Remove title and target from the link dialog
+	// See https://www.tiny.cloud/docs-4x/plugins/link/#link_title
+	link_title: false,
+	target_list: false,
+	// Default options for "styleselect" if added to buttons on a per-field basis
+	// See https://www.tiny.cloud/docs-4x/configure/content-formatting/#style_formats
+	style_formats: [
+		{ title: "Header 2", format: "h2" },
+		{ title: "Header 3", format: "h3" },
+		{ title: "Header 4", format: "h4" },
+		{ title: "Header 5", format: "h5" },
+		{ title: "Header 6", format: "h6" },
+		{ title: "Paragraph", format: "p" }
+	]
 });
 
 keystone.set("signin logo", "/images/sps-logo.png");

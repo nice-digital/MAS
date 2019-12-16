@@ -1,13 +1,15 @@
-var keystone = require("keystone");
-var Types = keystone.Field.Types;
+const keystone = require("keystone"),
+	moment = require("moment"),
+	https = require("https"),
+	http = require("http"),
+	log4js = require("log4js");;
 
-const https = require("https");
-var log4js = require("log4js");
+const Types = keystone.Field.Types;
 
-var logger = log4js.getLogger("Item.js");
+const logger = log4js.getLogger("Item.js");
 logger.level = "debug";
 
-var Item = new keystone.List("Item", {
+const Item = new keystone.List("Item", {
 	map: { name: "title" },
 	track: true,
 	autokey: { path: "slug", from: "title", unique: true },
@@ -84,11 +86,15 @@ Item.add({
 		], 
 		label: "Weekly relevancy score",
 	},
-
+	weekly: {
+		type: Types.Relationship,
+		ref: "Weekly",
+		label: "Weekly newsletter",
+		note: "For use by the NICE MPT only"
+	},
 });
 
 Item.schema.pre('validate', function(next) {
-
 	if(this.isInitial){
 		this.isInitial = false;
 		next();
@@ -108,11 +114,36 @@ Item.schema.pre('validate', function(next) {
 			next();
 		}
 	}
-    
 });
+
+const createWeeklyIfNeeded = async () => {
+	const sendDateMoment = moment().startOf("isoweek").add(7, "days");
+
+	const WeeklyModel = keystone.list("Weekly").model;
+
+	const weeklyEntity = await WeeklyModel.findOne({
+		sendDate: sendDateMoment.toDate()
+	}).exec();
+
+	if(!weeklyEntity) {
+		const startDateMoment = sendDateMoment.clone().subtract(1, "week"),
+			endDateMoment = startDateMoment.clone().add(4, "days"),
+			dateFormat = "Do MMMM YYYY";
+
+		var newWeekly = new WeeklyModel({
+			title: startDateMoment.format(dateFormat) + " to " + endDateMoment.format(dateFormat),
+			sendDate: sendDateMoment.toDate(),
+			startDate: startDateMoment.toDate(),
+			endDate: endDateMoment.toDate(),
+		});
+		await newWeekly.save();
+	}
+};
 
 // Post save hook to trigger a lambda with the document details
 Item.schema.post("save", async function(doc, next) {
+	await createWeeklyIfNeeded();
+
 	if(!shouldPostLambda){
 		shouldPostLambda = !this.isInitial;
 		next();
@@ -122,7 +153,7 @@ Item.schema.post("save", async function(doc, next) {
 
 	var item = "";
 
-	await keystone.list('Item').model.findById(doc._id)
+	await keystone.list("Item").model.findById(doc._id)
 	.populate("source")
 	.then((source) => {
 		item = source;
@@ -137,19 +168,24 @@ Item.schema.post("save", async function(doc, next) {
 	var hostport = process.env.HOST_PORT;
 
 	var data = JSON.stringify(item); 
-
+	
 	var options = {
 		hostname: hostname,
 		port: hostport,
 		path: contentpath,
-		secureProtocol: "TLSv1_2_method",
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json"
 		}
 	};
 
-	const req = https.request(options, res => {
+	 if (hostport === "443")
+	 	options.secureProtocol = "TLSv1_2_method";
+	 else
+	 	options.headers.host = "localhost";
+		
+
+	const req = (hostport === "443" ? https : http).request(options, res => {
 		if (res.statusCode == "200") {
 			next();
 		}
