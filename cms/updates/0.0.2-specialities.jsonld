@@ -1,0 +1,379 @@
+{
+  "@graph" : [ {
+    "@id" : "medicines_awareness_service_speciality_list:Anaesthesia%20and%20pain",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Anaesthesia and pain"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:CONCEPT-Allergy_and_immunology",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Allergy and immunology"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Medicines awareness service speciality"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Cancers",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Cancers"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Cardiovascular%20system%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Cardiovascular system disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Complementary%20and%20alternative%20therapies",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Complementary and alternative therapies"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Critical%20care",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Critical care"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Diabetes",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Diabetes"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Ear%2C%20nose%20and%20throat%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Ear, nose and throat disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Emergency%20medicine%20and%20urgent%20care",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Emergency medicine and urgent care"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Endocrine%20system%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Endocrine system disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Eyes%20and%20vision",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Eyes and vision"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Family%20planning",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Family planning"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Gastrointestinal%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Gastrointestinal disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Genetics",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Genetics"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Haematological%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Haematological disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Infection%20and%20infectious%20diseases",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Infection and infectious diseases"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Later%20life",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Later life"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Learning%20disabilities",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Learning disabilities"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Liver%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Liver disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:MAS_specialities",
+    "@type" : "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+    "hasTopConcept" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "MAS specialities"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Mental%20health%20and%20illness",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Mental health and illness"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Musculo-skeletal%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Musculo-skeletal disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Neurological%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Neurological disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Nutritional%20and%20metabolic%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Nutritional and metabolic disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Obstetrics%20and%20gynaecology",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Obstetrics and gynaecology"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Oral%20and%20dental%20health",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Oral and dental health"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Other%20%2F%20Unclassified",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Other / Unclassified"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Paediatric%20and%20neonatal%20medicine",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Paediatric and neonatal medicine"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Palliative%20and%20End%20of%20Life%20Care",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Palliative and End of Life Care"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Policy%2C%20Commissioning%20and%20Managerial",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Policy, Commissioning and Managerial"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Renal%20and%20urologic%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Renal and urologic disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Respiratory%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Respiratory disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Sexual%20health",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Sexual health"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Skin%20disorders",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Skin disorders"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Sports%20medicine",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Sports medicine"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Stroke",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Stroke"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Surgery",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Surgery"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Travel%20medicine",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Travel medicine"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Vaccination",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Vaccination"
+    }
+  }, {
+    "@id" : "medicines_awareness_service_speciality_list:Wounds%20and%20injuries",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "medicines_awareness_service_speciality_list:CONCEPT-Medicines_awareness_service_speciality",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Wounds and injuries"
+    }
+  }, {
+    "@id" : "urn:x-evn-master:medicines_awareness_service_speciality_list",
+    "@type" : "owl:Ontology",
+    "status" : "metadata:UnderDevelopmentStatus",
+    "defaultNamespace" : "http://example.org/taxonomies/new#",
+    "newInstancesUserCannotModifyURI" : "0",
+    "comment" : "The list of specialities subscribers can select from when setting their preferences for the Medicines Awareness Service",
+    "label" : "Medicines Awareness Service speciality list",
+    "imports" : [ "http://topbraid.org/imported", "http://topbraid.org/skos.shapes" ]
+  } ],
+  "@context" : {
+    "prefLabel" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
+    },
+    "broader" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#broader",
+      "@type" : "@id"
+    },
+    "hasTopConcept" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#hasTopConcept",
+      "@type" : "@id"
+    },
+    "newInstancesUserCannotModifyURI" : {
+      "@id" : "http://topbraid.org/teamwork#newInstancesUserCannotModifyURI",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "status" : {
+      "@id" : "http://topbraid.org/metadata#status",
+      "@type" : "@id"
+    },
+    "defaultNamespace" : {
+      "@id" : "http://topbraid.org/swa#defaultNamespace"
+    },
+    "imports" : {
+      "@id" : "http://www.w3.org/2002/07/owl#imports",
+      "@type" : "@id"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "medicines_awareness_service_speciality_list" : "http://example.org/taxonomies/new#",
+    "metadata" : "http://topbraid.org/metadata#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "teamwork" : "http://topbraid.org/teamwork#",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
+  }
+}
