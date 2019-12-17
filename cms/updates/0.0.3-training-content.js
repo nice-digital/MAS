@@ -38,7 +38,7 @@ exports = module.exports = function(done) {
 					.subtract(i, "days")
 					.toDate(),
 				relevancy: Math.floor(Math.random() * 3) + 1
-			});
+			}));
 
 			async.forEach(items, createItem, done);
 		});
