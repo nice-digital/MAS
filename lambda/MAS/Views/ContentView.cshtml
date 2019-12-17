@@ -1,0 +1,15 @@
+﻿@model MAS.Models.Item
+@{
+    ViewData["Title"] = "ContentView";
+}
+
+<p>@Model.Source.Title</p>
+<p>@Model.Title</p>
+<p>@Model.ShortSummary</p>
+<p>@Model.UKMiComment</p>
+<p>@Model.EvidenceType</p>
+
+@if (Model.ResourceLinks != null)
+{
+    <p>@Html.Raw(Model.ResourceLinks)</p>
+}
