@@ -10,6 +10,12 @@
   "__v": 0,
   "speciality": [ "5dc306ebb01357a06411c416", "5dc306ebb01357438611c417" ],
   "createdDate": "2019-11-06T17:48:02.000Z",
-  "evidenceType": "drug",
+  "evidenceType": {
+    "_id": "5df7abf383138898ee1f67ef",
+    "title": "Safety alerts",
+    "key": "mas_evidence_types:Safety%20alerts",
+    "oldEPiServerId": 778708,
+    "__v": 0
+  },
   "isInitial": false
 }

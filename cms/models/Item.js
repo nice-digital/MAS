@@ -158,6 +158,7 @@ Item.schema.post("save", async function(doc, next) {
 
 	await keystone.list("Item").model.findById(doc._id)
 	.populate("source")
+	.populate("evidenceType")
 	.then((source) => {
 		item = source;
 	})

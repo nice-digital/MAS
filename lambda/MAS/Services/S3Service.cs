@@ -52,7 +52,7 @@ namespace MAS.Services
             contentBody.Append(Environment.NewLine);
 
             contentBody.Append("Evidence Type: ");
-            contentBody.Append(item.EvidenceType);
+            contentBody.Append(item.EvidenceType.Title);
             contentBody.Append(Environment.NewLine);
 
             contentBody.Append("UKMI Comment: ");
