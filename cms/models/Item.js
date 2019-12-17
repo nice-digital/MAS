@@ -50,8 +50,8 @@ Item.add({
 	},
 	shortSummary: { 
 		type: Types.Textarea,
-		required: true,
-		initial: true,
+		required: false,
+		initial: false,
 		max: 280,
 		label: "Short summary",
 	},
@@ -112,6 +112,9 @@ Item.schema.pre('validate', function(next) {
 		}
 		else if (!this.resourceLinks) {
 			next(Error('Resource links is required.'));
+		}
+		else if (!this.shortSummary) {
+			next(Error('Short summary is required.'));
 		}
 		else {
 			next();
