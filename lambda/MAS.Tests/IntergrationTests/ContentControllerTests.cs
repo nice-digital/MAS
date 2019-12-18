@@ -27,7 +27,7 @@ namespace MAS.Tests.IntergrationTests.Content
                 ForcePathStyle = true
             };
             AmazonS3Client s3Client = new AmazonS3Client(AppSettings.AWSConfig.AccessKey, AppSettings.AWSConfig.SecretKey, config);
-            
+
             Item item = new Item()
             {
                 Id = "1234",
@@ -38,7 +38,11 @@ namespace MAS.Tests.IntergrationTests.Content
                     Id = "789",
                     Title = "The Journal of Medicine"
                 },
-                EvidenceType = "Evidence Type",
+                EvidenceType = new EvidenceType
+                {
+                    Key = "mas_evidence_types:Safety%20alerts",
+                    Title = "Safetry alerts"
+                },
                 UKMiComment = "UKMI Comment",
                 ResourceLinks = "<p><a title=\"Link 1\" href=\"items/5de65fe432281d43fbfcd15a\">Link 1</a></p>\r\n<p><a title=\"sadada\" href=\"items/5de65fe432281d43fbfcd15a\">Link 2</a></p>"
             };

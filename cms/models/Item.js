@@ -41,20 +41,23 @@ Item.add({
 		required: true,
 		initial: true
 	},
+	evidenceType: {
+		type: Types.Relationship,
+		ref: "EvidenceType",
+		initial: true,
+		required: true,
+		many: false
+	},
 	shortSummary: {
 		type: Types.Textarea,
-		required: true,
-		initial: true,
+		required: false,
+		initial: false,
 		max: 280,
 		label: "Short summary"
 	},
 	publicationDate: {
 		type: Types.Date,
 		label: "Publication date"
-	},
-	evidenceType: {
-		type: Types.Text,
-		label: "Evidence type"
 	},
 	speciality: {
 		type: Types.Relationship,
@@ -108,6 +111,8 @@ Item.schema.pre("validate", function(next) {
 			next(Error("Speciality is required."));
 		} else if (!this.resourceLinks) {
 			next(Error("Resource links is required."));
+		} else if (!this.shortSummary) {
+			next(Error("Short summary is required."));
 		} else {
 			next();
 		}
@@ -160,6 +165,7 @@ Item.schema.post("save", async function(doc, next) {
 		.list("Item")
 		.model.findById(doc._id)
 		.populate("source")
+		.populate("evidenceType")
 		.then(source => {
 			item = source;
 		})

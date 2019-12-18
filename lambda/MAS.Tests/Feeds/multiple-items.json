@@ -18,7 +18,13 @@
     "speciality": [
       "5daf1a5c8a34d485cb05b5ba"
     ],
-    "evidenceType": "drug",
+    "evidenceType": {
+      "_id": "5df7abf383138898ee1f67ef",
+      "title": "Safety alerts",
+      "key": "mas_evidence_types:Safety%20alerts",
+      "oldEPiServerId": 778708,
+      "__v": 0
+    },
     "isInitial": false
   },
   {
@@ -40,7 +46,13 @@
     "speciality": [
       "5daf1a5c8a34d478fd05b5d4"
     ],
-    "evidenceType": "drug",
+    "evidenceType": {
+      "_id": "5df7abf383138898ee1f67ef",
+      "title": "Safety alerts",
+      "key": "mas_evidence_types:Safety%20alerts",
+      "oldEPiServerId": 778708,
+      "__v": 0
+    },
     "isInitial": false
   },
   {
@@ -62,7 +74,13 @@
     "speciality": [
       "5daf1a5c8a34d4d6e505b5b9"
     ],
-    "evidenceType": "trial",
+    "evidenceType": {
+      "_id": "5df7abf383138898ee1f67ef",
+      "title": "Safety alerts",
+      "key": "mas_evidence_types:Safety%20alerts",
+      "oldEPiServerId": 778708,
+      "__v": 0
+    },
     "isInitial": false
   },
   {
@@ -84,7 +102,13 @@
     "speciality": [
       "5daf1a5c8a34d485cb05b5ba"
     ],
-    "evidenceType": "drug",
+    "evidenceType": {
+      "_id": "5df7abf383138898ee1f67ef",
+      "title": "Safety alerts",
+      "key": "mas_evidence_types:Safety%20alerts",
+      "oldEPiServerId": 778708,
+      "__v": 0
+    },
     "isInitial": false
   }
 ]

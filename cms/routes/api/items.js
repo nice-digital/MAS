@@ -6,6 +6,7 @@ exports.single = function(req, res) {
 	Items.model
 		.findById(req.params.itemId)
 		.populate("source")
+		.populate("evidenceType")
 		.exec(function(err, item) {
 			if (err) return res.err(err);
 
@@ -23,6 +24,7 @@ exports.list = function(req, res) {
 	Items.model
 		.find()
 		.populate("source")
+		.populate("evidenceType")
 		.exec(function(err, items) {
 			if (err) return res.json({ err: err });
 
