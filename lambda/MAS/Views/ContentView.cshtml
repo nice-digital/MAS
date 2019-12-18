@@ -1,15 +1,76 @@
 ﻿@model MAS.Models.Item
-@{
-    ViewData["Title"] = "ContentView";
-}
 
-<p>@Model.Source.Title</p>
-<p>@Model.Title</p>
-<p>@Model.ShortSummary</p>
-<p>@Model.UKMiComment</p>
-<p>@Model.EvidenceType</p>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
-@if (Model.ResourceLinks != null)
-{
-    <p>@Html.Raw(Model.ResourceLinks)</p>
-}
+<style>
+    body {
+        font-family: Lato;
+        background: #F5F5F5;
+    }
+    .header {
+        background: #009E49;
+        height: 75px;
+    }
+    .main {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 25px;
+        width: 75%;
+        align-self: center;
+        margin: 50px auto;
+        background: #ffffff;
+    }
+    .footer {
+        background: #009E49;
+        height: 50px;
+        color: #ffffff;
+    }
+    .source {
+        display: inline-block;
+        background-color: #393939;
+        border-radius: 2px;
+        color: #ffffff;
+        padding-left: 5px;
+        padding-right: 5px
+    }
+    .spscomment {
+        background: #E9E9E9;
+        padding: 5px;
+    }
+    .evidencetype {
+        background: #E9E9E9;
+        border: 1px solid #CCCCCC;
+        padding: 5px;
+    }
+    .tandcs {
+        font-size: small;
+    }
+</style>
+
+<body>
+    <div class="header"></div>
+    <div class="main">
+        <p><a href="@Model.URL">@Model.Title</a></p>
+        <p>@Model.ShortSummary</p>
+
+        <p>
+            <div class="spscomment">
+                <b>SPS commentary:</b><br />
+                @Html.Raw(@Model.UKMiComment)
+            </div>
+        </p>
+
+        <p><div class="source">@Model.Source.Title</div></p>
+
+        @if (Model.ResourceLinks != null)
+        {
+            <p>
+                <b>Related links:</b><br />
+                @Html.Raw(Model.ResourceLinks)
+            </p>
+        }
+    </div>
+    <div class="footer">
+        <a>Terms and conditions</a>
+        <a>Send feedback or enquiries about this service to: medicinesresources@gstt.nhs.uk</a>
+    </div>
+</body>

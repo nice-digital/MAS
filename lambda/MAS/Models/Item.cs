@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MAS.Models
@@ -9,6 +10,8 @@ namespace MAS.Models
         public string Id { get; set; }
         [Required, JsonRequired]
         public string Title { get; set; }
+        [Required, JsonRequired]
+        public string URL { get; set; }
         [Required, JsonRequired]
         public Source Source { get; set; }
         [Required, JsonRequired]
