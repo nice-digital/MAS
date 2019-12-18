@@ -5,6 +5,9 @@
     <AWSProjectType>Lambda</AWSProjectType>
     <UserSecretsId>adafe3d8-65fb-49fd-885e-03341a36dc88</UserSecretsId>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="setup.sh" />
   </ItemGroup>
