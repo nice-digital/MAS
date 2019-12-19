@@ -16,12 +16,6 @@ const Item = new keystone.List("Item", {
 	defaultSort: '-createdAt'
 });
 
-var shouldPostLambda = false;
-
-if (this.isInitial === false) {
-	shouldPostLambda = true;
-}
-
 Item.add({
 	title: { 
 		type: Types.Text, 
@@ -150,25 +144,16 @@ const createWeeklyIfNeeded = async () => {
 Item.schema.post("save", async function(doc, next) {
 	await createWeeklyIfNeeded();
 
-	if(!shouldPostLambda){
-		shouldPostLambda = !this.isInitial;
-		next();
-	}	
-
 	logger.info("Post save, sending request...", doc);
 
-	var item = "";
-
-	await keystone.list("Item").model.findById(doc._id)
+	var item = await keystone.list("Item").model.findById(doc._id)
 	.populate("source")
 	.populate("evidenceType")
-	.then((source) => {
-		item = source;
-	})
+	.exec()
 	.catch((err) => {
 		logger.error("An error occurred finding source: ", err);
 		next(new Error(`An error occurred finding source: ${err}`));
-	})
+	});
 
 	var contentpath = process.env.CONTENT_PATH;
 	var hostname = process.env.HOST_NAME;

@@ -12,8 +12,8 @@ namespace MAS.Models
         [Required, JsonRequired]
         public Source Source { get; set; }
         [Required, JsonRequired]
-        public string ShortSummary { get; set; }
         public EvidenceType EvidenceType { get; set; }
+        public string ShortSummary { get; set; }
         public string UKMiComment { get; set; }
         public string ResourceLinks { get; set; }
     }
