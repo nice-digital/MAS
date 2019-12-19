@@ -16,12 +16,6 @@ const Item = new keystone.List("Item", {
 	defaultSort: '-createdAt'
 });
 
-var shouldPostLambda = false;
-
-if (this.isInitial === false) {
-	shouldPostLambda = true;
-}
-
 Item.add({
 	title: { 
 		type: Types.Text, 
@@ -40,6 +34,7 @@ Item.add({
 		many: false,
 		required: true,
 		initial: true,
+
 	},
 	evidenceType: {
 		type: Types.Relationship, 
@@ -150,31 +145,26 @@ const createWeeklyIfNeeded = async () => {
 Item.schema.post("save", async function(doc, next) {
 	await createWeeklyIfNeeded();
 
-	if(!shouldPostLambda){
-		shouldPostLambda = !this.isInitial;
-		next();
-	}	
-
 	logger.info("Post save, sending request...", doc);
 
-	var item = "";
+	let item;
 
-	await keystone.list("Item").model.findById(doc._id)
-	.populate("source")
-	.populate("evidenceType")
-	.then((source) => {
-		item = source;
-	})
-	.catch((err) => {
-		logger.error("An error occurred finding source: ", err);
-		next(new Error(`An error occurred finding source: ${err}`));
-	})
+	try {
+		item = await keystone.list("Item").model.findById(doc._id)
+		.populate("source")
+		.populate("evidenceType")
+		.exec();
+	}
+	catch(err) {
+		logger.error("An error occurred finding item: ", err.message);
+		return next(new Error(`An error occurred finding item: ${err.message}`));
+	}
 
-	var contentpath = process.env.CONTENT_PATH;
-	var hostname = process.env.HOST_NAME;
-	var hostport = process.env.HOST_PORT;
+	const contentpath = process.env.CONTENT_PATH;
+	const hostname = process.env.HOST_NAME;
+	const hostport = process.env.HOST_PORT;
 
-	var data = JSON.stringify(item); 
+	const data = JSON.stringify(item); 
 	
 	var options = {
 		hostname: hostname,
