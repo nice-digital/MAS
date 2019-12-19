@@ -34,6 +34,7 @@ Item.add({
 		many: false,
 		required: true,
 		initial: true,
+
 	},
 	evidenceType: {
 		type: Types.Relationship, 
@@ -146,20 +147,24 @@ Item.schema.post("save", async function(doc, next) {
 
 	logger.info("Post save, sending request...", doc);
 
-	var item = await keystone.list("Item").model.findById(doc._id)
-	.populate("source")
-	.populate("evidenceType")
-	.exec()
-	.catch((err) => {
-		logger.error("An error occurred finding source: ", err);
-		next(new Error(`An error occurred finding source: ${err}`));
-	});
+	let item;
 
-	var contentpath = process.env.CONTENT_PATH;
-	var hostname = process.env.HOST_NAME;
-	var hostport = process.env.HOST_PORT;
+	try {
+		item = await keystone.list("Item").model.findById(doc._id)
+		.populate("source")
+		.populate("evidenceType")
+		.exec();
+	}
+	catch(err) {
+		logger.error("An error occurred finding item: ", err.message);
+		return next(new Error(`An error occurred finding item: ${err.message}`));
+	}
 
-	var data = JSON.stringify(item); 
+	const contentpath = process.env.CONTENT_PATH;
+	const hostname = process.env.HOST_NAME;
+	const hostport = process.env.HOST_PORT;
+
+	const data = JSON.stringify(item); 
 	
 	var options = {
 		hostname: hostname,
