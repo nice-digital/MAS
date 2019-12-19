@@ -26,7 +26,7 @@ namespace MAS.Controllers
 
                 if (viewResult.Success == false)
                 {
-                    return $"A view with the name {viewName} could not be found";
+                    return $"A view with the name {viewName} could not be found"; //TODO: Proper logging
                 }
 
                 ViewContext viewContext = new ViewContext(
