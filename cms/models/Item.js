@@ -109,9 +109,6 @@ Item.schema.pre('validate', function(next) {
 		if (!this.shortSummary) {
 			next(Error('Short summary is required.'));
 		}
-		else if (!this.evidenceType) {
-			next(Error('Evidence type is required.'));
-		}
 		else if (!this.speciality || String(this.speciality).match(/^\s*$/) !== null) {
 			next(Error('Speciality is required.'));
 		}
