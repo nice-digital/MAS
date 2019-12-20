@@ -6,6 +6,8 @@ require("dotenv").config();
 var keystone = require("keystone");
 var handlebars = require("express-handlebars");
 
+require("./logging").configure();
+
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
@@ -43,11 +45,14 @@ keystone.set("routes", require("./routes"));
 keystone.set("nav", {
 	content: ["Item", "Weekly"],
 	admin: ["Source", "Speciality", "EvidenceType"],
-	users: "User",
+	users: "User"
 });
 
 keystone.set("wysiwyg override toolbar", true);
-keystone.set("wysiwyg additional buttons", "bold italic | bullist numlist | link | code");
+keystone.set(
+	"wysiwyg additional buttons",
+	"bold italic | bullist numlist | link | code"
+);
 
 keystone.set("wysiwyg additional options", {
 	// Remove the 'p' etc from status bar at the bottom of the editor
