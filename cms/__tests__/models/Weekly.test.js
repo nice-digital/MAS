@@ -24,7 +24,7 @@ describe("Weekly", () => {
 
 	beforeEach(() => {
 		jest.resetModules();
-		require("../Weekly");
+		require("../../models/Weekly");
 		keystone = require("keystone");
 
 		pre = keystone.List("Weekly").schema.pre;
