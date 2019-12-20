@@ -68,7 +68,7 @@ exports.initErrorHandlers = function(req, res, next) {
 	res.error = function(err, useJson) {
 		const isDevEnv = keystone.get("env") === "development";
 
-		if (useJson) {
+		if (useJson || req.is("json")) {
 			const serializedError = isDevEnv
 				? serializeError(err)
 				: { message: err.message };
@@ -101,7 +101,7 @@ exports.initErrorHandlers = function(req, res, next) {
 	};
 
 	res.notfound = function(title, message, useJson) {
-		if (useJson) {
+		if (useJson || req.is("json")) {
 			return res.status(404).json({ title, message });
 		}
 
