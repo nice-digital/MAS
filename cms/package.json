@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@log4js-node/rabbitmq": "^1.1.0",
     "async": "2.1.4",
     "braces": "^3.0.2",
     "cloudinary": "1.7.0",
@@ -23,8 +24,9 @@
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "mpath": "^0.6.0",
-    "node-sass": "4.5.0",
+    "node-sass": "^4.13.0",
     "node-sass-middleware": "^0.11.0",
+    "serialize-error": "^5.0.0",
     "static-eval": "^2.0.2",
     "superagent": "^5.1.0"
   },

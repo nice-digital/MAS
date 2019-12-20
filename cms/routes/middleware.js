@@ -7,7 +7,10 @@
  * you have more middleware you may want to group it as separate
  * modules in your project's /lib directory.
  */
-var _ = require("lodash");
+const keystone = require("keystone"),
+	keystoneUtils = require("keystone-utils"),
+	_ = require("lodash"),
+	{ serializeError } = require("serialize-error");
 
 /**
 	Initialises the standard view locals
@@ -54,4 +57,56 @@ exports.requireUser = function(req, res, next) {
 	} else {
 		next();
 	}
+};
+
+/**
+    Inits the error handler functions into `res`
+*/
+exports.initErrorHandlers = function(req, res, next) {
+	// Mimic the default keystone error handler
+	// See https://github.com/keystonejs/keystone-classic/blob/master/server/bindErrorHandlers.js#L46-L73
+	res.error = function(err, useJson) {
+		const isDevEnv = keystone.get("env") === "development";
+
+		if (useJson) {
+			const serializedError = isDevEnv
+				? serializeError(err)
+				: { message: err.message };
+
+			return res.status(500).json({ error: serializedError });
+		}
+
+		var msg = "";
+		if (isDevEnv) {
+			if (err instanceof Error) {
+				if (err.type) {
+					msg += "<h2>" + err.type + "</h2>";
+				}
+				msg += keystoneUtils.textToHTML(err.message);
+			} else if (typeof err === "object") {
+				msg += "<code>" + JSON.stringify(err) + "</code>";
+			} else if (err) {
+				msg += err;
+			}
+		}
+
+		return res
+			.status(500)
+			.send(
+				keystone.wrapHTMLError(
+					"Sorry, an error occurred loading the page (500)",
+					msg
+				)
+			);
+	};
+
+	res.notfound = function(title, message, useJson) {
+		if (useJson) {
+			return res.status(404).json({ title, message });
+		}
+
+		return res.status(404).send(keystone.wrapHTMLError(title, message));
+	};
+
+	next();
 };
