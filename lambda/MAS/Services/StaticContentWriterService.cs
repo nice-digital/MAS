@@ -1,21 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.Extensions.Logging;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
 
-namespace MAS.Controllers
+namespace MAS.Services
 {
-    public static class ControllerExtensions
+    public interface IStaticContentWriter
     {
-        public static async Task<string> RenderViewAsync<TModel>(this Controller controller, string viewName, TModel model, bool isPartial = false)
+        Task<string> RenderViewAsync<TModel>(Controller controller, string viewName, TModel model, bool isPartial = false);
+    }
+
+    public class StaticContentWriterService : IStaticContentWriter
+    {
+        private readonly ILogger<StaticContentWriterService> _logger;
+
+        public StaticContentWriterService(ILogger<StaticContentWriterService> logger)
+        {
+            _logger = logger;
+        }
+
+        public async Task<string> RenderViewAsync<TModel>(Controller controller, string viewName, TModel model, bool isPartial = false)
         {
             if (string.IsNullOrEmpty(viewName))
-            {
                 viewName = controller.ControllerContext.ActionDescriptor.ActionName;
-            }
 
             controller.ViewData.Model = model;
 
@@ -25,9 +36,7 @@ namespace MAS.Controllers
                 ViewEngineResult viewResult = GetViewEngineResult(controller, viewName, isPartial, viewEngine);
 
                 if (viewResult.Success == false)
-                {
-                    return $"A view with the name {viewName} could not be found"; //TODO: Proper logging
-                }
+                    _logger.LogError($"A view with the name {viewName} could not be found");
 
                 ViewContext viewContext = new ViewContext(
                     controller.ControllerContext,

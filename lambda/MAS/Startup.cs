@@ -35,6 +35,7 @@ namespace MAS
             
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IS3Service, S3Service>();
+            services.TryAddSingleton<IStaticContentWriter, StaticContentWriterService>();
             services.TryAddTransient<IMailService, MailService>();
             services.TryAddTransient<IContentService, ContentService>();
 

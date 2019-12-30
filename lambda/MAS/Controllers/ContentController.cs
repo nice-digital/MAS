@@ -1,11 +1,9 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Amazon.S3.Model;
 using MAS.Models;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 namespace MAS.Controllers
 {
@@ -13,11 +11,13 @@ namespace MAS.Controllers
     public class ContentController : Controller
     {
         private readonly IS3Service _s3Service;
+        private readonly IStaticContentWriter _staticContentWriter;
         private readonly ILogger<ContentController> _logger;
-
-        public ContentController(IS3Service s3Service, ILogger<ContentController> logger)
+        
+        public ContentController(IS3Service s3Service, IStaticContentWriter staticContentWriter, ILogger<ContentController> logger)
         {
             _s3Service = s3Service;
+            _staticContentWriter = staticContentWriter;
             _logger = logger;
         }
 
@@ -25,8 +25,8 @@ namespace MAS.Controllers
         [HttpPut]
         public async Task<PutObjectResponse> PutAsync([FromBody] Item item)
         {
-            var view = await this.RenderViewAsync("~/Views/ContentView.cshtml", item, false); //TODO needs to move into S3Service
-            var response = await _s3Service.WriteToS3(item, view);
+            var body = await _staticContentWriter.RenderViewAsync(this, "~/Views/ContentView.cshtml", item, false);
+            var response = await _s3Service.WriteToS3(item, body);
             
             return response;
         }
