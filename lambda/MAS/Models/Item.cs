@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MAS.Models
@@ -11,22 +9,12 @@ namespace MAS.Models
         public string Id { get; set; }
         [Required, JsonRequired]
         public string Title { get; set; }
-        //[Required, JsonRequired]
-        //public DateTime PublicationDate { get; set; }
-        //[Required, JsonRequired]
-        //public DateTime CreatedDate { get; set; }
-        //[Required, JsonRequired]
-        //public string Category { get; set; }
         [Required, JsonRequired]
-        public string Source { get; set; } //TODO: Needs source item values instead of source item Ids
-        //[Required, JsonRequired]
-       // public IEnumerable<string> Speciality { get; set; } //TODO: Needs speciality item values instead of Ids
+        public Source Source { get; set; }
         [Required, JsonRequired]
+        public EvidenceType EvidenceType { get; set; }
         public string ShortSummary { get; set; }
-        //public string ResourceLinks { get; set; }
-        //[Required, JsonRequired]
-        //public string UKMiComment { get; set; }
-        //[Required, JsonRequired]
-        //public int RelevancyScore { get; set; }
+        public string UKMiComment { get; set; }
+        public string ResourceLinks { get; set; }
     }
 }

@@ -1,9 +1,11 @@
-﻿using Amazon.S3;
+﻿using Amazon.Lambda.Core;
+using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Configuration;
 using MAS.Models;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MAS.Services
@@ -29,7 +31,7 @@ namespace MAS.Services
             {
                 BucketName = AppSettings.AWSConfig.BucketName,
                 Key = item.Id + ".txt",
-                ContentBody = $"Id: {item.Id}\r\nTitle: {item.Title}\r\nSummary: {item.ShortSummary}\r\nSource: {item.Source}"
+                ContentBody = CreateContentBody(item)
             };
 
             try
@@ -43,6 +45,38 @@ namespace MAS.Services
                 throw new Exception($"Failed to write to S3 - exception: {e.Message}");
             }
             
+        }
+
+        private string CreateContentBody(Item item)
+        {
+            var contentBody = new StringBuilder();
+            contentBody.Append("Title: ");
+            contentBody.Append(item.Title);
+            contentBody.Append(Environment.NewLine);
+
+            contentBody.Append("Short Summary: ");
+            contentBody.Append(item.ShortSummary);
+            contentBody.Append(Environment.NewLine);
+
+            contentBody.Append("Source: ");
+            contentBody.Append(item.Source.Title);
+            contentBody.Append(Environment.NewLine);
+
+            contentBody.Append("Evidence Type: ");
+            contentBody.Append(item.EvidenceType.Title);
+            contentBody.Append(Environment.NewLine);
+
+            contentBody.Append("UKMI Comment: ");
+            contentBody.Append(item.UKMiComment);
+            contentBody.Append(Environment.NewLine);
+
+            if (item.ResourceLinks != null)
+            {
+                contentBody.Append("Resource Links: ");
+                contentBody.Append(item.ResourceLinks);
+            }
+
+            return contentBody.ToString();
         }
     }
 }

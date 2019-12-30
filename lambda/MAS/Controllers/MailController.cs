@@ -25,12 +25,7 @@ namespace MAS.Controllers
         {
             var items = await _contentService.GetItemsAsync();
 
-            var body = "";
-            foreach (var item in items)
-            {
-                body += item.Title + "<br><br><br>";
-            }
-
+            var body = _mailService.CreateEmailBody(items);
             var subject = "MAS Email";
             var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
 

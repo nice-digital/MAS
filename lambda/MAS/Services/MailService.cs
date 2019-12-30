@@ -4,8 +4,10 @@ using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MAS.Configuration;
 using Microsoft.Extensions.Logging;
+using MAS.Models;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MAS.Services
@@ -13,6 +15,7 @@ namespace MAS.Services
     public interface IMailService
     {
         Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
+        string CreateEmailBody(IEnumerable<Item> item);
     }
 
     public class MailService: IMailService
@@ -69,6 +72,23 @@ namespace MAS.Services
                 throw new Exception($"Failed to communitcate with MailChimp - exception: {e.Message}");
             }
           
+        }
+
+        public string CreateEmailBody(IEnumerable<Item> items)
+        {
+            var body = new StringBuilder();
+
+            foreach (var item in items)
+            {
+                body.Append(item.Source.Title);
+                body.Append("<br>");
+                body.Append(item.Title);
+                body.Append("<br>");
+                body.Append(item.ShortSummary);
+                body.Append("<br><br><br>");
+            }
+
+            return body.ToString();
         }
     }
 }
