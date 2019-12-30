@@ -12,7 +12,7 @@ logger.level = "debug";
 const Item = new keystone.List("Item", {
 	map: { name: "title" },
 	track: true,
-	autokey: { path: "slug", from: "title", unique: true },
+	autokey: { path: "slug", from: "title", unique: true, fixed: true },
 	defaultSort: '-createdAt'
 });
 

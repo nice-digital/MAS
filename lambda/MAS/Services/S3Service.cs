@@ -24,7 +24,7 @@ namespace MAS.Services
             PutObjectRequest request = new PutObjectRequest()
             {
                 BucketName = AppSettings.AWSConfig.BucketName,
-                Key = item.Id + ".html",
+                Key = item.Slug + ".html",
                 ContentBody = body
             };
 
