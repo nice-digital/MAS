@@ -41,7 +41,7 @@ namespace MAS.Tests.IntergrationTests.Content
                 EvidenceType = new EvidenceType
                 {
                     Key = "mas_evidence_types:Safety%20alerts",
-                    Title = "Safetry alerts"
+                    Title = "Safety alerts"
                 },
                 UKMiComment = "UKMI Comment",
                 ResourceLinks = "<p><a title=\"Link 1\" href=\"items/5de65fe432281d43fbfcd15a\">Link 1</a></p>\r\n<p><a title=\"sadada\" href=\"items/5de65fe432281d43fbfcd15a\">Link 2</a></p>"
@@ -52,12 +52,8 @@ namespace MAS.Tests.IntergrationTests.Content
             //Act
             var response = await _client.PutAsync("/api/content/", content);
 
-            var responseJson = await response.Content.ReadAsStringAsync();
-            var responseObject = JsonConvert.DeserializeObject<PutObjectResponse>(responseJson);
-
             // Assert
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
-            responseObject.ETag.ShouldNotBeNull();
            
             using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "1234.txt"))
             {
