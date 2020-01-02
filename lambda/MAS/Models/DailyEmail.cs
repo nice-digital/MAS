@@ -46,6 +46,7 @@ namespace MAS.Models
                 foreach (var pair in ItemsBySpecialities())
                 {
                     var speciality = pair.Key.Title;
+                    body.Append("*|INTERESTED:Daily specialities of interest:" + speciality + "|*");
                     body.Append("<strong>" + speciality + "</strong>");
 
                     foreach(var item in pair.Value)
@@ -59,6 +60,7 @@ namespace MAS.Models
                         body.Append("<br>");
                         body.Append("<a href='https://www.medicinesresources.nhs.uk/" + @item.Slug + "'>SPS Comment</a>");
                     }
+                    body.Append("*|INTERESTED|*");
                 }
 
                 return body.ToString();
