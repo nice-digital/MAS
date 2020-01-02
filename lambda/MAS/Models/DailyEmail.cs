@@ -9,12 +9,32 @@ namespace MAS.Models
     public class DailyEmail
     {
         public List<Item> Items { get; set; }
-        public List<IGrouping<EvidenceType,Item>> GroupedItems
+
+        Dictionary<Speciality, List<Item>> ItemsBySpecialities()
         {
-            get
+            var dict = new Dictionary<Speciality, List<Item>>();
+            foreach(var item in Items)
             {
-                return Items.GroupBy(x => x.EvidenceType).ToList();
+                if(item.Speciality.Length > 1)
+                {
+                    foreach(var spec in item.Speciality)
+                    {
+                        if (dict.ContainsKey(spec))
+                            dict[spec].Add(item);
+                        else
+                            dict.Add(spec, new List<Item> { item });     
+                    }
+                }
+                else
+                {
+                    var spec = item.Speciality.First();
+                    if (dict.ContainsKey(spec))
+                        dict[spec].Add(item);
+                    else
+                        dict.Add(spec, new List<Item> { item });
+                }
             }
+            return dict;
         }
 
         public string HTML
@@ -23,12 +43,12 @@ namespace MAS.Models
             {
                 var body = new StringBuilder();
                 
-                foreach (var group in GroupedItems)
+                foreach (var pair in ItemsBySpecialities())
                 {
-                    var speciality = group.Single().EvidenceType.Title;
+                    var speciality = pair.Key.Title;
                     body.Append("<strong>" + speciality + "</strong>");
 
-                    foreach(var item in group)
+                    foreach(var item in pair.Value)
                     {
                         body.Append("<br>");
                         body.Append(item.Source.Title);
