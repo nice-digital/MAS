@@ -77,8 +77,8 @@ namespace MAS.Services
 
         public string CreateDailyEmailBody(IEnumerable<Item> items)
         {
-            var vm = new DailyEmail() { Items = items.ToList() };
-            return vm.HTML;
+            var dailyEmail = new DailyEmail() { Items = items.ToList() };
+            return dailyEmail.HTML;
         }
     }
 }
