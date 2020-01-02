@@ -48,3 +48,12 @@ services:
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+
+  # use nginx to serve static pages    
+  nginx:
+    container_name: web-server
+    build: ./web-server/
+    ports:
+      - 8000:90
+    volumes:
+      - ./s3-mock/data/demo-bucket:/usr/share/nginx/html/
