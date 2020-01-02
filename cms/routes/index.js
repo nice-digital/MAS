@@ -40,9 +40,7 @@ exports = module.exports = function(app) {
 	app.get("/api/items", routes.api.items.list);
 	app.get("/api/specialities/:specialityId", routes.api.specialities.single);
 	app.get("/api/specialities", routes.api.specialities.list);
-	app.get("/api/weeklies/:weeklyId", routes.api.weeklies.single);
-	app.get("/api/weeklies", routes.api.weeklies.list);
-
+	app.get("/api/weeklies", routes.api.weeklies.single);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
