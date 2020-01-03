@@ -27,13 +27,18 @@ namespace MAS.Models
                 
                 foreach (var group in GroupedItems)
                 {
-                    var evidenceType = group.Key;
-
+                    string specInEvidenceType = String.Join(',', group.SelectMany(x => x.Speciality.Select(y => y.Title)));
+                    body.Append("*|INTERESTED:Daily specialities of interest:" + specInEvidenceType + "|*");
                     body.Append("<div class='evidenceType'>");
+
+                    var evidenceType = group.Key;
                     body.Append("<strong>" + evidenceType + "</strong>");
 
-                    foreach(var item in group)
+                    foreach (var item in group)
                     {
+                        string itemSpecList = String.Join(',', item.Speciality.Select(x => x.Title));
+                        body.Append("*|INTERESTED:Daily specialities of interest:" + itemSpecList + "|*");
+
                         body.Append("<div class='item'>");
                         body.Append(item.Title);
                         body.Append("<br>");
@@ -45,9 +50,12 @@ namespace MAS.Models
                         body.Append("<br>");
                         body.Append("<a href='https://www.medicinesresources.nhs.uk/" + @item.Slug + "'>SPS Comment</a>");
                         body.Append("</div>");
+
+                        body.Append("*|END:INTERESTED|*");
                     }
 
                     body.Append("</div>");
+                    body.Append("*|END:INTERESTED|*");
                 }
 
                 return body.ToString();
