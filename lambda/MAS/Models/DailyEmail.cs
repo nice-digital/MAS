@@ -10,11 +10,11 @@ namespace MAS.Models
     {
         public List<Item> Items { get; set; }
 
-        public List<IGrouping<EvidenceType, Item>> GroupedItems
+        public List<IGrouping<string, Item>> GroupedItems
         {
             get
             {
-                return Items.GroupBy(x => x.EvidenceType).ToList();
+                return Items.GroupBy(x => x.EvidenceType.Title).ToList();
             }
         }
 
@@ -27,7 +27,7 @@ namespace MAS.Models
                 
                 foreach (var group in GroupedItems)
                 {
-                    var evidenceType = group.Single().EvidenceType.Title;
+                    var evidenceType = group.Key;
 
                     body.Append("<div class='evidenceType'>");
                     body.Append("<strong>" + evidenceType + "</strong>");
