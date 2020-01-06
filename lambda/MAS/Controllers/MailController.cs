@@ -23,7 +23,22 @@ namespace MAS.Controllers
         {
             var items = await _contentService.GetItemsAsync();
 
-            var body = _mailService.CreateEmailBody(items);
+            var body = _mailService.CreateDailyEmailBody(items);
+            var subject = "MAS Email";
+            var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
+
+            var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body);
+
+            return campaignId;
+        }
+
+        //PUT api/mail/weekly
+        [HttpPut("weekly")]
+        public async Task<string> PutWeeklyMailAsync()
+        {
+            var weekly = await _contentService.GetWeeklyAsync();
+
+            var body = _mailService.CreateWeeklyEmailBody(weekly);
             var subject = "MAS Email";
             var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
 

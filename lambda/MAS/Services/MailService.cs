@@ -13,7 +13,8 @@ namespace MAS.Services
     public interface IMailService
     {
         Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
-        string CreateEmailBody(IEnumerable<Item> item);
+        string CreateDailyEmailBody(IEnumerable<Item> item);
+        string CreateWeeklyEmailBody(Weekly weekly);
     }
 
     public class MailService: IMailService
@@ -61,7 +62,7 @@ namespace MAS.Services
             return campaign.Id;
         }
 
-        public string CreateEmailBody(IEnumerable<Item> items)
+        public string CreateDailyEmailBody(IEnumerable<Item> items)
         {
             var body = new StringBuilder();
 
@@ -76,6 +77,11 @@ namespace MAS.Services
             }
 
             return body.ToString();
+        }
+
+        public string CreateWeeklyEmailBody(Weekly weekly)
+        {
+           return "Hello";
         }
     }
 }
