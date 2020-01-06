@@ -49,7 +49,7 @@ services:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
 
-  # use nginx to serve static pages    
+  # Simulates the public facing side of an S3 bucket to serve static pages    
   nginx:
     container_name: web-server
     build: ./web-server/

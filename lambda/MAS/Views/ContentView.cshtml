@@ -10,7 +10,7 @@
         @Model.Title
     </title>
 
-    <meta name="description" content="@Model.ShortSummary." />
+    <meta name="description" content="@Model.ShortSummary" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@("@nhs_sps")" />
@@ -19,7 +19,7 @@
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Medicines awareness service" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://www.medicinesresources.nhs.uk/en/Medicines-Awareness/Press-and-Media/Press-and-media/@Model.Slug/" />
+    <meta property="og:url" content="https://www.medicinesresources.nhs.uk/@(Model.Slug).html" />
     <meta property="og:title" content="@Model.Title" />
     <meta property="og:description" content="@Model.ShortSummary" />
     <meta property="og:image" content="https://www.medicinesresources.nhs.uk/open-graph.png" />
@@ -57,15 +57,13 @@
 
             <div class="comment">
                 <h2>SPS commentary:</h2>
-                <p>
-                    @Html.Raw(@Model.Comment)
-                </p>
+                @Html.Raw(@Model.Comment)
             </div>
 
             <h2 class="visually-hidden">Source:</h2>
             <p class="source">@Model.Source.Title</p>
 
-            @if (Model.ResourceLinks != null)
+            @if (string.IsNullOrEmpty(Model.ResourceLinks))
             {
                 <h2>Resource links:</h2>
                 <p>

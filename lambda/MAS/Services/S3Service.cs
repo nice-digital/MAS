@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MAS.Services
 {
-    public interface IS3Service
+    public interface IStaticContentService
     {
-        Task<PutObjectResponse> WriteToS3(Item item, string body);
+        Task<PutObjectResponse> WriteToS3(string slug, string body);
     }
-    public class S3Service : IS3Service
+    public class S3Service : IStaticContentService
     {
         private readonly IAmazonS3 _amazonS3;
         private readonly ILogger<S3Service> _logger;
@@ -23,12 +23,12 @@ namespace MAS.Services
             _logger = logger;
         }
 
-        public async Task<PutObjectResponse> WriteToS3(Item item, string body)
+        public async Task<PutObjectResponse> WriteToS3(string slug, string body)
         {
             PutObjectRequest request = new PutObjectRequest()
             {
                 BucketName = AppSettings.AWSConfig.BucketName,
-                Key = item.Slug + ".html",
+                Key = slug + ".html",
                 ContentBody = body
             };
 

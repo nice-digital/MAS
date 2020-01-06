@@ -31,6 +31,7 @@ namespace MAS.Tests.IntergrationTests.Content
             Item item = new Item()
             {
                 Id = "1234",
+                Slug = "Effect-of-vit-d",
                 URL = "www.website.com",
                 Title = "Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial",
                 ShortSummary = "RCT (n=1,312) found that among adults with type 2 diabetes, supplementation with vitamin D3 or omega-3 fatty acids, compared with placebo, resulted in no significant difference in change in eGFR at 5 years.",
@@ -57,7 +58,7 @@ namespace MAS.Tests.IntergrationTests.Content
             // Assert
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
            
-            using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "1234.txt"))
+            using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "Effect-of-vit-d.html"))
             {
                 using (StreamReader reader = new StreamReader(bucketItem.ResponseStream))
                 {
