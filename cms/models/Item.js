@@ -58,6 +58,7 @@ Item.add({
 		type: Types.Relationship,
 		ref: "Speciality",
 		many: true,
+		label: "Specialities"
 	},
 	comment: {
 		type: Types.Html,
@@ -68,6 +69,7 @@ Item.add({
 		type: Types.Html,
 		label: "Resource links",
 		wysiwyg: true,
+		required: false
 	},
 	isInitial: { 
 		type: Types.Boolean,
@@ -82,7 +84,7 @@ Item.add({
 			{ value: 2, label: "Medium" },
 			{ value: 3, label: "Low" }
 		], 
-		label: "Weekly relevancy score",
+		label: "Weekly relevancy score"
 	},
 	weekly: {
 		type: Types.Relationship,
@@ -99,17 +101,14 @@ Item.schema.pre('validate', function(next) {
 	}	
 	
 	else {
-		if (!this.evidenceType) {
-			next(Error('Evidence type is required.'));
+		if (!this.shortSummary) {
+			next(Error('Short summary is required.'));
 		}
 		else if (!this.speciality || String(this.speciality).match(/^\s*$/) !== null) {
 			next(Error('Speciality is required.'));
 		}
-		else if (!this.resourceLinks) {
-			next(Error('Resource links is required.'));
-		}
-		else if (!this.shortSummary) {
-			next(Error('Short summary is required.'));
+		else if (!this.relevancy) {
+			next(Error('Relevancy score is required.'));
 		}
 		else {
 			next();
