@@ -42,7 +42,7 @@ namespace MAS.Tests.IntergrationTests.Content
                 EvidenceType = new EvidenceType
                 {
                     Key = "mas_evidence_types:Safety%20alerts",
-                    Title = "Safetry alerts"
+                    Title = "Safety alerts"
                 },
                 UKMiComment = "A related editorial discusses this research and details previous epidemiological studies that suggest improved outcomes with vitamin D supplementation in various clinical scenarios. It states that contrasting the results of this study and its predecessor vitamin D trials with the impressive body of epidemiological research that implicated vitamin D deficiency in various adverse health outcomes offers a stark lesson on the chasm between association and causation. Editorial authors highlight that it now seems safe to conclude that many prior epidemiological associations between vitamin D deficiency and adverse health outcomes were driven by unmeasured residual confounding or reverse causality.",
                 ResourceLinks = "<p><a title=\"Link 1\" href=\"items/5de65fe432281d43fbfcd15a\">Vitamin D and Health Outcomes - Then Came the Randomized Clinical Trials</a></p>\r\n<p><a title=\"sadada\" href=\"items/5de65fe432281d43fbfcd15a\">Link 2</a></p>"
@@ -54,12 +54,8 @@ namespace MAS.Tests.IntergrationTests.Content
             //Act
             var response = await _client.PutAsync("/api/content/", content);
 
-            var responseJson = await response.Content.ReadAsStringAsync();
-            var responseObject = JsonConvert.DeserializeObject<PutObjectResponse>(responseJson);
-
             // Assert
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
-            responseObject.ETag.ShouldNotBeNull();
            
             using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "1234.txt"))
             {
