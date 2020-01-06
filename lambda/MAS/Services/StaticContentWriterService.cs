@@ -9,18 +9,22 @@ using System.Threading.Tasks;
 
 namespace MAS.Services
 {
-    public interface IStaticContentWriter
+    public interface IViewRenderer
     {
         Task<string> RenderViewAsync<TModel>(Controller controller, string viewName, TModel model, bool isPartial = false);
     }
 
-    public class StaticContentWriterService : IStaticContentWriter
+    public class ViewRenderer : IViewRenderer
     {
-        private readonly ILogger<StaticContentWriterService> _logger;
+        private readonly ILogger<ViewRenderer> _logger;
+        private readonly ICompositeViewEngine _compositeViewEngine;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public StaticContentWriterService(ILogger<StaticContentWriterService> logger)
+        public ViewRenderer(ILogger<ViewRenderer> logger, ICompositeViewEngine compositeViewEngine, IHostingEnvironment hostingEnvironment)
         {
             _logger = logger;
+            _compositeViewEngine = compositeViewEngine;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public async Task<string> RenderViewAsync<TModel>(Controller controller, string viewName, TModel model, bool isPartial = false)
@@ -32,13 +36,12 @@ namespace MAS.Services
 
             using (var writer = new StringWriter())
             {
-                IViewEngine viewEngine = controller.HttpContext.RequestServices.GetService(typeof(ICompositeViewEngine)) as ICompositeViewEngine;
-                ViewEngineResult viewResult = GetViewEngineResult(controller, viewName, isPartial, viewEngine);
+                var viewResult = GetViewEngineResult(controller, viewName, isPartial);
 
                 if (viewResult.Success == false)
                     _logger.LogError($"A view with the name {viewName} could not be found");
 
-                ViewContext viewContext = new ViewContext(
+                var viewContext = new ViewContext(
                     controller.ControllerContext,
                     viewResult.View,
                     controller.ViewData,
@@ -53,18 +56,12 @@ namespace MAS.Services
             }
         }
 
-        private static ViewEngineResult GetViewEngineResult(Controller controller, string viewName, bool isPartial, IViewEngine viewEngine)
+        private ViewEngineResult GetViewEngineResult(Controller controller, string viewName, bool isPartial)
         {
             if (viewName.StartsWith("~/"))
-            {
-                var hostingEnv = controller.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment)) as IHostingEnvironment;
-                return viewEngine.GetView(hostingEnv.WebRootPath, viewName, !isPartial);
-            }
+                return _compositeViewEngine.GetView(_hostingEnvironment.WebRootPath, viewName, !isPartial);
             else
-            {
-                return viewEngine.FindView(controller.ControllerContext, viewName, !isPartial);
-
-            }
+                return _compositeViewEngine.FindView(controller.ControllerContext, viewName, !isPartial);
         }
     }
 }
