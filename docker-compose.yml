@@ -38,7 +38,7 @@ services:
     image: minio/minio:latest
     container_name: s3backend
     ports:
-      - "9000:9000"
+      - 9000:9000
     entrypoint: sh
     command: -c '/usr/bin/minio server /data'
     # Mount a volume from the host machine to persist files
@@ -49,11 +49,14 @@ services:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
 
-  # use nginx to serve static pages    
-  nginx:
-    container_name: web-server
-    build: ./web-server/
+  # Mimick the public facing side of the S3 bucket to serve static pages and assets
+  s3frontend:
+    image: nginx
+    container_name: s3frontend
     ports:
-      - 8000:90
+      - 8000:8000
     volumes:
-      - ./s3-mock/data/demo-bucket:/usr/share/nginx/html/
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      # Mount and serve both the static assets AND the generated HTML in the S3 bucket
+      - ./s3-mock/data/demo-bucket:/usr/share/nginx/s3-html/
+      - ./static-assets:/usr/share/nginx/static-html/
