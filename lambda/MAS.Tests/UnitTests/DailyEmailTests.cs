@@ -80,7 +80,8 @@ namespace MAS.Tests.UnitTests
             };
         
             var expectedHtml = "<div class='evidenceType'><strong>Some evidence type</strong><div class='item'>Some Title<br>Some source<br>Some speciality<br>Some short summary<br><a href='https://www.medicinesresources.nhs.uk/abc'>SPS Comment</a></div></div>";
-            email.HTML.ShouldBe(expectedHtml);
+
+            expectedHtml.ShouldMatchApproved(email.HTML);
 
         }
 
@@ -97,7 +98,7 @@ namespace MAS.Tests.UnitTests
             };
 
             var expectedHtml = "<div class='evidenceType'><strong>Some evidence type</strong><div class='item'>Some Title<br>Some source<br>Some speciality<br>Some short summary<br><a href='https://www.medicinesresources.nhs.uk/abc'>SPS Comment</a></div><div class='item'>Some Title<br>Some source<br>Some speciality<br>Some short summary<br><a href='https://www.medicinesresources.nhs.uk/abc'>SPS Comment</a></div></div>";
-            email.HTML.ShouldBe(expectedHtml);
+            expectedHtml.ShouldMatchApproved(email.HTML);
 
         }
 
@@ -114,7 +115,7 @@ namespace MAS.Tests.UnitTests
             };
 
             var expectedHtml = "<div class='evidenceType'><strong>Some evidence type</strong><div class='item'>Some Title<br>Some source<br>Some speciality<br>Some short summary<br><a href='https://www.medicinesresources.nhs.uk/abc'>SPS Comment</a></div></div><div class='evidenceType'><strong>Some evidence type 2</strong><div class='item'>Some Title<br>Some source<br>Some speciality 2<br>Some short summary<br><a href='https://www.medicinesresources.nhs.uk/abc'>SPS Comment</a></div></div>";
-            email.HTML.ShouldBe(expectedHtml);
+            expectedHtml.ShouldMatchApproved(email.HTML);
 
         }
 
@@ -131,7 +132,7 @@ namespace MAS.Tests.UnitTests
             };
 
             var expectedHtml = "<div class='evidenceType'><strong>Some evidence type</strong><div class='item'>Some Title<br>Some source<br>Some speciality | Another speciality<br>Some short summary<br><a href='https://www.medicinesresources.nhs.uk/abc'>SPS Comment</a></div></div>";
-            email.HTML.ShouldBe(expectedHtml);
+            expectedHtml.ShouldMatchApproved(email.HTML);
 
         }
     }
