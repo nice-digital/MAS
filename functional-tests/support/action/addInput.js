@@ -26,16 +26,12 @@ export const addUrl = () => {
 export const addPublicationDate = () => {
     browser.click("//*[@name='publicationDate']");
     browser.click(".DayPicker-Week:nth-child(2) > .DayPicker-Day:nth-child(3)");  
-    //setInputField("add", "2019-12-05", "//*[@name='publicationDate']");
 };
-export const addSpsComment = () => {
-    //setInputField("add", "TThe first stop for professional medicines advice.", "iframe#keystone-html-0_ifr");
+export const addSpsComment = () => {    
     var spsComment = browser.getAttribute("[for='comment'] iframe", 'id');
-    browser.pause(5000)
-    console.log(spsComment);
+    browser.pause(5000);    
     browser.frame(spsComment);
-    browser.waitForExist('#tinymce');
-    console.log($('#tinymce'));    
+    browser.waitForExist('#tinymce');      
     var editorBody = $('#tinymce > p');
     editorBody.click();
     editorBody.keys("The first stop for professional medicines advice.");
@@ -43,11 +39,9 @@ export const addSpsComment = () => {
 }
 export const addResourceLink = () => {
     var resourceLink = browser.getAttribute("[for='resourceLinks'] iframe", 'id');
-    browser.pause(5000)
-    console.log(resourceLink);
+    browser.pause(5000);   
     browser.frame(resourceLink);
-    browser.waitForExist('#tinymce');
-    console.log($('#tinymce'));    
+    browser.waitForExist('#tinymce');        
     var editorBody = $('#tinymce > p');
     editorBody.click();
     editorBody.keys("To access content relevant to you, create an account and sign in each time you use our website");
