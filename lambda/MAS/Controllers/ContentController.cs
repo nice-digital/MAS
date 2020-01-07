@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MAS.Configuration;
 using MAS.Models;
 using MAS.Services;
+using MAS.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -25,9 +27,14 @@ namespace MAS.Controllers
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] Item item)
         {
+            var contentViewModel = new ContentViewModel
+            {
+                Item = item,
+                StaticURL = AppSettings.AWSConfig.StaticURL
+            };
             try
             {
-            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", item, false);
+            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", contentViewModel, false);
             var response = await _staticContentService.Write(item.Slug, body);
             return Validate(response.HttpStatusCode, _logger);
             }

@@ -1,4 +1,4 @@
-﻿@model MAS.Models.Item
+﻿@model MAS.ViewModels.ContentViewModel
 
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -7,22 +7,22 @@
     <meta name="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-        @Model.Title
+        @Model.Item.Title
     </title>
 
-    <meta name="description" content="@Model.ShortSummary" />
+    <meta name="description" content="@Model.Item.ShortSummary" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@("@nhs_sps")" />
-    <meta name="twitter:title" content="@Model.Title" />
+    <meta name="twitter:title" content="@Model.Item.Title" />
 
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Medicines awareness service" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://www.medicinesresources.nhs.uk/@(Model.Slug).html" />
-    <meta property="og:title" content="@Model.Title" />
-    <meta property="og:description" content="@Model.ShortSummary" />
-    <meta property="og:image" content="https://www.medicinesresources.nhs.uk/open-graph.png" />
+    <meta property="og:url" content="@(Model.StaticURL)@(Model.Item.Slug).html" />
+    <meta property="og:title" content="@Model.Item.Title" />
+    <meta property="og:description" content="@Model.Item.ShortSummary" />
+    <meta property="og:image" content="@(Model.StaticURL)open-graph.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -45,33 +45,31 @@
     <main>
         <article aria-labelledby="title" aria-describedby="description">
             <h1 id="title">
-                <a href="@Model.URL"
+                <a href="@Model.Item.URL"
                    target="_blank" rel="noopener">
-                    @Model.Title
+                    @Model.Item.Title
                 </a>
             </h1>
 
             <p id="description">
-                @Model.ShortSummary
+                @Model.Item.ShortSummary
             </p>
 
-            @if (!string.IsNullOrEmpty(Model.Comment))
+            @if (!string.IsNullOrEmpty(Model.Item.Comment))
             {
                 <div class="comment">
                     <h2>SPS commentary:</h2>
-                    @Html.Raw(@Model.Comment)
+                    @Html.Raw(@Model.Item.Comment)
                 </div>
             }
 
             <h2 class="visually-hidden">Source:</h2>
-            <p class="source">@Model.Source.Title</p>
+            <p class="source">@Model.Item.Source.Title</p>
 
-            @if (!string.IsNullOrEmpty(Model.ResourceLinks))
+            @if (!string.IsNullOrEmpty(Model.Item.ResourceLinks))
             {
                 <h2>Resource links:</h2>
-                <p>
-                    @Html.Raw(Model.ResourceLinks)
-                </p>
+                @Html.Raw(Model.Item.ResourceLinks)
             }
         </article>
     </main>
