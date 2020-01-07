@@ -1,2 +1,2 @@
 * text=auto
-/cms/* text eol=lf
+/cms/** text eol=lf
