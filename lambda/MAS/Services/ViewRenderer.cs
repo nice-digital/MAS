@@ -37,7 +37,7 @@ namespace MAS.Services
 
             using (var writer = new StringWriter())
             {
-                var viewResult = GetViewEngineResult(controller, viewName, isPartial);
+                var viewResult = _compositeViewEngine.GetView(_hostingEnvironment.WebRootPath, viewName, !isPartial);
 
                 if (viewResult.Success == false)
                 {
@@ -58,14 +58,6 @@ namespace MAS.Services
 
                 return writer.GetStringBuilder().ToString();
             }
-        }
-
-        private ViewEngineResult GetViewEngineResult(Controller controller, string viewName, bool isPartial)
-        {
-            if (viewName.StartsWith("~/"))
-                return _compositeViewEngine.GetView(_hostingEnvironment.WebRootPath, viewName, !isPartial);
-            else
-                return _compositeViewEngine.FindView(controller.ControllerContext, viewName, !isPartial);
         }
     }
 }
