@@ -55,21 +55,24 @@
                 @Model.ShortSummary
             </p>
 
-            <div class="comment">
-                <h2>SPS commentary:</h2>
-                @Html.Raw(@Model.Comment)
-            </div>
-
-            <h2 class="visually-hidden">Source:</h2>
-            <p class="source">@Model.Source.Title</p>
-
-            @if (string.IsNullOrEmpty(Model.ResourceLinks))
+            @if (string.IsNullOrEmpty(Model.Comment))
             {
-                <h2>Resource links:</h2>
-                <p>
-                    @Html.Raw(Model.ResourceLinks)
-                </p>
+                <div class="comment">
+                    <h2>SPS commentary:</h2>
+                    @Html.Raw(@Model.Comment)
+                </div>
             }
+
+                <h2 class="visually-hidden">Source:</h2>
+                <p class="source">@Model.Source.Title</p>
+
+                @if (string.IsNullOrEmpty(Model.ResourceLinks))
+                {
+                    <h2>Resource links:</h2>
+                    <p>
+                        @Html.Raw(Model.ResourceLinks)
+                    </p>
+                }
             </article>
     </main>
     <footer>

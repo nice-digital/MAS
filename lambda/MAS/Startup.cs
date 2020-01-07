@@ -34,7 +34,7 @@ namespace MAS
             AppSettings.Configure(services, Configuration);
             
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
-            services.TryAddSingleton<IStaticContentService, S3Service>();
+            services.TryAddSingleton<IStaticContentService, StaticContentService>();
             services.TryAddSingleton<IViewRenderer, ViewRenderer>();
             services.TryAddTransient<IMailService, MailService>();
             services.TryAddTransient<IContentService, ContentService>();
