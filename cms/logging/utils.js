@@ -55,7 +55,8 @@ const niceLoggingLayout = config => {
 			const error = data.find(l => l instanceof Error);
 
 			if (error) {
-				niceLogEvent.Exception = serializeError(error);
+				// Nice logging requires exception to be a string
+				niceLogEvent.Exception = JSON.stringify(serializeError(error), null, 2);
 			}
 		}
 
