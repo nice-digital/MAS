@@ -1,6 +1,7 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Configuration;
+using MAS.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
@@ -11,12 +12,12 @@ namespace MAS.Services
     {
         Task<PutObjectResponse> Write(string slug, string body);
     }
-    public class StaticContentService : IStaticContentService
+    public class S3StaticContentService : IStaticContentService
     {
         private readonly IAmazonS3 _amazonS3;
-        private readonly ILogger<StaticContentService> _logger;
+        private readonly ILogger<S3StaticContentService> _logger;
 
-        public StaticContentService(IAmazonS3 amazonS3, ILogger<StaticContentService> logger)
+        public S3StaticContentService(IAmazonS3 amazonS3, ILogger<S3StaticContentService> logger)
         {
             _amazonS3 = amazonS3;
             _logger = logger;

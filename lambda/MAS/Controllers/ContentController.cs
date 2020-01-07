@@ -10,13 +10,13 @@ namespace MAS.Controllers
     [Route("api/[controller]")]
     public class ContentController : ControllerBase
     {
-        private readonly IStaticContentService _s3Service;
+        private readonly IStaticContentService _staticContentService;
         private readonly IViewRenderer _viewRenderer;
         private readonly ILogger<ContentController> _logger;
         
-        public ContentController(IStaticContentService s3Service, IViewRenderer viewRenderer, ILogger<ContentController> logger)
+        public ContentController(IStaticContentService contentService, IViewRenderer viewRenderer, ILogger<ContentController> logger)
         {
-            _s3Service = s3Service;
+            _staticContentService = contentService;
             _viewRenderer = viewRenderer;
             _logger = logger;
         }
@@ -28,7 +28,7 @@ namespace MAS.Controllers
             try
             {
             var body = await _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", item, false);
-            var response = await _s3Service.Write(item.Slug, body);
+            var response = await _staticContentService.Write(item.Slug, body);
             return Validate(response.HttpStatusCode, _logger);
             }
             catch (Exception e)
