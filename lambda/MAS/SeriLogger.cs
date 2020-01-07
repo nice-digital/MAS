@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using NICE.Logging;
 using NICE.Logging.Sinks.RabbitMQ;
 using Serilog;
+using Serilog.Events;
 using System;
 
 namespace MAS.Logging
@@ -27,11 +28,11 @@ namespace MAS.Logging
             var rabbitSettingsFound = int.TryParse(logCfg["RabbitMQPort"], out var rPort);
             bool.TryParse(logCfg["UseRabbit"], out var useRabbit);
             string logFilePath = logCfg["LogFilePath"];
+            Enum.TryParse(logCfg["SerilogMinLevel"], out LogEventLevel serilogMinLevel);
 
             var formatter = new NiceSerilogFormatter(AppSettings.EnvironmentConfig.Name, "MAS");
             var logConfig = new LoggerConfiguration()
-                .MinimumLevel
-                .Warning();
+              .MinimumLevel.Is(serilogMinLevel);
 
             if (rabbitSettingsFound && useRabbit)
             {

@@ -5,12 +5,12 @@ using System.IO;
 namespace MAS.Tests.Infrastructure
 {
     public class TestAppSettings
-    { 
-        public static CMSConfig GetSingleItemFeed()
+    {
+        public static CMSConfig GetInvalidURI()
         {
             return new CMSConfig()
             {
-                URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/single-item.json").ToString()
+                URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/nonexistanturl").ToString()
             };
         }
 
