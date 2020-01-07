@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -39,7 +40,10 @@ namespace MAS.Services
                 var viewResult = GetViewEngineResult(controller, viewName, isPartial);
 
                 if (viewResult.Success == false)
+                {
                     _logger.LogError($"A view with the name {viewName} could not be found");
+                    throw new Exception();
+                }
 
                 var viewContext = new ViewContext(
                     controller.ControllerContext,
