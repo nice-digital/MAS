@@ -56,7 +56,7 @@ exports = module.exports = function(done) {
 		"UTF-8",
 		function(err, contents) {
 			if (err) {
-				loggger.error(err);
+				logger.error(err);
 				throw err;
 			}
 
