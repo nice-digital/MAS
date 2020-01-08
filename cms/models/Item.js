@@ -13,46 +13,45 @@ const Item = new keystone.List("Item", {
 	map: { name: "title" },
 	track: true,
 	autokey: { path: "slug", from: "title", unique: true },
-	defaultSort: '-createdAt'
+	defaultSort: "-createdAt"
 });
 
 Item.add({
-	title: { 
-		type: Types.Text, 
-		required: true, 
-		initial: true,
+	title: {
+		type: Types.Text,
+		required: true,
+		initial: true
 	},
 	url: {
-		type: Types.Url, 
+		type: Types.Url,
 		label: "URL",
 		initial: true,
-		note: "The URL needs to contain http:// or https://",
+		note: "The URL needs to contain http:// or https://"
 	},
 	source: {
 		type: Types.Relationship,
 		ref: "Source",
 		many: false,
 		required: true,
-		initial: true,
-
+		initial: true
 	},
 	evidenceType: {
-		type: Types.Relationship, 
+		type: Types.Relationship,
 		ref: "EvidenceType",
 		initial: true,
 		required: true,
-		many: false,
+		many: false
 	},
-	shortSummary: { 
+	shortSummary: {
 		type: Types.Textarea,
 		required: false,
 		initial: false,
 		max: 280,
-		label: "Short summary",
+		label: "Short summary"
 	},
-	publicationDate: { 
-		type: Types.Date, 
-		label: "Publication date",
+	publicationDate: {
+		type: Types.Date,
+		label: "Publication date"
 	},
 	speciality: {
 		type: Types.Relationship,
@@ -63,7 +62,7 @@ Item.add({
 	comment: {
 		type: Types.Html,
 		label: "SPS comment",
-		wysiwyg: true,
+		wysiwyg: true
 	},
 	resourceLinks: {
 		type: Types.Html,
@@ -71,19 +70,19 @@ Item.add({
 		wysiwyg: true,
 		required: false
 	},
-	isInitial: { 
+	isInitial: {
 		type: Types.Boolean,
 		hidden: true,
-		default: true,
+		default: true
 	},
-	relevancy: { 
+	relevancy: {
 		type: Types.Select,
 		numeric: true,
-		options:  [
+		options: [
 			{ value: 1, label: "High" },
 			{ value: 2, label: "Medium" },
 			{ value: 3, label: "Low" }
-		], 
+		],
 		label: "Weekly relevancy score"
 	},
 	weekly: {
@@ -91,33 +90,33 @@ Item.add({
 		ref: "Weekly",
 		label: "Weekly newsletter",
 		note: "For use by the NICE MPT only"
-	},
+	}
 });
 
-Item.schema.pre('validate', function(next) {
-	if(this.isInitial){
+Item.schema.pre("validate", function(next) {
+	if (this.isInitial) {
 		this.isInitial = false;
 		next();
-	}	
-	
-	else {
+	} else {
 		if (!this.shortSummary) {
-			next(Error('Short summary is required.'));
-		}
-		else if (!this.speciality || String(this.speciality).match(/^\s*$/) !== null) {
-			next(Error('Speciality is required.'));
-		}
-		else if (!this.relevancy) {
-			next(Error('Relevancy score is required.'));
-		}
-		else {
+			next(Error("Short summary is required."));
+		} else if (
+			!this.speciality ||
+			String(this.speciality).match(/^\s*$/) !== null
+		) {
+			next(Error("Speciality is required."));
+		} else if (!this.relevancy) {
+			next(Error("Relevancy score is required."));
+		} else {
 			next();
 		}
 	}
 });
 
 const createWeeklyIfNeeded = async () => {
-	const sendDateMoment = moment().startOf("isoweek").add(7, "days");
+	const sendDateMoment = moment()
+		.startOf("isoweek")
+		.add(7, "days");
 
 	const WeeklyModel = keystone.list("Weekly").model;
 
@@ -125,16 +124,19 @@ const createWeeklyIfNeeded = async () => {
 		sendDate: sendDateMoment.toDate()
 	}).exec();
 
-	if(!weeklyEntity) {
+	if (!weeklyEntity) {
 		const startDateMoment = sendDateMoment.clone().subtract(1, "week"),
 			endDateMoment = startDateMoment.clone().add(4, "days"),
 			dateFormat = "Do MMMM YYYY";
 
 		var newWeekly = new WeeklyModel({
-			title: startDateMoment.format(dateFormat) + " to " + endDateMoment.format(dateFormat),
+			title:
+				startDateMoment.format(dateFormat) +
+				" to " +
+				endDateMoment.format(dateFormat),
 			sendDate: sendDateMoment.toDate(),
 			startDate: startDateMoment.toDate(),
-			endDate: endDateMoment.toDate(),
+			endDate: endDateMoment.toDate()
 		});
 		await newWeekly.save();
 	}
@@ -149,12 +151,13 @@ Item.schema.post("save", async function(doc, next) {
 	let item;
 
 	try {
-		item = await keystone.list("Item").model.findById(doc._id)
-		.populate("source")
-		.populate("evidenceType")
-		.exec();
-	}
-	catch(err) {
+		item = await keystone
+			.list("Item")
+			.model.findById(doc._id)
+			.populate("source")
+			.populate("evidenceType")
+			.exec();
+	} catch (err) {
 		logger.error("An error occurred finding item: ", err.message);
 		return next(new Error(`An error occurred finding item: ${err.message}`));
 	}
@@ -163,8 +166,8 @@ Item.schema.post("save", async function(doc, next) {
 	const hostname = process.env.HOST_NAME;
 	const hostport = process.env.HOST_PORT;
 
-	const data = JSON.stringify(item); 
-	
+	const data = JSON.stringify(item);
+
 	var options = {
 		hostname: hostname,
 		port: hostport,
@@ -175,25 +178,21 @@ Item.schema.post("save", async function(doc, next) {
 		}
 	};
 
-	 if (hostport === "443")
-	 	options.secureProtocol = "TLSv1_2_method";
-	 else
-	 	options.headers.host = "localhost";
-		
+	if (hostport === "443") options.secureProtocol = "TLSv1_2_method";
+	else options.headers.host = "localhost";
 
 	const req = (hostport === "443" ? https : http).request(options, res => {
 		if (res.statusCode == "200") {
 			next();
-		}
-		else {
-		 	logger.error("Post save PUT request error: Status code ", res.statusCode);
+		} else {
+			logger.error("Post save PUT request error: Status code ", res.statusCode);
 			next(new Error(`An error has occurred. Status code ${res.statusCode}`));
 		}
 	});
 
 	req.on("error", error => {
-	  logger.error("Post save PUT request error :", error);
-	  next(new Error(`An error has occurred : ${error}`));
+		logger.error("Post save PUT request error :", error);
+		next(new Error(`An error has occurred : ${error}`));
 	});
 
 	req.write(data);
@@ -201,7 +200,6 @@ Item.schema.post("save", async function(doc, next) {
 
 	logger.info("...sent PUT request", options);
 });
-
 
 Item.defaultColumns = "title, source, relevancy";
 Item.register();
