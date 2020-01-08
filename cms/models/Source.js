@@ -8,7 +8,11 @@ var Source = new keystone.List("Source", {
 
 Source.add({
 	title: { type: String, required: true, initial: true },
-	oldEPiServerId: { label: "Old EPiServer ID", type: Types.Number, required: false }
+	oldEPiServerId: {
+		label: "Old EPiServer ID",
+		type: Types.Number,
+		required: false
+	}
 });
 
 Source.relationship({

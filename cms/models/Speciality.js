@@ -20,7 +20,6 @@ Speciality.relationship({
 	refPath: "specialities"
 });
 
-
 Speciality.defaultColumns = "title, key";
 
 Speciality.register();

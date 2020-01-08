@@ -112,7 +112,10 @@ const getSpecialities = function() {
 		{ key: "fa73b654-cce0-4cae-ae27-b87463aff958", title: "Surgery" },
 		{ key: "e52e495c-c963-43fc-92f4-47061994e034", title: "Travel medicine" },
 		{ key: "5a1195de-2f22-4ac5-8ccc-b5b3d292da87", title: "Vaccination" },
-		{ key: "55d7201c-9fd0-4db5-92b3-b354ac0c07a8", title: "Wounds and injuries" }
+		{
+			key: "55d7201c-9fd0-4db5-92b3-b354ac0c07a8",
+			title: "Wounds and injuries"
+		}
 	]);
 };
 
