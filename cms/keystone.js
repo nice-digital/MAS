@@ -69,7 +69,7 @@ keystone.set("wysiwyg additional options", {
 	]
 });
 
-keystone.set("signin logo", "/images/sps-logo.png");
+keystone.set("signin logo", "/images/both-logos.png");
 keystone.set("adminui custom styles", "./public/styles/keystone.less");
 
 // Start Keystone to connect to your database and initialise the web server
