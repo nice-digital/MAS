@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MAS.Configuration;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,7 +30,7 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body);
+                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailConfig.DailyTemplateId);
                 return Content(campaignId);
             }
             catch (Exception e)
@@ -50,7 +51,7 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body);
+                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailConfig.WeeklyTemplateId);
                 return Content(campaignId);
             }
             catch (Exception e)

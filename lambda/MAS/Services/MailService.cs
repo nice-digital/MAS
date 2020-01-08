@@ -14,7 +14,7 @@ namespace MAS.Services
 {
     public interface IMailService
     {
-        Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
+        Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body, int templateId);
         string CreateDailyEmailBody(IEnumerable<Item> item);
         string CreateWeeklyEmailBody(Weekly weekly);
     }
@@ -30,7 +30,7 @@ namespace MAS.Services
             _logger = logger;
         }
 
-        public async Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body)
+        public async Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body, int templateId)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace MAS.Services
                 {
                     Template = new ContentTemplate
                     {
-                        Id = AppSettings.MailConfig.DailyTemplateId,
+                        Id = templateId,
                         Sections = new Dictionary<string, object> {
                         { "body", body }
                     }

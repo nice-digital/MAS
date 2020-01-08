@@ -21,5 +21,13 @@ namespace MAS.Tests.Infrastructure
                 URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/multiple-items.json").ToString()
             };
         }
+
+        public static CMSConfig GetWeeklyFeed()
+        {
+            return new CMSConfig()
+            {
+                URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/weekly.json").ToString()
+            };
+        }
     }
 }
