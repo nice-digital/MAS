@@ -15,7 +15,7 @@
     "comment": "<p>A</p>",
     "publicationDate": "2019-11-25T13:48:36.000Z",
     "createdDate": "2019-10-22T15:05:05.927Z",
-    "speciality": [
+    "specialities": [
       "5daf1a5c8a34d485cb05b5ba"
     ],
     "evidenceType": {
@@ -43,7 +43,7 @@
     "comment": "<p>this is my comment</p>",
     "publicationDate": "2019-11-23T13:48:36.000Z",
     "createdDate": "2019-10-23T10:38:43.000Z",
-    "speciality": [
+    "specialities": [
       "5daf1a5c8a34d478fd05b5d4"
     ],
     "evidenceType": {
@@ -71,7 +71,7 @@
     "comment": "<p>comment</p>",
     "publicationDate": "2019-10-23T00:00:00.000Z",
     "createdDate": "2019-10-23T10:56:40.000Z",
-    "speciality": [
+    "specialities": [
       "5daf1a5c8a34d4d6e505b5b9"
     ],
     "evidenceType": {
@@ -99,7 +99,7 @@
     "comment": "<p>test</p>",
     "publicationDate": "2019-10-28T00:00:00.000Z",
     "createdDate": "2019-10-28T11:07:11.000Z",
-    "speciality": [
+    "specialities": [
       "5daf1a5c8a34d485cb05b5ba"
     ],
     "evidenceType": {

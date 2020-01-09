@@ -16,6 +16,7 @@ services:
       HOST_NAME: ${HOST_NAME}
       CONTENT_PATH: ${CONTENT_PATH}
       HOST_PORT: ${HOST_PORT}
+      STATIC_SITE_PATH: ${STATIC_SITE_PATH}
     volumes:
       - $PWD/cms:/app
       # Ignore node_modules from mounting to avoid binaries compiled on host machine architecture not working on docker machine: https://stackoverflow.com/a/37898591/486434
@@ -38,7 +39,7 @@ services:
     image: minio/minio:latest
     container_name: s3backend
     ports:
-      - "9000:9000"
+      - "9090:9000"
     entrypoint: sh
     command: -c '/usr/bin/minio server /data'
     # Mount a volume from the host machine to persist files
