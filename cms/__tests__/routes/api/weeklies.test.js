@@ -53,7 +53,7 @@ describe("weeklies", () => {
 			expect(Weekly.model.findOne).toHaveBeenCalledWith({ sendDate: sendDate });
 		});
 
-		it("should return a 500 JSON error response when there's an error getting the weekly item", async () => {
+		it("should return a 500 JSON error response when there's an error getting the weekly", async () => {
 			const error = new Error("An error getting a weekly");
 
 			Weekly.model.findOne.mockImplementation(() => {
@@ -91,7 +91,7 @@ describe("weeklies", () => {
 			expect(Item.model.find).toHaveBeenCalledWith({ weekly: weeklyId });
 		});
 
-		it("should populate the source, evidenceType and speciality fields", async () => {
+		it("should populate the source, evidenceType and speciality fields on the items", async () => {
 			Weekly.model.findOne.mockImplementation(() => ({
 				exec: () => ({
 					toObject: jest.fn()
@@ -119,6 +119,43 @@ describe("weeklies", () => {
 			expect(secondPopulate).toHaveBeenCalledWith("evidenceType");
 			expect(thirdPopulate).toHaveBeenCalledWith("speciality");
 			expect(unusedPopulate).not.toHaveBeenCalledWith();
+		});
+
+		it("should return a 500 JSON error response when there's an error getting the items", async () => {
+			Weekly.model.findOne.mockImplementation(() => ({
+				exec: () => ({})
+			}));
+
+			const error = new Error("An error getting items");
+			Item.model.find.mockImplementation(() => {
+				throw error;
+			});
+
+			await singleBySendDate({ params: {} }, response);
+
+			expect(response.status).toHaveBeenCalledWith(500);
+			expect(json).toHaveBeenCalledWith({ error: error });
+		});
+
+		it("should return the weekly and items as JSON", async () => {
+			Weekly.model.findOne.mockImplementation(() => ({
+				exec: () => ({
+					toObject: () => ({
+						a: 1
+					})
+				})
+			}));
+
+			const populate = {
+				populate: () => populate,
+				exec: () => [{ b: 2 }]
+			};
+			Item.model.find.mockImplementation(() => populate);
+
+			await singleBySendDate({ params: {} }, response);
+
+			expect(response.status).not.toHaveBeenCalled();
+			expect(json).toHaveBeenCalledWith({ a: 1, items: [{ b: 2 }] });
 		});
 	});
 });

@@ -28,7 +28,7 @@ exports.singleBySendDate = async function(req, res) {
 			.populate("speciality")
 			.exec();
 	} catch (err) {
-		return res.json({
+		return res.status(500).json({
 			error: err
 		});
 	}
