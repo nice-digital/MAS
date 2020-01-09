@@ -10,7 +10,7 @@ exports.singleBySendDate = async function(req, res) {
 			.findOne({ sendDate: req.params.sendDate })
 			.exec();
 	} catch (err) {
-		return res.json({
+		return res.status(500).json({
 			error: err
 		});
 	}
