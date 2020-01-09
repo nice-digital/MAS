@@ -7,5 +7,6 @@
         public int DailyTemplateId { get; set; }
         public string CampaignFolderId { get; set; }
         public int WeeklyTemplateId { get; set; }
+        public int SegmentId { get; set; }
     }
 }

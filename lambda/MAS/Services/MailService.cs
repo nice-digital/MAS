@@ -48,8 +48,11 @@ namespace MAS.Services
                     },
                     Recipients = new Recipient
                     {
-                        ListId = AppSettings.MailConfig.ListId
-                    }
+                        ListId = AppSettings.MailConfig.ListId,
+                        SegmentOptions = new SegmentOptions {
+                            SavedSegmentId = AppSettings.MailConfig.SegmentId
+                        }
+            }
                 });
 
                 await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
