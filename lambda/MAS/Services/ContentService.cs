@@ -48,7 +48,7 @@ namespace MAS.Services
             {
                 try
                 {
-                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI + AppSettings.CMSConfig.Weekly));
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI + AppSettings.CMSConfig.Weeklies));
                     var json = JsonConvert.DeserializeObject<Weekly>(jsonStr);
                     return json;
                 }

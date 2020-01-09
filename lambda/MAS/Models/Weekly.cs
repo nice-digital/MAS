@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MAS.Models
 {
@@ -11,6 +9,7 @@ namespace MAS.Models
         public DateTime SendDate { get; set; }
         public string CommentaryTitle { get; set; }
         public string CommentarySummary { get; set; }
-        public string FullCommentary { get; set; }
+        public string CommentaryBody { get; set; }
+        public List<Item> Items { get; set; }
     }
 }

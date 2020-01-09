@@ -40,7 +40,7 @@ namespace MAS.Services
                     Settings = new Setting
                     {
                         FolderId = AppSettings.MailConfig.CampaignFolderId,
-                        TemplateId = AppSettings.MailConfig.DailyTemplateId,
+                        TemplateId = templateId,
                         SubjectLine = subject,
                         FromName = "MAS",
                         ReplyTo = "MAS@nice.org.uk",
@@ -94,7 +94,29 @@ namespace MAS.Services
 
         public string CreateWeeklyEmailBody(Weekly weekly)
         {
-           return "Hello";
+            var body = new StringBuilder();
+
+            body.Append(weekly.Title);
+            body.Append("<br>");
+            body.Append(weekly.CommentaryTitle);
+            body.Append("<br>");
+            body.Append(weekly.CommentarySummary);
+            body.Append("<br><br><br>");
+
+            foreach (var item in weekly.Items)
+            {
+                body.Append(item.Source.Title);
+                body.Append("<br>");
+                body.Append(item.Title);
+                body.Append("<br>");
+                body.Append(item.ShortSummary);
+                body.Append("<br><br><br>");
+            }
+
+            body.Append(weekly.CommentarySummary);
+            body.Append(weekly.CommentaryBody);
+
+            return body.ToString();
         }
     }
 }
