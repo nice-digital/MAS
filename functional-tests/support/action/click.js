@@ -31,7 +31,7 @@ export const selectEvidenceType = () => {
 };
 export const save = () => {
 	clickElement("click", "element", "//BUTTON[@data-button='update']");
-	browser.pause(5000);
+	browser.pause(15000);
 };
 
 export default emailInput;

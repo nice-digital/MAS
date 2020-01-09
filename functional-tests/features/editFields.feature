@@ -1,4 +1,4 @@
-Feature: Homepage
+Feature: MAS CMS Item Form
   As a user of the Keystone CMS 
   I want to be able to edit an item in the CMS.
 
@@ -13,11 +13,10 @@ Scenario: Edit core and add non-core fields
     And I can add a URL   
     And I can add a Short summary   
     And I can add a Speciality type
-    And I can add a SPS comment 
+    And I can add a SPS comment
     And I can add a Resource link
     And I pause for 2000ms
     And I can add a Weekly relevancy score
-    And I can add a Publication date
+    #And I can add a Publication date
   When I click on the Save button
-    And I pause for 10000ms
   Then I expect the page to contain the text "Your changes have been saved successfully"

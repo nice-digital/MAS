@@ -1,4 +1,4 @@
-Feature: Homepage
+Feature: MAS CMS Item Form
   As a user of the Keystone CMS 
   I want to be able to add an item to the CMS.
 

@@ -11,9 +11,9 @@ export const addTitle = () => {
     setInputField("add", "NSAIDs Automated test again", ".FormField__inner.field-size-full  [name=title]");
 };
 export const addSource = () => {
-    browser.click("[for=source] .Select-control .Select-placeholder");
-    browser.waitForVisible("#react-select-2--list", 5000);     
-    browser.click("#react-select-2--option-1");
+    browser.click("[for='source'] .Select-control .Select-placeholder");
+    browser.waitForVisible("[for='source'] .Select-menu", 5000)
+    browser.click("[for='source'] .Select-menu .Select-option#react-select-2--option-1");
     browser.pause(5000);  
 };
 export const addShortSummary = () => {
@@ -24,28 +24,29 @@ export const addUrl = () => {
    setInputField("add", "https://bnfc.nice.org.uk/drug/abacavir.html", "//*[@name='url']");
 };
 export const addPublicationDate = () => {
-    browser.click("//*[@name='publicationDate']");
-    browser.click(".DayPicker-Week:nth-child(2) > .DayPicker-Day:nth-child(3)");  
+    browser.pause(2000);
+    setInputField("set", "2020-01-20", "//INPUT[@id='_DateInput_1']") 
 };
-export const addSpsComment = () => {    
-    var spsComment = browser.getAttribute("[for='comment'] iframe", 'id');
+export const addSpsComment = () => {
+    setTextFieldValue("[for='comment'] iframe","The first stop for professional medicines advice.",0,0);
+};
+export const addResourceLink = () => { 
+    setTextFieldValue("[for='resourceLinks'] iframe", "To access content relevant to you, create an account and sign in each time you use our website", 580, 556);
+};
+
+// Perhaps move to https://github.com/nice-digital/wdio-cucumber-steps if not application specific
+function setTextFieldValue(selector, value, scrollX, scrollY){
+    if(scrollX && scrollY){
+        browser.scroll(scrollX,scrollY);
+    }
+    var frameID = browser.getAttribute(selector, 'id');
     browser.pause(5000);    
-    browser.frame(spsComment);
+    browser.frame(frameID);
     browser.waitForExist('#tinymce');      
     var editorBody = $('#tinymce > p');
     editorBody.click();
-    editorBody.keys("The first stop for professional medicines advice.");
-    browser.frameParent("tinyMCE.activeEditor.insertContent('<p>hi</p>')");
-}
-export const addResourceLink = () => {
-    var resourceLink = browser.getAttribute("[for='resourceLinks'] iframe", 'id');
-    browser.pause(5000);   
-    browser.frame(resourceLink);
-    browser.waitForExist('#tinymce');        
-    var editorBody = $('#tinymce > p');
-    editorBody.click();
-    editorBody.keys("To access content relevant to you, create an account and sign in each time you use our website");
-    browser.frameParent("tinyMCE.activeEditor.insertContent('<p>hi</p>')");
-}
+    editorBody.keys(value);
+    browser.frameParent();
+};
 
 export default addEmail;

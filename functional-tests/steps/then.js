@@ -17,10 +17,10 @@ Then(
                 value = "//DIV[@class='dashboard-heading'][text()='Medicines Awareness Service']"
                 break;
             case "You have been signed out.":
-                value = "//DIV[@class='css-mv6v0s']"
+                value = "[data-alert-type='info']";
                 break; 
             case "Your changes have been saved successfully":
-                value = "//DIV[@class='css-ctpeu']"
+                value = "[data-alert-type='success']";
                 break;          
             default:
                 value = "div.dashboard-header";
@@ -37,23 +37,24 @@ Then(
 );
 Then(
     /^I expect a create a new item form pops up$/, () => {
-        var form = ("//DIV[@class='css-s2cbvv']");
+        var form = ("[data-screen-id='modal-dialog']");
         browser.isExisting(form);
         browser.getValue(form);
     }          
 );
 Then(
     /^I can add an Evidence type$/, () => { 
-        browser.click( "[for=evidenceType] .Select-control .Select-placeholder");    
-        browser.waitForVisible("#react-select-3--list", 5000);
-        browser.click("#react-select-3--option-16");
+        browser.click("[for='evidenceType'] .Select-control .Select-placeholder");    
+        browser.waitForVisible("[for='evidenceType'] .Select-menu ", 5000);
+        browser.click("[for='evidenceType'] .Select-menu .Select-option#react-select-3--option-3");
         browser.pause(5000);
     }          
 );
 Then(
     /^I expect the new record is added to the list of items$/, () => {
-        var item = ("(//A[@class='ItemList__value ItemList__value--text ItemList__link--interior ItemList__link--padded ItemList__value--truncate'][text()='NSAIDs Automated test again'][text()='NSAIDs Automated test again'])[3]");
-        browser.isExisting(item);        
+        browser.pause(3000);
+        browser.click("[data-list-path='items'] a");
+        browser.waitForVisible("//A[text()='NSAIDs Automated test again']");      
     }          
 );
 Then(
@@ -74,11 +75,12 @@ Then(
 );
 Then(
     /^I can add a Speciality type$/, () => {  
-        var speciality = $ ("[for=speciality] .Select-control .Select-placeholder");
+        var speciality = $ ("[for='speciality'] .Select-control .Select-placeholder");
         speciality.scroll(250, 250);
         browser.pause(5000);
-        browser.click( "[for=speciality] .Select-control .Select-arrow");
-        browser.click("#react-select-4--option-4");       
+        browser.click("[for='speciality'] .Select-control .Select-arrow");
+        browser.click("[for='speciality'] .Select-menu .Select-option#react-select-4--option-4")
+              
     }                
 );
 Then(
@@ -91,9 +93,10 @@ Then(
 );
 Then(
     /^I can add a Weekly relevancy score$/, () => {  
-        var relevancy = $ ("[for=relevancy] .Select-control .Select-placeholder");
+        var relevancy = $ ("[for='relevancy'] .Select-control .Select-placeholder");
         relevancy.scroll(950, 750);
-        browser.click( "[for=relevancy] .Select-control .Select-arrow");
-        browser.click("#react-select-5--option-0");       
+        browser.click("[for='relevancy'] .Select-control .Select-arrow");
+        browser.click("[for='relevancy'] .Select-menu .Select-option#react-select-5--option-0")
+            
     }                
 );

@@ -1,11 +1,11 @@
-Feature: Homepage
+Feature: MAS Homepage
   As a user of the Keystone CMS 
   I want to be able to log in and out of the CMS.
 
 Background:
   Given I have a screen that is 1366 by 768 pixels
 
- Scenario: Navigate to find guidance page
+ Scenario: Log in and out of MAS Keystone
   Given I open the homepage   
   When I click the email input field
     And I add the email address 
