@@ -16,6 +16,6 @@ Background:
   When I click the Sign Out button 
   Then I expect the page to contain the text "You have been signed out."
   
-
-  Scenario: Check page has no accessibility issues
-    Then the page should have no accessibility issues
+#  Not in scope at the moment
+  #Scenario: Check page has no accessibility issues
+    #Then the page should have no accessibility issues
