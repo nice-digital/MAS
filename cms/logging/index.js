@@ -23,9 +23,28 @@ exports.configure = () => {
 
 	// Overriding the keystone 500 handler means we can log errors
 	keystone.set("500", (err, req, res, next) => {
-		logger.error(err.message, err, {
+		const {
+			hostname,
+			method,
+			originalUrl,
+			params,
+			path,
+			protocol,
+			query,
+			xhr
+		} = req;
+		err.request = {
+			hostname,
+			method,
+			originalUrl,
+			params,
+			path,
+			protocol,
+			query,
+			xhr,
 			url: req.protocol + "://" + req.get("host") + req.originalUrl
-		});
+		};
+		logger.error(err.message, err);
 
 		const isJsonResponse = res.get("Content-Type") === "application/json";
 

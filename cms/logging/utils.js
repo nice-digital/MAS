@@ -2,6 +2,8 @@ const moment = require("moment"),
 	os = require("os"),
 	{ serializeError } = require("serialize-error");
 
+const niceLoggingConfig = require("./nice-logging.json");
+
 // Log4js levels are all uppercase but we want levels like "Error" to match nice logging
 const getNiceLogLevelStr = logLevel =>
 	logLevel[0] + logLevel.substr(1).toLowerCase();
@@ -32,12 +34,14 @@ const niceLoggingLayout = config => {
 			callStack
 		} = log4jsEvent;
 
+		const { Application, Environment } = niceLoggingConfig.Logging;
+
 		const niceLogEvent = {
 			// Capitalized field names to match nice logging
 			Timestamp: moment(startTime).toISOString(true),
 			NodeEnv: process.env.NODE_ENV,
-			Environment: "test",
-			Application: "MAS-CMS",
+			Environment,
+			Application,
 			MachineName: os.hostname(),
 			Message: getMessage(data),
 			Level: getNiceLogLevelStr(level.levelStr),
