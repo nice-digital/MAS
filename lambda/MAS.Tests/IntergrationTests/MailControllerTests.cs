@@ -2,7 +2,6 @@
 using Xunit;
 using Shouldly;
 using MAS.Tests.Infrastructure;
-using System.IO;
 using System.Text;
 using System;
 using MAS.Configuration;
