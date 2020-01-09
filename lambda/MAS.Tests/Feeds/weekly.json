@@ -1,10 +1,61 @@
 {
-  "_id": "5e15c376a15fafcb92f80866",
-  "updatedAt": "2020-01-08T11:56:38.483Z",
-  "createdAt": "2020-01-08T11:56:38.483Z",
+  "_id": "5e15f9454ebd60e4c4e88b08",
+  "updatedAt": "2020-01-09T13:54:09.138Z",
+  "createdAt": "2020-01-08T15:46:13.022Z",
   "title": "6th January 2020 to 10th January 2020",
   "sendDate": "2020-01-13T00:00:00.000Z",
   "startDate": "2020-01-06T00:00:00.000Z",
   "endDate": "2020-01-10T00:00:00.000Z",
-  "__v": 0
+  "__v": 0,
+  "commentaryBody": "<p><span style=\"font-family: 'Open Sans', Arial, sans-serif; text-align: justify;\">Cras fringilla et eros sit amet sollicitudin. Duis nec pretium ante. Mauris mattis neque erat, eu dapibus nunc efficitur sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut eros quis ipsum volutpat pulvinar tempor vitae nulla. Donec efficitur feugiat placerat. Vestibulum maximus cursus mauris pharetra dignissim. Nunc a dolor in leo interdum posuere eu ac ipsum. Morbi euismod eros egestas, ornare erat eu, blandit turpis. Proin ac porttitor elit, vel sollicitudin leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc vel eros cursus, vestibulum lacus vitae, pharetra arcu. Fusce ac luctus neque.</span></p>\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td>Deze</td>\r\n<td>die</td>\r\n</tr>\r\n<tr>\r\n<td>Dit</td>\r\n<td>Dat</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-family: 'Open Sans', Arial, sans-serif; text-align: justify;\">Ut eget felis commodo, elementum felis in, dapibus sapien. Quisque aliquam justo id orci mollis, et porttitor nisl imperdiet. Phasellus eu leo ut orci porta porta a sed turpis. Mauris euismod molestie orci, vel convallis tortor elementum eu. Maecenas lobortis eros vitae nunc pharetra, hendrerit laoreet ex pellentesque. Ut tempus placerat risus, vel ultricies ipsum mollis et. Proin hendrerit lorem et tortor elementum, gravida porta libero finibus. Praesent sagittis, massa bibendum luctus maximus, libero eros ultricies diam, a accumsan nunc justo eget lorem. Proin ipsum ligula, interdum et leo ut, luctus feugiat nibh. Maecenas ac euismod lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer pulvinar aliquet placerat. Integer a velit libero. Nam tristique rutrum dolor in semper.</span></p>",
+  "commentarySummary": "<p><span style=\"font-family: 'Open Sans', Arial, sans-serif; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac nulla nulla. Donec mattis sit amet urna hendrerit dapibus. Nulla tempus rhoncus eros. Aliquam sit amet tempus ex, eu efficitur felis. Sed justo arcu, pulvinar id ultricies eu, finibus non tellus. Nulla facilisi. Sed egestas nulla eget sapien molestie pellentesque. Nunc efficitur rutrum eros, et laoreet odio rhoncus aliquam. Vivamus et aliquam magna, eget sollicitudin eros. Mauris gravida augue ac turpis viverra, nec cursus neque ornare. Curabitur eu tincidunt erat, porttitor ultricies ligula.</span></p>",
+  "commentaryTitle": "New MHRA drug safety advice: September to November 2020",
+  "updatedBy": "5e15f9124ebd60415ee884f6",
+  "items": [
+    {
+      "_id": "5e15f9444ebd6082b4e88b07",
+      "updatedBy": "5e15f9124ebd60415ee884f6",
+      "updatedAt": "2020-01-09T09:36:55.109Z",
+      "createdBy": "5e15f9124ebd60415ee884f6",
+      "createdAt": "2020-01-08T15:46:13.013Z",
+      "slug": "cannabidiol-with-clobazam-for-treating-seizures-associated-with-dravet-syndrome",
+      "evidenceType": {
+        "_id": "5e15f9154ebd607491e88ae8",
+        "title": "Guidance and advice - Drug best practice guidance",
+        "key": "mas_evidence_types:Drug%20best%20practice%20guidance",
+        "oldEPiServerId": 778806,
+        "__v": 0
+      },
+      "source": {
+        "_id": "5e15f9144ebd602c38e888ac",
+        "oldEPiServerId": 1049,
+        "title": "National Institute for Health and Care Excellence",
+        "__v": 0
+      },
+      "url": "https://www.nice.org.uk/guidance/ta614",
+      "title": "Cannabidiol with clobazam for treating seizures associated with Dravet syndrome",
+      "__v": 2,
+      "comment": "<ul>\r\n<li>the frequency of convulsive seizures is checked every 6 months, and cannabidiol is stopped if the frequency has not fallen by at least 30% compared with the 6 months before starting treatment</li>\r\n<li>the company provides cannabidiol according to the commercial arrangement.</li>\r\n</ul>",
+      "publicationDate": "2019-12-25T00:00:00.000Z",
+      "relevancy": 1,
+      "resourceLinks": "",
+      "shortSummary": "Cannabidiol with clobazam is recommended as an option for treating seizures associated with Dravet syndrome in people aged 2 years and older, only if:",
+      "weekly": "5e15f9454ebd60e4c4e88b08",
+      "isInitial": false,
+      "speciality": [
+        {
+          "_id": "5e15f9154ebd6094d6e88ad2",
+          "key": "793637c7-9615-42b1-905c-4827a6fab04c",
+          "title": "Neurological disorders",
+          "__v": 0
+        },
+        {
+          "_id": "5e15f9154ebd601129e88ad7",
+          "key": "141aeb17-6599-4c05-a6fe-a64e5b994141",
+          "title": "Paediatric and neonatal medicine",
+          "__v": 0
+        }
+      ]
+    }
+  ]
 }

@@ -46,7 +46,7 @@ namespace MAS.Controllers
             var weekly = await _contentService.GetWeeklyAsync();
 
             var body = _mailService.CreateWeeklyEmailBody(weekly);
-            var subject = "MAS Email";
+            var subject = "MAS Weekly Email";
             var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
 
             try

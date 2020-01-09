@@ -14,6 +14,7 @@
     <None Remove="appsettings.json" />
     <None Remove="Feeds\multiple-items.json" />
     <None Remove="Feeds\single-item.json5daeb5af22565a82530d7373" />
+    <None Remove="Feeds\weekly.json" />
     <None Remove="single-item.json" />
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +28,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Feeds\multiple-items.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Feeds\weekly.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
