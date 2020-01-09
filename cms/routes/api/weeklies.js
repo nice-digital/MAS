@@ -1,14 +1,37 @@
-var keystone = require("keystone");
+const keystone = require("keystone");
 
-var Weekly = keystone.list("Weekly");
+const Weekly = keystone.list("Weekly"),
+	Item = keystone.list("Item");
 
-exports.single = function(req, res) {
-	Weekly.model
-		.findOne()
-		.sort("sendDate" -1)
-		.exec(function(err, weekly) {
-			if (err) return res.json({ err: err });
-
-			res.json(weekly);
+exports.singleBySendDate = async function(req, res) {
+	let weekly;
+	try {
+		weekly = await Weekly.model
+			.findOne({ sendDate: req.params.sendDate })
+			.exec();
+	} catch (err) {
+		return res.json({
+			error: err
 		});
+	}
+
+	if (!weekly) {
+		return res.status(404).json({ error: "Weekly could not be found" });
+	}
+
+	let items;
+	try {
+		items = await Item.model
+			.find({ weekly: weekly._id })
+			.populate("source")
+			.populate("evidenceType")
+			.populate("speciality")
+			.exec();
+	} catch (err) {
+		return res.json({
+			error: err
+		});
+	}
+
+	res.json({ ...weekly.toObject(), items });
 };
