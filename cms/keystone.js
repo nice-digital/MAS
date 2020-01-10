@@ -3,8 +3,7 @@
 require("dotenv").config();
 
 // Require keystone
-var keystone = require("keystone");
-var handlebars = require("express-handlebars");
+const keystone = require("keystone");
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -43,11 +42,14 @@ keystone.set("routes", require("./routes"));
 keystone.set("nav", {
 	content: ["Item", "Weekly"],
 	admin: ["Source", "Speciality", "EvidenceType"],
-	users: "User",
+	users: "User"
 });
 
 keystone.set("wysiwyg override toolbar", true);
-keystone.set("wysiwyg additional buttons", "bold italic | bullist numlist | link | code");
+keystone.set(
+	"wysiwyg additional buttons",
+	"bold italic | bullist numlist | link | code"
+);
 
 keystone.set("wysiwyg additional options", {
 	// Remove the 'p' etc from status bar at the bottom of the editor
@@ -69,7 +71,7 @@ keystone.set("wysiwyg additional options", {
 	]
 });
 
-keystone.set("signin logo", "/images/sps-logo.png");
+keystone.set("signin logo", "/images/both-logos.png");
 keystone.set("adminui custom styles", "./public/styles/keystone.less");
 
 // Start Keystone to connect to your database and initialise the web server
