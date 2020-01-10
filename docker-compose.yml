@@ -39,7 +39,7 @@ services:
     image: minio/minio:latest
     container_name: s3backend
     ports:
-      - "9090:9000"
+      - "9000:9000"
     entrypoint: sh
     command: -c '/usr/bin/minio server /data'
     # Mount a volume from the host machine to persist files
