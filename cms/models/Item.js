@@ -96,7 +96,11 @@ Item.add({
 		type: Types.Text,
 		watch: "title",
 		value: function() {
-			return process.env.STATIC_SITE_PATH + (this.slug || utils.slug(this.title)) + ".html";
+			return (
+				process.env.STATIC_SITE_PATH +
+				(this.slug || utils.slug(this.title)) +
+				".html"
+			);
 		},
 		noedit: true,
 		label: "SPS comment URL"
