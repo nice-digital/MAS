@@ -14,7 +14,7 @@ namespace MAS.Services
 {
     public interface IMailService
     {
-        Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body, int templateId);
+        Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body, int templateId, int segmentId);
         string CreateDailyEmailBody(IEnumerable<Item> item);
         string CreateWeeklyEmailBody(Weekly weekly);
     }
@@ -30,7 +30,7 @@ namespace MAS.Services
             _logger = logger;
         }
 
-        public async Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body, int templateId)
+        public async Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body, int templateId, int segmentId)
         {
             try
             {
@@ -50,9 +50,9 @@ namespace MAS.Services
                     {
                         ListId = AppSettings.MailConfig.ListId,
                         SegmentOptions = new SegmentOptions {
-                            SavedSegmentId = AppSettings.MailConfig.SegmentId
+                            SavedSegmentId = segmentId
                         }
-            }
+                    }
                 });
 
                 await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
@@ -61,8 +61,8 @@ namespace MAS.Services
                     {
                         Id = templateId,
                         Sections = new Dictionary<string, object> {
-                        { "body", body }
-                    }
+                            { "body", body }
+                        }
                     }
                 });
 
@@ -74,8 +74,7 @@ namespace MAS.Services
             {
                 _logger.LogError($"Failed to communitcate with MailChimp - exception: {e.Message}");
                 throw new Exception($"Failed to communitcate with MailChimp - exception: {e.Message}");
-            }
-          
+            }  
         }
 
         public string CreateDailyEmailBody(IEnumerable<Item> items)

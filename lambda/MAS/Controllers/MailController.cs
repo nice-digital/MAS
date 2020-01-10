@@ -30,7 +30,7 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailConfig.DailyTemplateId);
+                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailConfig.DailyTemplateId, AppSettings.MailConfig.DailySegmentId);
                 return Content(campaignId);
             }
             catch (Exception e)
@@ -51,7 +51,7 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailConfig.WeeklyTemplateId);
+                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailConfig.WeeklyTemplateId, AppSettings.MailConfig.WeeklySegmentId);
                 return Content(campaignId);
             }
             catch (Exception e)
