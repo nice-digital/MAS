@@ -1,6 +1,8 @@
-var keystone = require("keystone");
+const keystone = require("keystone"),
+	Speciality = keystone.list("Speciality");
 
-var Speciality = keystone.list("Speciality");
+const log4js = require("log4js"),
+	logger = log4js.getLogger();
 
 exports.single = function(req, res) {
 	Speciality.model.findById(req.params.itemId).exec(function(err, item) {
