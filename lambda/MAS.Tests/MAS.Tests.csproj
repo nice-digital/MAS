@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <EnableDefaultContentItems>False</EnableDefaultContentItems>
+    <UserSecretsId>adafe3d8-65fb-49fd-885e-03341a36dc88</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".\SampleRequests\*">
@@ -9,10 +10,23 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Remove="appsettings.Development.json" />
+    <None Remove="appsettings.json" />
+    <None Remove="Feeds\multiple-items.json" />
+    <None Remove="Feeds\single-item.json5daeb5af22565a82530d7373" />
     <None Remove="single-item.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Feeds\single-item.json">
+    <Content Include="appsettings.Development.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Feeds\multiple-items.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -23,8 +37,11 @@
     <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="1.2.0" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.100.1" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="Moq" Version="4.13.1" />
     <PackageReference Include="Shouldly" Version="3.0.2" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>

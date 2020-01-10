@@ -15,11 +15,10 @@ Speciality.add({
 });
 
 Speciality.relationship({
-	ref: "Items",
+	ref: "Item",
 	path: "items",
 	refPath: "specialities"
 });
-
 
 Speciality.defaultColumns = "title, key";
 
