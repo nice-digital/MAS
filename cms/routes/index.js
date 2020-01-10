@@ -18,16 +18,23 @@
  * http://expressjs.com/api.html#app.VERB
  */
 
-var keystone = require("keystone");
-var middleware = require("./middleware");
-var importRoutes = keystone.importer(__dirname);
+const keystone = require("keystone");
+
+const {
+	initErrorHandlers,
+	initLocals,
+	flashMessages
+} = require("./middleware");
+
+const importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
-keystone.pre("routes", middleware.initLocals);
-keystone.pre("render", middleware.flashMessages);
+keystone.pre("routes", initErrorHandlers);
+keystone.pre("routes", initLocals);
+keystone.pre("render", flashMessages);
 
 // Import Route Controllers
-var routes = {
+const routes = {
 	views: importRoutes("./views"),
 	api: importRoutes("./api")
 };
