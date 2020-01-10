@@ -19,6 +19,7 @@
 		<file src="routes\**\*" target="routes" />
 		<file src="updates\**\*" target="updates" />
 		<file src="dotenv.config" />
+		<file src="keystone.js" />
 		<file src="package-lock.json" />
 		<file src="package.json" />
 	</files>
