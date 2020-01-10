@@ -43,7 +43,7 @@ namespace MAS.Tests.IntergrationTests.Content
                     Key = "mas_evidence_types:Safety%20alerts",
                     Title = "Safety alerts"
                 },
-                UKMiComment = "UKMI Comment",
+                Comment = "SPS Comment",
                 ResourceLinks = "<p><a title=\"Link 1\" href=\"items/5de65fe432281d43fbfcd15a\">Link 1</a></p>\r\n<p><a title=\"sadada\" href=\"items/5de65fe432281d43fbfcd15a\">Link 2</a></p>"
             };
 
