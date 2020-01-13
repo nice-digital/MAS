@@ -54,6 +54,7 @@ namespace MAS.Services
                         }
                     }
                 });
+                _logger.LogInformation($"Daily campaign has been created with campaignId {campaign.Id}");
 
                 await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
                 {
@@ -65,6 +66,7 @@ namespace MAS.Services
                         }
                     }
                 });
+                _logger.LogInformation($"The body of daily template {AppSettings.MailChimpConfig.DailyTemplateId} has been updated");
 
                 await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
 
@@ -102,6 +104,7 @@ namespace MAS.Services
                         }
                     }
                 });
+                _logger.LogInformation($"Weekly campaign has been created with campaignId {campaign.Id}");
 
                 await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
                 {
@@ -113,6 +116,7 @@ namespace MAS.Services
                         }
                     }
                 });
+                _logger.LogInformation($"The body of weekly template {AppSettings.MailChimpConfig.DailyTemplateId} has been updated");
 
                 await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
 
