@@ -1,4 +1,5 @@
 const keystone = require("keystone"),
+	_ = require("lodash"),
 	Items = keystone.list("Item");
 
 const log4js = require("log4js"),
@@ -22,7 +23,26 @@ exports.single = function (req, res, next) {
 				return res.notfound("Item not found", notFoundMsg, true);
 			}
 
-			res.json(item);
+			const obj = _.pick(item, [
+				"_id",
+				"updatedAt",
+				"createdAt",
+				"slug",
+				"shortSummary",
+				"source._id",
+				"source.title",
+				"url",
+				"title",
+				"comment",
+				"publicationDate",
+				"resourceLinks",
+				"speciality",
+				"evidenceType._id",
+				"evidenceType.title",
+				"evidenceType.key",
+				"evidenceType.broaderTitle"]);
+
+			return res.json(obj);
 		});
 };
 
