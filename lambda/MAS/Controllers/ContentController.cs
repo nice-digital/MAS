@@ -30,6 +30,7 @@ namespace MAS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogError($"Failed to write item to repository - exception: {e.InnerException?.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }

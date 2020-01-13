@@ -41,6 +41,7 @@ namespace MAS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogError($"Failed to create and send daily campaign - exception: {e.InnerException?.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }
@@ -104,6 +105,7 @@ namespace MAS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogError($"Failed to create and send weekly campaign - exception: {e.InnerException?.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }
