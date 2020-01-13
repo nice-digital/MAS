@@ -21,7 +21,7 @@ namespace MAS.Tests.IntergrationTests.Mail
             const string mailChimpCampaignsURI = "https://us5.api.mailchimp.com/3.0/campaigns/";
             AppSettings.CMSConfig = TestAppSettings.GetMultipleItemsFeed();
 
-            var authValue = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"anystring:{AppSettings.MailConfig.ApiKey}")));
+            var authValue = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"anystring:{AppSettings.MailChimpConfig.ApiKey}")));
             var client = new HttpClient()
             {
                 DefaultRequestHeaders = { Authorization = authValue }
@@ -49,7 +49,7 @@ namespace MAS.Tests.IntergrationTests.Mail
             const string mailChimpCampaignsURI = "https://us5.api.mailchimp.com/3.0/campaigns/";
             AppSettings.CMSConfig = TestAppSettings.GetWeeklyFeed();
 
-            var authValue = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"anystring:{AppSettings.MailConfig.ApiKey}")));
+            var authValue = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"anystring:{AppSettings.MailChimpConfig.ApiKey}")));
             var client = new HttpClient()
             {
                 DefaultRequestHeaders = { Authorization = authValue }

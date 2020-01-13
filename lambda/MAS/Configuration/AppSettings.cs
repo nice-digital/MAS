@@ -11,6 +11,7 @@ namespace MAS.Configuration
         public static EnvironmentConfig EnvironmentConfig { get; private set; }
         public static AWSConfig AWSConfig { get; set; }
         public static CMSConfig CMSConfig { get; set; }
+        public static MailChimpConfig MailChimpConfig { get; set; }
         public static MailConfig MailConfig { get; set; }
 
         public static void Configure(IServiceCollection services, IConfiguration configuration)
@@ -18,12 +19,14 @@ namespace MAS.Configuration
             services.Configure<EnvironmentConfig>(configuration.GetSection("AppSettings:Environment"));
             services.Configure<AWSConfig>(configuration.GetSection("AWS"));
             services.Configure<CMSConfig>(configuration.GetSection("CMS"));
-            services.Configure<MailConfig>(configuration.GetSection("MailChimp"));
+            services.Configure<MailChimpConfig>(configuration.GetSection("MailChimp"));
+            services.Configure<MailConfig>(configuration.GetSection("MailConfig"));
 
             var sp = services.BuildServiceProvider();
             EnvironmentConfig = sp.GetService<IOptions<EnvironmentConfig>>().Value;
             AWSConfig = sp.GetService<IOptions<AWSConfig>>().Value;
             CMSConfig = sp.GetService<IOptions<CMSConfig>>().Value;
+            MailChimpConfig = sp.GetService<IOptions<MailChimpConfig>>().Value;
             MailConfig = sp.GetService<IOptions<MailConfig>>().Value;
         }
     }

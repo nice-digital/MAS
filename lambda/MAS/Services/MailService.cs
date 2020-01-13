@@ -39,16 +39,16 @@ namespace MAS.Services
                     Type = CampaignType.Regular,
                     Settings = new Setting
                     {
-                        FolderId = AppSettings.MailConfig.CampaignFolderId,
+                        FolderId = AppSettings.MailChimpConfig.CampaignFolderId,
                         TemplateId = templateId,
                         SubjectLine = subject,
-                        FromName = "MAS",
-                        ReplyTo = "MAS@nice.org.uk",
+                        FromName = AppSettings.MailConfig.FromName,
+                        ReplyTo = AppSettings.MailConfig.ReplyTo,
                         PreviewText = previewText
                     },
                     Recipients = new Recipient
                     {
-                        ListId = AppSettings.MailConfig.ListId,
+                        ListId = AppSettings.MailChimpConfig.ListId,
                         SegmentOptions = new SegmentOptions {
                             SavedSegmentId = segmentId
                         }

@@ -29,7 +29,7 @@ namespace MAS.Tests.UnitTests
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
 
             //Act
-            var response = mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text", AppSettings.MailConfig.DailyTemplateId, AppSettings.MailConfig.DailySegmentId);
+            var response = mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text", AppSettings.MailChimpConfig.DailyTemplateId, AppSettings.MailChimpConfig.DailySegmentId);
             
             //Assert
             response.Exception.ShouldBe(null);
@@ -51,7 +51,7 @@ namespace MAS.Tests.UnitTests
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
 
             //Act + Assert
-            Should.Throw<Exception>(() => mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text", AppSettings.MailConfig.WeeklyTemplateId, AppSettings.MailConfig.WeeklySegmentId));
+            Should.Throw<Exception>(() => mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text", AppSettings.MailChimpConfig.WeeklyTemplateId, AppSettings.MailChimpConfig.WeeklySegmentId));
         }
     }
 }
