@@ -4,6 +4,8 @@ var keystone = require("keystone"),
 var Items = keystone.list("Item");
 
 exports.single = function(req, res) {
+
+
 	Items.model
 		.findById(req.params.itemId)
 		.populate("source")
