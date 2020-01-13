@@ -36,7 +36,7 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailChimpConfig.DailyTemplateId, AppSettings.MailChimpConfig.DailySegmentId);
+                var campaignId = await _mailService.CreateAndSendDailyCampaignAsync(subject, previewText, body);
                 return Content(campaignId);
             }
             catch (Exception e)
@@ -99,7 +99,7 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendCampaignAsync(subject, previewText, body, AppSettings.MailChimpConfig.WeeklyTemplateId, AppSettings.MailChimpConfig.WeeklySegmentId);
+                var campaignId = await _mailService.CreateAndSendWeeklyCampaignAsync(subject, previewText, body);
                 return Content(campaignId);
             }
             catch (Exception e)

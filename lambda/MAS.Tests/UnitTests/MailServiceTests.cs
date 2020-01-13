@@ -8,7 +8,6 @@ using MailChimp.Net.Models;
 using MailChimp.Net.Core;
 using Shouldly;
 using Microsoft.Extensions.Logging;
-using MAS.Configuration;
 using System;
 
 namespace MAS.Tests.UnitTests
@@ -29,7 +28,7 @@ namespace MAS.Tests.UnitTests
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
 
             //Act
-            var response = mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text", AppSettings.MailChimpConfig.DailyTemplateId, AppSettings.MailChimpConfig.DailySegmentId);
+            var response = mailService.CreateAndSendDailyCampaignAsync("Test Subject", "Preview Text", "Body Text");
             
             //Assert
             response.Exception.ShouldBe(null);
@@ -51,7 +50,7 @@ namespace MAS.Tests.UnitTests
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
 
             //Act + Assert
-            Should.Throw<Exception>(() => mailService.CreateAndSendCampaignAsync("Test Subject", "Preview Text", "Body Text", AppSettings.MailChimpConfig.WeeklyTemplateId, AppSettings.MailChimpConfig.WeeklySegmentId));
+            Should.Throw<Exception>(() => mailService.CreateAndSendDailyCampaignAsync("Test Subject", "Preview Text", "Body Text"));
         }
     }
 }
