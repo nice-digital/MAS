@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MAS.Configuration;
 using MAS.Models;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -95,8 +94,8 @@ namespace MAS.Controllers
             }
 
             var body = _mailService.CreateWeeklyEmailBody(weeklyContent);
-            var subject = "MAS Weekly Email";
-            var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
+            var subject = "NICE Medicines Awareness Weekly - " + weeklyContent.Title;
+            var previewText = "NICE Medicines Awareness Weekly. A selection of the week's current awareness and evidence-based medicines information";
 
             try
             {
