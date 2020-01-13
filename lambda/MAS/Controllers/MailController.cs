@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MAS.Configuration;
+using MAS.Models;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace MAS.Controllers
 {
@@ -11,11 +13,15 @@ namespace MAS.Controllers
     {
         private readonly IMailService _mailService;
         private readonly IContentService _contentService;
+        private readonly ILogger<ContentController> _logger;
+        private readonly IBankHolidayService _bankHoldayService;
 
-        public MailController(IMailService mailService, IContentService contentService)
+        public MailController(IMailService mailService, IContentService contentService, IBankHolidayService bankHoldayService, ILogger<ContentController> logger)
         {
             _mailService = mailService;
             _contentService = contentService;
+            _logger = logger;
+            _bankHoldayService = bankHoldayService;
         }
 
         //PUT api/mail/daily
@@ -43,9 +49,51 @@ namespace MAS.Controllers
         [HttpPut("weekly")]
         public async Task<IActionResult> PutWeeklyMailAsync()
         {
-            var weekly = await _contentService.GetWeeklyAsync();
+            Weekly weeklyContent;
 
-            var body = _mailService.CreateWeeklyEmailBody(weekly);
+            var todaysDate = DateTime.Today;
+            var isBankHoliday = _bankHoldayService.IsBankHoliday(todaysDate);
+            if (todaysDate.DayOfWeek == DayOfWeek.Monday)
+            {
+                if (isBankHoliday)
+                {
+                    _logger.LogWarning($"{todaysDate} is a bank holiday therefore an email isnt sent");
+                    return Content($"{todaysDate} is a bank holiday therefore an email isnt sent");
+                }
+                else
+                {
+                    weeklyContent = await _contentService.GetWeeklyAsync(todaysDate);
+                }
+            }
+            else
+            {
+                var previousMonday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + 1);
+                var previousMondayIsBankHoliday = _bankHoldayService.IsBankHoliday(previousMonday);
+                if (previousMondayIsBankHoliday)
+                {
+                    weeklyContent = await _contentService.GetWeeklyAsync(previousMonday);
+                }
+                else
+                {
+                    //Presume email has been sent log
+                    _logger.LogWarning($"An email was sent on {previousMonday}");
+                    return Content($"An email was sent on {previousMonday}");
+                }
+            }
+
+            if (weeklyContent == null)
+            {
+                _logger.LogWarning("No weekly record was found");
+                return Content("No weekly record was found");
+            }
+            else if (weeklyContent.Items.Count == 0)
+            {
+                //weekly has no items, don't send email, log to kibana
+                _logger.LogWarning("No weekly record was found");
+                return Content("The weekly didn't have any items");
+            }
+
+            var body = _mailService.CreateWeeklyEmailBody(weeklyContent);
             var subject = "MAS Weekly Email";
             var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
 

@@ -12,7 +12,7 @@ namespace MAS.Services
     public interface IContentService
     {
         Task<IEnumerable<Item>> GetItemsAsync();
-        Task<Weekly> GetWeeklyAsync();
+        Task<Weekly> GetWeeklyAsync(DateTime sendDate);
     }
 
     public class ContentService : IContentService
@@ -42,13 +42,13 @@ namespace MAS.Services
             }
         }
 
-        public async Task<Weekly> GetWeeklyAsync()
+        public async Task<Weekly> GetWeeklyAsync(DateTime sendDate)
         {
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI + AppSettings.CMSConfig.Weeklies));
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI + AppSettings.CMSConfig.WeekliesBySendDate + sendDate));
                     var json = JsonConvert.DeserializeObject<Weekly>(jsonStr);
                     return json;
                 }
