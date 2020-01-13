@@ -1,4 +1,5 @@
-var keystone = require("keystone");
+var keystone = require("keystone"),
+	_ = require("lodash");
 
 var Items = keystone.list("Item");
 
@@ -13,7 +14,26 @@ exports.single = function(req, res) {
 
 			if (!item) return res.notfound("Item not found");
 
-			res.json(item);
+			const obj = _.pick(item, [
+				"_id",
+				"updatedAt",
+				"createdAt",
+				"slug",
+				"shortSummary",
+				"source._id",
+				"source.title",
+				"url",
+				"title",
+				"comment",
+				"publicationDate",
+				"resourceLinks",
+				"speciality",
+				"evidenceType._id",
+				"evidenceType.title",
+				"evidenceType.key",
+				"evidenceType.broaderTitle"]);
+
+			return res.json(obj);
 		});
 };
 
