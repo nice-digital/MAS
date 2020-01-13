@@ -31,20 +31,23 @@ namespace MAS.Tests.IntergrationTests.Content
             Item item = new Item()
             {
                 Id = "1234",
-                Title = "Some title",
-                ShortSummary = "Wonder drug",
+                Slug = "Effect-of-vit-d",
+                URL = "www.website.com",
+                Title = "Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial",
+                ShortSummary = "RCT (n=1,312) found that among adults with type 2 diabetes, supplementation with vitamin D3 or omega-3 fatty acids, compared with placebo, resulted in no significant difference in change in eGFR at 5 years.",
                 Source = new Source()
                 {
                     Id = "789",
-                    Title = "The Journal of Medicine"
+                    Title = "Journal of the American Medical Association"
                 },
                 EvidenceType = new EvidenceType
                 {
                     Key = "mas_evidence_types:Safety%20alerts",
                     Title = "Safety alerts"
                 },
-                UKMiComment = "UKMI Comment",
-                ResourceLinks = "<p><a title=\"Link 1\" href=\"items/5de65fe432281d43fbfcd15a\">Link 1</a></p>\r\n<p><a title=\"sadada\" href=\"items/5de65fe432281d43fbfcd15a\">Link 2</a></p>"
+                Comment = "A related editorial discusses this research and details previous epidemiological studies that suggest improved outcomes with vitamin D supplementation in various clinical scenarios. It states that contrasting the results of this study and its predecessor vitamin D trials with the impressive body of epidemiological research that implicated vitamin D deficiency in various adverse health outcomes offers a stark lesson on the chasm between association and causation. Editorial authors highlight that it now seems safe to conclude that many prior epidemiological associations between vitamin D deficiency and adverse health outcomes were driven by unmeasured residual confounding or reverse causality.",
+                ResourceLinks = "<p><a title=\"Link 1\" href=\"items/5de65fe432281d43fbfcd15a\">Vitamin D and Health Outcomes - Then Came the Randomized Clinical Trials</a></p>\r\n<p><a title=\"sadada\" href=\"items/5de65fe432281d43fbfcd15a\">Link 2</a></p>"
+
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
@@ -55,7 +58,7 @@ namespace MAS.Tests.IntergrationTests.Content
             // Assert
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
            
-            using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "1234.txt"))
+            using (var bucketItem = await s3Client.GetObjectAsync(AppSettings.AWSConfig.BucketName, "Effect-of-vit-d.html"))
             {
                 using (StreamReader reader = new StreamReader(bucketItem.ResponseStream))
                 {

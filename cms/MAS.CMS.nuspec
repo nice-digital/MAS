@@ -18,6 +18,7 @@
 		<file src="public\**\*" target="public" />
 		<file src="routes\**\*" target="routes" />
 		<file src="updates\**\*" target="updates" />
+		<file src="logging\**\*" target="logging" />
 		<file src="dotenv.config" />
 		<file src="keystone.js" />
 		<file src="package-lock.json" />

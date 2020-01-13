@@ -16,6 +16,7 @@ services:
       HOST_NAME: ${HOST_NAME}
       CONTENT_PATH: ${CONTENT_PATH}
       HOST_PORT: ${HOST_PORT}
+      STATIC_SITE_PATH: ${STATIC_SITE_PATH}
     volumes:
       - $PWD/cms:/app
       # Ignore node_modules from mounting to avoid binaries compiled on host machine architecture not working on docker machine: https://stackoverflow.com/a/37898591/486434
@@ -38,7 +39,7 @@ services:
     image: minio/minio:latest
     container_name: s3backend
     ports:
-      - "9000:9000"
+      - 9000:9000
     entrypoint: sh
     command: -c '/usr/bin/minio server /data'
     # Mount a volume from the host machine to persist files
@@ -48,3 +49,15 @@ services:
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+
+  # Mimick the public facing side of the S3 bucket to serve static pages and assets
+  s3frontend:
+    image: nginx
+    container_name: s3frontend
+    ports:
+      - 8000:8000
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      # Mount and serve both the static assets AND the generated HTML in the S3 bucket
+      - ./s3-mock/data/demo-bucket:/usr/share/nginx/s3-html/
+      - ./static-assets:/usr/share/nginx/static-html/

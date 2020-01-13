@@ -6,7 +6,7 @@ const chrome =
     {
         browserName: "chrome",
         chromeOptions: {
-            args: ["--window-size=1366,768"]
+            args: ["--window-size=1295,695"]
         }
     };
 
