@@ -75,11 +75,11 @@ Then(
 );
 Then(
     /^I can add a Speciality type$/, () => {  
-        var speciality = $ ("[for='speciality'] .Select-control .Select-placeholder");
+        var speciality = $ ("[for='specialities'] .Select-control .Select-placeholder");
         speciality.scroll(250, 250);
         browser.pause(5000);
-        browser.click("[for='speciality'] .Select-control .Select-arrow");
-        browser.click("[for='speciality'] .Select-menu .Select-option#react-select-4--option-4")
+        browser.click("[for='specialities'] .Select-control .Select-arrow");
+        browser.click("[for='specialities'] .Select-menu .Select-option#react-select-4--option-4")
               
     }                
 );
