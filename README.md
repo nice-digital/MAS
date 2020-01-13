@@ -109,8 +109,13 @@ Install Docker and run `docker-compose up` from the root of the repository. This
 
 - a Mongo dabatase on port 27017
 - the CMS on port 3010
-- a mock S3 server (MinIO) on port 9000
+- a mock S3 backend server (MinIO) on port 9000
+- a mock S3 frontend on port 8000.
 
-Each of these ports is exposed to the host machine. This means you can view each application locally, for example visit http://localhost:3010 in your browser to access the CMS or http://localhost:9000 to browse the MinIO server.
+Each of these ports is exposed to the host machine. This means you can view each application locally, for example visit:
+
+- http://localhost:3010 in your browser to access the CMS
+- http://localhost:9000 to browse the MinIO server
+- http://localhost:8000 to view the static website.
 
 > Note: the first time you do this it will **take a while**. This is because it needs to download all the required images. Subsequent runs will use cached images so will be quicker.
