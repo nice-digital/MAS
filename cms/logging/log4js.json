@@ -1,0 +1,43 @@
+{
+  "appenders": {
+    "console": {
+      "type": "stdout"
+    },
+    "niceLogging": {
+      "type": "@log4js-node/rabbitmq",
+      "host": "",
+      "port": null,
+      "exchange": "",
+      "mq_type": "",
+      "vhost": "/",
+      "durable": true,
+      "layout": { "type": "niceLoggingLayout" }
+    },
+    "fileSystem": {
+      "type": "dateFile",
+      "filename": "logs/keystone.log",
+      "pattern": ".yyyy-MM-dd",
+      "layout": {
+        "type": "pattern",
+        "pattern": "%d %p %c %f:%l %m%n"
+      }
+    },
+    "fileSystemFilter": {
+      "type": "logLevelFilter",
+      "appender": "fileSystem",
+      "level": "warn"
+    },
+    "niceLoggingFilter": {
+      "type": "logLevelFilter",
+      "appender": "niceLogging",
+      "level": "warn"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": ["console", "fileSystem", "niceLoggingFilter"],
+      "level": "info",
+      "enableCallStack": true
+    }
+  }
+}

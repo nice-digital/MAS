@@ -10,24 +10,14 @@
     },
     "shortSummary": "testing",
     "resourceLinks": "http://localhost:3010/keystone/items",
+    "url": "https://www.nhs.uk/",
     "title": "Wonder Drug",
     "__v": 0,
     "comment": "<p>A</p>",
     "publicationDate": "2019-11-25T13:48:36.000Z",
     "createdDate": "2019-10-22T15:05:05.927Z",
-    "speciality": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        _id: "5e0e4331200a58dead8e1ee8",
-        key: "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        title: "Complementary and alternative therapies",
-        __v: 0
-      }
+    "specialities": [
+      "5daf1a5c8a34d485cb05b5ba"
     ],
     "evidenceType": {
       "_id": "5df7abf383138898ee1f67ef",
@@ -49,24 +39,14 @@
     },
     "shortSummary": "this is my medicine",
     "resourceLinks": "http://localhost:3010/keystone/items",
+    "url": "https://www.nice.org.uk/",
     "title": "MY MEDICINE",
     "__v": 0,
     "comment": "<p>this is my comment</p>",
     "publicationDate": "2019-11-23T13:48:36.000Z",
     "createdDate": "2019-10-23T10:38:43.000Z",
-    "speciality": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        _id: "5e0e4331200a58dead8e1ee8",
-        key: "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        title: "Complementary and alternative therapies",
-        __v: 0
-      }
+    "specialities": [
+      "5daf1a5c8a34d478fd05b5d4"
     ],
     "evidenceType": {
       "_id": "5df7abf383138898ee1f67ef",
@@ -88,24 +68,14 @@
     },
     "shortSummary": "test",
     "resourceLinks": "http://localhost:3010/keystone/items",
+    "url": "https://www.bbc.co.uk/",
     "title": "Hello world",
     "__v": 0,
     "comment": "<p>comment</p>",
     "publicationDate": "2019-10-23T00:00:00.000Z",
     "createdDate": "2019-10-23T10:56:40.000Z",
-    "speciality": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        _id: "5e0e4331200a58dead8e1ee8",
-        key: "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        title: "Complementary and alternative therapies",
-        __v: 0
-      }
+    "specialities": [
+      "5daf1a5c8a34d4d6e505b5b9"
     ],
     "evidenceType": {
       "_id": "5df7abf383138898ee1f67ef",
@@ -127,24 +97,14 @@
     },
     "shortSummary": "hello",
     "resourceLinks": "http://localhost:3010/keystone/items",
+    "url": "https://www.google.com/",
     "title": "A Placebo",
     "__v": 0,
     "comment": "<p>test</p>",
     "publicationDate": "2019-10-28T00:00:00.000Z",
     "createdDate": "2019-10-28T11:07:11.000Z",
-    "speciality": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        _id: "5e0e4331200a58dead8e1ee8",
-        key: "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        title: "Complementary and alternative therapies",
-        __v: 0
-      }
+    "specialities": [
+      "5daf1a5c8a34d485cb05b5ba"
     ],
     "evidenceType": {
       "_id": "5df7abf383138898ee1f67ef",

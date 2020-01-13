@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MAS.Configuration;
 using MAS.Models;
 using MAS.Services;
+using MAS.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -10,12 +12,14 @@ namespace MAS.Controllers
     [Route("api/[controller]")]
     public class ContentController : ControllerBase
     {
-        private readonly IS3Service _s3Service;
+        private readonly IStaticContentService _staticContentService;
+        private readonly IViewRenderer _viewRenderer;
         private readonly ILogger<ContentController> _logger;
-
-        public ContentController(IS3Service s3Service, ILogger<ContentController> logger)
+        
+        public ContentController(IStaticContentService contentService, IViewRenderer viewRenderer, ILogger<ContentController> logger)
         {
-            _s3Service = s3Service;
+            _staticContentService = contentService;
+            _viewRenderer = viewRenderer;
             _logger = logger;
         }
 
@@ -23,10 +27,16 @@ namespace MAS.Controllers
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] Item item)
         {
+            var contentViewModel = new ContentViewModel
+            {
+                Item = item,
+                StaticURL = AppSettings.AWSConfig.StaticURL
+            };
             try
             {
-                var response = await _s3Service.WriteToS3(item);
-                return Validate(response.HttpStatusCode, _logger);
+            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", contentViewModel, false);
+            var response = await _staticContentService.Write(item.Slug, body);
+            return Validate(response.HttpStatusCode, _logger);
             }
             catch (Exception e)
             {

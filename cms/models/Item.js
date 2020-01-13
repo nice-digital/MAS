@@ -2,7 +2,8 @@ const keystone = require("keystone"),
 	moment = require("moment"),
 	https = require("https"),
 	http = require("http"),
-	log4js = require("log4js");
+	log4js = require("log4js"),
+	utils = require("keystone-utils");
 
 const Types = keystone.Field.Types;
 
@@ -12,7 +13,7 @@ logger.level = "debug";
 const Item = new keystone.List("Item", {
 	map: { name: "title" },
 	track: true,
-	autokey: { path: "slug", from: "title", unique: true },
+	autokey: { path: "slug", from: "title", unique: true, fixed: true },
 	defaultSort: "-createdAt"
 });
 
@@ -53,7 +54,7 @@ Item.add({
 		type: Types.Date,
 		label: "Publication date"
 	},
-	speciality: {
+	specialities: {
 		type: Types.Relationship,
 		ref: "Speciality",
 		many: true,
@@ -90,6 +91,19 @@ Item.add({
 		ref: "Weekly",
 		label: "Weekly newsletter",
 		note: "For use by the NICE MPT only"
+	},
+	staticPath: {
+		type: Types.Text,
+		watch: "title",
+		value: function() {
+			return (
+				process.env.STATIC_SITE_PATH +
+				(this.slug || utils.slug(this.title)) +
+				".html"
+			);
+		},
+		noedit: true,
+		label: "SPS comment URL"
 	}
 });
 
@@ -100,11 +114,6 @@ Item.schema.pre("validate", function(next) {
 	} else {
 		if (!this.shortSummary) {
 			next(Error("Short summary is required."));
-		} else if (
-			!this.speciality ||
-			String(this.speciality).match(/^\s*$/) !== null
-		) {
-			next(Error("Speciality is required."));
 		} else if (!this.relevancy) {
 			next(Error("Relevancy score is required."));
 		} else {
@@ -202,5 +211,5 @@ Item.schema.post("save", async function(doc, next) {
 	logger.info("...sent PUT request", options);
 });
 
-Item.defaultColumns = "title, source, relevancy";
+Item.defaultColumns = "title, source, createdAt";
 Item.register();

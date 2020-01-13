@@ -11,6 +11,8 @@ namespace MAS.Models
         [JsonProperty("slug")]
         public string Slug { get; set; }
         [Required, JsonRequired]
+        public string Slug { get; set; }
+        [Required, JsonRequired]
         public string Title { get; set; }
         [Required, JsonRequired]
         public Source Source { get; set; }
@@ -21,5 +23,6 @@ namespace MAS.Models
         public string ShortSummary { get; set; }
         public string Comment { get; set; }
         public string ResourceLinks { get; set; }
+        public string URL { get; set; }
     }
 }

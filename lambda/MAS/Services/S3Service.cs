@@ -67,7 +67,7 @@ namespace MAS.Services
             contentBody.Append(Environment.NewLine);
 
             contentBody.Append("UKMI Comment: ");
-            contentBody.Append(item.Comment);
+            contentBody.Append(item.UKMiComment);
             contentBody.Append(Environment.NewLine);
 
             if (item.ResourceLinks != null)
