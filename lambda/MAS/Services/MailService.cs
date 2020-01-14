@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MAS.Services
 {
     public interface IMailService
     {
         Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
-        string CreateEmailBody(IEnumerable<Item> item);
+        string CreateDailyEmailBody(IEnumerable<Item> item);
     }
 
     public class MailService: IMailService
@@ -73,21 +74,10 @@ namespace MAS.Services
           
         }
 
-        public string CreateEmailBody(IEnumerable<Item> items)
+        public string CreateDailyEmailBody(IEnumerable<Item> items)
         {
-            var body = new StringBuilder();
-
-            foreach (var item in items)
-            {
-                body.Append(item.Source.Title);
-                body.Append("<br>");
-                body.Append(item.Title);
-                body.Append("<br>");
-                body.Append(item.ShortSummary);
-                body.Append("<br><br><br>");
-            }
-
-            return body.ToString();
+            var dailyEmail = new DailyEmail() { Items = items.ToList() };
+            return dailyEmail.HTML;
         }
     }
 }

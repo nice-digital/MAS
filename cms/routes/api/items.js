@@ -1,14 +1,18 @@
-const keystone = require("keystone"),
-	Items = keystone.list("Item");
+var keystone = require("keystone"),
+	Items = keystone.list("Item"),
+	_ = require("lodash");
 
 const log4js = require("log4js"),
 	logger = log4js.getLogger();
 
 exports.single = function(req, res, next) {
+
+
 	Items.model
 		.findById(req.params.itemId)
 		.populate("source")
 		.populate("evidenceType")
+		.populate("speciality")
 		.exec(function(err, item) {
 			if (err) {
 				logger.error(`Error getting item with id ${req.params.itemId}`, err);
@@ -21,7 +25,26 @@ exports.single = function(req, res, next) {
 				return res.notfound("Item not found", notFoundMsg, true);
 			}
 
-			res.json(item);
+			const obj = _.pick(item, [
+				"_id",
+				"updatedAt",
+				"createdAt",
+				"slug",
+				"shortSummary",
+				"source._id",
+				"source.title",
+				"url",
+				"title",
+				"comment",
+				"publicationDate",
+				"resourceLinks",
+				"speciality",
+				"evidenceType._id",
+				"evidenceType.title",
+				"evidenceType.key",
+				"evidenceType.broaderTitle"]);
+
+			return res.json(obj);
 		});
 };
 
@@ -34,6 +57,7 @@ exports.list = function(req, res) {
 		.find()
 		.populate("source")
 		.populate("evidenceType")
+		.populate("speciality")
 		.exec(function(err, items) {
 			if (err) {
 				logger.error(`Failed to get list of items`, err);
