@@ -5,6 +5,8 @@ require("dotenv").config();
 // Require keystone
 const keystone = require("keystone");
 
+require("./logging").configure();
+
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.

@@ -1,0 +1,13 @@
+{
+  "Logging": {
+    "Application": "MAS-CMS",
+    "Environment": "local",
+    "RabbitMQHost": "",
+    "RabbitMQVHost": "",
+    "RabbitMQPort": "",
+    "RabbitMQUsername": "",
+    "RabbitMQPassword": "",
+    "RabbitMQExchangeName": "",
+    "RabbitMQExchangeType": ""
+  }
+}

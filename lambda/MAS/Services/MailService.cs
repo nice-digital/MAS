@@ -1,5 +1,4 @@
-﻿using MailChimp.Net;
-using MailChimp.Net.Core;
+﻿using MailChimp.Net.Core;
 using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MAS.Configuration;
