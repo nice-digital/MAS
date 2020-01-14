@@ -165,7 +165,7 @@ Item.schema.post("save", async function (doc, next) {
 			.model.findById(doc._id)
 			.populate("source")
 			.populate("evidenceType")
-			.populate("speciality")
+			.populate("specialities")
 			.exec();
 	} catch (err) {
 		logger.error("An error occurred finding item: ", err.message);

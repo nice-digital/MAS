@@ -94,7 +94,7 @@ namespace MAS.Services
                     body.Append("<br>");
                     body.Append(item.Source.Title);
                     body.Append("<br>");
-                    body.Append(String.Join(" | ", item.Speciality.Select(x => x.Title)));
+                    body.Append(String.Join(" | ", item.Specialities.Select(x => x.Title)));
                     body.Append("<br>");
                     body.Append(item.ShortSummary);
                     body.Append("<br>");

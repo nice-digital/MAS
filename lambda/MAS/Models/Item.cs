@@ -14,8 +14,8 @@ namespace MAS.Models
         public string Title { get; set; }
         [Required, JsonRequired]
         public Source Source { get; set; }
-        [JsonProperty("speciality")]
-        public List<Speciality> Speciality { get; set; }
+        [JsonProperty("specialities")]
+        public List<Speciality> Specialities { get; set; }
         [Required, JsonRequired]
         public EvidenceType EvidenceType { get; set; }
         public string ShortSummary { get; set; }

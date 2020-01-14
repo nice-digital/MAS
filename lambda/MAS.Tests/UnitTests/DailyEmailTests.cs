@@ -48,7 +48,7 @@ namespace MAS.Tests.UnitTests
             ShortSummary = "Some short summary",
             ResourceLinks = "",
             Comment = "",
-            Speciality = new List<Speciality>
+            Specialities = new List<Speciality>
                 {
                     new Speciality()
                     {
@@ -76,7 +76,7 @@ namespace MAS.Tests.UnitTests
             ShortSummary = "Some short summary",
             ResourceLinks = "",
             Comment = "",
-            Speciality = new List<Speciality>
+            Specialities = new List<Speciality>
             {
                     new Speciality()
                     {
@@ -130,7 +130,7 @@ namespace MAS.Tests.UnitTests
         [Fact]
         public void ItemsWithManySpecialitiesRenderCorrectly()
         {
-            exampleItem.Speciality.Add(new Speciality() { Key = "abcd", Title = "Another speciality" });
+            exampleItem.Specialities.Add(new Speciality() { Key = "abcd", Title = "Another speciality" });
             var items = new List<Item> { exampleItem };
             var actualHtml = this.MailService.CreateDailyEmailBody(items);
 

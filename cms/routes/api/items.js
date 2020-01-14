@@ -10,7 +10,7 @@ exports.single = function (req, res, next) {
 		.findById(req.params.itemId)
 		.populate("source")
 		.populate("evidenceType")
-		.populate("speciality")
+		.populate("specialities")
 		.exec(function (err, item) {
 			if (err) {
 				logger.error(`Error getting item with id ${req.params.itemId}`, err);
@@ -55,7 +55,7 @@ exports.list = function (req, res) {
 		.find()
 		.populate("source")
 		.populate("evidenceType")
-		.populate("speciality")
+		.populate("specialities")
 		.exec(function (err, items) {
 			if (err) {
 				logger.error(`Failed to get list of items`, err);
