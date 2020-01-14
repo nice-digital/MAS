@@ -40,6 +40,7 @@ namespace MAS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogError(e, $"Failed to write an item to the S3 bucket - exception: {e.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }
