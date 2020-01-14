@@ -7,6 +7,6 @@ WORKDIR /tests
 COPY package.json /tests
 COPY package-lock.json /tests
 
-RUN npm i
+RUN npm ci --quiet
 
 COPY . /tests
