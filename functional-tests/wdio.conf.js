@@ -60,7 +60,7 @@ exports.config = {
     logLevel: "verbose",
     coloredLogs: true,
     screenshotPath: "./errorShots/",
-    baseUrl: "https://mas-cms.nods.cloud/keystone/signin",
+    baseUrl: "https://cms-mas.test.nice.org.uk/keystone/signin",
     reporters: process.env.RUNNING_IN_DOCKER ? ["spec", "teamcity"] : ["spec"],
 
     // Use BDD with Cucumber

@@ -1,8 +1,8 @@
 {
-  "name": "@nice-digital/frontend-testing-base",
+  "name": "@nice-digital/mas-functional-tests",
   "private": true,
   "version": "1.0.0",
-  "description": "A place from which to start browser driven testing",
+  "description": "Functional, browser based tests for MAS",
   "main": "wdio.conf.js",
   "scripts": {
     "test": "node node_modules/webdriverio/bin/wdio",
@@ -10,17 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nice-digital/frontend-testing-base.git"
+    "url": "git+https://github.com/nice-digital/mas.git"
   },
   "author": "NICE Digital Services",
   "contributors": [
-    "Ian Routledge <ian@ediblecode.com>",
-    "Dave Wong"
+    "Ian Routledge <ian@ediblecode.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/nice-digital/frontend-testing-base#readme",
+  "homepage": "https://github.com/nice-digital/mas#readme",
   "engines": {
-    "node": ">= 6.3"
+    "node": ">= 10"
   },
   "devDependencies": {
     "@nice-digital/wdio-cucumber-steps": "^0.6.1",
@@ -38,6 +37,6 @@
     "webdriverio": "^4.12.0"
   },
   "dependencies": {
-    "fibers": "^3.1.1"
+    "fibers": "^4.0.2"
   }
 }
