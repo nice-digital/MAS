@@ -12,7 +12,7 @@ namespace MAS.Services
     {
         public bool IsBankHoliday(DateTime date)
         {
-            return DateSystem.IsPublicHoliday(date, CountryCode.GB);
+            return DateSystem.IsOfficialPublicHolidayByCounty(date, CountryCode.GB, "GB-ENG");
         }
     }
 }

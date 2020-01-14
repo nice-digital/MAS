@@ -74,8 +74,8 @@ namespace MAS.Services
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to communitcate with MailChimp - exception: {e.Message}");
-                throw new Exception($"Failed to communitcate with MailChimp - exception: {e.Message}");
+                _logger.LogError($"Failed to communicate with MailChimp - exception: {e.Message}");
+                throw new Exception($"Failed to communicate with MailChimp - exception: {e.Message}");
             }  
         }
 
@@ -124,8 +124,8 @@ namespace MAS.Services
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to communitcate with MailChimp - exception: {e.Message}");
-                throw new Exception($"Failed to communitcate with MailChimp - exception: {e.Message}");
+                _logger.LogError($"Failed to communicate with MailChimp - exception: {e.Message}");
+                throw new Exception($"Failed to communicate with MailChimp - exception: {e.Message}");
             }
         }
 

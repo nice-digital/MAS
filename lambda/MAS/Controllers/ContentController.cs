@@ -34,13 +34,13 @@ namespace MAS.Controllers
             };
             try
             {
-            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", contentViewModel, false);
-            var response = await _staticContentService.Write(item.Slug, body);
-            return Validate(response.HttpStatusCode, _logger);
+                var body = await _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", contentViewModel, false);
+                var response = await _staticContentService.Write(item.Slug, body);
+                return Validate(response.HttpStatusCode, _logger);
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to write item to repository - exception: {e.InnerException?.Message}");
+                _logger.LogError(e, $"Failed to write an item to the S3 bucket - exception: {e.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }

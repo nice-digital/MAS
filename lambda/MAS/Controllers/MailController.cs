@@ -40,18 +40,18 @@ namespace MAS.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to create and send daily campaign - exception: {e.InnerException?.Message}");
+                _logger.LogError($"Failed to create and send daily campaign - exception: {e.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }
 
-        //PUT api/mail/weekly
-        [HttpPut("weekly")]
-        public async Task<IActionResult> PutWeeklyMailAsync()
+        //PUT api/mail/weekly or api/mail/weekly/2020-01-13
+        [HttpPut("weekly/{date?}")]
+        public async Task<IActionResult> PutWeeklyMailAsync([FromRoute] DateTime? date = null)
         {
             Weekly weeklyContent;
 
-            var todaysDate = DateTime.Today;
+            var todaysDate = date ?? DateTime.Today;
             var isBankHoliday = _bankHoldayService.IsBankHoliday(todaysDate);
             if (todaysDate.DayOfWeek == DayOfWeek.Monday)
             {
@@ -67,7 +67,7 @@ namespace MAS.Controllers
             }
             else
             {
-                var previousMonday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + 1);
+                var previousMonday = todaysDate.AddDays(-(int)DateTime.Today.DayOfWeek + 1);
                 var previousMondayIsBankHoliday = _bankHoldayService.IsBankHoliday(previousMonday);
                 if (previousMondayIsBankHoliday)
                 {
@@ -104,7 +104,7 @@ namespace MAS.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to create and send weekly campaign - exception: {e.InnerException?.Message}");
+                _logger.LogError($"Failed to create and send weekly campaign - exception: {e.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }

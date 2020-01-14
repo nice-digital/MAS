@@ -4,6 +4,6 @@
     {
         public string URI { get; set; }
         public string Items { get; set; }
-        public string Weeklies { get; set; }
+        public string WeekliesBySendDate { get; set; }
     }
 }
