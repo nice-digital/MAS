@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MAS.Services
 {
     public interface IMailService
     {
         Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
-        string CreateEmailBody(IEnumerable<Item> item);
+        string CreateDailyEmailBody(IEnumerable<Item> item);
     }
 
     public class MailService: IMailService
@@ -73,18 +74,28 @@ namespace MAS.Services
           
         }
 
-        public string CreateEmailBody(IEnumerable<Item> items)
+        public string CreateDailyEmailBody(IEnumerable<Item> items)
         {
+            var groupedItems = items.GroupBy(x => x.EvidenceType).ToList();
+
             var body = new StringBuilder();
 
-            foreach (var item in items)
+            foreach (var group in groupedItems)
             {
-                body.Append(item.Source.Title);
-                body.Append("<br>");
-                body.Append(item.Title);
-                body.Append("<br>");
-                body.Append(item.ShortSummary);
-                body.Append("<br><br><br>");
+                var speciality = group.Single().EvidenceType.Title;
+                body.Append("<strong>" + speciality + "</strong>");
+
+                foreach (var item in group)
+                {
+                    body.Append("<br>");
+                    body.Append(item.Source.Title);
+                    body.Append("<br>");
+                    body.Append(item.Title);
+                    body.Append("<br>");
+                    body.Append(item.ShortSummary);
+                    body.Append("<br>");
+                    body.Append("<a href='https://www.medicinesresources.nhs.uk/" + @item.Slug + "'>SPS Comment</a>");
+                }
             }
 
             return body.ToString();
