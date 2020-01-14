@@ -75,7 +75,6 @@ namespace MAS.Controllers
                 }
                 else
                 {
-                    //Presume email has been sent log
                     _logger.LogWarning($"An email was sent on {previousMonday}");
                     return Content($"An email was sent on {previousMonday}");
                 }
@@ -88,8 +87,7 @@ namespace MAS.Controllers
             }
             else if (weeklyContent.Items.Count == 0)
             {
-                //weekly has no items, don't send email, log to kibana
-                _logger.LogWarning("No weekly record was found");
+                _logger.LogWarning("The weekly didn't have any items");
                 return Content("The weekly didn't have any items");
             }
 

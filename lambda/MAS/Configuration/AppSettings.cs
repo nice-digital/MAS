@@ -20,7 +20,7 @@ namespace MAS.Configuration
             services.Configure<AWSConfig>(configuration.GetSection("AWS"));
             services.Configure<CMSConfig>(configuration.GetSection("CMS"));
             services.Configure<MailChimpConfig>(configuration.GetSection("MailChimp"));
-            services.Configure<MailConfig>(configuration.GetSection("MailConfig"));
+            services.Configure<MailConfig>(configuration.GetSection("Mail"));
 
             var sp = services.BuildServiceProvider();
             EnvironmentConfig = sp.GetService<IOptions<EnvironmentConfig>>().Value;
