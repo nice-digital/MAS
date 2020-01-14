@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Net.Http;
 
 namespace MAS.Tests.Infrastructure
 {
-    public class TestBase
+    public class TestBase : IDisposable
     {
         protected readonly TestServer _server;
         protected readonly HttpClient _client;
@@ -29,6 +30,11 @@ namespace MAS.Tests.Infrastructure
                 .UseStartup(typeof(Startup));
             _server = new TestServer(builder);
             _client = _server.CreateClient(); 
+        }
+
+        public virtual void Dispose()
+        {
+            // Do "global" teardown here; Called after every test method.
         }
     }
 }
