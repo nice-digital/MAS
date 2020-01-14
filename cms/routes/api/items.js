@@ -4,12 +4,13 @@ const keystone = require("keystone"),
 const log4js = require("log4js"),
 	logger = log4js.getLogger();
 
-exports.single = function(req, res, next) {
+exports.single = function (req, res, next) {
 	Items.model
 		.findById(req.params.itemId)
 		.populate("source")
 		.populate("evidenceType")
-		.exec(function(err, item) {
+		.populate("speciality")
+		.exec(function (err, item) {
 			if (err) {
 				logger.error(`Error getting item with id ${req.params.itemId}`, err);
 				return res.error(err, true);
@@ -28,13 +29,14 @@ exports.single = function(req, res, next) {
 /**
  * List Items
  */
-exports.list = function(req, res) {
+exports.list = function (req, res) {
 	// TODO: Pagination
 	Items.model
 		.find()
 		.populate("source")
 		.populate("evidenceType")
-		.exec(function(err, items) {
+		.populate("speciality")
+		.exec(function (err, items) {
 			if (err) {
 				logger.error(`Failed to get list of items`, err);
 				return res.error(err, true);
