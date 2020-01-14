@@ -19,6 +19,7 @@ keystone.init({
 	port: process.env.PORT,
 	"auto update": true,
 	session: true,
+	"session store": "mongo",
 	auth: true,
 	"user model": "User",
 	static: "public"
