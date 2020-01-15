@@ -1,0 +1,36 @@
+﻿@using MAS.Models;
+@model List<Item>
+@{
+    ViewData["Title"] = "DailyEmail";
+    Layout = "~/Views/Shared/_EmailLayout.cshtml";
+
+    var groupedItems = Model.GroupBy(x => x.EvidenceType.Title).ToList();
+}
+
+<h2>DailyEmail</h2>
+
+
+    @foreach (var group in groupedItems)
+    {
+        var evidenceType = group.Key;
+
+        <div class='evidenceType'>
+            <strong>@evidenceType</strong>
+
+            @foreach (var item in group)
+            {
+                <div class='item'>
+                    @item.Title
+                    <br>
+                    @item.Source.Title
+                    <br>
+                    @String.Join(" | ", item.Specialities.Select(x => x.Title))
+                    <br>
+                    @item.ShortSummary
+                    <br>
+                    <a href='https://www.medicinesresources.nhs.uk/@item.Slug'>SPS Comment</a>
+                </div>
+            }
+        </div>
+    }
+

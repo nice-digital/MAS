@@ -3,19 +3,15 @@ using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MAS.Configuration;
 using Microsoft.Extensions.Logging;
-using MAS.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
 
 namespace MAS.Services
 {
     public interface IMailService
     {
-        Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body);
-        string CreateDailyEmailBody(IEnumerable<Item> item);
+        Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body);
     }
 
     public class MailService: IMailService
@@ -29,7 +25,7 @@ namespace MAS.Services
             _logger = logger;
         }
 
-        public async Task<string> CreateAndSendCampaignAsync(string subject, string previewText, string body)
+        public async Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body)
         {
             try
             {
@@ -72,40 +68,6 @@ namespace MAS.Services
                 throw new Exception($"Failed to communitcate with MailChimp - exception: {e.Message}");
             }
           
-        }
-
-        public string CreateDailyEmailBody(IEnumerable<Item> items)
-        {
-            var groupedItems = items.GroupBy(x => x.EvidenceType.Title).ToList();
-
-            var body = new StringBuilder();
-
-            foreach (var group in groupedItems)
-            {
-                var evidenceType = group.Key;
-
-                body.Append("<div class='evidenceType'>");
-                body.Append("<strong>" + evidenceType + "</strong>");
-
-                foreach (var item in group)
-                {
-                    body.Append("<div class='item'>");
-                    body.Append(item.Title);
-                    body.Append("<br>");
-                    body.Append(item.Source.Title);
-                    body.Append("<br>");
-                    body.Append(String.Join(" | ", item.Specialities.Select(x => x.Title)));
-                    body.Append("<br>");
-                    body.Append(item.ShortSummary);
-                    body.Append("<br>");
-                    body.Append("<a href='https://www.medicinesresources.nhs.uk/" + @item.Slug + "'>SPS Comment</a>");
-                    body.Append("</div>");
-                }
-
-                body.Append("</div>");
-            }
-
-            return body.ToString();
         }
     }
 }

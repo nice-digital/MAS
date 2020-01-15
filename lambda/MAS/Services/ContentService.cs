@@ -12,6 +12,7 @@ namespace MAS.Services
     public interface IContentService
     {
         Task<IEnumerable<Item>> GetItemsAsync();
+        Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null);
     }
 
     public class ContentService : IContentService
@@ -40,5 +41,26 @@ namespace MAS.Services
                 }
             }
         }
+
+        public async Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null)
+        {
+            date = date ?? DateTime.Today;
+
+            using (WebClient client = new WebClient())
+            {
+                try
+                {
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI)); //TODO Use date
+                    var item = JsonConvert.DeserializeObject<Item[]>(jsonStr);
+                    return item;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError($"Failed to get items from CMS - exception: {e.Message}");
+                    throw new Exception($"Failed to get items from CMS - exception: {e.Message}");
+                }
+            }
+        }
+
     }
 }
