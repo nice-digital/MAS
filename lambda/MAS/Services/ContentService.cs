@@ -11,7 +11,7 @@ namespace MAS.Services
 {
     public interface IContentService
     {
-        Task<IEnumerable<Item>> GetItemsAsync();
+        Task<IEnumerable<Item>> GetAllItemsAsync();
         Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null);
     }
 
@@ -24,13 +24,13 @@ namespace MAS.Services
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync()
+        public async Task<IEnumerable<Item>> GetAllItemsAsync()
         {
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI));
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.BaseUrl + AppSettings.CMSConfig.AllItemsPath));
                     var item = JsonConvert.DeserializeObject<Item[]>(jsonStr);
                     return item;
                 }
@@ -48,9 +48,10 @@ namespace MAS.Services
 
             using (WebClient client = new WebClient())
             {
+                var path = string.Format(AppSettings.CMSConfig.DailyItemsPath, date.Value.ToString("yyyy-MM-dd"));
                 try
                 {
-                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI)); //TODO Use date
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.BaseUrl + path));
                     var item = JsonConvert.DeserializeObject<Item[]>(jsonStr);
                     return item;
                 }

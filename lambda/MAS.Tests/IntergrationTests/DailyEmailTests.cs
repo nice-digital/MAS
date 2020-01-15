@@ -22,24 +22,17 @@ using Source = MAS.Models.Source;
 
 namespace MAS.Tests.IntergrationTests
 {
-    public class FakeController : Microsoft.AspNetCore.Mvc.Controller
-    {
+    //public class FakeMailChimpManager : IMailChimpManager
+    //{
 
-    }
+    //}
     
     public class DailyEmailTests : TestBase
     {
-        IMailService MailService;
 
-        public DailyEmailTests(IMailService mailService)
+
+        public DailyEmailTests()
         {
-
-            MailService = mailService;
-        }
-
-        public override void Dispose()
-        {
-
         }
 
         Item exampleItem = new Item()
@@ -99,56 +92,82 @@ namespace MAS.Tests.IntergrationTests
             }
         };
 
-        //[Fact]
-        //public void CanCreateSingleItemEmail()
-        //{
+        [Fact]
+        public async void SomeTest()
+        {
+            var fakeMailService = new Mock<IMailService>();
 
-        //    var items = new List<Item> { exampleItem };
-        //    var actualHtml = this.MailService.CreateDailyEmailBody(items, mockController.Object);
+            string bodyHtml = string.Empty;
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+                .ReturnsAsync("1234");
 
-        //    actualHtml.ShouldMatchApproved();
+            WithImplementation(fakeMailService);
 
-        //}
+            await _client.PutAsync("/api/mail/daily", null);
 
-        //[Fact]
-        //public void CanCreateEmailWithTwoItemsSharingEvidenceType()
-        //{
-        //    var items = new List<Item> { exampleItem, exampleItem };
-        //    var actualHtml = this.MailService.CreateDailyEmailBody(items, new FakeController());
+            bodyHtml.ShouldMatchApproved();
+        }
 
-        //    actualHtml.ShouldMatchApproved();
 
-        //}
 
-        //[Fact]
-        //public void CanCreateEmailWithTwoItemsDifferentEvidenceType()
-        //{
-        //    var items = new List<Item> { exampleItem, exampleItem2 };
-        //    var actualHtml = "";
-        //    try
-        //    {
-        //        actualHtml = this.MailService.CreateDailyEmailBody(items, new FakeController());
-        //    }
-        //    catch(Exception e)
-        //    {
-        //        var p = e.Message;
-        //    }
-            
 
-        //    actualHtml.ShouldMatchApproved();
 
-        //}
 
-        //[Fact]
-        //public void ItemsWithManySpecialitiesRenderCorrectly()
-        //{
-        //    exampleItem.Specialities.Add(new Speciality() { Key = "abcd", Title = "Another speciality" });
-        //    var items = new List<Item> { exampleItem };
-        //    var actualHtml = this.MailService.CreateDailyEmailBody(items, new FakeController());
 
-        //    actualHtml.ShouldMatchApproved();
 
-        //}
 
-    }
+
+            //[Fact]
+            //public void CanCreateSingleItemEmail()
+            //{
+
+            //    var items = new List<Item> { exampleItem };
+            //    var actualHtml = this.MailService.CreateDailyEmailBody(items, mockController.Object);
+
+            //    actualHtml.ShouldMatchApproved();
+
+            //}
+
+            //[Fact]
+            //public void CanCreateEmailWithTwoItemsSharingEvidenceType()
+            //{
+            //    var items = new List<Item> { exampleItem, exampleItem };
+            //    var actualHtml = this.MailService.CreateDailyEmailBody(items, new FakeController());
+
+            //    actualHtml.ShouldMatchApproved();
+
+            //}
+
+            //[Fact]
+            //public void CanCreateEmailWithTwoItemsDifferentEvidenceType()
+            //{
+            //    var items = new List<Item> { exampleItem, exampleItem2 };
+            //    var actualHtml = "";
+            //    try
+            //    {
+            //        actualHtml = this.MailService.CreateDailyEmailBody(items, new FakeController());
+            //    }
+            //    catch(Exception e)
+            //    {
+            //        var p = e.Message;
+            //    }
+
+
+            //    actualHtml.ShouldMatchApproved();
+
+            //}
+
+            //[Fact]
+            //public void ItemsWithManySpecialitiesRenderCorrectly()
+            //{
+            //    exampleItem.Specialities.Add(new Speciality() { Key = "abcd", Title = "Another speciality" });
+            //    var items = new List<Item> { exampleItem };
+            //    var actualHtml = this.MailService.CreateDailyEmailBody(items, new FakeController());
+
+            //    actualHtml.ShouldMatchApproved();
+
+            //}
+
+        }
 }

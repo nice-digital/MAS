@@ -10,7 +10,7 @@ namespace MAS.Tests.Infrastructure
         {
             return new CMSConfig()
             {
-                URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/nonexistanturl").ToString()
+                BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/nonexistanturl").ToString()
             };
         }
 
@@ -18,7 +18,7 @@ namespace MAS.Tests.Infrastructure
         {
             return new CMSConfig()
             {
-                URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/multiple-items.json").ToString()
+                BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/multiple-items.json").ToString()
             };
         }
     }

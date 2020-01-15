@@ -23,7 +23,7 @@ namespace MAS.Tests.UnitTests
             var contentService = new ContentService(mockLogger.Object);
 
             //Act
-            var result = await contentService.GetItemsAsync();
+            var result = await contentService.GetAllItemsAsync();
 
             //Assert
             result.Count().ShouldBe(4);
@@ -43,7 +43,7 @@ namespace MAS.Tests.UnitTests
             var contentService = new ContentService(mockLogger.Object);
 
             //Act + Assert
-            await Should.ThrowAsync<Exception>(() => contentService.GetItemsAsync());
+            await Should.ThrowAsync<Exception>(() => contentService.GetAllItemsAsync());
         }
     }
 }
