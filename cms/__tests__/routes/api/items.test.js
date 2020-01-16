@@ -2,7 +2,8 @@ jest.mock("keystone", () => {
 	const item = {
 		model: {
 			find: jest.fn()
-		}
+		},
+		fullResponseFields: ["_id", "title", "slug"]
 	};
 
 	return {
@@ -76,7 +77,9 @@ describe("items", () => {
 				populate: () => ({
 					populate: () => ({
 						populate: () => ({
-							exec: () => items
+							select: () => ({
+								exec: () => items
+							})
 						})
 					})
 				})
