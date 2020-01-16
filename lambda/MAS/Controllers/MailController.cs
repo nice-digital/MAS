@@ -23,7 +23,7 @@ namespace MAS.Controllers
             _logger = logger;
         }
 
-        //PUT api/mail/daily
+        //PUT api/mail/daily?date=01-01-2020
         [HttpPut("daily")]
         public async Task<IActionResult> PutMailAsync(DateTime? date = null)
         {
