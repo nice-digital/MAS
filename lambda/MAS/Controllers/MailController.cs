@@ -12,15 +12,15 @@ namespace MAS.Controllers
     {
         private readonly IMailService _mailService;
         private readonly IContentService _contentService;
-        private readonly ILogger<ContentController> _logger;
-        private readonly IBankHolidayService _bankHoldayService;
+        private readonly ILogger<MailController> _logger;
+        private readonly IBankHolidayService _bankHolidayService;
 
-        public MailController(IMailService mailService, IContentService contentService, IBankHolidayService bankHoldayService, ILogger<ContentController> logger)
+        public MailController(IMailService mailService, IContentService contentService, IBankHolidayService bankHolidayService, ILogger<MailController> logger)
         {
             _mailService = mailService;
             _contentService = contentService;
             _logger = logger;
-            _bankHoldayService = bankHoldayService;
+            _bankHolidayService = bankHolidayService;
         }
 
         //PUT api/mail/daily
@@ -52,13 +52,13 @@ namespace MAS.Controllers
             Weekly weeklyContent;
 
             var todaysDate = date ?? DateTime.Today;
-            var isBankHoliday = _bankHoldayService.IsBankHoliday(todaysDate);
+            var isBankHoliday = _bankHolidayService.IsBankHoliday(todaysDate);
             if (todaysDate.DayOfWeek == DayOfWeek.Monday)
             {
                 if (isBankHoliday)
                 {
-                    _logger.LogWarning($"{todaysDate} is a bank holiday therefore an email isnt sent");
-                    return Content($"{todaysDate} is a bank holiday therefore an email isnt sent");
+                    _logger.LogWarning($"{todaysDate.ToString("dd/MM/yyyy")} is a bank holiday therefore an email isnt sent");
+                    return Content($"{todaysDate.ToString("dd/MM/yyyy")} is a bank holiday therefore an email isnt sent");
                 }
                 else
                 {
@@ -67,16 +67,16 @@ namespace MAS.Controllers
             }
             else
             {
-                var previousMonday = todaysDate.AddDays(-(int)DateTime.Today.DayOfWeek + 1);
-                var previousMondayIsBankHoliday = _bankHoldayService.IsBankHoliday(previousMonday);
+                var previousMonday = todaysDate.AddDays(-(int)todaysDate.DayOfWeek + 1);
+                var previousMondayIsBankHoliday = _bankHolidayService.IsBankHoliday(previousMonday);
                 if (previousMondayIsBankHoliday)
                 {
                     weeklyContent = await _contentService.GetWeeklyAsync(previousMonday);
                 }
                 else
                 {
-                    _logger.LogWarning($"An email was sent on {previousMonday}");
-                    return Content($"An email was sent on {previousMonday}");
+                    _logger.LogWarning($"An email was sent on {previousMonday.ToString("dd/MM/yyyy")}");
+                    return Content($"An email was sent on {previousMonday.ToString("dd/MM/yyyy")}");
                 }
             }
 
