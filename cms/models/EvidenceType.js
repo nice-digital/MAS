@@ -1,6 +1,9 @@
 const keystone = require("keystone"),
 	fs = require("fs"),
-	path = require("path");
+	path = require("path"),
+	log4js = require("log4js");
+
+const logger = log4js.getLogger("Item.js");
 
 // Load the JSONLD for evidence types on application load
 // so we don't have to hit the file system again and again
@@ -10,7 +13,7 @@ fs.readFile(
 	"UTF-8",
 	function(err, contents) {
 		if (err) {
-			loggger.error(err);
+			logger.error(err);
 			throw err;
 		}
 
@@ -30,7 +33,11 @@ const EvidenceType = new keystone.List("EvidenceType", {
 EvidenceType.add({
 	title: { type: String, required: true },
 	key: { type: String, required: true },
-	oldEPiServerId: { label: "Old EPiServer ID", type: Types.Number, required: false },
+	oldEPiServerId: {
+		label: "Old EPiServer ID",
+		type: Types.Number,
+		required: false
+	}
 });
 
 EvidenceType.relationship({
@@ -47,10 +54,8 @@ EvidenceType.schema.virtual("broaderTitle").get(function() {
 	// Assume only 2 levels
 	const broaderConcept = evidenceTypes.find(e => e["@id"] === concept.broader);
 
-	if(broaderConcept.broader)
-		return broaderConcept.prefLabel["@value"];
-	else
-		return concept.prefLabel["@value"];
+	if (broaderConcept.broader) return broaderConcept.prefLabel["@value"];
+	else return concept.prefLabel["@value"];
 });
 
 EvidenceType.defaultColumns = "title, oldEPiServerId, key";

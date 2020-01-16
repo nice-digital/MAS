@@ -95,7 +95,7 @@ Item.add({
 	staticPath: {
 		type: Types.Text,
 		watch: "title",
-		value: function () {
+		value: function() {
 			return (
 				process.env.STATIC_SITE_PATH +
 				(this.slug || utils.slug(this.title)) +
@@ -107,7 +107,7 @@ Item.add({
 	}
 });
 
-Item.schema.pre("validate", function (next) {
+Item.schema.pre("validate", function(next) {
 	if (this.isInitial) {
 		this.isInitial = false;
 		next();
@@ -152,7 +152,7 @@ const createWeeklyIfNeeded = async () => {
 };
 
 // Post save hook to trigger a lambda with the document details
-Item.schema.post("save", async function (doc, next) {
+Item.schema.post("save", async function(doc, next) {
 	await createWeeklyIfNeeded();
 
 	logger.info("Post save, sending request...", doc);
