@@ -1,12 +1,10 @@
 ﻿@using MAS.Models;
 @model List<Item>
 @{
-    ViewData["Title"] = "DailyEmail";
-    //Layout = "~/Views/Shared/_EmailLayout.cshtml";
+    ViewData["Title"] = "MAS Daily";
 
     var groupedItems = Model.GroupBy(x => x.EvidenceType.Title).ToList();
-    var specialitiesList = Model.SelectMany(x => x.Specialities).Select(x => x.Title).ToList();
-    var specialitiesAsString = String.Join(',', specs);
+    var specialitiesAsString = String.Join(',', Model.SelectMany(x => x.Specialities).Select(x => x.Title).ToList());
 }
 
 
