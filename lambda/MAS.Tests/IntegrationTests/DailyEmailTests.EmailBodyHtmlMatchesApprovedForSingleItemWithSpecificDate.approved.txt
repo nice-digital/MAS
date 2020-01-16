@@ -1,20 +1,244 @@
 
-<h2>DailyEmail</h2>
+
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+                                    Articles that match your chosen specialities today
+                                    *|ELSE:|*
+                                    No articles match your chosen specialities today
+                                    *|END:INTERESTED|*
+                                    - <a class="subtle-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
 
 
-        <div class='evidenceType'>
-            <strong>Safety alerts</strong>
+    *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+    <table class="spacer-heading">
+        <tbody>
+            <tr>
+                <td height="16px" style="font-size:16px;line-height:16px;">
+                    <h3 class="article-heading">Evidence summary - Evidence summaries</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">Item 1</a></h4>
+                                        <p class="article-description">This is some short summary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/item-1">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">2020health</span>
+                                                <span class="specialism-tag">Cancers</span>
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">Item 2</a></h4>
+                                        <p class="article-description">Some short summary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/item-2">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">ABL Health Ltd</span>
+                                                <span class="specialism-tag">Stroke</span>
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        *|END:INTERESTED|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+    <table class="spacer-heading">
+        <tbody>
+            <tr>
+                <td height="16px" style="font-size:16px;line-height:16px;">
+                    <h3 class="article-heading">Evidence summary - Eyes on evidence commentaries</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">Item 3</a></h4>
+                                        <p class="article-description">Some short summary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/item-3">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">ABL Health Ltd</span>
+                                                <span class="specialism-tag">Later life</span>
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        *|END:INTERESTED|*
+    *|END:INTERESTED|*
 
-                <div class='item'>
-                    Wonder Drug
-                    <br>
-                    ACP Journal Club
-                    <br>
-                    Anaesthesia and pain | Complementary and alternative therapies
-                    <br>
-                    testing
-                    <br>
-                    <a href='https://www.medicinesresources.nhs.uk/testing-789'>SPS Comment</a>
-                </div>
-        </div>
+*|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    All articles from Medicines awareness services: Daily edition
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+    <table class="spacer-heading">
+        <tbody>
+            <tr>
+                <td height="16px" style="font-size:16px;line-height:16px;">
+                    <h3 class="article-heading">Evidence summary - Evidence summaries</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">Item 1</a></h4>
+                                        <p class="article-description">This is some short summary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/item-1">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">2020health</span>
+                                                <span class="specialism-tag">Cancers</span>
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">Item 2</a></h4>
+                                        <p class="article-description">Some short summary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/item-2">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">ABL Health Ltd</span>
+                                                <span class="specialism-tag">Stroke</span>
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    <table class="spacer-heading">
+        <tbody>
+            <tr>
+                <td height="16px" style="font-size:16px;line-height:16px;">
+                    <h3 class="article-heading">Evidence summary - Eyes on evidence commentaries</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">Item 3</a></h4>
+                                        <p class="article-description">Some short summary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/item-3">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">ABL Health Ltd</span>
+                                                <span class="specialism-tag">Later life</span>
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+*|END:INTERESTED|*
 
