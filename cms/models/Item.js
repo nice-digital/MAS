@@ -3,7 +3,8 @@ const keystone = require("keystone"),
 	https = require("https"),
 	http = require("http"),
 	log4js = require("log4js"),
-	utils = require("keystone-utils");
+	utils = require("keystone-utils"),
+	_ = require("lodash");
 
 const Types = keystone.Field.Types;
 
@@ -107,6 +108,27 @@ Item.add({
 	}
 });
 
+Item.fullResponseFields = [
+	"_id",
+	"title",
+	"slug",
+	"url",
+	"shortSummary",
+	"comment",
+	"resourceLinks",
+	"staticPath",
+	"source._id",
+	"source.title",
+	"specialities",
+	"evidenceType._id",
+	"evidenceType.title",
+	"evidenceType.key",
+	"evidenceType.broaderTitle",
+	"publicationDate",
+	"updatedAt",
+	"createdAt"
+];
+
 Item.schema.pre("validate", function(next) {
 	if (this.isInitial) {
 		this.isInitial = false;
@@ -155,7 +177,7 @@ const createWeeklyIfNeeded = async () => {
 Item.schema.post("save", async function(doc, next) {
 	await createWeeklyIfNeeded();
 
-	logger.info("Post save, sending request...", doc);
+	logger.info("Post save, sending request...");
 
 	let item;
 
@@ -166,6 +188,7 @@ Item.schema.post("save", async function(doc, next) {
 			.populate("source")
 			.populate("evidenceType")
 			.populate("specialities")
+			.select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
 		logger.error("An error occurred finding item: ", err.message);
@@ -176,7 +199,8 @@ Item.schema.post("save", async function(doc, next) {
 	const hostname = process.env.HOST_NAME;
 	const hostport = process.env.HOST_PORT;
 
-	const data = JSON.stringify(item);
+	const data = JSON.stringify(_.pick(item, Item.fullResponseFields));
+	logger.debug("Sending: ", data);
 
 	var options = {
 		hostname: hostname,
