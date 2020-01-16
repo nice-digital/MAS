@@ -13,7 +13,7 @@ using System;
 
 namespace MAS.Tests.UnitTests
 {
-    public class MailServiceTests : TestBase
+    public class MailServiceTests
     {
         [Fact]
         public void CreateCampaignAndSendToMailChimp()
@@ -27,6 +27,8 @@ namespace MAS.Tests.UnitTests
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
 
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
+
+            AppSettings.MailConfig = Mock.Of<MailConfig>();
 
             //Act
             var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text");

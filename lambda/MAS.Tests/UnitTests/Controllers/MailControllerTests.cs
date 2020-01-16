@@ -57,7 +57,7 @@ namespace MAS.Tests.UnitTests.Controllers
             await mailController.PutMailAsync();
 
             //Assert
-            mockViewRenderer.Verify(mock => mock.RenderViewAsync(mailController, "~/Views/MAD.cshtml", items, false), Times.Once());
+            mockViewRenderer.Verify(mock => mock.RenderViewAsync(mailController, "~/Views/DailyEmail.cshtml", items, false), Times.Once());
         }
     }
 }

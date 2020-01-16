@@ -2,7 +2,7 @@
 @model List<Item>
 @{
     ViewData["Title"] = "DailyEmail";
-    Layout = "~/Views/Shared/_EmailLayout.cshtml";
+    //Layout = "~/Views/Shared/_EmailLayout.cshtml";
 
     var groupedItems = Model.GroupBy(x => x.EvidenceType.Title).ToList();
 }

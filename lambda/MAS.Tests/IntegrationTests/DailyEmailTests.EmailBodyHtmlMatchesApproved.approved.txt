@@ -1,0 +1,53 @@
+
+<h2>DailyEmail</h2>
+
+
+        <div class='evidenceType'>
+            <strong>Safety alerts</strong>
+
+                <div class='item'>
+                    Wonder Drug
+                    <br>
+                    ACP Journal Club
+                    <br>
+                    Anaesthesia and pain | Complementary and alternative therapies
+                    <br>
+                    testing
+                    <br>
+                    <a href='https://www.medicinesresources.nhs.uk/testing-789'>SPS Comment</a>
+                </div>
+                <div class='item'>
+                    MY MEDICINE
+                    <br>
+                    ADHD Awareness Month
+                    <br>
+                    Anaesthesia and pain | Complementary and alternative therapies
+                    <br>
+                    this is my medicine
+                    <br>
+                    <a href='https://www.medicinesresources.nhs.uk/my-medicine'>SPS Comment</a>
+                </div>
+                <div class='item'>
+                    Hello world
+                    <br>
+                    Substance Misuse Management in General Practice
+                    <br>
+                    Anaesthesia and pain | Complementary and alternative therapies
+                    <br>
+                    test
+                    <br>
+                    <a href='https://www.medicinesresources.nhs.uk/hello-world'>SPS Comment</a>
+                </div>
+                <div class='item'>
+                    A Placebo
+                    <br>
+                    Journal of Surgical Oncology
+                    <br>
+                    Anaesthesia and pain | Complementary and alternative therapies
+                    <br>
+                    hello
+                    <br>
+                    <a href='https://www.medicinesresources.nhs.uk/hello-there'>SPS Comment</a>
+                </div>
+        </div>
+

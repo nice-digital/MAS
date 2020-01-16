@@ -29,7 +29,7 @@ namespace MAS.Controllers
         {
             var items = await _contentService.GetDailyItemsAsync(date);
 
-            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/MAD.cshtml", items.ToList());
+            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/DailyEmail.cshtml", items.ToList());
             var subject = "MAS Email";
             var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
 

@@ -11,7 +11,7 @@ using Xunit;
 
 namespace MAS.Tests.UnitTests
 {
-    public class ContentServiceTests : TestBase
+    public class ContentServiceTests
     {
         [Fact]
         public async Task ReadMultipleItems()
@@ -19,7 +19,7 @@ namespace MAS.Tests.UnitTests
             //Arrange
             var mockLogger = new Mock<ILogger<ContentService>>();
 
-            AppSettings.CMSConfig = TestAppSettings.GetMultipleItemsFeed();
+            AppSettings.CMSConfig = TestAppSettings.CMS.Default;
             var contentService = new ContentService(mockLogger.Object);
 
             //Act
@@ -39,7 +39,7 @@ namespace MAS.Tests.UnitTests
             //Arrange
             var mockLogger = new Mock<ILogger<ContentService>>();
 
-            AppSettings.CMSConfig = TestAppSettings.GetInvalidURI();
+            AppSettings.CMSConfig = TestAppSettings.CMS.InvalidURI;
             var contentService = new ContentService(mockLogger.Object);
 
             //Act + Assert

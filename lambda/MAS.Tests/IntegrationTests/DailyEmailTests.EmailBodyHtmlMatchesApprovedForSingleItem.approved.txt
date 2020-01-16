@@ -1,0 +1,20 @@
+
+<h2>DailyEmail</h2>
+
+
+        <div class='evidenceType'>
+            <strong>Safety alerts</strong>
+
+                <div class='item'>
+                    Wonder Drug
+                    <br>
+                    ACP Journal Club
+                    <br>
+                    Anaesthesia and pain | Complementary and alternative therapies
+                    <br>
+                    testing
+                    <br>
+                    <a href='https://www.medicinesresources.nhs.uk/testing-789'>SPS Comment</a>
+                </div>
+        </div>
+
