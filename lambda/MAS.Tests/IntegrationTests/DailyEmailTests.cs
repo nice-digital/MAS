@@ -89,5 +89,33 @@ namespace MAS.Tests.IntegrationTests
 
             bodyHtml.ShouldMatchApproved();
         }
+
+        [Fact]
+        public async void EmailBodyHtmlMatchesApprovedForSingleItemWithSpecificDate()
+        {
+            // Arrange
+            var fakeMailService = new Mock<IMailService>();
+
+            string bodyHtml = string.Empty;
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+                .ReturnsAsync("1234");
+
+            var client = WithImplementation(fakeMailService.Object).CreateClient();
+
+            AppSettings.CMSConfig.DailyItemsPath = "/daily-items-{0}.json";
+
+            // Act
+            var response = await client.PutAsync("/api/mail/daily?date=01-01-2020", null);
+
+            // Assert
+            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
+
+            var responseText = await response.Content.ReadAsStringAsync();
+            responseText.ShouldBe("1234");
+
+            bodyHtml.ShouldMatchApproved();
+        }
+
     }
 }
