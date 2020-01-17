@@ -34,16 +34,16 @@ namespace MAS.Services
                     Type = CampaignType.Regular,
                     Settings = new Setting
                     {
-                        FolderId = AppSettings.MailConfig.CampaignFolderId,
-                        TemplateId = AppSettings.MailConfig.DailyTemplateId,
+                        FolderId = AppSettings.MailChimpConfig.CampaignFolderId,
+                        TemplateId = AppSettings.MailChimpConfig.DailyTemplateId,
                         SubjectLine = subject,
                         FromName = AppSettings.MailConfig.FromName,
-                        ReplyTo = AppSettings.MailConfig.Sender,
+                        ReplyTo = AppSettings.MailConfig.ReplyTo,
                         PreviewText = previewText
                     },
                     Recipients = new Recipient
                     {
-                        ListId = AppSettings.MailConfig.ListId
+                        ListId = AppSettings.MailChimpConfig.ListId
                     }
                 });
 
@@ -51,7 +51,7 @@ namespace MAS.Services
                 {
                     Template = new ContentTemplate
                     {
-                        Id = AppSettings.MailConfig.DailyTemplateId,
+                        Id = AppSettings.MailChimpConfig.DailyTemplateId,
                         Sections = new Dictionary<string, object> {
                         { "body", body }
                     }

@@ -1,6 +1,8 @@
-﻿using MAS.Controllers;
+﻿using MAS.Configuration;
+using MAS.Controllers;
 using MAS.Models;
 using MAS.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Shouldly;
@@ -43,9 +45,9 @@ namespace MAS.Tests.UnitTests.Controllers
         }
 
         [Fact]
-        public async void RendersDailyViewWithContentItems()
+        public async void DoesntRenderViewWhenNoItemsFound()
         {
-            var items = new List<Item>() { }.AsEnumerable();
+            var items = Enumerable.Empty<Item>();
             var mockContentService = new Mock<IContentService>();
             mockContentService.Setup(x => x.GetDailyItemsAsync(null)).ReturnsAsync(items);
 
@@ -53,11 +55,61 @@ namespace MAS.Tests.UnitTests.Controllers
 
             var mailController = new MailController(Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>());
 
+            AppSettings.MailConfig = new MailConfig { DailySubject = "" };
+
+            //Act
+            await mailController.PutMailAsync();
+
+            //Assert
+            mockViewRenderer.Verify(mock => mock.RenderViewAsync(mailController, "~/Views/DailyEmail.cshtml", items, false), Times.Never());
+        }
+
+        [Fact]
+        public async void RendersDailyViewWithContentItems()
+        {
+            var items = new List<Item>() { new Item { } }.AsEnumerable();
+            var mockContentService = new Mock<IContentService>();
+            mockContentService.Setup(x => x.GetDailyItemsAsync(null)).ReturnsAsync(items);
+
+            var mockViewRenderer = new Mock<IViewRenderer>();
+
+            var mailController = new MailController(Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>());
+
+            AppSettings.MailConfig = new MailConfig { DailySubject = "" }; 
+
             //Act
             await mailController.PutMailAsync();
 
             //Assert
             mockViewRenderer.Verify(mock => mock.RenderViewAsync(mailController, "~/Views/DailyEmail.cshtml", items, false), Times.Once());
+        }
+
+        [Fact]
+        public async void SendsSubjectAndBodyToMailService()
+        {
+            var items = new List<Item>() { new Item { } }.AsEnumerable();
+            var mockContentService = new Mock<IContentService>();
+            mockContentService
+                .Setup(x => x.GetDailyItemsAsync(It.IsAny<DateTime>()))
+                .ReturnsAsync(items);
+
+            var body = "<p>body</p>";
+            var mockViewRenderer = new Mock<IViewRenderer>();
+            mockViewRenderer
+                .Setup(x => x.RenderViewAsync(It.IsAny<MailController>(), It.IsAny<string>(), It.IsAny<IEnumerable<Item>>(), false))
+                .ReturnsAsync(body);
+
+            var mockMailService = new Mock<IMailService>();
+
+            var mailController = new MailController(mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>());
+
+            AppSettings.MailConfig = new MailConfig { DailySubject = "Test subject - {0}" };
+
+            //Act
+            await mailController.PutMailAsync(new DateTime(2020, 1, 15));
+
+            //Assert
+            mockMailService.Verify(mock => mock.CreateAndSendDailyAsync("Test subject - 15 January 2020", It.IsAny<string>(), body), Times.Once());
         }
     }
 }

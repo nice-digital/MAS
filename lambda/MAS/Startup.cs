@@ -39,7 +39,7 @@ namespace MAS
             services.TryAddTransient<IMailService, MailService>();
             services.TryAddTransient<IContentService, ContentService>();
 
-            services.AddMailChimpClient(AppSettings.MailConfig.ApiKey);
+            services.AddMailChimpClient(AppSettings.MailChimpConfig.ApiKey);
 
             AmazonS3Config s3config;
             if (AppSettings.EnvironmentConfig.Name == "local")  //TODO: Should use Environment.IsDevelopment() here. When running tests it returns "Production"

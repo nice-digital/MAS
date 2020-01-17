@@ -29,14 +29,20 @@ namespace MAS.Controllers
         public async Task<IActionResult> PutMailAsync(DateTime? date = null)
         {
             var items = await _contentService.GetDailyItemsAsync(date);
+
+
+            var dateStr = (date ?? DateTime.Today).ToString("dd MMMM yyyy");
+
+            if (!items.Any())
+            {
+                var message = $"Not sending email for {dateStr}, no items returned from the CMS";
+                _logger.LogWarning(message);
+                return Content(message);
+            }
+
             var body = await _viewRenderer.RenderViewAsync(this, "~/Views/DailyEmail.cshtml", items.ToList());
             var previewText = "The very latest current awareness and evidence-based medicines information";
-
-            var env = AppSettings.EnvironmentConfig.Name;
-            env = env == "Live" ? "" : env + ": ";
-            var subject = String.Format("{0}NICE Medicines Awareness Daily {1}", env, ((DateTime)date).ToString("dd MMMM yyyy"));
-
-            
+            var subject = string.Format(AppSettings.MailConfig.DailySubject, dateStr);
 
             try
             {

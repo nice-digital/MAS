@@ -28,6 +28,7 @@ namespace MAS.Tests.UnitTests
 
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
 
+            AppSettings.MailChimpConfig = Mock.Of<MailChimpConfig>();
             AppSettings.MailConfig = Mock.Of<MailConfig>();
 
             //Act
