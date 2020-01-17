@@ -12,13 +12,15 @@ namespace MAS.Controllers
     {
         private readonly IMailService _mailService;
         private readonly IContentService _contentService;
+        private readonly IViewRenderer _viewRenderer;
         private readonly ILogger<MailController> _logger;
         private readonly IBankHolidayService _bankHolidayService;
 
-        public MailController(IMailService mailService, IContentService contentService, IBankHolidayService bankHolidayService, ILogger<MailController> logger)
+        public MailController(IMailService mailService, IContentService contentService, IViewRenderer viewRenderer, IBankHolidayService bankHolidayService, ILogger<MailController> logger)
         {
             _mailService = mailService;
             _contentService = contentService;
+            _viewRenderer = viewRenderer;
             _logger = logger;
             _bankHolidayService = bankHolidayService;
         }
@@ -91,7 +93,7 @@ namespace MAS.Controllers
                 return Content("The weekly didn't have any items");
             }
 
-            var body = _mailService.CreateWeeklyEmailBody(weeklyContent);
+            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/WeeklyEmail.cshtml", weeklyContent);
             var subject = "NICE Medicines Awareness Weekly - " + weeklyContent.Title;
             var previewText = "NICE Medicines Awareness Weekly. A selection of the week's current awareness and evidence-based medicines information";
 

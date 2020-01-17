@@ -16,7 +16,6 @@ namespace MAS.Services
         Task<string> CreateAndSendDailyCampaignAsync(string subject, string previewText, string body);
         Task<string> CreateAndSendWeeklyCampaignAsync(string subject, string previewText, string body);
         string CreateDailyEmailBody(IEnumerable<Item> item);
-        string CreateWeeklyEmailBody(Weekly weekly);
     }
 
     public class MailService: IMailService
@@ -82,7 +81,7 @@ namespace MAS.Services
         public async Task<string> CreateAndSendWeeklyCampaignAsync(string subject, string previewText, string body)
         {
             try
-            {
+            { 
                 var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
                 {
                     Type = CampaignType.Regular,
@@ -100,7 +99,7 @@ namespace MAS.Services
                         ListId = AppSettings.MailChimpConfig.ListId,
                         SegmentOptions = new SegmentOptions
                         {
-                            SavedSegmentId = AppSettings.MailChimpConfig.WeeklySegmentId
+                            SavedSegmentId = AppSettings.MailChimpConfig.WeeklySegmentId,
                         }
                     }
                 });
@@ -142,33 +141,6 @@ namespace MAS.Services
                 body.Append(item.ShortSummary);
                 body.Append("<br><br><br>");
             }
-
-            return body.ToString();
-        }
-
-        public string CreateWeeklyEmailBody(Weekly weekly)
-        {
-            var body = new StringBuilder();
-
-            body.Append(weekly.Title);
-            body.Append("<br>");
-            body.Append(weekly.CommentaryTitle);
-            body.Append("<br>");
-            body.Append(weekly.CommentarySummary);
-            body.Append("<br><br><br>");
-
-            foreach (var item in weekly.Items)
-            {
-                body.Append(item.Source.Title);
-                body.Append("<br>");
-                body.Append(item.Title);
-                body.Append("<br>");
-                body.Append(item.ShortSummary);
-                body.Append("<br><br><br>");
-            }
-
-            body.Append(weekly.CommentarySummary);
-            body.Append(weekly.CommentaryBody);
 
             return body.ToString();
         }

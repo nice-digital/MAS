@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MAS.Models
@@ -13,6 +14,8 @@ namespace MAS.Models
         public string Title { get; set; }
         [Required, JsonRequired]
         public Source Source { get; set; }
+        [JsonProperty("specialities")]
+        public List<Speciality> Specialities { get; set; }
         [Required, JsonRequired]
         public EvidenceType EvidenceType { get; set; }
         public string ShortSummary { get; set; }

@@ -1,0 +1,126 @@
+﻿@model MAS.Models.Weekly
+@{
+    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.Title).ToList();
+}
+
+    <div>
+        <!-- Add Medicines evidence summary -->
+        <!-- Medicines evidence commentary banner -->
+        <table class="spacer-heading">
+            <tbody>
+                <tr>
+                    <td height="16px" style="font-size:16px;line-height:16px;">
+                        <h3 class="article-heading">Medicines evidence commentary</h3>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Medicines evidence commentary summary -->
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <!-- TODO: green stripe at side of box -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">@Model.CommentaryTitle</a></h4>
+                                        <p class="article-description">@Model.CommentarySummary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/">Read full commentary</a></p><!-- TODO: fix link -->
+                                        <p class="article-tags">
+                                            <!-- TODO: this tag is a different colour from the article tags -->
+                                            <span class="source-tag">NICE</span>
+                                        </p>
+                                    </td>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Add Items -->
+        @foreach (var group in groupedItems)
+        {
+            var evidenceType = group.Key;
+            <table class="spacer-heading">
+                <tbody>
+                    <tr>
+                        <td height="16px" style="font-size:16px;line-height:16px;">
+                            <h3 class="article-heading">@evidenceType</h3>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            @foreach (var item in group)
+            {
+                <table class="row article-border">
+                    <tbody>
+                        <tr>
+                            <th class="small-12 large-12 columns first last">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h4 class="h4 article-title"><a class="article-link" href="#">@item.Title</a></h4>
+                                                <p class="article-description">@item.ShortSummary</p>
+                                                <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/@item.Slug">Read SPS commentary</a></p>
+                                                <p class="article-tags">
+                                                    <span class="source-tag">@item.Source.Title</span>
+                                                    @foreach (var spec in item.Specialities)
+                                                    {
+                                                        <span class="specialism-tag">@spec.Title</span>
+                                                    }
+                                                </p>
+                                            </td>
+                                            <td class="expander"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        }
+
+        <!-- Add Medicines evidence summary and commentary -->
+        <!-- Medicines evidence commentary banner -->
+        <table class="spacer-heading">
+            <tbody>
+                <tr>
+                    <td height="16px" style="font-size:16px;line-height:16px;">
+                        <h3 class="article-heading">Medicines evidence commentary</h3>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Medicines evidence summary and commentary -->
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <!-- TODO: green stripe at side of box -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">@Model.CommentaryTitle</a></h4>
+                                        <p class="article-description">@Model.CommentarySummary</p>
+                                        <p class="article-description">@Model.CommentaryBody</p>
+                                    </td>
+                                    <td class="expander"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
