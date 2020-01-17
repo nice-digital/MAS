@@ -37,7 +37,7 @@ export const manageButton = () => {
 	clickElement("click", "element", "//BUTTON[@type][text()='Manage']");
 };
 export const deleteButton = () => {
-	browser.scroll(750, 750);
+	browser.scroll(1000, 900);
 	clickElement("click", "element", "//BUTTON[@data-button='delete']");
 };
 export const deleteItem = () => {	
