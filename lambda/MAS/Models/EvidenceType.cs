@@ -10,5 +10,6 @@ namespace MAS.Models
         public string Title { get; set; }
 
         public string Key { get; set; }
+        public string BroaderTitle { get; set; }
     }
 }

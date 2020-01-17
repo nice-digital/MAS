@@ -35,6 +35,7 @@
       "title": "Safety alerts",
       "key": "mas_evidence_types:Safety%20alerts",
       "oldEPiServerId": 778708,
+      "broaderTitle": "Evidence summary",
       "__v": 0
     },
     "isInitial": false
