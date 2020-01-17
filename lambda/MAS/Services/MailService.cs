@@ -37,8 +37,8 @@ namespace MAS.Services
                         FolderId = AppSettings.MailConfig.CampaignFolderId,
                         TemplateId = AppSettings.MailConfig.DailyTemplateId,
                         SubjectLine = subject,
-                        FromName = "MAS",
-                        ReplyTo = "MAS@nice.org.uk",
+                        FromName = AppSettings.MailConfig.FromName,
+                        ReplyTo = AppSettings.MailConfig.Sender,
                         PreviewText = previewText
                     },
                     Recipients = new Recipient
