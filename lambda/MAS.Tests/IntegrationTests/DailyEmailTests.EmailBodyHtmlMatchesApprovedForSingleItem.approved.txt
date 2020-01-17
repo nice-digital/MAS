@@ -32,7 +32,7 @@
         <tbody>
             <tr>
                 <td height="16px" style="font-size:16px;line-height:16px;">
-                    <h3 class="article-heading">Safety alerts</h3>
+                    <h3 class="article-heading">Evidence summary</h3>
                 </td>
             </tr>
         </tbody>
@@ -66,6 +66,7 @@
         *|END:INTERESTED|*
     *|END:INTERESTED|*
 
+
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
 <table class="row article-border article-mec article-section-header">
     <tbody>
@@ -92,7 +93,7 @@
         <tbody>
             <tr>
                 <td height="16px" style="font-size:16px;line-height:16px;">
-                    <h3 class="article-heading">Safety alerts</h3>
+                    <h3 class="article-heading">Evidence summary</h3>
                 </td>
             </tr>
         </tbody>

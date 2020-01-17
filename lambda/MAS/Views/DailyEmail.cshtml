@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "MAS Daily";
 
-    var groupedItems = Model.GroupBy(x => x.EvidenceType.Title).ToList();
+    var groupedItems = Model.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
     var specialitiesAsString = String.Join(',', Model.SelectMany(x => x.Specialities).Select(x => x.Title).ToList());
 }
 
@@ -84,6 +84,7 @@
     }
     @:*|END:INTERESTED|*
 }
+
 
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
 <table class="row article-border article-mec article-section-header">

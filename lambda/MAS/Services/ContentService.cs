@@ -52,8 +52,8 @@ namespace MAS.Services
                 try
                 {
                     var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.BaseUrl + path));
-                    var item = JsonConvert.DeserializeObject<Item[]>(jsonStr);
-                    return item;
+                    var items = JsonConvert.DeserializeObject<Item[]>(jsonStr);
+                    return items;
                 }
                 catch (Exception e)
                 {
