@@ -40,7 +40,7 @@ namespace MAS.Controllers
                 return Content(message);
             }
 
-            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/DailyEmail.cshtml", items.ToList());
+            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/Mail/Daily.cshtml", items.ToList());
             var previewText = "The very latest current awareness and evidence-based medicines information";
             var subject = string.Format(AppSettings.MailConfig.DailySubject, dateStr);
 

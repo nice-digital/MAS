@@ -27,8 +27,6 @@ namespace MAS.Tests.Infrastructure
             {
                 builder.ConfigureTestServices(services =>
                 {
-                    var serviceProvider = services.BuildServiceProvider();
-
                     var descriptor =
                         new ServiceDescriptor(
                             typeof(TService), implementation);

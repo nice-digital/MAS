@@ -10,9 +10,9 @@
                             <th>
                                 <p>
                                     *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
-                                    Articles that match your chosen specialities today
+                                        Articles that match your chosen specialities today
                                     *|ELSE:|*
-                                    No articles match your chosen specialities today
+                                        No articles match your chosen specialities today
                                     *|END:INTERESTED|*
                                     - <a class="subtle-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
                                 </p>
@@ -28,134 +28,202 @@
 
 
     *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
-    <table class="spacer-heading">
-        <tbody>
-            <tr>
-                <td height="16px" style="font-size:16px;line-height:16px;">
-                    <h3 class="article-heading">Evidence summary</h3>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Evidence summary
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.nhs.uk/">
+                                        Wonder Drug
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    testing
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        ACP Journal Club
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
         *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">Wonder Drug</a></h4>
-                                        <p class="article-description">testing</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/testing-789">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">ACP Journal Club</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">Hello world</a></h4>
-                                        <p class="article-description">test</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/hello-world">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">Substance Misuse Management in General Practice</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        *|END:INTERESTED|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.bbc.co.uk/">
+                                        Hello world
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    test
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-world.html" aria-label="Read SPS commentary for Hello world">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Substance Misuse Management in General Practice
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
     *|END:INTERESTED|*
     *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
-    <table class="spacer-heading">
-        <tbody>
-            <tr>
-                <td height="16px" style="font-size:16px;line-height:16px;">
-                    <h3 class="article-heading">Evidence summary 2</h3>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Evidence summary 2
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.nice.org.uk/">
+                                        MY MEDICINE
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    this is my medicine
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/my-medicine.html" aria-label="Read SPS commentary for MY MEDICINE">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        ADHD Awareness Month
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
         *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">MY MEDICINE</a></h4>
-                                        <p class="article-description">this is my medicine</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/my-medicine">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">ADHD Awareness Month</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">A Placebo</a></h4>
-                                        <p class="article-description">hello</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/hello-there">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">Journal of Surgical Oncology</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        *|END:INTERESTED|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.google.com/">
+                                        A Placebo
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    hello
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-there.html" aria-label="Read SPS commentary for A Placebo">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Journal of Surgical Oncology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
     *|END:INTERESTED|*
 
 
@@ -181,123 +249,190 @@
     </tbody>
 </table>
 
-    <table class="spacer-heading">
-        <tbody>
-            <tr>
-                <td height="16px" style="font-size:16px;line-height:16px;">
-                    <h3 class="article-heading">Evidence summary</h3>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">Wonder Drug</a></h4>
-                                        <p class="article-description">testing</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/testing-789">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">ACP Journal Club</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">Hello world</a></h4>
-                                        <p class="article-description">test</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/hello-world">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">Substance Misuse Management in General Practice</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-    <table class="spacer-heading">
-        <tbody>
-            <tr>
-                <td height="16px" style="font-size:16px;line-height:16px;">
-                    <h3 class="article-heading">Evidence summary 2</h3>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">MY MEDICINE</a></h4>
-                                        <p class="article-description">this is my medicine</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/my-medicine">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">ADHD Awareness Month</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        <table class="row article-border">
-            <tbody>
-                <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <h4 class="h4 article-title"><a class="article-link" href="#">A Placebo</a></h4>
-                                        <p class="article-description">hello</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/hello-there">Read SPS commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag">Journal of Surgical Oncology</span>
-                                                <span class="specialism-tag">Anaesthesia and pain</span>
-                                                <span class="specialism-tag">Complementary and alternative therapies</span>
-                                        </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-*|END:INTERESTED|*
 
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Evidence summary
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.nhs.uk/">
+                                        Wonder Drug
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    testing
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        ACP Journal Club
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.bbc.co.uk/">
+                                        Hello world
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    test
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-world.html" aria-label="Read SPS commentary for Hello world">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Substance Misuse Management in General Practice
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Evidence summary 2
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.nice.org.uk/">
+                                        MY MEDICINE
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    this is my medicine
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/my-medicine.html" aria-label="Read SPS commentary for MY MEDICINE">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        ADHD Awareness Month
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="https://www.google.com/">
+                                        A Placebo
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    hello
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-there.html" aria-label="Read SPS commentary for A Placebo">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Journal of Surgical Oncology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Anaesthesia and pain
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Complementary and alternative therapies
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>*|END:INTERESTED|*
