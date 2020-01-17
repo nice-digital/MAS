@@ -1,4 +1,5 @@
-﻿using MAS.Services;
+﻿using MAS.Configuration;
+using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,10 +29,14 @@ namespace MAS.Controllers
         public async Task<IActionResult> PutMailAsync(DateTime? date = null)
         {
             var items = await _contentService.GetDailyItemsAsync(date);
-
             var body = await _viewRenderer.RenderViewAsync(this, "~/Views/DailyEmail.cshtml", items.ToList());
-            var subject = "MAS Email";
-            var previewText = "This MAS email was created " + DateTime.Now.ToShortDateString();
+            var previewText = "The very latest current awareness and evidence-based medicines information";
+
+            var env = AppSettings.EnvironmentConfig.Name;
+            env = env == "Live" ? "" : env + ": ";
+            var subject = String.Format("{0}NICE Medicines Awareness Daily {1}", env, ((DateTime)date).ToString("dd MMMM yyyy"));
+
+            
 
             try
             {
