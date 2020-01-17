@@ -33,5 +33,21 @@ export const save = () => {
 	clickElement("click", "element", "//BUTTON[@data-button='update']");
 	browser.pause(15000);
 };
+export const manageButton = () => {
+	clickElement("click", "element", "//BUTTON[@type][text()='Manage']");
+};
+export const deleteButton = () => {
+	browser.scroll(750, 750);
+	clickElement("click", "element", "//BUTTON[@data-button='delete']");
+};
+export const deleteItem = () => {	
+	clickElement("click", "element", "//BUTTON[@data-button-type='confirm']");
+	browser.pause(1000);
+};
+export const itemRecordAdded = () => {
+	browser.scroll("//a[contains(text(),'NSAIDs Automated test again')]", 25, 25);
+	browser.pause(1000);
+	clickElement("click", "element", "//BUTTON[@type][text()='Delete']");
+};
 
 export default emailInput;

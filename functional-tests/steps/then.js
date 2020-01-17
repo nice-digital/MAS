@@ -4,7 +4,7 @@ import checkContainsText from "@nice-digital/wdio-cucumber-steps/lib/support/che
 import validateRecordForm from "../support/check/validate";
 import setInputField from "@nice-digital/wdio-cucumber-steps/lib/support/action/setInputField";
 import { addUrl, addPublicationDate, addEvidenceType, addSpsComment, addShortSummary, addResourceLink } from "../support/action/addInput";
-import { selectEvidenceType, selectSpecialities, relevancy } from "../support/action/click";
+import { selectEvidenceType, selectSpecialities, relevancy, deleteButton, deleteItem } from "../support/action/click";
 
 Then(
     /^I expect the page to contain the text "([^"]*)?"$/, (text) => {
@@ -54,7 +54,7 @@ Then(
     /^I expect the new record is added to the list of items$/, () => {
         browser.pause(3000);
         browser.click("[data-list-path='items'] a");
-        browser.waitForVisible("//A[text()='NSAIDs Automated test again']");      
+        browser.waitForVisible("//A[text()='NSAIDs Automated test again']", 3000);      
     }          
 );
 Then(
@@ -100,3 +100,14 @@ Then(
             
     }                
 );
+Then(
+    /^I can click on the delete button$/, 
+    deleteButton
+);
+Then( 
+    /^I can see the modal dialog box$/,() => {
+    var confirmDelete = $("[data-screen-id='modal-dialog']");
+    confirmDelete.isExisting();
+    }
+);
+
