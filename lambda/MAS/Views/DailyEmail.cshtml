@@ -1,0 +1,157 @@
+﻿@using MAS.Models;
+@model List<Item>
+@{
+    ViewData["Title"] = "MAS Daily";
+
+    var groupedItems = Model.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
+    var specialitiesAsString = String.Join(',', Model.SelectMany(x => x.Specialities).Select(x => x.Title).ToList());
+}
+
+
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    *|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+                                    Articles that match your chosen specialities today
+                                    *|ELSE:|*
+                                    No articles match your chosen specialities today
+                                    *|END:INTERESTED|*
+                                    - <a class="subtle-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+@foreach (var group in groupedItems)
+{
+    var evidenceType = group.Key;
+
+    @:*|INTERESTED:Daily specialities of interest:@String.Join(',', group.SelectMany(x => x.Specialities).Select(x => x.Title).ToList()) |*
+    <table class="spacer-heading">
+        <tbody>
+            <tr>
+                <td height="16px" style="font-size:16px;line-height:16px;">
+                    <h3 class="article-heading">@evidenceType</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    @foreach (var item in group)
+    {
+        @:*|INTERESTED:Daily specialities of interest:@String.Join(',', item.Specialities.Select(x => x.Title).ToList()) |*
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">@item.Title</a></h4>
+                                        <p class="article-description">@item.ShortSummary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/@item.Slug">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">@item.Source.Title</span>
+                                            @foreach (var spec in item.Specialities)
+                                            {
+                                                <span class="specialism-tag">@spec.Title</span>
+                                            }
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        @:*|END:INTERESTED|*
+    }
+    @:*|END:INTERESTED|*
+}
+
+
+*|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    All articles from Medicines awareness services: Daily edition
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+@foreach (var group in groupedItems)
+{
+    var evidenceType = group.Key;
+
+    <table class="spacer-heading">
+        <tbody>
+            <tr>
+                <td height="16px" style="font-size:16px;line-height:16px;">
+                    <h3 class="article-heading">@evidenceType</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    @foreach (var item in group)
+    {
+        <table class="row article-border">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="h4 article-title"><a class="article-link" href="#">@item.Title</a></h4>
+                                        <p class="article-description">@item.ShortSummary</p>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="https://www.medicinesresources.nhs.uk/@item.Slug">Read SPS commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag">@item.Source.Title</span>
+                                            @foreach (var spec in item.Specialities)
+                                            {
+                                                <span class="specialism-tag">@spec.Title</span>
+                                            }
+                                        </p>
+                                    </th>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    }
+}
+*|END:INTERESTED|*
+

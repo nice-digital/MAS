@@ -9,7 +9,7 @@
                         <tr>
                             <th>
                                 <p>
-                                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+                                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
                                         Articles that match your chosen specialities today
                                     *|ELSE:|*
                                         No articles match your chosen specialities today
@@ -27,7 +27,7 @@
 </table>
 
 
-    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
 
 <table class="spacer-heading">
     <tbody>
@@ -39,7 +39,7 @@
             </td>
         </tr>
     </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
 
 <table class="row article-border">
     <tbody>
@@ -82,7 +82,7 @@
         </tr>
     </tbody>
 </table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
 
 <table class="row article-border">
     <tbody>
@@ -126,7 +126,7 @@
     </tbody>
 </table>        *|END:INTERESTED|*
     *|END:INTERESTED|*
-    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
 
 <table class="spacer-heading">
     <tbody>
@@ -138,7 +138,7 @@
             </td>
         </tr>
     </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
 
 <table class="row article-border">
     <tbody>
@@ -181,7 +181,7 @@
         </tr>
     </tbody>
 </table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies,Anaesthesia and pain,Complementary and alternative therapies|*
+        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
 
 <table class="row article-border">
     <tbody>

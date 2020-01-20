@@ -39,7 +39,7 @@
             </td>
         </tr>
     </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+</table>        *|INTERESTED:Daily specialities of interest:Cancers|*
 
 <table class="row article-border">
     <tbody>
@@ -79,7 +79,7 @@
         </tr>
     </tbody>
 </table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+        *|INTERESTED:Daily specialities of interest:Stroke|*
 
 <table class="row article-border">
     <tbody>
@@ -119,7 +119,7 @@
         </tr>
     </tbody>
 </table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Cancers,Stroke,Later life|*
+        *|INTERESTED:Daily specialities of interest:Later life|*
 
 <table class="row article-border">
     <tbody>

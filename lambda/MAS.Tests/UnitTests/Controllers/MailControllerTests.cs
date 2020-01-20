@@ -95,7 +95,7 @@ namespace MAS.Tests.UnitTests.Controllers
         [Fact]
         public async void SendsSubjectAndBodyToMailService()
         {
-            var items = new List<Item>() { new Item { } }.AsEnumerable();
+            var items = new List<Item>() { new Item { Specialities = new List<Speciality>() } }.AsEnumerable();
             var mockContentService = new Mock<IContentService>();
             mockContentService
                 .Setup(x => x.GetDailyItemsAsync(It.IsAny<DateTime>()))
@@ -120,7 +120,7 @@ namespace MAS.Tests.UnitTests.Controllers
             await mailController.PutMailAsync(new DateTime(2020, 1, 15));
 
             //Assert
-            mockMailService.Verify(mock => mock.CreateAndSendDailyAsync("Test subject - 15 January 2020", It.IsAny<string>(), body), Times.Once());
+            mockMailService.Verify(mock => mock.CreateAndSendDailyAsync("Test subject - 15 January 2020", It.IsAny<string>(), body, It.IsAny<List<string>>()), Times.Once());
         }
     }
 }

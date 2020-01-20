@@ -36,7 +36,6 @@ namespace MAS.Controllers
         {
             var items = await _contentService.GetDailyItemsAsync(date);
 
-
             var dateStr = (date ?? DateTime.Today).ToString("dd MMMM yyyy");
 
             if (!items.Any())
@@ -52,7 +51,11 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendDailyAsync(subject, previewText, body);
+                var campaignId = await _mailService.CreateAndSendDailyAsync(
+                    subject, 
+                    previewText, 
+                    body, 
+                    items.SelectMany(x => x.Specialities).Select(y => y.Title).ToList());
                 return Content(campaignId);
             }
             catch (Exception e)

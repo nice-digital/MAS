@@ -17,6 +17,8 @@ namespace MAS.Services
 
     public class ViewRenderer : IViewRenderer
     {
+        #region Constructor
+
         private readonly ILogger<ViewRenderer> _logger;
         private readonly ICompositeViewEngine _compositeViewEngine;
         private readonly IHostingEnvironment _hostingEnvironment;
@@ -27,6 +29,8 @@ namespace MAS.Services
             _compositeViewEngine = compositeViewEngine;
             _hostingEnvironment = hostingEnvironment;
         }
+
+        #endregion
 
         public async Task<string> RenderViewAsync<TModel>(Controller controller, string viewName, TModel model, bool isPartial = false)
         {

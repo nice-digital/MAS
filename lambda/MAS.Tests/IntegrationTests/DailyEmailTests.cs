@@ -3,6 +3,7 @@ using MAS.Services;
 using MAS.Tests.Infrastructure;
 using Moq;
 using Shouldly;
+using System.Collections.Generic;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -20,8 +21,8 @@ namespace MAS.Tests.IntegrationTests
             var fakeMailService = new Mock<IMailService>();
 
             string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
+                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
                 .ReturnsAsync("1234");
 
             var client = _factory
@@ -47,8 +48,8 @@ namespace MAS.Tests.IntegrationTests
             var fakeMailService = new Mock<IMailService>();
 
             string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
+                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
                 .ReturnsAsync("1234");
 
             //CMSConfig cmsConfig = TestAppSettings.CMS.Default;
@@ -79,8 +80,8 @@ namespace MAS.Tests.IntegrationTests
             var fakeMailService = new Mock<IMailService>();
 
             string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
+                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
                 .ReturnsAsync("1234");
 
             var client = _factory
