@@ -28,7 +28,7 @@ namespace MAS.Tests.UnitTests
             mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
             mockMailChimpManager.Setup(x => x.Interests.GetAllAsync(It.IsAny<string>(), It.IsAny<string>(), null))
-                .ReturnsAsync(Enumerable.Empty<Interest>());
+                .ReturnsAsync(new List<Interest>() { new Interest { Id = "987" } });
 
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
 
