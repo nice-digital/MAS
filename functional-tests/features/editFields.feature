@@ -3,10 +3,10 @@ Feature: MAS CMS Item Form
   I want to be able to edit an item in the CMS.
 
 Background:
-   Given I open the homepage
-      And I am logged in to Keystone CMS with username and password      
+   Given I open the homepage            
       
 Scenario: Edit core and add non-core fields
+Given I am logged in to Keystone CMS with username and password 
   When I click on the items button
     And I click on an item record
   Then I expect the record form is visible
@@ -20,3 +20,13 @@ Scenario: Edit core and add non-core fields
     #And I can add a Publication date
   When I click on the Save button
   Then I expect the page to contain the text "Your changes have been saved successfully"
+
+Scenario: Delete record item 
+  When I click on the items button
+  Then I expect to see a list of items
+  When I click on an item record
+    And I click on the delete button
+  Then I can see the modal dialog box
+  When I click the confirm delete button on the dialog box  
+  Then I expect that the url is "https://cms-mas.test.nice.org.uk/keystone/items"
+  
