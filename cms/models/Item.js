@@ -47,7 +47,7 @@ Item.add({
 		type: Types.Textarea,
 		required: false,
 		initial: false,
-		max: 280,
+		max: 281,
 		label: "Short summary"
 	},
 	publicationDate: {
