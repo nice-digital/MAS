@@ -10,6 +10,8 @@ using Shouldly;
 using Microsoft.Extensions.Logging;
 using MAS.Configuration;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace MAS.Tests.UnitTests
 {
@@ -25,14 +27,13 @@ namespace MAS.Tests.UnitTests
             mockMailChimpManager.Setup(x => x.Campaigns.AddAsync(It.IsAny<Campaign>())).ReturnsAsync(new Campaign() { Id = "1234" });
             mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
+            mockMailChimpManager.Setup(x => x.Interests.GetAllAsync(It.IsAny<string>(), It.IsAny<string>(), null))
+                .ReturnsAsync(Enumerable.Empty<Interest>());
 
-            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
-
-            AppSettings.MailChimpConfig = Mock.Of<MailChimpConfig>();
-            AppSettings.MailConfig = Mock.Of<MailConfig>();
+            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
 
             //Act
-            var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", null);
+            var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", new List<string>());
             
             //Assert
             response.Exception.ShouldBe(null);
@@ -51,7 +52,7 @@ namespace MAS.Tests.UnitTests
             mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>())).Throws(new Exception());
 
-            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
+            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
 
             //Act + Assert
             Should.Throw<Exception>(() => mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", null));

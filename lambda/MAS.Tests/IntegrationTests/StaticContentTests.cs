@@ -1,24 +1,24 @@
+using Amazon.S3;
+using Amazon.S3.Model;
+using MAS.Models;
+using MAS.Tests.Infrastructure;
+using Moq;
+using Newtonsoft.Json;
+using Shouldly;
+using System.Net.Http;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using MAS.Tests.Infrastructure;
-using Shouldly;
-using Amazon.S3;
-using Amazon;
-using MAS.Configuration;
-using System.IO;
-using MAS.Models;
-using Amazon.S3.Model;
-using Newtonsoft.Json;
-using System.Text;
-using System.Net.Http;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Moq;
-using System.Threading;
+using Xunit.Abstractions;
 
 namespace MAS.Tests.IntegrationTests
 {
     public class StaticContentTests : TestBase
     {
+        public StaticContentTests(ITestOutputHelper output) : base(output)
+        { }
+
         private Item item = new Item()
         {
             Id = "1234",
@@ -52,7 +52,7 @@ namespace MAS.Tests.IntegrationTests
                 .Callback<PutObjectRequest, CancellationToken>((pOR, cT) => putObjectRequest = pOR)
                 .ReturnsAsync(new PutObjectResponse { HttpStatusCode = System.Net.HttpStatusCode.OK });
 
-            var client = WithImplementation(fakeS3Service.Object).CreateClient();
+            var client = _factory.WithImplementation(fakeS3Service.Object).CreateClient();
             var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
 
             // Act
