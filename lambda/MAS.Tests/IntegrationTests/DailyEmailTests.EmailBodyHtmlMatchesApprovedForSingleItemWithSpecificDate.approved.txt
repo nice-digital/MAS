@@ -1,9 +1,10 @@
 
 
+
 <table class="row article-border article-mec article-section-header">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th class="small-12 large-12 first last">
                 <table>
                     <tbody>
                         <tr>
@@ -166,7 +167,7 @@
 <table class="row article-border article-mec article-section-header">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th class="small-12 large-12 first last">
                 <table>
                     <tbody>
                         <tr>
