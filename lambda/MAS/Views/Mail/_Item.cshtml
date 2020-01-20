@@ -1,0 +1,48 @@
+﻿@using MAS.Models;
+@using MAS.Configuration;
+@model Item
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                    <a class="article-link" href="@Model.URL">
+                                        @Model.Title
+                                    </a>
+                                </h4>
+                                <p class="article-description">
+                                    @Model.ShortSummary
+                                </p>
+                                @if (!string.IsNullOrEmpty(Model.Comment))
+                                {
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="@(AppSettings.AWSConfig.StaticURL)@(Model.Slug).html" aria-label="Read SPS commentary for @Model.Title">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                }
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        @Model.Source.Title
+                                    </span>
+                                    @foreach (var spec in Model.Specialities)
+                                    {
+                                        <span class="specialism-tag">
+                                            @spec.Title
+                                        </span>
+                                    }
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>

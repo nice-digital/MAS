@@ -1,5 +1,5 @@
 # Use LTS version of Node
-FROM node:8.11.1
+FROM node:10
 
 RUN npm -g install npm@latest
 
@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package.json /app
 COPY package-lock.json /app
 
-RUN npm ci
+RUN npm ci --quiet --only=production
 
 COPY . /app
 

@@ -1,0 +1,85 @@
+﻿@using MAS.Models;
+@model List<Item>
+@{
+    ViewData["Title"] = "MAS Daily";
+
+    var groupedItems = Model.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
+    var specialitiesAsString = String.Join(',', Model.SelectMany(x => x.Specialities).Select(x => x.Title).ToList());
+}
+
+
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    *|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+                                        Articles that match your chosen specialities today
+                                    *|ELSE:|*
+                                        No articles match your chosen specialities today
+                                    *|END:INTERESTED|*
+                                    - <a class="subtle-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+@foreach (var group in groupedItems)
+{
+    @:*|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+
+    @await Html.PartialAsync("_Heading", group.Key)
+
+    @foreach (var item in group)
+    {
+        @:*|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+        @await Html.PartialAsync("_Item", item)
+        @:*|END:INTERESTED|*
+    }
+    @:*|END:INTERESTED|*
+}
+
+
+*|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    All articles from Medicines awareness services: Daily edition
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+@foreach (var group in groupedItems)
+{
+    @await Html.PartialAsync("_Heading", group.Key)
+
+    @foreach (var item in group)
+    {
+        @await Html.PartialAsync("_Item", item)
+    }
+}
+*|END:INTERESTED|*

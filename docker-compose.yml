@@ -9,7 +9,7 @@ services:
       - 3010:3010
     environment:
       PORT: 3010
-      MONGO_URL: "mongodb://mongo:27017"
+      MONGO_URL: "mongodb://mongo:27017/mas-docker"
       COOKIE_SECRET: ${KEYSTONE_COOKIE_SECRET}
       KEYSTONE_ADMIN_EMAIL: ${KEYSTONE_ADMIN_EMAIL}
       KEYSTONE_ADMIN_PASSWORD: ${KEYSTONE_ADMIN_PASSWORD}
