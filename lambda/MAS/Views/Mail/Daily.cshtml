@@ -4,7 +4,7 @@
     ViewData["Title"] = "MAS Daily";
 
     var groupedItems = Model.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
-    var specialitiesAsString = String.Join(',', Model.SelectMany(x => x.Specialities).Select(x => x.Title).ToList());
+    var specialitiesAsString = String.Join(',', Model.SelectMany(x => x.Specialities).Select(x => x.Title).Distinct().ToList());
 }
 
 
@@ -37,13 +37,13 @@
 
 @foreach (var group in groupedItems)
 {
-    @:*|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+    @:*|INTERESTED:Daily specialities of interest:@String.Join(',', group.SelectMany(x => x.Specialities).Select(x => x.Title).Distinct().ToList())|*
 
     @await Html.PartialAsync("_Heading", group.Key)
 
     @foreach (var item in group)
     {
-        @:*|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+        @:*|INTERESTED:Daily specialities of interest:@String.Join(',', item.Specialities.Select(x => x.Title).Distinct().ToList())|*
         @await Html.PartialAsync("_Item", item)
         @:*|END:INTERESTED|*
     }
