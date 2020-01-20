@@ -4,7 +4,13 @@
     ViewData["Title"] = "MAS Daily";
 
     var groupedItems = Model.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
-    var specialitiesAsString = String.Join(',', Model.SelectMany(x => x.Specialities).Select(x => x.Title).Distinct().ToList());
+}
+
+@functions {
+    string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
+    {
+        return String.Join(',', specialites.Select(x => x.Title).Distinct());
+    }
 }
 
 
@@ -17,7 +23,7 @@
                         <tr>
                             <th>
                                 <p>
-                                    *|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+                                    *|INTERESTED:Daily specialities of interest:@getSpecialitiesListForMergeTag(Model.SelectMany(x => x.Specialities))|*
                                         Articles that match your chosen specialities today
                                     *|ELSE:|*
                                         No articles match your chosen specialities today
@@ -37,13 +43,13 @@
 
 @foreach (var group in groupedItems)
 {
-    @:*|INTERESTED:Daily specialities of interest:@String.Join(',', group.SelectMany(x => x.Specialities).Select(x => x.Title).Distinct().ToList())|*
+    @:*|INTERESTED:Daily specialities of interest:@getSpecialitiesListForMergeTag(group.SelectMany(x => x.Specialities))|*
 
     @await Html.PartialAsync("_Heading", group.Key)
 
     @foreach (var item in group)
     {
-        @:*|INTERESTED:Daily specialities of interest:@String.Join(',', item.Specialities.Select(x => x.Title).Distinct().ToList())|*
+        @:*|INTERESTED:Daily specialities of interest:@getSpecialitiesListForMergeTag(item.Specialities)|*
         @await Html.PartialAsync("_Item", item)
         @:*|END:INTERESTED|*
     }
