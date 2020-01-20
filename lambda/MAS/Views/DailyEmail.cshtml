@@ -39,7 +39,7 @@
 {
     var evidenceType = group.Key;
 
-    @:*|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+    @:*|INTERESTED:Daily specialities of interest:@String.Join(',', group.SelectMany(x => x.Specialities).Select(x => x.Title).ToList()) |*
     <table class="spacer-heading">
         <tbody>
             <tr>
@@ -52,7 +52,7 @@
 
     @foreach (var item in group)
     {
-        @:*|INTERESTED:Daily specialities of interest:@specialitiesAsString|*
+        @:*|INTERESTED:Daily specialities of interest:@String.Join(',', item.Specialities.Select(x => x.Title).ToList()) |*
         <table class="row article-border">
             <tbody>
                 <tr>
