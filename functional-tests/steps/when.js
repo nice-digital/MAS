@@ -1,6 +1,6 @@
 import "@nice-digital/wdio-cucumber-steps/lib/when";
 import { When } from "cucumber";
-import emailInput, { passwordInput, submitButton, signOut, createItem, selectSource, createButton, selectRecordItem, selectEvidenceType, selectSpecialities, save, itemsButton } from "../support/action/click";
+import emailInput, { passwordInput, submitButton, signOut, createItem, selectSource, createButton, selectRecordItem, selectEvidenceType, selectSpecialities, save, itemsButton, manageButton, itemRecordAdded, deleteButton, deleteItem, navhomePage } from "../support/action/click";
 import { addEmail, addPassword, addTitle, addShortSummary, addSource } from "../support/action/addInput";
 
 When(
@@ -57,6 +57,24 @@ When(
 );
 When(
     /^I click on the Save button$/,
-        save   
+    save   
 );
+When(
+    /^I click the manage button$/,
+    manageButton   
+);
+When(
+    /^I click on the item record added$/,
+    itemRecordAdded     
+);
+When(
+    /^I click on the delete button$/, 
+    deleteButton
+);
+When( 
+    /^I click the confirm delete button on the dialog box$/,
+    deleteItem
+);
+
+
 
