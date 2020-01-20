@@ -109,7 +109,7 @@ namespace MAS.Tests.UnitTests.Controllers
             await mailController.PutMailAsync(new DateTime(2020, 1, 15));
 
             //Assert
-            mockMailService.Verify(mock => mock.CreateAndSendDailyAsync("Test subject - 15 January 2020", It.IsAny<string>(), body), Times.Once());
+            mockMailService.Verify(mock => mock.CreateAndSendDailyAsync("Test subject - 15 January 2020", It.IsAny<string>(), body, It.IsAny<List<string>>()), Times.Once());
         }
     }
 }

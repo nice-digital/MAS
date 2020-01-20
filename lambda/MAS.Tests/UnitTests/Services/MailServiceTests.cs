@@ -32,7 +32,7 @@ namespace MAS.Tests.UnitTests
             AppSettings.MailConfig = Mock.Of<MailConfig>();
 
             //Act
-            var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text");
+            var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", null);
             
             //Assert
             response.Exception.ShouldBe(null);
@@ -54,7 +54,7 @@ namespace MAS.Tests.UnitTests
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
 
             //Act + Assert
-            Should.Throw<Exception>(() => mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text"));
+            Should.Throw<Exception>(() => mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", null));
         }
     }
 }

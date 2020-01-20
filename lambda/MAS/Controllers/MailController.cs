@@ -46,7 +46,11 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendDailyAsync(subject, previewText, body);
+                var campaignId = await _mailService.CreateAndSendDailyAsync(
+                    subject, 
+                    previewText, 
+                    body, 
+                    items.SelectMany(x => x.Specialities).Select(y => y.Title).ToList());
                 return Content(campaignId);
             }
             catch (Exception e)

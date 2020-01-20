@@ -5,13 +5,15 @@ using MAS.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MAS.Services
 {
     public interface IMailService
     {
-        Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body);
+        Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail);
     }
 
     public class MailService: IMailService
@@ -25,8 +27,17 @@ namespace MAS.Services
             _logger = logger;
         }
 
-        public async Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body)
+        public async Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail)
         {
+            var interests = await _mailChimpManager.Interests.GetAllAsync(AppSettings.MailChimpConfig.ListId, AppSettings.MailChimpConfig.InterestCategoryId);
+
+            var interestIds = new List<string>();
+            foreach (string item in specialitiesInEmail)
+            {
+                var interest = interests.FirstOrDefault(x => x.Name == item);
+                interestIds.Add(interest.Id);
+            }
+            
             try
             {
                 var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
@@ -43,7 +54,20 @@ namespace MAS.Services
                     },
                     Recipients = new Recipient
                     {
-                        ListId = AppSettings.MailChimpConfig.ListId
+                        ListId = AppSettings.MailChimpConfig.ListId,
+                        SegmentOptions = new SegmentOptions
+                        {
+                            Conditions = new Condition[]
+                            {
+                                new Condition
+                                {
+                                    Type = ConditionType.Interests,
+                                    Operator = Operator.InterestContains,
+                                    Field = "interests-" + AppSettings.MailChimpConfig.InterestCategoryId,
+                                    Value = interestIds.ToArray()
+                                }
+                            }
+                        }
                     }
                 });
 
@@ -52,9 +76,10 @@ namespace MAS.Services
                     Template = new ContentTemplate
                     {
                         Id = AppSettings.MailChimpConfig.DailyTemplateId,
-                        Sections = new Dictionary<string, object> {
-                        { "body", body }
-                    }
+                        Sections = new Dictionary<string, object>
+                        {
+                            { "body", body }
+                        }
                     }
                 });
 
@@ -67,7 +92,6 @@ namespace MAS.Services
                 _logger.LogError($"Failed to communitcate with MailChimp - exception: {e.Message}");
                 throw new Exception($"Failed to communitcate with MailChimp - exception: {e.Message}");
             }
-          
         }
     }
 }

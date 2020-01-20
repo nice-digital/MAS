@@ -30,7 +30,7 @@ namespace MAS.Tests.IntegrationTests
 {
     public class TestMailService : IMailService
     {
-        public Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body)
+        public Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail)
         {
             throw new NotImplementedException();
         }
@@ -45,8 +45,8 @@ namespace MAS.Tests.IntegrationTests
             var fakeMailService = new Mock<IMailService>();
 
             string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
+                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
                 .ReturnsAsync("1234");
 
             var client = WithImplementation(fakeMailService.Object).CreateClient();
@@ -70,8 +70,8 @@ namespace MAS.Tests.IntegrationTests
             var fakeMailService = new Mock<IMailService>();
 
             string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
+                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
                 .ReturnsAsync("1234");
 
             var client = WithImplementation(fakeMailService.Object).CreateClient();
@@ -97,8 +97,8 @@ namespace MAS.Tests.IntegrationTests
             var fakeMailService = new Mock<IMailService>();
 
             string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Callback<string, string, string>((subject, previewText, body) => bodyHtml = body)
+            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
+                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
                 .ReturnsAsync("1234");
 
             var client = WithImplementation(fakeMailService.Object).CreateClient();
