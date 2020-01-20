@@ -37,7 +37,7 @@ namespace MAS.Services
 
         public async Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail)
         {
-            var interests = await _mailChimpManager.Interests.GetAllAsync(_mailChimpConfig.ListId, _mailChimpConfig.InterestCategoryId);
+            var interests = await _mailChimpManager.Interests.GetAllAsync(_mailChimpConfig.ListId, _mailChimpConfig.SpecialityCategoryId);
 
             var interestIds = new List<string>();
             foreach (string item in specialitiesInEmail)
@@ -45,7 +45,15 @@ namespace MAS.Services
                 var interest = interests.FirstOrDefault(x => x.Name == item);
                 interestIds.Add(interest.Id);
             }
-            
+
+
+            var receiveEverythingOptionId = _mailChimpManager
+                .Interests
+                .GetAllAsync(_mailChimpConfig.ListId, _mailChimpConfig.ReceiveEverythingCategoryId)
+                .Result
+                .First()
+                .Id;
+
             try
             {
                 var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
@@ -65,15 +73,23 @@ namespace MAS.Services
                         ListId = _mailChimpConfig.ListId,
                         SegmentOptions = new SegmentOptions
                         {
+                            Match = Match.Any,
                             Conditions = new Condition[]
                             {
                                 new Condition
                                 {
                                     Type = ConditionType.Interests,
                                     Operator = Operator.InterestContains,
-                                    Field = "interests-" + _mailChimpConfig.InterestCategoryId,
+                                    Field = "interests-" + _mailChimpConfig.SpecialityCategoryId,
                                     Value = interestIds.ToArray()
-                                }
+                                },
+                                new Condition
+                                {
+                                    Type = ConditionType.Interests,
+                                    Operator = Operator.InterestContains,
+                                    Field = "interests-" + _mailChimpConfig.ReceiveEverythingCategoryId,
+                                    Value = new string[] { receiveEverythingOptionId }
+                                },
                             }
                         }
                     }

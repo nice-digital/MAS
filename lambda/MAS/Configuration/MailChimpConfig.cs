@@ -13,6 +13,7 @@
         public string ListId { get; set; }
         public int DailyTemplateId { get; set; }
         public string CampaignFolderId { get; set; }
-        public string InterestCategoryId { get; set; }
+        public string SpecialityCategoryId { get; set; }
+        public string ReceiveEverythingCategoryId { get; set; }
     }
 }
