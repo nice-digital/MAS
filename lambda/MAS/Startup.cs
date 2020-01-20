@@ -16,7 +16,7 @@ namespace MAS
 {
     public class Startup
     {
-        public readonly static RegionEndpoint Region = RegionEndpoint.EUWest1;
+        public static readonly RegionEndpoint Region = RegionEndpoint.EUWest1;
         public static IConfiguration Configuration { get; private set; }
         public IHostingEnvironment Environment { get; }
 
@@ -31,23 +31,39 @@ namespace MAS
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            AppSettings.Configure(services, Configuration);
-            
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IStaticContentService, S3StaticContentService>();
             services.TryAddSingleton<IViewRenderer, ViewRenderer>();
             services.TryAddTransient<IMailService, MailService>();
             services.TryAddTransient<IContentService, ContentService>();
 
-            services.AddMailChimpClient(AppSettings.MailChimpConfig.ApiKey);
+            EnvironmentConfig environmentConfig = new EnvironmentConfig();
+            AWSConfig awsConfig = new AWSConfig();
+            CMSConfig cmsConfig = new CMSConfig();
+            MailChimpConfig mailChimpConfig = new MailChimpConfig();
+            MailConfig mailConfig = new MailConfig();
+
+            Configuration.Bind("AppSettings:Environment", environmentConfig);
+            Configuration.Bind("AWS", awsConfig);
+            Configuration.Bind("CMS", cmsConfig);
+            Configuration.Bind("MailChimp", mailChimpConfig);
+            Configuration.Bind("Mail", mailConfig);
+
+            services.AddSingleton(environmentConfig)
+                .AddSingleton(awsConfig)
+                .AddSingleton(cmsConfig)
+                .AddSingleton(mailChimpConfig)
+                .AddSingleton(mailConfig);
+
+            services.AddMailChimpClient(mailChimpConfig.ApiKey);
 
             AmazonS3Config s3config;
-            if (AppSettings.EnvironmentConfig.Name == "local")  //TODO: Should use Environment.IsDevelopment() here. When running tests it returns "Production"
+            if (environmentConfig.Name == "local")  //TODO: Should use Environment.IsDevelopment() here. When running tests it returns "Production"
             {
                 s3config = new AmazonS3Config()
                 {
                     RegionEndpoint = Region,
-                    ServiceURL = AppSettings.AWSConfig.ServiceURL,
+                    ServiceURL = awsConfig.ServiceURL,
                     ForcePathStyle = true
                 };
             }
@@ -58,15 +74,21 @@ namespace MAS
                     RegionEndpoint = Region
                 };
             }
-            services.AddTransient<IAmazonS3>((sP) => {
-                return new AmazonS3Client(AppSettings.AWSConfig.AccessKey, AppSettings.AWSConfig.SecretKey, s3config);
+            services.AddTransient<IAmazonS3>((sP) =>
+            {
+                return new AmazonS3Client(awsConfig.AccessKey, awsConfig.SecretKey, s3config);
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ISeriLogger seriLogger, IApplicationLifetime appLifetime )
+        public void Configure(IApplicationBuilder app,
+            IHostingEnvironment env,
+            ILoggerFactory loggerFactory,
+            ISeriLogger seriLogger,
+            IApplicationLifetime appLifetime,
+            EnvironmentConfig environmentConfig)
         {
-            seriLogger.Configure(loggerFactory, Configuration, appLifetime, env);
+            seriLogger.Configure(loggerFactory, Configuration, appLifetime, env, environmentConfig);
             loggerFactory.CreateLogger<Startup>();
 
             if (env.IsDevelopment())

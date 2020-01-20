@@ -14,20 +14,26 @@ namespace MAS.Services
     }
     public class S3StaticContentService : IStaticContentService
     {
+        #region Constructor
+
         private readonly IAmazonS3 _amazonS3;
         private readonly ILogger<S3StaticContentService> _logger;
+        private readonly AWSConfig _awsConfig;
 
-        public S3StaticContentService(IAmazonS3 amazonS3, ILogger<S3StaticContentService> logger)
+        public S3StaticContentService(IAmazonS3 amazonS3, ILogger<S3StaticContentService> logger, AWSConfig awsConfig)
         {
             _amazonS3 = amazonS3;
             _logger = logger;
+            _awsConfig = awsConfig;
         }
+
+        #endregion
 
         public async Task<PutObjectResponse> Write(string slug, string body)
         {
             PutObjectRequest request = new PutObjectRequest()
             {
-                BucketName = AppSettings.AWSConfig.BucketName,
+                BucketName = _awsConfig.BucketName,
                 Key = slug + ".html",
                 ContentBody = body
             };

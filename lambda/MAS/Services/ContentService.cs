@@ -17,12 +17,18 @@ namespace MAS.Services
 
     public class ContentService : IContentService
     {
-        private readonly ILogger<ContentService> _logger;
+        #region Constructor
 
-        public ContentService(ILogger<ContentService> logger)
+        private readonly ILogger<ContentService> _logger;
+        private readonly CMSConfig _cmsConfig;
+
+        public ContentService(ILogger<ContentService> logger, CMSConfig cmsConfig)
         {
             _logger = logger;
+            _cmsConfig = cmsConfig;
         }
+
+        #endregion
 
         public async Task<IEnumerable<Item>> GetAllItemsAsync()
         {
@@ -30,14 +36,14 @@ namespace MAS.Services
             {
                 try
                 {
-                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.BaseUrl + AppSettings.CMSConfig.AllItemsPath));
-                    var item = JsonConvert.DeserializeObject<Item[]>(jsonStr);
-                    return item;
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + _cmsConfig.AllItemsPath));
+                    var items = JsonConvert.DeserializeObject<Item[]>(jsonStr);
+                    return items;
                 }
                 catch(Exception e)
                 {
-                    _logger.LogError($"Failed to get items from CMS - exception: {e.Message}");
-                    throw new Exception($"Failed to get items from CMS - exception: {e.Message}");
+                    _logger.LogError(e, $"Failed to get all items from CMS");
+                    throw new Exception($"Failed to get all items from CMS", e);
                 }
             }
         }
@@ -48,17 +54,17 @@ namespace MAS.Services
 
             using (WebClient client = new WebClient())
             {
-                var path = string.Format(AppSettings.CMSConfig.DailyItemsPath, date.Value.ToString("yyyy-MM-dd"));
+                var path = string.Format(_cmsConfig.DailyItemsPath, date.Value.ToString("yyyy-MM-dd"));
                 try
                 {
-                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.BaseUrl + path));
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
                     var items = JsonConvert.DeserializeObject<Item[]>(jsonStr);
                     return items;
                 }
                 catch (Exception e)
                 {
-                    _logger.LogError($"Failed to get items from CMS - exception: {e.Message}");
-                    throw new Exception($"Failed to get items from CMS - exception: {e.Message}");
+                    _logger.LogError(e, $"Failed to get daily items from CMS");
+                    throw new Exception($"Failed to get daily items from CMS", e);
                 }
             }
         }

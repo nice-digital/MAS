@@ -16,14 +16,22 @@ namespace MAS.Services
 
     public class MailService: IMailService
     {
+        #region Constructor
+
         private readonly IMailChimpManager _mailChimpManager;
         private readonly ILogger<MailService> _logger;
+        private readonly MailChimpConfig _mailChimpConfig;
+        private readonly MailConfig _mailConfig;
 
-        public MailService(IMailChimpManager mailChimpManager, ILogger<MailService> logger)
+        public MailService(IMailChimpManager mailChimpManager, ILogger<MailService> logger, MailChimpConfig mailChimpConfig, MailConfig mailConfig)
         {
             _mailChimpManager = mailChimpManager;
             _logger = logger;
+            _mailChimpConfig = mailChimpConfig;
+            _mailConfig = mailConfig;
         }
+
+        #endregion
 
         public async Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body)
         {
@@ -34,16 +42,16 @@ namespace MAS.Services
                     Type = CampaignType.Regular,
                     Settings = new Setting
                     {
-                        FolderId = AppSettings.MailChimpConfig.CampaignFolderId,
-                        TemplateId = AppSettings.MailChimpConfig.DailyTemplateId,
+                        FolderId = _mailChimpConfig.CampaignFolderId,
+                        TemplateId = _mailChimpConfig.DailyTemplateId,
                         SubjectLine = subject,
-                        FromName = AppSettings.MailConfig.FromName,
-                        ReplyTo = AppSettings.MailConfig.ReplyTo,
+                        FromName = _mailConfig.FromName,
+                        ReplyTo = _mailConfig.ReplyTo,
                         PreviewText = previewText
                     },
                     Recipients = new Recipient
                     {
-                        ListId = AppSettings.MailChimpConfig.ListId
+                        ListId = _mailChimpConfig.ListId
                     }
                 });
 
@@ -51,7 +59,7 @@ namespace MAS.Services
                 {
                     Template = new ContentTemplate
                     {
-                        Id = AppSettings.MailChimpConfig.DailyTemplateId,
+                        Id = _mailChimpConfig.DailyTemplateId,
                         Sections = new Dictionary<string, object> {
                         { "body", body }
                     }

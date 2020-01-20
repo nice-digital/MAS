@@ -3,7 +3,9 @@ using MAS.Controllers;
 using MAS.Models;
 using MAS.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Moq;
 using Shouldly;
 using System;
@@ -21,7 +23,7 @@ namespace MAS.Tests.UnitTests.Controllers
         {
 
             var mockContentService = new Mock<IContentService>();
-            var mailService = new MailController(Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), Mock.Of<ILogger<MailService>>());
+            var mailService = new MailController(Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), Mock.Of<ILogger<MailService>>(), Mock.Of<MailConfig>());
 
             //Act
             await mailService.PutMailAsync();
@@ -35,7 +37,7 @@ namespace MAS.Tests.UnitTests.Controllers
         {
             DateTime date = new DateTime(2020, 1, 15);
             var mockContentService = new Mock<IContentService>();
-            var mailService = new MailController(Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), Mock.Of<ILogger<MailService>>());
+            var mailService = new MailController(Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), Mock.Of<ILogger<MailService>>(), Mock.Of<MailConfig>());
 
             //Act
             await mailService.PutMailAsync(date);
@@ -53,9 +55,12 @@ namespace MAS.Tests.UnitTests.Controllers
 
             var mockViewRenderer = new Mock<IViewRenderer>();
 
-            var mailController = new MailController(Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>());
+            var mailConfig = new MailConfig
+                {
+                    DailySubject = ""
+                };
 
-            AppSettings.MailConfig = new MailConfig { DailySubject = "" };
+            var mailController = new MailController(Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), mailConfig);
 
             //Act
             await mailController.PutMailAsync();
@@ -73,9 +78,12 @@ namespace MAS.Tests.UnitTests.Controllers
 
             var mockViewRenderer = new Mock<IViewRenderer>();
 
-            var mailController = new MailController(Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>());
+            var mailConfig = new MailConfig
+            {
+                DailySubject = ""
+            };
 
-            AppSettings.MailConfig = new MailConfig { DailySubject = "" }; 
+            var mailController = new MailController(Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), mailConfig);
 
             //Act
             await mailController.PutMailAsync();
@@ -101,9 +109,12 @@ namespace MAS.Tests.UnitTests.Controllers
 
             var mockMailService = new Mock<IMailService>();
 
-            var mailController = new MailController(mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>());
+            var mailConfig = new MailConfig
+            {
+                DailySubject = "Test subject - {0}"
+            };
 
-            AppSettings.MailConfig = new MailConfig { DailySubject = "Test subject - {0}" };
+            var mailController = new MailController(mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), mailConfig);
 
             //Act
             await mailController.PutMailAsync(new DateTime(2020, 1, 15));

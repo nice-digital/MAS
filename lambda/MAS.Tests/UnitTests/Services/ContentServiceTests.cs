@@ -17,10 +17,7 @@ namespace MAS.Tests.UnitTests
         public async Task ReadMultipleItems()
         {
             //Arrange
-            var mockLogger = new Mock<ILogger<ContentService>>();
-
-            AppSettings.CMSConfig = TestAppSettings.CMS.Default;
-            var contentService = new ContentService(mockLogger.Object);
+             var contentService = new ContentService(Mock.Of<ILogger<ContentService>>(), TestAppSettings.CMS.Default);
 
             //Act
             var result = await contentService.GetAllItemsAsync();
@@ -37,10 +34,7 @@ namespace MAS.Tests.UnitTests
         public async Task InvalidURIThrowsError()
         { 
             //Arrange
-            var mockLogger = new Mock<ILogger<ContentService>>();
-
-            AppSettings.CMSConfig = TestAppSettings.CMS.InvalidURI;
-            var contentService = new ContentService(mockLogger.Object);
+            var contentService = new ContentService(Mock.Of<ILogger<ContentService>>(), TestAppSettings.CMS.InvalidURI);
 
             //Act + Assert
             await Should.ThrowAsync<Exception>(() => contentService.GetAllItemsAsync());

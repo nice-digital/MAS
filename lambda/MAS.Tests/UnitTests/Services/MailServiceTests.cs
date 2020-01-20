@@ -26,10 +26,7 @@ namespace MAS.Tests.UnitTests
             mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
 
-            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
-
-            AppSettings.MailChimpConfig = Mock.Of<MailChimpConfig>();
-            AppSettings.MailConfig = Mock.Of<MailConfig>();
+            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
 
             //Act
             var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text");
@@ -51,7 +48,7 @@ namespace MAS.Tests.UnitTests
             mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
             mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>())).Throws(new Exception());
 
-            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object);
+            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
 
             //Act + Assert
             Should.Throw<Exception>(() => mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text"));
