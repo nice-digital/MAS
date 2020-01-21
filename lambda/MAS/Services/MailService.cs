@@ -43,7 +43,7 @@ namespace MAS.Services
             string receiveEverythingGroupId)
         {
             // Every speciality we receive should exist in the complete list from MailChimp
-            var interestIds = specialitiesInEmail.Select(title => allSpecialities.Single(s => s.Name == title));
+            var interestIds = specialitiesInEmail.Select(title => allSpecialities.Single(s => s.Name == title).Id);
 
             try
             {
