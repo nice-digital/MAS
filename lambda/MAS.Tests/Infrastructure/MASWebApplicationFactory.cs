@@ -1,5 +1,7 @@
-﻿using MAS.Configuration;
+﻿using MailChimp.Net.Interfaces;
+using MAS.Configuration;
 using MAS.Tests.Extensions;
+using MAS.Tests.Fakes;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -54,6 +56,10 @@ namespace MAS.Tests.Infrastructure
                 {
                     // Default to loading CMS files from the silesystem. Override this with WithCMSConfig if you want
                     services.ReplaceService(TestAppSettings.CMS.Default);
+                    services.ReplaceService(TestAppSettings.MailChimp.Default);
+
+                    // We don't want to actually hit real mailchimp in our tests, so fake it
+                    services.ReplaceService(new FakeMailChimpManager().Object);
 
                     foreach (Action<IServiceCollection> action in serviceCollectionsActions)
                     {

@@ -13,7 +13,7 @@ namespace MAS.Services
 {
     public interface IMailService
     {
-        Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail);
+        Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
     }
 
     public class MailService: IMailService
@@ -35,24 +35,15 @@ namespace MAS.Services
 
         #endregion
 
-        public async Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail)
+        public async Task<string> CreateAndSendDailyAsync(string subject,
+            string previewText,
+            string body,
+            List<string> specialitiesInEmail,
+            IEnumerable<Interest> allSpecialities,
+            string receiveEverythingGroupId)
         {
-            var interests = await _mailChimpManager.Interests.GetAllAsync(_mailChimpConfig.ListId, _mailChimpConfig.SpecialityCategoryId);
-
-            var interestIds = new List<string>();
-            foreach (string item in specialitiesInEmail)
-            {
-                var interest = interests.FirstOrDefault(x => x.Name == item);
-                interestIds.Add(interest.Id);
-            }
-
-
-            var receiveEverythingOptionId = _mailChimpManager
-                .Interests
-                .GetAllAsync(_mailChimpConfig.ListId, _mailChimpConfig.ReceiveEverythingCategoryId)
-                .Result
-                .First()
-                .Id;
+            // Every speciality we receive should exist in the complete list from MailChimp
+            var interestIds = specialitiesInEmail.Select(title => allSpecialities.Single(s => s.Name == title));
 
             try
             {
@@ -88,7 +79,7 @@ namespace MAS.Services
                                     Type = ConditionType.Interests,
                                     Operator = Operator.InterestContains,
                                     Field = "interests-" + _mailChimpConfig.ReceiveEverythingCategoryId,
-                                    Value = new string[] { receiveEverythingOptionId }
+                                    Value = new string[] { receiveEverythingGroupId }
                                 },
                             }
                         }

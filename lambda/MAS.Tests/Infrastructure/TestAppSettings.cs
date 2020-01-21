@@ -35,5 +35,24 @@ namespace MAS.Tests.Infrastructure
                 }
             }
         }
+
+        public static class MailChimp
+        {
+            public static MailChimpConfig Default
+            {
+                get
+                {
+                    return new MailChimpConfig()
+                    {
+                        ApiKey = "api-key",
+                        CampaignFolderId = "campaign-folder-id",
+                        DailyTemplateId = 99,
+                        ListId = "list-id",
+                        ReceiveEverythingCategoryId = "receive-everything-category-id",
+                        SpecialityCategoryId = "speciality-category-id"
+                    };
+                }
+            }
+        }
     }
 }

@@ -1,16 +1,17 @@
 ﻿@using MAS.Models;
-@model List<Item>
+@using MAS.ViewModels;
+@model DailyEmailViewModel
 @{
     ViewData["Title"] = "MAS Daily";
 
-    var groupedItems = Model.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
+    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
 }
 
 @functions {
-    string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
-    {
-        return String.Join(',', specialites.Select(x => x.Title).Distinct());
-    }
+string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
+{
+    return String.Join(',', specialites.Select(x => x.Title).Distinct());
+}
 }
 
 
@@ -23,7 +24,7 @@
                         <tr>
                             <th>
                                 <p>
-                                    *|INTERESTED:Daily specialities of interest:@getSpecialitiesListForMergeTag(Model.SelectMany(x => x.Specialities))|*
+                                    *|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(Model.Items.SelectMany(x => x.Specialities))|*
                                         Articles that match your chosen specialities today
                                     *|ELSE:|*
                                         No articles match your chosen specialities today
@@ -43,13 +44,13 @@
 
 @foreach (var group in groupedItems)
 {
-    @:*|INTERESTED:Daily specialities of interest:@getSpecialitiesListForMergeTag(group.SelectMany(x => x.Specialities))|*
+    @:*|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(group.SelectMany(x => x.Specialities))|*
 
     @await Html.PartialAsync("_Heading", group.Key)
 
     @foreach (var item in group)
     {
-        @:*|INTERESTED:Daily specialities of interest:@getSpecialitiesListForMergeTag(item.Specialities)|*
+        @:*|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(item.Specialities)|*
         @await Html.PartialAsync("_Item", item)
         @:*|END:INTERESTED|*
     }
@@ -57,7 +58,7 @@
 }
 
 
-*|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
+*|INTERESTED:@Model.EverythingGroupCategoryName:@Model.EverythingGroupName|*
 <table class="row article-border article-mec article-section-header">
     <tbody>
         <tr>

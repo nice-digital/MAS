@@ -1,5 +1,9 @@
-﻿using MAS.Configuration;
+﻿using MailChimp.Net.Core;
+using MailChimp.Net.Interfaces;
+using MailChimp.Net.Models;
+using MAS.Configuration;
 using MAS.Services;
+using MAS.Tests.Fakes;
 using MAS.Tests.Infrastructure;
 using Moq;
 using Shouldly;
@@ -18,15 +22,14 @@ namespace MAS.Tests.IntegrationTests
         public async void EmailBodyHtmlMatchesApproved()
         {
             // Arrange
-            var fakeMailService = new Mock<IMailService>();
-
-            string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
-                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
-                .ReturnsAsync("1234");
+            ContentRequest contentRequest = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager
+                .Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()))
+                .Callback<string, ContentRequest>((cId, conReq) => contentRequest = conReq);
 
             var client = _factory
-                .WithImplementation(fakeMailService.Object)
+                .WithImplementation(fakeMailChimpManager.Object)
                 .CreateClient();
 
             // Act
@@ -38,26 +41,21 @@ namespace MAS.Tests.IntegrationTests
             var responseText = await response.Content.ReadAsStringAsync();
             responseText.ShouldBe("1234");
 
-            bodyHtml.ShouldMatchApproved();
+            ((string)contentRequest.Template.Sections["body"]).ShouldMatchApproved();
         }
 
         [Fact]
         public async void EmailBodyHtmlMatchesApprovedForSingleItem()
         {
             // Arrange
-            var fakeMailService = new Mock<IMailService>();
-
-            string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
-                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
-                .ReturnsAsync("1234");
-
-            //CMSConfig cmsConfig = TestAppSettings.CMS.Default;
-            //cmsConfig.DailyItemsPath = "/daily-items-single.json";
+            ContentRequest contentRequest = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager
+                .Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()))
+                .Callback<string, ContentRequest>((cId, conReq) => contentRequest = conReq);
 
             var client = _factory
-                .WithImplementation(fakeMailService.Object)
-                //.WithCMSConfig(cmsConfig)
+                .WithImplementation(fakeMailChimpManager.Object)
                 .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "/daily-items-single.json")
                 .CreateClient();
 
@@ -67,25 +65,21 @@ namespace MAS.Tests.IntegrationTests
             // Assert
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
 
-            var responseText = await response.Content.ReadAsStringAsync();
-            responseText.ShouldBe("1234");
-
-            bodyHtml.ShouldMatchApproved();
+            ((string)contentRequest.Template.Sections["body"]).ShouldMatchApproved();
         }
 
         [Fact]
         public async void EmailBodyHtmlMatchesApprovedForSingleItemWithSpecificDate()
         {
             // Arrange
-            var fakeMailService = new Mock<IMailService>();
-
-            string bodyHtml = string.Empty;
-            fakeMailService.Setup(s => s.CreateAndSendDailyAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()))
-                .Callback<string, string, string, List<string>>((subject, previewText, body, specialitiesInEmail) => bodyHtml = body)
-                .ReturnsAsync("1234");
+            ContentRequest contentRequest = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager
+                .Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()))
+                .Callback<string, ContentRequest>((cId, conReq) => contentRequest = conReq);
 
             var client = _factory
-                .WithImplementation(fakeMailService.Object)
+                .WithImplementation(fakeMailChimpManager.Object)
                 .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "/daily-items-{0}.json")
                 .CreateClient();
 
@@ -98,8 +92,37 @@ namespace MAS.Tests.IntegrationTests
             var responseText = await response.Content.ReadAsStringAsync();
             responseText.ShouldBe("1234");
 
-            bodyHtml.ShouldMatchApproved();
+            ((string)contentRequest.Template.Sections["body"]).ShouldMatchApproved();
         }
+
+        //[Fact]
+        //public async void SendsEmailToUsers()
+        //{
+        //    // Arrange
+        //    Campaign campaign = null;
+        //    var fakeMailChimpManager = new FakeMailChimpManager();
+        //    fakeMailChimpManager.Setup(s => s.Campaigns.AddAsync(It.IsAny<Campaign>()))
+        //        .Callback<Campaign>(c => campaign = c)
+        //        .ReturnsAsync(new Campaign { Id = "1234" });
+
+        //    var client = _factory
+        //        .WithImplementation(fakeMailChimpManager.Object)
+        //        .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "/daily-items-{0}.json")
+        //        .CreateClient();
+
+        //    // Act
+        //    var response = await client.PutAsync("/api/mail/daily?date=01-01-2020", null);
+
+        //    // Assert
+        //    response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
+
+        //    var responseText = await response.Content.ReadAsStringAsync();
+        //    responseText.ShouldBe("1234");
+
+        //    campaign.Recipients.SegmentOptions.Match.ShouldBe(MailChimp.Net.Models.Match.Any);
+        //    // TODO: Check the conditions based on the test data
+        //    campaign.Recipients.SegmentOptions.Conditions.ShouldBe();
+        //}
 
     }
 }

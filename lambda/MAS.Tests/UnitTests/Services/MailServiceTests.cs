@@ -12,6 +12,7 @@ using MAS.Configuration;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using MAS.Tests.Fakes;
 
 namespace MAS.Tests.UnitTests
 {
@@ -23,17 +24,12 @@ namespace MAS.Tests.UnitTests
             //Arrange
             var mockLogger = new Mock<ILogger<MailService>>();
 
-            var mockMailChimpManager = new Mock<IMailChimpManager>();
-            mockMailChimpManager.Setup(x => x.Campaigns.AddAsync(It.IsAny<Campaign>())).ReturnsAsync(new Campaign() { Id = "1234" });
-            mockMailChimpManager.Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()));
-            mockMailChimpManager.Setup(x => x.Campaigns.SendAsync(It.IsAny<string>()));
-            mockMailChimpManager.Setup(x => x.Interests.GetAllAsync(It.IsAny<string>(), It.IsAny<string>(), null))
-                .ReturnsAsync(new List<Interest>() { new Interest { Id = "987" } });
+            var fakeMailChimpManager = new FakeMailChimpManager();
 
-            var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
+            var mailService = new MailService(fakeMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
 
             //Act
-            var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", new List<string>());
+            var response = mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", new List<string>(), FakeMailChimpManager.GetAllSpecialityInterests(), FakeMailChimpManager.ReceiveEverythingGroupId);
             
             //Assert
             response.Exception.ShouldBe(null);
@@ -55,7 +51,7 @@ namespace MAS.Tests.UnitTests
             var mailService = new MailService(mockMailChimpManager.Object, mockLogger.Object, Mock.Of<MailChimpConfig>(), Mock.Of<MailConfig>());
 
             //Act + Assert
-            Should.Throw<Exception>(() => mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", null));
+            Should.Throw<Exception>(() => mailService.CreateAndSendDailyAsync("Test Subject", "Preview Text", "Body Text", new List<string>(), FakeMailChimpManager.GetAllSpecialityInterests(), FakeMailChimpManager.ReceiveEverythingGroupId));
         }
     }
 }
