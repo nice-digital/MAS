@@ -10,10 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="setup.sh" />
-    <None Remove="Views\Shared\_DailyEmailTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_DailyEmailTemplate.html" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MailChimp.Net.V3" Version="4.2.1" />
@@ -30,5 +26,8 @@
     <Content Update="Views\Mail\_Heading.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
 </Project>
