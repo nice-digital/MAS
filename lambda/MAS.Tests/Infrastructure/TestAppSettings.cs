@@ -4,22 +4,36 @@ using System.IO;
 
 namespace MAS.Tests.Infrastructure
 {
-    public class TestAppSettings
+    /// <summary>
+    /// Use this in integration tests to override CMS config per test e.g. AppSettings.CMSConfig = TestAppSettings.CMS.InvalidURI;
+    /// </summary>
+    public static class TestAppSettings
     {
-        public static CMSConfig GetInvalidURI()
+        public static class CMS
         {
-            return new CMSConfig()
+            public static CMSConfig Default
             {
-                URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/nonexistanturl").ToString()
-            };
-        }
+                get
+                {
+                    return new CMSConfig()
+                    {
+                        BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds").ToString(),
+                        AllItemsPath = "/all-items.json",
+                        DailyItemsPath = "/daily-items.json",
+                    };
+                }
+            }
 
-        public static CMSConfig GetMultipleItemsFeed()
-        {
-            return new CMSConfig()
+            public static CMSConfig InvalidURI
             {
-                URI = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/multiple-items.json").ToString()
-            };
+                get
+                {
+                    return new CMSConfig()
+                    {
+                        BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/nonexistanturl").ToString()
+                    };
+                }
+            }
         }
     }
 }

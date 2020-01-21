@@ -1,34 +1,46 @@
 ﻿using MAS.Configuration;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Net.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Xunit;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace MAS.Tests.Infrastructure
 {
-    public class TestBase
+    public abstract class TestBase : IDisposable
     {
-        protected readonly TestServer _server;
-        protected readonly HttpClient _client;
-        protected readonly IConfigurationRoot _config;
+        protected readonly MASWebApplicationFactory _factory;
 
         public TestBase()
         {
-            _config = new ConfigurationBuilder()
-               .AddJsonFile("appsettings.json")
-               .AddUserSecrets("adafe3d8-65fb-49fd-885e-03341a36dc88")
-               .Build();
+            _factory = new MASWebApplicationFactory();
+        }
 
-            var builder = new WebHostBuilder()
-                .UseContentRoot("../../../../MAS")
-                .ConfigureServices(services =>
+        protected WebApplicationFactory<Startup> WithImplementation<TService>(TService implementation)
+        {
+            return _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
                 {
-                    AppSettings.Configure(services, _config);
-                })
-                .UseEnvironment("Production")
-                .UseStartup(typeof(Startup));
-            _server = new TestServer(builder);
-            _client = _server.CreateClient(); 
+                    var serviceProvider = services.BuildServiceProvider();
+
+                    var descriptor =
+                        new ServiceDescriptor(
+                            typeof(TService), implementation);
+
+                    services.Replace(descriptor);
+                });
+            });
+        }
+
+        public virtual void Dispose()
+        {
+            _factory.Dispose();
         }
     }
 }

@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "5daf1aa18a34d4bb8405b5e0",
+    "slug": "testing-789",
+    "source": {
+      "_id": "5de526fc43e373581b7810c8",
+      "oldEPiServerId": 2,
+      "title": "ACP Journal Club",
+      "__v": 0
+    },
+    "shortSummary": "testing",
+    "resourceLinks": "http://localhost:3010/keystone/items",
+    "url": "https://www.nhs.uk/",
+    "title": "Wonder Drug",
+    "__v": 0,
+    "comment": "<p>A</p>",
+    "publicationDate": "2019-11-25T13:48:36.000Z",
+    "createdDate": "2019-10-22T15:05:05.927Z",
+    "specialities": [
+      {
+        "_id": "5e0e4331200a585f718e1ee5",
+        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
+        "title": "Anaesthesia and pain",
+        "__v": 0
+      },
+      {
+        "_id": "5e0e4331200a58dead8e1ee8",
+        "key": "53fc67a4-46d8-4171-9447-7fcf216c8749",
+        "title": "Complementary and alternative therapies",
+        "__v": 0
+      }
+    ],
+    "evidenceType": {
+      "_id": "5df7abf383138898ee1f67ef",
+      "title": "Safety alerts",
+      "key": "mas_evidence_types:Safety%20alerts",
+      "oldEPiServerId": 778708,
+      "__v": 0
+    },
+    "isInitial": false
+  }
+]
