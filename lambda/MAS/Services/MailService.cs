@@ -2,6 +2,7 @@
 using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MAS.Configuration;
+using MAS.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace MAS.Services
     public interface IMailService
     {
         Task<Campaign> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
-        string CreateDailyEmailBody(IEnumerable<Item> item);
+        Task<string> CreateAndSendWeeklyCampaignAsync(string subject, string previewText, string body);
     }
 
     public class MailService: IMailService
@@ -99,7 +100,7 @@ namespace MAS.Services
                         }
                     }
                 });
-                _logger.LogInformation($"The body of daily template {AppSettings.MailChimpConfig.DailyTemplateId} has been updated");
+                _logger.LogInformation($"The body of daily template {_mailChimpConfig.DailyTemplateId} has been updated");
 
                 await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
 
@@ -121,19 +122,19 @@ namespace MAS.Services
                     Type = CampaignType.Regular,
                     Settings = new Setting
                     {
-                        FolderId = AppSettings.MailChimpConfig.CampaignFolderId,
-                        TemplateId = AppSettings.MailChimpConfig.WeeklyTemplateId,
+                        FolderId = _mailChimpConfig.CampaignFolderId,
+                        TemplateId = _mailChimpConfig.WeeklyTemplateId,
                         SubjectLine = subject,
-                        FromName = AppSettings.MailConfig.FromName,
-                        ReplyTo = AppSettings.MailConfig.ReplyTo,
+                        FromName = _mailConfig.FromName,
+                        ReplyTo = _mailConfig.ReplyTo,
                         PreviewText = previewText
                     },
                     Recipients = new Recipient
                     {
-                        ListId = AppSettings.MailChimpConfig.ListId,
+                        ListId = _mailChimpConfig.ListId,
                         SegmentOptions = new SegmentOptions
                         {
-                            SavedSegmentId = AppSettings.MailChimpConfig.WeeklySegmentId,
+                            SavedSegmentId = _mailChimpConfig.WeeklySegmentId,
                         }
                     }
                 });
@@ -142,13 +143,13 @@ namespace MAS.Services
                 {
                     Template = new ContentTemplate
                     {
-                        Id = AppSettings.MailChimpConfig.WeeklyTemplateId,
+                        Id = _mailChimpConfig.WeeklyTemplateId,
                         Sections = new Dictionary<string, object> {
                             { "body", body }
                         }
                     }
                 });
-                _logger.LogInformation($"The body of weekly template {AppSettings.MailChimpConfig.DailyTemplateId} has been updated");
+                _logger.LogInformation($"The body of weekly template {_mailChimpConfig.DailyTemplateId} has been updated");
 
                 await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
 
@@ -159,9 +160,6 @@ namespace MAS.Services
                 _logger.LogError($"Failed to communicate with MailChimp - exception: {e.Message}");
                 throw new Exception($"Failed to communicate with MailChimp - exception: {e.Message}");
             }
-        }
-
-        public string CreateDailyEmailBody(IEnumerable<Item> items)
         }
     }
 }

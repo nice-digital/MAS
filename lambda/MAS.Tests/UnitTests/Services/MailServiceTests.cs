@@ -12,6 +12,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using MAS.Tests.Fakes;
+using MAS.Configuration;
 
 namespace MAS.Tests.UnitTests
 {

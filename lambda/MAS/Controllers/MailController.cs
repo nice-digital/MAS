@@ -23,6 +23,7 @@ namespace MAS.Controllers
         private readonly ILogger<MailController> _logger;
         private readonly MailConfig _mailConfig;
         private readonly MailChimpConfig _mailChimpConfig;
+        private readonly IBankHolidayService _bankHolidayService;
 
         public MailController(IMailChimpManager mailChimpManager, IMailService mailService, IContentService contentService, IViewRenderer viewRenderer, IBankHolidayService bankHolidayService, ILogger<MailController> logger, MailConfig mailConfig, MailChimpConfig mailChimpConfig)
         {

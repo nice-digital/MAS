@@ -59,7 +59,7 @@ namespace MAS.Tests.Infrastructure
         {
             return new CMSConfig()
             {
-                URI = new Uri("file://" + Directory.GetCurrentDirectory()).ToString(),
+                BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory()).ToString(),
                 WeekliesBySendDate = "/Feeds/weekly.json"
             };
         }
