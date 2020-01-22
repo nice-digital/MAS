@@ -1,0 +1,92 @@
+﻿@using MAS.Models;
+@using MAS.ViewModels;
+@model DailyEmailViewModel
+@{
+    ViewData["Title"] = "MAS Daily";
+
+    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
+}
+
+@functions {
+string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
+{
+    return String.Join(',', specialites.Select(x => x.Title).Distinct());
+}
+}
+
+
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    *|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(Model.Items.SelectMany(x => x.Specialities))|*
+                                        Articles that match your chosen specialities today
+                                    *|ELSE:|*
+                                        No articles match your chosen specialities today
+                                    *|END:INTERESTED|*
+                                    - <a class="subtle-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+@foreach (var group in groupedItems)
+{
+    @:*|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(group.SelectMany(x => x.Specialities))|*
+
+    @await Html.PartialAsync("_Heading", group.Key)
+
+    @foreach (var item in group)
+    {
+        @:*|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(item.Specialities)|*
+        @await Html.PartialAsync("_Item", item)
+        @:*|END:INTERESTED|*
+    }
+    @:*|END:INTERESTED|*
+}
+
+
+*|INTERESTED:@Model.EverythingGroupCategoryName:@Model.EverythingGroupName|*
+<table class="row article-border article-mec article-section-header">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    All articles from Medicines awareness services: Daily edition
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+@foreach (var group in groupedItems)
+{
+    @await Html.PartialAsync("_Heading", group.Key)
+
+    @foreach (var item in group)
+    {
+        @await Html.PartialAsync("_Item", item)
+    }
+}
+*|END:INTERESTED|*

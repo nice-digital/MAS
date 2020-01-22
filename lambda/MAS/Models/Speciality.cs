@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace MAS.Models
 {
-    public class EvidenceType
+    public class Speciality
     {
         public string Title { get; set; }
 
         public string Key { get; set; }
-        public string BroaderTitle { get; set; }
     }
 }

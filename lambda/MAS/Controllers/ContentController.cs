@@ -12,16 +12,22 @@ namespace MAS.Controllers
     [Route("api/[controller]")]
     public class ContentController : ControllerBase
     {
+        #region Constructor
+
         private readonly IStaticContentService _staticContentService;
         private readonly IViewRenderer _viewRenderer;
         private readonly ILogger<ContentController> _logger;
-        
-        public ContentController(IStaticContentService contentService, IViewRenderer viewRenderer, ILogger<ContentController> logger)
+        private readonly AWSConfig _awsConfig;
+
+        public ContentController(IStaticContentService contentService, IViewRenderer viewRenderer, ILogger<ContentController> logger, AWSConfig awsConfig)
         {
             _staticContentService = contentService;
             _viewRenderer = viewRenderer;
             _logger = logger;
+            _awsConfig = awsConfig;
         }
+
+        #endregion
 
         //PUT api/content/
         [HttpPut]
@@ -30,7 +36,7 @@ namespace MAS.Controllers
             var contentViewModel = new ContentViewModel
             {
                 Item = item,
-                StaticURL = AppSettings.AWSConfig.StaticURL
+                StaticURL = _awsConfig.StaticURL
             };
             try
             {

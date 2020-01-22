@@ -21,6 +21,7 @@
 		<file src="logging\**\*" target="logging" />
 		<file src="dotenv.config" />
 		<file src="keystone.js" />
+		<file src="evidence-types.jsonld" />
 		<file src="package-lock.json" />
 		<file src="package.json" />
 	</files>

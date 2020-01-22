@@ -18,10 +18,10 @@
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Medicines awareness service" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:8000/Effect-of-vit-d.html" />
+    <meta property="og:url" content="http://mas-integration-tests/effect-of-vit-d.html" />
     <meta property="og:title" content="Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial" />
     <meta property="og:description" content="RCT (n=1,312) found that among adults with type 2 diabetes, supplementation with vitamin D3 or omega-3 fatty acids, compared with placebo, resulted in no significant difference in change in eGFR at 5 years." />
-    <meta property="og:image" content="http://localhost:8000/open-graph.png" />
+    <meta property="og:image" content="http://mas-integration-tests/open-graph.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />

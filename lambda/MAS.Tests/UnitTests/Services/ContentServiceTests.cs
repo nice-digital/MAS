@@ -11,19 +11,16 @@ using Xunit;
 
 namespace MAS.Tests.UnitTests
 {
-    public class ContentServiceTests : TestBase
+    public class ContentServiceTests
     {
         [Fact]
         public async Task ReadMultipleItems()
         {
             //Arrange
-            var mockLogger = new Mock<ILogger<ContentService>>();
-
-            AppSettings.CMSConfig = TestAppSettings.GetMultipleItemsFeed();
-            var contentService = new ContentService(mockLogger.Object);
+             var contentService = new ContentService(Mock.Of<ILogger<ContentService>>(), TestAppSettings.CMS.Default);
 
             //Act
-            var result = await contentService.GetItemsAsync();
+            var result = await contentService.GetAllItemsAsync();
 
             //Assert
             result.Count().ShouldBe(4);
@@ -37,13 +34,10 @@ namespace MAS.Tests.UnitTests
         public async Task InvalidURIThrowsError()
         { 
             //Arrange
-            var mockLogger = new Mock<ILogger<ContentService>>();
-
-            AppSettings.CMSConfig = TestAppSettings.GetInvalidURI();
-            var contentService = new ContentService(mockLogger.Object);
+            var contentService = new ContentService(Mock.Of<ILogger<ContentService>>(), TestAppSettings.CMS.InvalidURI);
 
             //Act + Assert
-            await Should.ThrowAsync<Exception>(() => contentService.GetItemsAsync());
+            await Should.ThrowAsync<Exception>(() => contentService.GetAllItemsAsync());
         }
     }
 }

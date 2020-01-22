@@ -12,12 +12,12 @@ namespace MAS.Logging
 {
     public interface ISeriLogger
     {
-        void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostingEnvironment env);
+        void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostingEnvironment env, EnvironmentConfig environmentConfig);
     }
 
     public class SeriLogger : ISeriLogger
     {
-        public void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostingEnvironment env)
+        public void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostingEnvironment env, EnvironmentConfig environmentConfig)
         {
             // read appsettings
             var logCfg = configuration.GetSection("Logging");
@@ -30,7 +30,7 @@ namespace MAS.Logging
             string logFilePath = logCfg["LogFilePath"];
             Enum.TryParse(logCfg["SerilogMinLevel"], out LogEventLevel serilogMinLevel);
 
-            var formatter = new NiceSerilogFormatter(AppSettings.EnvironmentConfig.Name, "MAS");
+            var formatter = new NiceSerilogFormatter(environmentConfig.Name, "MAS");
             var logConfig = new LoggerConfiguration()
               .MinimumLevel.Is(serilogMinLevel);
 

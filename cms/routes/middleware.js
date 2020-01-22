@@ -108,5 +108,13 @@ exports.initErrorHandlers = function(req, res, next) {
 		return res.status(404).send(keystone.wrapHTMLError(title, message));
 	};
 
+	res.badRequest = function(title, message, useJson) {
+		if (useJson || req.is("json")) {
+			return res.status(400).json({ title, message });
+		}
+
+		return res.status(400).send(keystone.wrapHTMLError(title, message));
+	};
+
 	next();
 };

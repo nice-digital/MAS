@@ -1,0 +1,95 @@
+[
+    {
+        "_id": "5e208e42306e5d4f5ff39659",
+        "title": "Item 1",
+        "slug": "item-1",
+        "url": "https://www.abc.com",
+        "shortSummary": "This is some short summary",
+        "comment": "<p>This is some comment</p>",
+        "resourceLinks": "<p>https://www.abc.com</p>",
+        "staticPath": "item-1.html",
+        "source": {
+            "_id": "5e1ddf2a306e5d5250f3904a",
+            "title": "2020health"
+        },
+        "specialities": [
+            {
+                "_id": "5e1ddf2c306e5d0fa9f39611",
+                "key": "8f13726e-5635-471f-ad3c-fc910a6ac2b1",
+                "title": "Cancers",
+                "__v": 0
+            }
+        ],
+        "evidenceType": {
+            "_id": "5e1ddf2c306e5d6eabf39641",
+            "title": "Evidence summary - Evidence summaries",
+            "key": "mas_evidence_types:Evidence%20summaries",
+            "broaderTitle": "Evidence summary"
+        },
+        "publicationDate": "2020-01-16T00:00:00.000Z",
+        "updatedAt": "2020-01-16T16:25:37.188Z",
+        "createdAt": "2020-01-16T16:24:34.985Z"
+    },
+  {
+    "_id": "5e208f7f0348d6060f8d448c",
+    "title": "Item 2",
+    "slug": "item-2",
+    "url": "https://www.google.com",
+    "shortSummary": "Some short summary",
+    "comment": "<p>This is some comment</p>",
+    "resourceLinks": "<p><a href=\"https://www.google.com/\">https://www.google.com/</a></p>",
+    "staticPath": "item-2.html",
+    "source": {
+      "_id": "5e1ddf2a306e5da2b0f3904d",
+      "title": "ABL Health Ltd"
+    },
+    "specialities": [
+      {
+        "_id": "5e1ddf2c306e5d4e6cf39631",
+        "key": "d0ea592c-932a-462f-b206-cf454e40fa20",
+        "title": "Stroke",
+        "__v": 0
+      }
+    ],
+    "evidenceType": {
+      "_id": "5e1ddf2c306e5d6eabf39641",
+      "title": "Evidence summary - Evidence summaries",
+      "key": "mas_evidence_types:Evidence%20summaries",
+      "broaderTitle": "Evidence summary"
+    },
+    "publicationDate": "2020-01-16T00:00:00.000Z",
+    "updatedAt": "2020-01-16T16:31:11.333Z",
+    "createdAt": "2020-01-16T16:29:51.539Z"
+  },
+    {
+        "_id": "5e208fe00348d67ca08d448d",
+        "title": "Item 3",
+        "slug": "item-3",
+        "url": "https://www.google.com/",
+        "shortSummary": "Some short summary",
+        "comment": "<p>Some comment</p>",
+        "resourceLinks": "<p><a href=\"https://www.google.com/\">https://www.google.com/</a></p>\r\n<p><a href=\"https://www.google.com/\">https://www.google.com/</a></p>\r\n<p><a href=\"https://www.google.com/\">https://www.google.com/</a></p>",
+        "staticPath": "item-3.html",
+        "source": {
+            "_id": "5e1ddf2a306e5da2b0f3904d",
+            "title": "ABL Health Ltd"
+        },
+        "specialities": [
+            {
+                "_id": "5e1ddf2c306e5d7e78f3961f",
+                "key": "cb0faa85-1781-484e-a265-2715621c1be9",
+                "title": "Later life",
+                "__v": 0
+            }
+        ],
+        "evidenceType": {
+            "_id": "5e1ddf2c306e5dcf61f39644",
+            "title": "Evidence summary - Eyes on evidence commentaries",
+            "key": "mas_evidence_types:Eyes%20on%20evidence%20commentaries",
+            "broaderTitle": "Evidence summary"
+        },
+        "publicationDate": "2020-01-16T00:00:00.000Z",
+        "updatedAt": "2020-01-16T16:32:02.535Z",
+        "createdAt": "2020-01-16T16:31:28.754Z"
+    }
+]
