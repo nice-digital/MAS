@@ -15,11 +15,6 @@ namespace MAS.Tests.Extensions
                         new ServiceDescriptor(
                             typeof(TService), implementation);
 
-            //var existing = serviceCollection.FirstOrDefault(s => s.ServiceType == typeof(TService));
-
-            //if (existing == null)
-            //    throw new InvalidOperationException("Couldn't find service"+ typeof(TService));
-
             serviceCollection.Replace(descriptor);
         }
     }
