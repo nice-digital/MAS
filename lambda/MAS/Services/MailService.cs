@@ -13,7 +13,7 @@ namespace MAS.Services
 {
     public interface IMailService
     {
-        Task<string> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
+        Task<Campaign> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
     }
 
     public class MailService: IMailService
@@ -35,7 +35,7 @@ namespace MAS.Services
 
         #endregion
 
-        public async Task<string> CreateAndSendDailyAsync(string subject,
+        public async Task<Campaign> CreateAndSendDailyAsync(string subject,
             string previewText,
             string body,
             List<string> specialitiesInEmail,
@@ -43,7 +43,7 @@ namespace MAS.Services
             string receiveEverythingGroupId)
         {
             // Every speciality we receive should exist in the complete list from MailChimp
-            var interestIds = specialitiesInEmail.Select(title => allSpecialities.Single(s => s.Name == title).Id);
+            var interestIds = specialitiesInEmail.Select(title => allSpecialities.Single(s => s.Name == title).Id).Distinct();
 
             try
             {
@@ -100,7 +100,7 @@ namespace MAS.Services
 
                 await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
 
-                return campaign.Id;
+                return campaign;
             }
             catch (Exception e)
             {

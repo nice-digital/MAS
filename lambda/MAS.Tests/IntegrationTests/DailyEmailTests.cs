@@ -6,8 +6,11 @@ using MAS.Services;
 using MAS.Tests.Fakes;
 using MAS.Tests.Infrastructure;
 using Moq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Shouldly;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -17,6 +20,35 @@ namespace MAS.Tests.IntegrationTests
     {
         public DailyEmailTests(ITestOutputHelper output) : base(output)
         { }
+
+        [Fact]
+        public async void PuttingDailyEmailReturnsMailChimpCampaignInResponse()
+        {
+            // Arrange
+            var client = _factory
+               .CreateClient();
+
+            // Act
+            var response = await client.PutAsync("/api/mail/daily", null);
+
+            // Assert
+            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
+            var responseText = await response.Content.ReadAsStringAsync();
+
+            dynamic returnedCampaign = JObject.Parse(responseText);
+            ((string)returnedCampaign.id).ShouldBe(FakeMailChimpManager.CampaignId);
+
+            // TODO: Ideally we compare the *whole* campaign object, not just the id.
+            // We could use on the options below however we can't because of this bug:
+            // https://github.com/brandonseydel/MailChimp.Net/issues/447
+
+            //var expectedJsonText = JsonConvert.SerializeObject(FakeMailChimpManager.Campaign);
+            //responseText.ShouldBe(expectedJsonText);
+
+            //var responseJson = JObject.Parse(responseText);
+            //var expected = JObject.FromObject(FakeMailChimpManager.Campaign);
+            //JObject.DeepEquals(responseJson, expected).ShouldBe(true);
+        }
 
         [Fact]
         public async void EmailBodyHtmlMatchesApproved()
@@ -33,14 +65,9 @@ namespace MAS.Tests.IntegrationTests
                 .CreateClient();
 
             // Act
-            var response = await client.PutAsync("/api/mail/daily", null);
+            await client.PutAsync("/api/mail/daily", null);
 
             // Assert
-            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
-
-            var responseText = await response.Content.ReadAsStringAsync();
-            responseText.ShouldBe("1234");
-
             ((string)contentRequest.Template.Sections["body"]).ShouldMatchApproved();
         }
 
@@ -87,42 +114,47 @@ namespace MAS.Tests.IntegrationTests
             var response = await client.PutAsync("/api/mail/daily?date=01-01-2020", null);
 
             // Assert
-            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
-
-            var responseText = await response.Content.ReadAsStringAsync();
-            responseText.ShouldBe("1234");
-
             ((string)contentRequest.Template.Sections["body"]).ShouldMatchApproved();
         }
 
-        //[Fact]
-        //public async void SendsEmailToUsers()
-        //{
-        //    // Arrange
-        //    Campaign campaign = null;
-        //    var fakeMailChimpManager = new FakeMailChimpManager();
-        //    fakeMailChimpManager.Setup(s => s.Campaigns.AddAsync(It.IsAny<Campaign>()))
-        //        .Callback<Campaign>(c => campaign = c)
-        //        .ReturnsAsync(new Campaign { Id = "1234" });
+        [Fact]
+        public async void CreatesMailChimpCampaignWithDynamicSegmentsToSendToCorrectUsers()
+        {
+            // Arrange
+            Campaign campaign = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager.Setup(s => s.Campaigns.AddAsync(It.IsAny<Campaign>()))
+                .Callback<Campaign>(c => campaign = c)
+                .ReturnsAsync(FakeMailChimpManager.Campaign);
 
-        //    var client = _factory
-        //        .WithImplementation(fakeMailChimpManager.Object)
-        //        .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "/daily-items-{0}.json")
-        //        .CreateClient();
+            var client = _factory
+                .WithImplementation(fakeMailChimpManager.Object)
+                .CreateClient();
 
-        //    // Act
-        //    var response = await client.PutAsync("/api/mail/daily?date=01-01-2020", null);
+            // Act
+            var response = await client.PutAsync("/api/mail/daily", null);
 
-        //    // Assert
-        //    response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
+            // Assert
+            campaign.Recipients.SegmentOptions.Match.ShouldBe(MailChimp.Net.Models.Match.Any);
 
-        //    var responseText = await response.Content.ReadAsStringAsync();
-        //    responseText.ShouldBe("1234");
+            var conditions = campaign.Recipients.SegmentOptions.Conditions;
+            conditions.Count().ShouldBe(2);
 
-        //    campaign.Recipients.SegmentOptions.Match.ShouldBe(MailChimp.Net.Models.Match.Any);
-        //    // TODO: Check the conditions based on the test data
-        //    campaign.Recipients.SegmentOptions.Conditions.ShouldBe();
-        //}
+            var specialitiesCondition = conditions.First();
+            var receiveEverythingCondition = conditions.Skip(1).Single();
 
+            conditions.ShouldSatisfyAllConditions(
+                // Check the specialities, based on data in feeds/daily-items.json
+                () => specialitiesCondition.Type.ShouldBe(ConditionType.Interests),
+                () => specialitiesCondition.Operator.ShouldBe(Operator.InterestContains),
+                () => specialitiesCondition.Field.ShouldBe("interests-" + TestAppSettings.MailChimp.Default.SpecialityCategoryId),
+                () => (specialitiesCondition.Value as string[]).ShouldBe(new string[] { "2", "5" }),
+                // Check the receive everything dynamic segment
+                () => receiveEverythingCondition.Type.ShouldBe(ConditionType.Interests),
+                () => receiveEverythingCondition.Operator.ShouldBe(Operator.InterestContains),
+                () => receiveEverythingCondition.Field.ShouldBe("interests-" + TestAppSettings.MailChimp.Default.ReceiveEverythingCategoryId),
+                () => (receiveEverythingCondition.Value as string[]).ShouldBe(new string[] { FakeMailChimpManager.ReceiveEverythingGroupId })
+                );
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace MAS.Tests.UnitTests
             
             //Assert
             response.Exception.ShouldBe(null);
-            response.Result.ShouldBe("1234");
+            response.Result.ShouldBe(FakeMailChimpManager.Campaign);
             response.Status.ShouldBe(TaskStatus.RanToCompletion);
         }
 
