@@ -1,5 +1,4 @@
-﻿using MailChimp.Net.Interfaces;
-using MailChimp.Net.Models;
+﻿using MailChimp.Net.Models;
 using MAS.Configuration;
 using MAS.Controllers;
 using MAS.Models;
@@ -7,16 +6,11 @@ using MAS.Services;
 using MAS.Tests.Fakes;
 using MAS.Tests.Infrastructure;
 using MAS.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Moq;
-using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace MAS.Tests.UnitTests.Controllers
@@ -65,8 +59,8 @@ namespace MAS.Tests.UnitTests.Controllers
                     DailySubject = ""
                 };
 
-            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
-
+            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), mailConfig, TestAppSettings.MailChimp.Default);
+            
             //Act
             await mailController.PutMailAsync();
 
@@ -88,8 +82,8 @@ namespace MAS.Tests.UnitTests.Controllers
                 DailySubject = ""
             };
 
-            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
-
+            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), mailConfig, TestAppSettings.MailChimp.Default);
+            
             //Act
             await mailController.PutMailAsync();
 
@@ -120,7 +114,7 @@ namespace MAS.Tests.UnitTests.Controllers
                 DailySubject = "Test subject - {0}"
             };
 
-            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
+            var mailController = new MailController(new FakeMailChimpManager().Object, mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), mailConfig, TestAppSettings.MailChimp.Default);
 
             //Act
             await mailController.PutMailAsync(new DateTime(2020, 1, 15));

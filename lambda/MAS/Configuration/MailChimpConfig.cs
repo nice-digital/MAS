@@ -17,6 +17,5 @@
         public string ReceiveEverythingCategoryId { get; set; }
         public int WeeklyTemplateId { get; set; }
         public int WeeklySegmentId { get; set; }
-        public int DailySegmentId { get; set; }
     }
 }
