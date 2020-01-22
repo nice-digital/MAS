@@ -1,166 +1,26 @@
 [
   {
     "_id": "5daf1aa18a34d4bb8405b5e0",
-    "slug": "testing-789",
-    "source": {
-      "_id": "5de526fc43e373581b7810c8",
-      "oldEPiServerId": 2,
-      "title": "ACP Journal Club",
-      "__v": 0
-    },
-    "shortSummary": "testing",
-    "resourceLinks": "http://localhost:3010/keystone/items",
-    "url": "https://www.nhs.uk/",
+    "slug": "wonder-drug",
     "title": "Wonder Drug",
-    "__v": 0,
-    "comment": "<p>A</p>",
-    "publicationDate": "2019-11-25T13:48:36.000Z",
-    "createdDate": "2019-10-22T15:05:05.927Z",
-    "specialities": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        "_id": "5e0e4331200a58dead8e1ee8",
-        "key": "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        "title": "Complementary and alternative therapies",
-        "__v": 0
-      }
-    ],
-    "evidenceType": {
-      "_id": "5df7abf383138898ee1f67ef",
-      "title": "Safety alerts",
-      "key": "mas_evidence_types:Safety%20alerts",
-      "broaderTitle": "Evidence summary",
-      "oldEPiServerId": 778708,
-      "__v": 0
-    },
-    "isInitial": false
+    "updatedAt": "2020-01-22T13:25:53.844Z"
   },
   {
     "_id": "5db02d6d8a34d43bde05b5e1",
     "slug": "my-medicine",
-    "source": {
-      "_id": "5de5261b8ce66f142e44cd08",
-      "oldEPiServerId": 1394,
-      "title": "ADHD Awareness Month",
-      "__v": 0
-    },
-    "shortSummary": "this is my medicine",
-    "resourceLinks": "http://localhost:3010/keystone/items",
-    "url": "https://www.nice.org.uk/",
-    "title": "MY MEDICINE",
-    "__v": 0,
-    "comment": "<p>this is my comment</p>",
-    "publicationDate": "2019-11-23T13:48:36.000Z",
-    "createdDate": "2019-10-23T10:38:43.000Z",
-    "specialities": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        "_id": "5e0e4331200a58dead8e1ee8",
-        "key": "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        "title": "Complementary and alternative therapies",
-        "__v": 0
-      }
-    ],
-    "evidenceType": {
-      "_id": "5df7abf383138898ee1f67ef",
-      "title": "Safety alerts",
-      "key": "mas_evidence_types:Safety%20alerts",
-      "broaderTitle": "Evidence summary",
-      "oldEPiServerId": 778708,
-      "__v": 0
-    },
-    "isInitial": false
+    "title": "My Medicine",
+    "updatedAt": "2020-01-22T13:26:06.690Z"
   },
   {
     "_id": "5db031d78a34d4a69905b5e3",
-    "slug": "hello-world",
-    "source": {
-      "_id": "5de52a02c676eee677e97f41",
-      "oldEPiServerId": 2,
-      "title": "Substance Misuse Management in General Practice",
-      "__v": 0
-    },
-    "shortSummary": "test",
-    "resourceLinks": "http://localhost:3010/keystone/items",
-    "url": "https://www.bbc.co.uk/",
-    "title": "Hello world",
-    "__v": 0,
-    "comment": "<p>comment</p>",
-    "publicationDate": "2019-10-23T00:00:00.000Z",
-    "createdDate": "2019-10-23T10:56:40.000Z",
-    "specialities": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        "_id": "5e0e4331200a58dead8e1ee8",
-        "key": "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        "title": "Complementary and alternative therapies",
-        "__v": 0
-      }
-    ],
-    "evidenceType": {
-      "_id": "5df7abf383138898ee1f67ef",
-      "title": "Safety alerts",
-      "key": "mas_evidence_types:Safety%20alerts",
-      "broaderTitle": "Evidence summary",
-      "oldEPiServerId": 778708,
-      "__v": 0
-    },
-    "isInitial": false
+    "slug": "snake-oil",
+    "title": "Snake oil",
+    "updatedAt": "2020-01-22T13:26:26.937Z"
   },
   {
     "_id": "5db6cbcc8a34d4ca5905b5e4",
-    "slug": "hello-there",
-    "source": {
-      "_id": "5de52a01c676ee589ae97d2a",
-      "oldEPiServerId": 2,
-      "title": "Journal of Surgical Oncology",
-      "__v": 0
-    },
-    "shortSummary": "hello",
-    "resourceLinks": "http://localhost:3010/keystone/items",
-    "url": "https://www.google.com/",
+    "slug": "a-placebo",
     "title": "A Placebo",
-    "__v": 0,
-    "comment": "<p>test</p>",
-    "publicationDate": "2019-10-28T00:00:00.000Z",
-    "createdDate": "2019-10-28T11:07:11.000Z",
-    "specialities": [
-      {
-        "_id": "5e0e4331200a585f718e1ee5",
-        "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
-        "title": "Anaesthesia and pain",
-        "__v": 0
-      },
-      {
-        "_id": "5e0e4331200a58dead8e1ee8",
-        "key": "53fc67a4-46d8-4171-9447-7fcf216c8749",
-        "title": "Complementary and alternative therapies",
-        "__v": 0
-      }
-    ],
-    "evidenceType": {
-      "_id": "5df7abf383138898ee1f67ef",
-      "title": "Safety alerts",
-      "key": "mas_evidence_types:Safety%20alerts",
-      "oldEPiServerId": 778708,
-      "broaderTitle": "Evidence summary",
-      "__v": 0
-    },
-    "isInitial": false
+    "updatedAt": "2020-01-22T13:26:38.798Z"
   }
 ]

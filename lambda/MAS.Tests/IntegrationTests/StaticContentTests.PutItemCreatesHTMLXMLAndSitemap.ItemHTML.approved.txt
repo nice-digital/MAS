@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -6,7 +5,7 @@
     <meta name="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-        Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial
+        Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial | Medicines Awareness Service
     </title>
 
     <meta name="description" content="RCT (n=1,312) found that among adults with type 2 diabetes, supplementation with vitamin D3 or omega-3 fatty acids, compared with placebo, resulted in no significant difference in change in eGFR at 5 years." />
@@ -27,6 +26,7 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Specialist Pharmacy Service logo" />
 
+    <link rel="alternate" type="text/xml" href="http://mas-integration-tests/effect-of-vit-d.xml" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700"
           rel="stylesheet"

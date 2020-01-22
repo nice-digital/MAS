@@ -93,7 +93,7 @@ Item.add({
 		label: "Weekly newsletter",
 		note: "For use by the NICE MPT only"
 	},
-	staticPath: {
+	commentUrl: {
 		type: Types.Text,
 		watch: "title",
 		value: function() {
@@ -116,7 +116,7 @@ Item.fullResponseFields = [
 	"shortSummary",
 	"comment",
 	"resourceLinks",
-	"staticPath",
+	"commentUrl",
 	"source._id",
 	"source.title",
 	"specialities",
