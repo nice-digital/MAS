@@ -11,33 +11,40 @@ namespace MAS.Services
 {
     public interface IContentService
     {
-        Task<IEnumerable<Item>> GetItemsAsync();
+        Task<IEnumerable<Item>> GetAllItemsAsync();
+        Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null);
         Task<Weekly> GetWeeklyAsync(DateTime sendDate);
     }
 
     public class ContentService : IContentService
     {
-        private readonly ILogger<ContentService> _logger;
+        #region Constructor
 
-        public ContentService(ILogger<ContentService> logger)
+        private readonly ILogger<ContentService> _logger;
+        private readonly CMSConfig _cmsConfig;
+
+        public ContentService(ILogger<ContentService> logger, CMSConfig cmsConfig)
         {
             _logger = logger;
+            _cmsConfig = cmsConfig;
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync()
+        #endregion
+
+        public async Task<IEnumerable<Item>> GetAllItemsAsync()
         {
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(AppSettings.CMSConfig.URI));
-                    var json = JsonConvert.DeserializeObject<Item[]>(jsonStr);
-                    return json;
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + _cmsConfig.AllItemsPath));
+                    var items = JsonConvert.DeserializeObject<Item[]>(jsonStr);
+                    return items;
                 }
                 catch(Exception e)
                 {
-                    _logger.LogError($"Failed to get items from CMS - exception: {e.Message}");
-                    throw new Exception($"Failed to get items from CMS - exception: {e.Message}");
+                    _logger.LogError(e, $"Failed to get all items from CMS");
+                    throw new Exception($"Failed to get all items from CMS", e);
                 }
             }
         }
@@ -59,5 +66,27 @@ namespace MAS.Services
                 }
             }
         }
+
+        public async Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null)
+        {
+            date = date ?? DateTime.Today;
+
+            using (WebClient client = new WebClient())
+            {
+                var path = string.Format(_cmsConfig.DailyItemsPath, date.Value.ToString("yyyy-MM-dd"));
+                try
+                {
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
+                    var items = JsonConvert.DeserializeObject<Item[]>(jsonStr);
+                    return items;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, $"Failed to get daily items from CMS");
+                    throw new Exception($"Failed to get daily items from CMS", e);
+                }
+            }
+        }
+
     }
 }

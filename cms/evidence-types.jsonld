@@ -1,0 +1,371 @@
+{
+  "@graph" : [ {
+    "@id" : "mas_evidence_types:Audit%20reports",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Audit reports"
+    }
+  }, {
+    "@id" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Evidence type"
+    }
+  }, {
+    "@id" : "mas_evidence_types:CONCEPT-Guidance_and_advice",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Guidance and advice"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Care%20pathways",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Care pathways"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Commissioning%20guides",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Guidance_and_advice",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Commissioning guides"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Drug%20best%20practice%20guidance",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Guidance_and_advice",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Drug best practice guidance"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Drug%20costs",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Drug costs"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Drug%20horizon%20scanning",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Drug horizon scanning"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Drug%20prescribing",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Guidance_and_advice",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Drug prescribing"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Drug%20regulatory%20and%20marketing",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Drug regulatory and marketing"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Drug%2Fmedicines%20management",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Drug/medicines management"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Effective%20practice%20examples",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Effective practice examples"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Evidence%20summaries",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Evidence%20summary",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Evidence summaries"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Evidence%20summary",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Evidence summary"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Evidence%20updates",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Evidence%20summary",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Evidence updates"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Evidence-based%20management%20reports",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Evidence-based management reports"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Eyes%20on%20evidence%20commentaries",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Evidence%20summary",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Eyes on evidence commentaries"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Guidance",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Guidance_and_advice",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Guidance"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Health%20technology%20assessments",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Systematic%20review",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Health technology assessments"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Implementation%20support%20tools",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Implementation support tools"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Learning%20materials",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Learning materials"
+    }
+  }, {
+    "@id" : "mas_evidence_types:MAS_evidence_type",
+    "@type" : "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+    "hasTopConcept" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "MAS evidence type"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Media%20and%20commentaries",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Media and commentaries"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Medicines%20Q%20%26%20A",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Evidence%20summary",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Medicines Q & A"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Medicines%20evidence%20commentaries",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Evidence%20summary",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Medicines evidence commentaries"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Ongoing%20or%20unpublished%20research",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Primary%20research",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Ongoing or unpublished research"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Other%20economic%20evaluations",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Other economic evaluations"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Other%20evidence",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Other evidence"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Other%20primary%20research",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Primary%20research",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Other primary research"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Patient%20decision%20aids",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Patient decision aids"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Patient%20information",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Patient information"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Policy",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Policy"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Population%20intelligence",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Population intelligence"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Population%20needs%20assessment",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Population needs assessment"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Primary%20research",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Primary research"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Quality%20measures",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Other%20evidence",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Quality measures"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Randomised%20controlled%20trials",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Primary%20research",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Randomised controlled trials"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Safety%20alerts",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Safety alerts"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Systematic%20review",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:CONCEPT-Evidence_type",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Systematic review"
+    }
+  }, {
+    "@id" : "mas_evidence_types:Systematic%20reviews",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "broader" : "mas_evidence_types:Systematic%20review",
+    "prefLabel" : {
+      "@language" : "en",
+      "@value" : "Systematic reviews"
+    }
+  }, {
+    "@id" : "urn:x-evn-master:mas_evidence_types",
+    "@type" : "owl:Ontology",
+    "status" : "metadata:UnderDevelopmentStatus",
+    "defaultNamespace" : "http://nice.org.uk/MAS/evidence_type/",
+    "newInstancesUserCannotModifyURI" : "0",
+    "comment" : "A list of evidence types includes in the Medicines Awareness Service",
+    "label" : "MAS evidence types",
+    "imports" : [ "http://topbraid.org/skos.shapes", "http://topbraid.org/imported" ]
+  } ],
+  "@context" : {
+    "prefLabel" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
+    },
+    "broader" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#broader",
+      "@type" : "@id"
+    },
+    "imports" : {
+      "@id" : "http://www.w3.org/2002/07/owl#imports",
+      "@type" : "@id"
+    },
+    "status" : {
+      "@id" : "http://topbraid.org/metadata#status",
+      "@type" : "@id"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "newInstancesUserCannotModifyURI" : {
+      "@id" : "http://topbraid.org/teamwork#newInstancesUserCannotModifyURI",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "defaultNamespace" : {
+      "@id" : "http://topbraid.org/swa#defaultNamespace"
+    },
+    "hasTopConcept" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#hasTopConcept",
+      "@type" : "@id"
+    },
+    "metadata" : "http://topbraid.org/metadata#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "teamwork" : "http://topbraid.org/teamwork#",
+    "mas_evidence_types" : "http://nice.org.uk/MAS/evidence_type/",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
+  }
+}
