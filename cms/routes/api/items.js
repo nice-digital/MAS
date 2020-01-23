@@ -42,6 +42,7 @@ exports.single = function(req, res) {
 exports.list = function(req, res) {
 	Items.model
 		.find()
+		.limit(0)
 		.select("title slug updatedAt")
 		.exec(function(err, items) {
 			if (err) {
