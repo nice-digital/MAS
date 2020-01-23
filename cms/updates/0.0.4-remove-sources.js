@@ -8,33 +8,34 @@ const Source = keystone.list("Source");
 const logger = log4js.getLogger();
 
 const removeSource = async (source, done) => {
-	logger.info(`Source is ${source.title} with id ${source._id}`);
+	const { title, _id } = source;
 
-	let existsInNewSourceList = false;
+	const existsInNewSourceList = newSources.some(element => element.oldEPiServerId == source.oldEPiServerId);
 
-	newSources.forEach(element => {if(element.oldEPiServerId == source.oldEPiServerId){existsInNewSourceList = true}})
-
-	if(existsInNewSourceList == true){
-		logger.info(`Not deleting ${source.title} as it exists in the new source list`)
-	}else{
-		logger.info(
-			`Deleting source ${source.title} as it doesn't exist in the new source list`
-		);
-	
-		try {
-			await Source.model.findById(source._id)
-						.remove(function(err) {
-							if(err){
-								logger.error("Error deleting `${}`", err);	
-							}else{
-								logger.info(`Successfully deleted ${source.title}`)
-							}
-						});
-		} catch (e) {
-			logger.error("Error deleting `${}`", e);
-			throw e;
-		}
+	if(existsInNewSourceList){
+		logger.debug(`Not deleting ${title} as it exists in the new source list`)
+		done();
+		return;
 	}
+	
+	logger.debug(
+		`Deleting source ${title} as it doesn't exist in the new source list`
+	);
+
+	try {
+		await Source.model.findById(_id)
+				.remove(function(err) {
+					if(err){
+						logger.error(`Error deleting ${title}`, err);	
+					}else{
+						logger.info(`Successfully deleted ${title}`)
+					}
+				});
+	} catch (err) {
+		logger.error(`Error deleting ${title}`, err);
+		throw err;
+	}
+	
 	done();
 };
 
@@ -44,14 +45,14 @@ exports = module.exports = async function(done) {
 	let existingSources;
 	try {
 		existingSources = await Source.model
-		.find({ oldEPiServerId: { $gt: 0 } })
+		.find()
 		.exec();
-	} catch (e) {
-		logger.error("Error fetching sources with entities in update", e);
-		throw e;
+	} catch (err) {
+		logger.error(`Error fetching sources with entities in update`, err);
+		throw err;
 	}
 
-	logger.info(
+	logger.debug(
 		`Found ${existingSources.length} sources to update`
 	);
 
