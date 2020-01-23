@@ -1,7 +1,6 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Configuration;
-using MAS.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
