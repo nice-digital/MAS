@@ -1,14 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MAS.Models
 {
     /// <summary>
-    /// A
+    /// A 'lighter' version of the Item, returned from the all items feed.
     /// </summary>
     public class ItemLight
     {
