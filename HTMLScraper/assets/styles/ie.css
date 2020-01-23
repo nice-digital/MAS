@@ -1,0 +1,78 @@
+*{
+	zoom:1; 
+}
+
+.usefullinksbox .helplandingleftside
+{
+	width:50%;
+}
+
+.useful_links_list ol
+{
+	padding-left:30px !important;
+}
+
+.a-z-summarylist li
+{
+	margin-left:30px !important;
+}
+
+.summarylist li
+{
+	/*margin:0 !important;*/
+	clear:both;
+}
+
+.summarylist li .summary_wrapper
+{
+	float:left !important;
+}
+
+.useful_links_list ol li, .summarylist li, .a-z-summarylist li
+{
+	display: list-item;
+}
+
+a.newsletter_banner{
+	background:url(../images/newsletter.jpg) -1px 3px no-repeat !important;
+	float:left;
+}
+a.newsletter_banner:hover{
+	background:url(../images/newsletter.jpg) -1px -47px no-repeat !important;
+}
+
+div.abstractsummarytext h1{
+line-height: 30px !important;
+}
+
+div.news_container div.evidencebox table tr.secondary_header th.title div 
+{
+    width:550px;
+}
+
+.pagenumbers {margin-top:15px;}
+
+div.contact_us .contact_form .column 
+{
+    width:240px;
+}
+
+div.contact_us .contact_form .column p.submit input 
+{
+   background:#0066cc url(../images/search_arrow.gif) no-repeat right -2px;
+}
+
+span.border_fix 
+{
+     border:1px solid #005ae1;
+}
+       
+span.border_fix select 
+{
+    height:20px !important;
+}
+
+.printform
+{
+	overflow:hidden;
+}

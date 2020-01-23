@@ -1,0 +1,22 @@
+/*TLS Banner*/
+
+.tlsBanner {
+    padding: 1%;
+    background-color: #FFFFFF;
+}
+
+.tlsBannerMessage {
+    padding: 1%;
+    border: 1px solid #940000;
+    background-color: #FFDBDB;
+    color: #940000;
+}
+
+.tlsBannerMessage a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.tlsBannerMessage p {
+    font-size:1.5em;
+}

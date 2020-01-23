@@ -1,0 +1,33 @@
+.search_rank 
+{
+    float:right;
+    margin:4px 10px 0 0;
+    display: none;
+}
+
+.search_rank .rank
+{
+	background-image: url(/images/rank.png);
+	background-repeat: repeat-x;
+	height: 14px;
+	/*display: inline-block;*/
+	float:left;
+}
+
+.search_rank .rank_not
+{
+	background-image: url(/images/rank_not.png);
+	background-repeat: repeat-x;
+	/*display: inline-block;*/
+	height: 14px;
+	/*margin-left: -3px;*/
+	float:left;
+}
+
+.search_rank span 
+{
+    font-weight:normal;
+    padding-left:8px;
+    font-size:11px;
+    color:#4A4A4A;
+}

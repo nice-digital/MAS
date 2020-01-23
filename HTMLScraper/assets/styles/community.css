@@ -1,0 +1,1192 @@
+div.bucket
+{
+	margin:0;
+	padding:0;
+}
+
+div#bucket div.communityHeader {
+    background: #17b4df url('/images/NHSlogo.png') no-repeat 20px center;
+    border-bottom: 10px solid #1f92cc;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+div#bucket div.communityHeader h2
+{
+	color:#FFF;
+	font-size:25px;
+	font-weight:bold;
+	line-height:30px;
+    padding-top: 20px;
+    padding-left: 180px;
+    padding-bottom: 20px;
+    margin: 0px;
+}
+
+div.community p {
+    font-size: 12px;
+}
+
+div.community h3 
+{
+	background:#c7e0c3  none repeat scroll 0 0;
+	color:#444546;
+	font-size:15px;
+	font-weight:bold;
+	line-height:20px;
+	margin:15px 0 15px;
+	padding: 10px;
+}
+
+div.community div.introduction 
+{
+    clear:both;
+    overflow:hidden;
+}
+
+div.community div.introduction p
+{
+	color:#4A4A4A;
+	font-size:12px;
+	line-height:18px;
+	/*margin-bottom:10px;*/
+	clear:both;
+}
+
+div.community div.selectcommunity 
+{
+    clear:both;
+    overflow:hidden;
+}
+
+div.community div.selectcommunity ul 
+{
+    clear:both;
+    overflow:hidden;  
+}
+
+div.community div.selectcommunity div.introduction p 
+{
+    margin-bottom:10px;
+}
+
+div.community ul
+{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+div.community li.group,
+div.community div.whyjoincontainer,
+div.community div.leftnav_browse
+{
+	background:#FFFFFF none repeat scroll 0 0;
+	border:0px solid #5CB1FF;
+	margin:10px 0 40px;
+	padding:0;
+	width:auto;
+	float:none;
+}
+div.community div.leftnav_browse
+{
+	margin:0 0 10px 0;
+}
+div.community div.whyjoincontainer div.whyjoin
+{
+	clear:both;	
+	margin:15px;
+	overflow:hidden;
+}
+div.community div.whyjoincontainer div.hidden
+{
+	display:none;
+}
+div.community div.whyjoincontainer div.whyjoin h3 
+{
+	background:#FFFFFF none repeat scroll 0 0;
+	color:#004EC6;
+	font-size:17px;
+	font-weight:bold;
+	line-height:normal;
+	margin:0 0 20px 0;
+	padding-left:10px;
+	background:#E4F0FB;
+	line-height:30px;
+}
+div.community div.whyjoincontainer div.whyjoin h3.index
+{
+	float:left;
+	margin-bottom:0;
+	margin-top:15px;
+	font-size:14px;
+	color:#666;
+	background:#fff;
+	line-height:normal;
+	padding-left:0;
+	margin-left:10px;
+}
+div.community div.whyjoincontainer div.whyjoin p
+{
+	font-size:11px;	
+	line-height:17px;
+	margin-bottom:10px;
+	padding-left:10px;
+}
+
+div.community div.whyjoincontainer div.whyjoin a 
+{
+    padding:0 15px 0 35px;
+    font-size:13px;  
+    text-align:right; 
+    width:55px;
+}
+div.community li.group div.group_bkg,
+div.community div.leftnav_browse ul
+{
+	background:#c7e0c3 none repeat scroll 0 0;
+	clear:both;	
+	margin:10px;
+	overflow:hidden;
+	padding:15px 10px 10px;
+}
+div.community div.leftnav_browse ul li a {
+    color: #4A4A4A;
+    display: block;
+    height: 150%;
+    line-height: 46px;
+    text-decoration: none;
+}
+div.community div.leftnav_browse div.leftnavlisttop ul
+{	
+	margin:0;	
+	padding:0 0 10px;
+}
+div.community li.group div.group_bkg h5
+{
+	background:transparent none repeat scroll 0 0;
+	color:#004EC6;
+	font-size:14px;
+	height:auto;
+	line-height:normal;
+	margin:0 0 20px;
+	padding:0;
+}
+div.community li.group div.group_bkg a,
+div.community li.menu a
+{
+	font-size:12px;
+	line-height:15px;
+	/*margin-bottom:5px;*/
+	text-transform:none;
+}
+
+div.community li.group div.group_bkg ul 
+{
+    clear:both;
+    overflow:hidden;   
+}
+div.community li.area,
+div.community li.menu
+{
+	float:left;
+	height:auto;
+	margin:0;
+	padding-bottom:15px;	
+	width:337px;
+}
+div.community li.menu
+{
+    width: 48.92%;
+    background-color: #fff;
+    text-align: center;
+    height: 30px;
+    margin: 0.5412%;
+}
+div.community div.browse_wrapper
+{
+    margin: 8px;
+    padding-bottom:0;
+    /*width:150px;*/
+    width:153px;   
+    background:#abd9ff; 
+    color:#004ec6;      
+	border:medium none;
+}
+div.community div.leftnav_browse div.leftnav_heading
+{
+	background-image:none;
+	border-bottom:1px dotted #FFFFFF;
+	color:#004EC6;
+	font-size:12px;
+	font-weight:bold;
+	padding-bottom:10px;
+}
+div.community div.content
+{
+	float:left;
+	width:710px;
+	padding:0px;	
+	margin-left:10px;	
+	overflow:hidden;
+}
+div.community div.content h3 
+{
+	margin-top:0px;
+}
+div.community div.breadcrumb
+{
+	margin-bottom:10px;
+}
+div.community div.discussions
+{
+	float:left;
+	width:530px;
+	margin-right:10px;
+}
+div.community div.leftnav_browse div.leftnav_form
+{
+	padding:8px 0 10px 8px;
+}
+div.community div.discussions ul
+{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+div.community div.discussions li.category,
+div.community li.topic
+{
+	border-bottom:1px dotted #4A4A4A;
+	margin-bottom:10px;
+	clear:both;
+	overflow:hidden;
+	display:block;
+}
+div.community div.discussions li.category a,
+div.community li.topic a
+{
+	font-size:12px;
+	font-weight:bold;
+	padding:0px 15px;
+	display:block
+}
+div.community div.discussions li.category p,
+div.community li.topic p
+{
+	font-size:12px;	
+	padding:3px 15px 0px;
+}
+div.community div.discussions li.category div.category_container,
+div.community li.topic div.topic_container
+{
+	clear:both;
+	overflow:hidden;
+	display:block;
+	margin-bottom:5px;
+}
+
+div.community div.discussions li.category div.category_container,
+div.community li.topic div.topic_container 
+{
+    margin-bottom:10px;
+}
+
+div.community li.menu_lvl1
+{
+	padding-left:10px;
+	background:transparent url(../images/arrowbullet_new_transparent.gif) no-repeat scroll 0 3px;	
+}
+div.community li.menu_lvl2
+{
+	margin-left:10px;
+	padding-left:10px;
+	background:transparent url(../images/arrowbullet_new_transparent.gif) no-repeat scroll 0 3px;	
+}
+div.community div.discussions li.categories,
+div.community li.topics
+{
+	background:#E4F0FB none repeat scroll 0 0;
+	margin:2px 0 10px;
+	border-bottom:1px dotted #4A4A4A;
+	border-top:2px solid #4A4A4A;
+}
+div.community div.discussions li.categories p,
+div.community li.topics p,
+div.community li.topics h4,
+div.community div.discussions li.categories h4
+{	
+	padding-left:15px;
+	line-height:25px;
+	color:#004EC6;
+	font-size:12px;
+	font-weight:bold;
+	margin:0;	
+}
+div.community div.noitems
+{
+	font-size:12px;
+	font-weight:bold;
+	padding:15px 0px 15px 10px;
+	color:#ff0000;	
+}
+div.community div.search_form
+{
+	float:left;
+	background:#c7e0c3 none repeat scroll 0 0 !important;
+	border:1px solid #c7e0c3 !important;
+	color:#4A4A4A !important;
+	width:165px;
+	font-size:11px;
+	margin-bottom:20px;
+}
+div.community div.search_form div.search_heading
+{
+	background-image:none;
+	color:#4A4A4A;	
+	font-weight:bold;
+	margin:0 5px;
+	padding:5px;
+	border-bottom:1px dotted #878787;
+	line-height:19px;
+}
+
+div.community div.search_form div.form_body
+{
+	padding:8px;
+}
+div.community div.search_form div.form_body p {
+    color: #4A4A4A;
+}
+div.community div.search_form div.form_body div.form_item
+{
+	padding:4px 0px;
+}
+div.community div.search_form div.form_body div.form_item span
+{
+	display:block;	
+}
+div.community div.search_form div.form_body input,
+div.community div.search_form div.form_body select
+{
+	width:100px;
+}
+
+div.community div.search_form div.form_body select 
+{
+    width:104px;
+    height:18px;
+}
+
+div.community div.search_form div.form_ok
+{
+	padding:7px 0px 4px;
+	display:block;
+	height:20px;
+}
+div.community div.search_form div.form_ok input
+{
+	width:60px;
+	float:right;	
+}
+
+div.community div.search_form div.form_ok a {
+    padding: 4px 52px 4px 52px; 
+    color: #fff; 
+    clear: both; 
+    font-size: 1.4em; 
+    line-height: 1.6em; 
+    text-align: center; 
+    background-color: #15aba0;
+    text-decoration: none;
+}
+
+div.community div.area_left_col
+{
+	float:left;
+	width:530px;
+	margin-right:10px;	
+}
+div.community div.area_left_col .box_item
+{
+	width:530px;
+}
+div.community div.area_right_col
+{
+	float:left;
+	width:167px;	
+}
+div.community div.newsitemparabox,
+div.community div.footerbar,
+div.community div.printlinkbar,
+div.community div.backlinkbar,
+div.community div.backbutn_bottomborder
+{
+	/*width:550px; removed to fix NELMSUP-214 */
+}
+div.community div.abstractsummary
+{
+	/*width:524px; removed to fix NELMSUP-242 */
+}
+div.community div.box_container div.wide
+{
+	width:530px;
+}
+div.community div#new_comment
+{
+	display:none;
+}
+div.community .txt_comment
+{
+	width:500px;
+}
+div.community div#preview_comment
+{
+	display:none;
+}
+div.community div.box_container
+{
+	width:auto;
+}
+div.community div.box_container div.box_item div.box_item_caption h3
+{
+    float:left;
+    background-color:#ABD9FF;
+    height:24px;
+    line-height:24px;
+    text-transform:none;
+    padding-left:10px;
+    font-size:11px;
+    margin:0px;  
+    color:#4A4A4A;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+div.community div.box_container div.box_item div.box_item_caption span
+{
+    float:left;
+    height:24px;
+    line-height:24px;
+    text-transform:none;
+    padding-left:10px;
+    font-size:11px;
+    margin:0px; 
+}
+
+div.community div.thin div.box_container div.box_item div.box_item_caption h3 
+{
+	background-color:#fff;
+	font-size:11px;
+	line-height:14px;
+	margin:0;
+	height:auto;
+}
+
+div.community div.contact_us
+{
+	float:left;
+	width:548px;
+	padding:0px;	
+	margin-left:10px;	
+	margin-top:0px;
+}
+div.community div.contact_us .contact_form
+{
+	background:#E4F0FB none repeat scroll 0 0;
+	clear:both;
+	margin-top:0px;
+	overflow:hidden;
+	padding:13px;	
+}
+div.community div.contact_us .contact_form input, div.contact_us .contact_form select, div.contact_us .contact_form textarea 
+{
+	width:235px;
+}
+div.community div.contact_us .contact_form input.submit 
+{
+	background:#0066CC url(../images/search_arrow.gif) no-repeat scroll right top;
+	border:1px solid #0066CC;
+	color:#FFFFFF;
+	cursor:pointer;
+	float:right;
+	height:22px;
+	padding-bottom:2px;
+	padding-right:20px;
+	text-align:right;
+	width:75px;
+}
+div.community a.new_post,
+div.community a.new_resource,
+div.community div.resource a,
+div.community div.whyjoin a
+{
+	background:#E4F0FB url(../images/arrow_big.gif) no-repeat scroll 0 0;
+	color:#004EC6;
+	display:block;	
+	font-size:11px;
+	font-weight:bold;
+	height:25px;
+	line-height:25px;
+	margin-top:10px;
+	padding-left:35px;
+	padding-right:10px;	
+}
+div.community div.resource a
+{
+	width:500px;
+	margin-bottom:10px;
+}
+div.community a.new_post,
+div.community a.new_resource,
+div.community div.whyjoin a
+{
+	float:right;
+}
+div.community a.new_post
+{
+	width:100px;
+}
+div.community div.whyjoin a
+{
+	width:40px;
+}
+div.community a.new_resource
+{
+	width:120px;
+}
+div.community span.info
+{
+	font-family:Arial;
+	margin:0;
+	padding:0 0 3px;
+	font-size:11px;
+	line-height:13px;
+	font-weight:normal;
+	display:block;
+	padding:0px 0px 5px 0px;
+	margin-bottom:10px;
+}
+div.community span.info span.title
+{
+	float:left;
+}
+div.community div.topic_container span.info 
+{
+	padding:5px 15px;	
+}
+div.community span.info span.title
+{
+	font-weight:800;
+}
+div.community span.info span.titleline
+{
+	display:block;
+	margin:0px 0px 3px 0px;
+}
+
+div.bookmark 
+{
+    margin:35px 20px 0;
+}
+
+div.bookmark div.bookmark_add 
+{
+    padding-left:7px;
+    font-size:11px; 
+}
+
+div.bookmark div.bookmark_add h4 
+{
+    font-size:15px;
+    color:#0066cc;
+    font-weight:bold;
+    line-height:40px;
+    margin-bottom:15px;
+}
+
+div.bookmark div.bookmark_add h5 
+{
+    font-size:14px;
+}
+
+div.bookmark div.bookmark_add ul 
+{
+    /*padding-left:7px;*/
+    clear:both;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+div.bookmark div.bookmark_add li 
+{
+    clear:both;
+    overflow:hidden;
+    margin-bottom:10px;
+}
+
+div.bookmark div.bookmark_add li textarea 
+{
+    width:350px;
+    height:80px;
+}
+
+div.bookmark div.bookmark_add li span 
+{
+    float:left;
+    width:400px;
+    padding-left:3px;
+}
+
+div.bookmark div.bookmark_add li span.watch_check,
+div.bookmark div.bookmark_add li span.watch_check input 
+{
+    margin:0;
+    padding:0;
+}
+
+div.bookmark div.bookmark_info 
+{
+    margin-bottom:20px;
+    padding-left:7px;
+}
+
+div.bookmark div.bookmark_info span 
+{
+    font-size:11px;
+}
+
+div.community div.comments
+{
+	background:#FFFFFF none repeat scroll 0 0;
+	border:1px solid #5CB1FF;
+	margin:10px 0 40px;
+	padding:0;
+	width:auto;
+}
+div.community div.comments h3 {
+	background:#E4F0FB none repeat scroll 0 0;
+	color:#004EC6;
+	font-size:17px;
+	font-weight:bold;
+	line-height:30px;
+	margin:0 0 20px;
+	padding-left:10px;
+}
+div.community div.comments div.comment
+{
+	font-size:11px;	
+	line-height:17px;
+	margin-bottom:10px;
+	padding:0 10px;
+}
+div.community div.comments div.comment ul li
+{
+	border-bottom:1px solid #C1E2FF;
+}
+div.community div.comments div.comment div.buttons
+{
+	margin:10px 0;
+}
+div.community div.comments div.comment div.buttons input, div.community div.comments div.comment span.adminbuttons input
+{
+	background:#0066CC url(../images/search_arrow.gif) no-repeat scroll right top;
+	border:1px solid #0066CC;
+	color:#FFFFFF;
+	cursor:pointer;	
+	height:22px;
+	padding-bottom:2px;
+	padding-right:20px;
+	text-align:right;
+	width:auto;
+}
+div.community div.comments div.comment span.adminbuttons input
+{
+	border-top:1px solid #FFFFFF;
+	border-bottom:1px solid #FFFFFF;
+    border-left: 3px solid #FFFFFF;
+    border-right: 3px solid #FFFFFF;
+    height: 25px;
+} 
+div.community div.comments div.comment span.adminbuttons
+{
+	float:right;
+	width:200px;
+	margin:5px 0px;
+}
+
+
+
+
+div.community a.new_bookmark
+{
+	background:#E4F0FB url(../images/arrow_big.gif) no-repeat scroll 0 0;
+	color:#004EC6;
+	display:block;	
+	font-size:11px;
+	font-weight:bold;
+	height:25px;
+	line-height:25px;
+	margin-top:10px;
+	padding-left:35px;
+	padding-right:10px;	
+	width:100px;
+}
+div.community div.bookmark_add
+{
+	background:#E4F0FB none repeat scroll 0 0;
+	clear:both;
+	margin-top:20px;
+	overflow:hidden;
+	padding:13px;
+	color:#4A4A4A;
+	font-size:11px;
+	line-height:16px;
+	/*width:509px;*/
+	width:664px;
+	
+}
+div.community div.bookmark_add h5
+{
+	color:#004EC6;
+	/*float:left;*/
+	font-size:12px;
+	font-weight:bold;
+	line-height:16px;
+	margin:0 0 10px 0;
+	padding:0;
+	/*width:45%;*/
+	width:100%;
+}
+div.community div.bookmark_add label
+{
+	display:block;
+	float:left;
+	width:100px;
+}
+
+div.community div.bookmark_add .star_label
+{
+	float:left;
+}
+
+div.community div.bookmark_add .watch_check label
+{
+	/*margin-left:10px;*/
+	display:inline;
+	padding-left:10px;
+}
+div.community div.bookmark_add input,
+div.community div.bookmark_add select, 
+div.community div.bookmark_add textarea
+{
+	border:1px solid #005AE1;
+	height:17px;
+	width:235px;
+}
+div.community div.bookmark_add .watch_check input
+{
+	width:auto;
+	float:left;
+	border:none;
+}
+div.community div.bookmark_add .save_button
+{
+	background:#0066CC url(../images/search_arrow.gif) no-repeat scroll right top;
+	border:1px solid #0066CC;
+	color:#FFFFFF;
+	cursor:pointer;
+	float:right;
+	height:22px;
+	padding-bottom:2px;
+	padding-right:20px;
+	text-align:right;
+	width:75px;
+}
+div.community div.bookmarks li
+{
+	float:left;
+	font-size:11px;
+	font-weight:normal;
+	margin:15px 0 0;
+	/*padding:0 10px;*/
+	padding: 0 0 0 10px;
+	/*width:680px;*/
+	width:720px;
+	border-bottom:1px dotted #4A4A4A;
+}
+
+div.community div.bookmarks li h5
+{
+	font-size:12px;
+	font-weight:bold;
+	/*margin:0 0 10px 0;*/
+	margin:0;
+}
+div.community div.bookmarks li h5 .watch_container 
+{
+		
+}
+div.community div.bookmarks li div.content
+{
+	float:left;
+	width:450px;
+	margin:0;
+	width:720px;
+}
+
+div.community div.bookmarks li div.content .header_rating_wrapper
+{
+	width:60%;
+	float:left;	
+}
+div.community div.bookmarks li div.options_block
+{
+	float:right;
+}
+div.community div.bookmarks li div.rating_block
+{
+	clear:both;
+	height:15px;
+	margin: 0 0 10px;
+}
+div.community div.bookmarks li div.rating_block span,
+div.community div.bookmarks li div.rating_block div.star_rating
+{
+	display:block;
+	float:left;
+	margin:0 0px;
+	height:15px;
+	line-height:18px;
+	color:#4A4A4A;
+}
+div.community div.bookmarks li div.rating_block div.star_rating
+{
+	margin:0 0 0 10px;	
+}
+div.community div.bookmarks li div.options_block div.options
+{	
+	/*margin:10px 0;*/
+	margin:0;
+}
+div.community div.bookmarks li div.options_block div.options a
+{
+	font-weight:bold;
+	float:right;
+	margin:0 0 0 10px;
+}
+div.community div.bookmarks li p
+{
+	font-size:11px;
+	line-height:16px;	
+	margin-bottom:10px;
+	margin-top:5px;
+	float:left;
+	clear:both;
+	width:720px;
+}
+div.community div.bookmark_info
+{
+	margin-bottom:10px;
+	text-align:right;
+	/*width:700px;*/
+	width:730px;
+}
+div.community div.bookmark_info span
+{
+	font-size:11px;
+	font-weight:normal;
+}
+div.community div.bookmark_container
+{
+	/*
+		margin:0 15px;
+	*/
+	margin:0 ;
+}
+div.bookmark div.bookmark_add li span.watch_check
+{	
+	margin-left:100px;
+}
+div.community div.contact_us ul 
+{	
+	margin-bottom:15px;
+}
+div.community div.contact_us ul li 
+{	
+	clear:both;	overflow:hidden;	margin-bottom:5px;	
+}
+div.community div.contact_us ul li label,
+div.community div.contact_us ul li .err_msg  
+{	float:left;	width:135px;	margin-bottom:0;}
+div.community div.contact_us ul li .err_msg {	clear:left;	margin-left:135px;}
+div.community div.contact_us ul li .content {	margin:0px 0 0 135px;}
+div.community div.contact_us ul li label .req {	font-weight:bold;	color:#004EC6;	font-size:15px;}
+div.community div.contact_us .contact_form ul li input{	width:350px;}
+div.community div.contact_us .contact_form ul li input.upload {	height:auto;}
+div.community div.contact_us ul li textarea {	width:350px;	height:80px;}
+div.community div.contact_us .contact_form input.submit {	margin-right:35px;}
+div.community div.contact_us .contact_header h3{	width:70%;	background:#E4F0FB;}
+div.community div.contact_us .contact_header p{	width:25%;}
+
+div.community div.comments div.comment span.nocomments
+{
+	display:block;
+	margin:15px 0;
+	font-weight:bold;
+}
+
+div.community div.comments div.comment span.notloggedin
+{
+	display:block;
+	margin:15px 0;
+	font-weight:bold;
+}
+
+div.community .pagenumbers,
+div.community .pagenumberstopborder 
+{
+	/* width:730px !important; */
+}
+
+div.community div.bookmarks 
+{
+	margin-bottom:10px;
+}
+
+div.community div.bookmarks ul 
+{
+	clear:both;
+	overflow:hidden;
+}
+
+div.regemailbox a.recaptcha_only_if_image
+{
+    background: url(../images/listen.gif) no-repeat left 2px;
+    padding-left:20px;
+    float:left;
+    height:12px;
+    margin-left:5px;
+    margin-top:44px;
+}
+
+div.regemailbox #recaptcha_image 
+{
+	float:left;
+}
+
+div.community div.contact_us ul.azlinks
+{	
+	font-size:1.2em;
+	margin-left:0;
+	width:550px;
+}
+
+div.community div.contact_us ul.azlinks li
+{
+	float:left;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	padding:0 10px 14px 0;
+	text-align:center;
+	clear:none;
+}
+
+div.community h4
+{
+	font-size:1.2em;
+	font-weight:bold;
+}
+div.community div.contact_us .contact_form select.members
+{
+	height:150px;
+	float:left;
+	width:200px;
+}
+div.community div.contact_us .contact_form span.multiselect
+{
+	font-size:10px;	
+	display:block;
+	float:left;
+	padding:80px 0 0 10px;
+	width:130px;
+}
+div.community div.contact_us_member div.contact_us
+{
+	margin:0 0 10px 0;	
+}
+div.community div.contact_us_member_email div.contact_us
+{
+	margin:20px 0 10px 0;	
+}
+div.community .member 
+{
+	font-size:12px;
+}
+div.community .member .name
+{
+	font-size:24px;	
+	font-weight:800;
+}
+div.community .member .info_title
+{	
+	font-weight:800;
+	display:block;
+	margin-top:10px;
+}
+div.community .member ul li
+{
+	background:transparent url(../images/arrowbullet_new_transparent.gif) no-repeat scroll 0 3px;	
+	padding-left:15px;	
+}
+
+div.community .reg_container
+{
+	padding-left:0;
+}
+
+div.community .regmailcontent td 
+{
+	padding: 3px 0px 5px 0;
+}
+
+
+div.community .regmailcontent td.tdcheckbox 
+{
+	padding: 0px 5px 5px 0;
+}
+
+div.community .registration_table
+{
+	padding-bottom:20px;
+}
+
+div.community .registration_table .bio_area
+{
+	width:350px;
+	height:134px;
+}
+
+div.community .registration_table .job_title 
+{
+	width:200px;
+}
+
+div.community .registration_table .display_cell * 
+{
+	float:left;
+}
+
+div.community .registration_table .display_cell label 
+{
+	margin:3px 0 0 5px;
+}
+div.community div.box_container div.box_item div.medicine_items div.date,
+div.community span.date
+{
+	color:#666666;
+	float:left;
+	font-size:11px;
+	margin:0 0 8px;
+	padding:0;
+	width:65px;
+}
+div.community div.box_container div.box_item div.medicine_items div.title
+{	
+	float:left;
+	font-size:12px;	
+	width:430px;
+	margin:0 0 8px;
+}
+div.community span.title
+{	
+	float:left;
+	font-size:12px;	
+	width:430px;
+	margin:0 0 8px;
+}
+div.community span.date
+{
+	padding-left:10px;
+}
+div.community div.area_left_col .medicine_title  
+{
+	margin:5px;
+}
+
+div.expandable 
+{
+	overflow:hidden;
+	font-size:12px;
+}
+a.more_link 
+{
+	font-size:14px;
+	display:block;
+	margin:10px 1px;
+	padding:3px;
+	width:60px;
+	font-weight:800;
+}
+a.more_link:hover 
+{
+	text-decoration:none;
+}
+
+.community .abstractsummarytext{
+	margin: 0px 18px 0px 0px;
+}
+
+.community .abstractsummarytext{
+	margin: 0px 18px 0px 0px;
+}
+/*
+.community .summarybottom{
+	width: 577px;
+}
+*/
+
+li.notaccepted, li.notaccepted p
+{
+    color:#C0C0C0;
+}
+
+div.community div.comments div.comment span.editedby
+{
+    color:Blue;
+}
+
+div.community span.category_replies 
+{
+	float:right; 
+	font-size:12px; 
+	font-weight:bold;
+}
+
+
+/*Person details page*/
+
+div.community input, div.community select {
+    font-size: 12px;
+}
+
+div.community div.userPersonalDetails p {
+    font-size: 12px;
+}
+
+div.community div.userPersonalDetails div label {
+    font-size: 12px;
+}
+
+div.community div.absdetails p {
+    padding-bottom: 10px;
+}
+
+div.community div.absdetails p span {
+    padding-right: 10px;
+}
+
+div.community div.userPersonalDetails p label, div.community div.userPersonalDetails div label {
+    width: 120px;
+    display: inline-block;
+}

@@ -1,0 +1,32 @@
+/* CSS Document */
+
+/**************Bug 693 - 01_search_results_collapsed-v2***************/
+
+div.angioheading ul{list-style:none;margin:0;padding:2px 0px 5px 0px;}
+div.angioheading ul li{
+	font-size:11px;
+	color:#666666;
+	padding:0px 0px 0px 13px;
+	margin:0;
+	background:url(../images/angioheadingBullet.gif) no-repeat 0px 10px;
+}
+div.med_container a.go_to { display:inline-block;}
+div.browse_other div.leftnav_browse { display:inline; }
+/*.summarylist ul li {padding-top:30px;}*/
+.policies .evidencebox, .help .evidencebox {display:inline;}
+.pagenumbersright{float:right;text-align:right;width:200px;}
+.wide_searchtext h2 {padding-top:10px; }
+.formulary_search_container { height:307px; }
+div.wide_trustname_name h1 { display:inline;}
+div.wide_trustname_name {display:inline;}
+div.community div.thin div.box_container div.box_item div.box_item_caption h3 {background:none !important;}
+
+div.newsitempara { width: 97%; }
+div.abssummbot_right { width: 610px; }
+div.summary_header { width: 100%; }
+
+@media print {
+.wide_leftnarrow, wide_rightnarrow { display:none; }
+.wide_central {margin:0 0 0 5px;}
+
+}

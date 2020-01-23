@@ -1,0 +1,119 @@
+/*UKMI header*/
+
+div#UKMIheader {
+    background: #0066CC;
+    height: 60px;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 2px 0 0 2px;
+    margin: 0;
+    color: #FFFFFF;
+    border-bottom: 1px solid #ffffff;
+    font-size: 1.5em;
+}
+
+div#UKMIheader div img
+{
+    float: left; 
+}
+
+div#UKMIheader div span{
+    float: left; padding-top: 5px; padding-left: 10px;
+}
+
+div#UKMIheader img
+{
+    float: right; 
+}
+
+/*End*/
+
+/*UKMI footer*/
+
+
+.UKMIfooter {
+    margin-top: 10px; 
+    background-color: #0066CC; 
+    padding: 5px;
+    font-size: 1.125em;
+    overflow: auto;
+}
+
+ .UKMIfooter div.contact
+{
+    float: right;
+    text-align: right;
+    padding-right: 20px;
+    width: 600px;
+}
+
+  .UKMIfooter div
+{
+    color: #fff;
+    float: left;
+}
+
+.UKMIfooter a
+{
+    color: #fff;
+}
+/*End*/
+
+/*UKMI summary*/
+ul#UKMISummary 
+{
+
+}
+
+ul#UKMISummary li h1
+{
+    padding: 2px 0px 2px 0px;
+    margin: 0px;
+    font-size: 1.85em;
+}
+
+ul#UKMISummary li
+{
+    padding: 5px;
+	font-weight: bolder;
+    font-size: 1.125em;
+}
+
+ul#UKMISummary li div {
+    padding-top: 10px;
+	font-weight: normal;
+}
+
+ul#UKMISummary li label {
+    font-weight: normal;
+}
+
+ul#UKMISummary li.UKMIcomment label {
+    background-color: #ECECEC;
+    padding: 4px 0px 4px 2px;
+    display: block;
+    font-weight: bolder;
+    font-size: 1.125em;
+}
+
+ul#UKMISummary li.RelatedLinks {
+
+}
+
+ul#UKMISummary li.RelatedLinks label {
+    background-color: #ECECEC;
+    padding: 4px 0px 4px 2px;
+    display: block;
+    font-weight: bolder;
+    font-size: 1.125em;
+    margin-bottom: 10px;
+}
+.ukmi-related-link-header {
+    display: block;
+    font-weight: bold!important;
+}
+
+.ukmi-related-link {
+    display: block;
+    font-weight: normal;
+}
