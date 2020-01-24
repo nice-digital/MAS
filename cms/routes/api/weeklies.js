@@ -25,7 +25,7 @@ exports.singleBySendDate = async function(req, res) {
 			.find({ weekly: weekly._id })
 			.populate("source")
 			.populate("evidenceType")
-			.populate("speciality")
+			.populate("specialities")
 			.exec();
 	} catch (err) {
 		return res.status(500).json({
