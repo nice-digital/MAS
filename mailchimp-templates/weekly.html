@@ -1923,7 +1923,7 @@
                             <table>
                               <tr>
                                 <th>
-                                  <p class="date">*|DATE:jS F|* </p>
+                                  <p class="date"><span mc:edit="date">*|DATE:jS F|* </span></p>
                                   <h1 class="emailheader">Medicines awareness service - weekly</h1>
                                   <h2 class="emailsubheader">The very latest current awareness and evidence-based medicines information</h2>
                                 </th>
@@ -1969,9 +1969,23 @@
                                     </tr>
                                   </tbody>
                                 </table>                                
-                                <p class="text-center footer-text">Copyright 2020 © National Institute for Health Care Excellence. All rights reserved.<br>Our mailing address is: Level 1A, City Tower, Piccadilly Plaza, Manchester, M1 4BT <br>Add us to your address book<br><a href="#" class="footer-link">Update your preferences</a> or  <a href="#" class="footer-link">unsubscribe from list</a>
-                              </p>
-                            </th>
+                               	<p class="text-center footer-text">
+									*|LIST:DESCRIPTION|*
+									<br>
+									Copyright © *|CURRENT_YEAR|* *|LIST:COMPANY|*. All rights reserved.
+									<br><br>
+									<strong>Our mailing address is:</strong>
+									<br>
+									*|HTML:LIST_ADDRESS|*
+									<br>
+									<a href="*|LIST:ADDRESS_VCARD_HREF|*" class="footer-link">Add us to your address book</a>
+									<br>
+									<br>
+									This email was sent to *|EMAIL|*
+									<br>
+									<a href="*|UPDATE_PROFILE|*" class="footer-link">Update your preferences</a> or  <a href="*|UNSUB|*" class="footer-link">unsubscribe from this list</a>
+								</p>
+                              </th>
                             <th class="expander"></th>
                           </tr>
                         </table>

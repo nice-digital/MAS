@@ -15,7 +15,7 @@ namespace MAS.Services
     public interface IMailService
     {
         Task<Campaign> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
-        Task<string> CreateAndSendWeeklyCampaignAsync(string subject, string previewText, string body);
+        Task<string> CreateAndSendWeeklyAsync(string subject, string previewText, string body, string date);
     }
 
     public class MailService: IMailService
@@ -113,7 +113,7 @@ namespace MAS.Services
             }  
         }
           
-        public async Task<string> CreateAndSendWeeklyCampaignAsync(string subject, string previewText, string body)
+        public async Task<string> CreateAndSendWeeklyAsync(string subject, string previewText, string body, string date)
         {
             try
             { 
@@ -127,7 +127,8 @@ namespace MAS.Services
                         SubjectLine = subject,
                         FromName = _mailConfig.FromName,
                         ReplyTo = _mailConfig.ReplyTo,
-                        PreviewText = previewText
+                        PreviewText = previewText,
+                        AutoFooter = false
                     },
                     Recipients = new Recipient
                     {
@@ -145,7 +146,8 @@ namespace MAS.Services
                     {
                         Id = _mailChimpConfig.WeeklyTemplateId,
                         Sections = new Dictionary<string, object> {
-                            { "body", body }
+                            { "body", body },
+                            { "date", date }
                         }
                     }
                 });
@@ -157,8 +159,8 @@ namespace MAS.Services
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to communicate with MailChimp - exception: {e.Message}");
-                throw new Exception($"Failed to communicate with MailChimp - exception: {e.Message}");
+                _logger.LogError(e, $"Failed to send weekly email for {date}: {e.Message}");
+                throw new Exception($"Failed to send weekly email for {date}: {e.Message}, e");
             }
         }
     }

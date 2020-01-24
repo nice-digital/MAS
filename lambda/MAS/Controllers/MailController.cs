@@ -166,7 +166,7 @@ namespace MAS.Controllers
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendWeeklyCampaignAsync(subject, previewText, body);
+                var campaignId = await _mailService.CreateAndSendWeeklyAsync(subject, previewText, body, weeklyContent.Title);
                 return Content(campaignId);
             }
             catch (Exception e)
