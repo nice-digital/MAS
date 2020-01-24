@@ -117,7 +117,7 @@ describe("weeklies", () => {
 
 			expect(firstPopulate).toHaveBeenCalledWith("source");
 			expect(secondPopulate).toHaveBeenCalledWith("evidenceType");
-			expect(thirdPopulate).toHaveBeenCalledWith("speciality");
+			expect(thirdPopulate).toHaveBeenCalledWith("specialities");
 			expect(unusedPopulate).not.toHaveBeenCalledWith();
 		});
 
