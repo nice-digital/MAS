@@ -161,7 +161,7 @@ namespace MAS.Controllers
             }
 
             var body = await _viewRenderer.RenderViewAsync(this, "~/Views/Mail/Weekly.cshtml", weeklyContent);
-            var subject = "NICE Medicines Awareness Weekly - " + weeklyContent.Title;
+            var subject = "Weekly: Medicines Awareness Service " + weeklyContent.Title;
             var previewText = "NICE Medicines Awareness Weekly. A selection of the week's current awareness and evidence-based medicines information";
 
             try
