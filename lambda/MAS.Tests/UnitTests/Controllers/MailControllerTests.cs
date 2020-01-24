@@ -24,20 +24,6 @@ namespace MAS.Tests.UnitTests.Controllers
     public class MailControllerTests
     {
         [Fact]
-        public async void GetDailyItemsForToday()
-        {
-
-            var mockContentService = new Mock<IContentService>();
-            var mailService = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), Mock.Of<ILogger<MailService>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
-
-            //Act
-            await mailService.PutMailAsync();
-
-            //Assert
-            mockContentService.Verify(mock => mock.GetDailyItemsAsync(null), Times.Once());
-        }
-
-        [Fact]
         public async void GetDailyItemsForSpecificDate()
         {
             DateTime date = new DateTime(2020, 1, 15);
@@ -56,7 +42,7 @@ namespace MAS.Tests.UnitTests.Controllers
         {
             var items = Enumerable.Empty<Item>();
             var mockContentService = new Mock<IContentService>();
-            mockContentService.Setup(x => x.GetDailyItemsAsync(null)).ReturnsAsync(items);
+            mockContentService.Setup(x => x.GetDailyItemsAsync(It.IsAny<DateTime>())).ReturnsAsync(items);
 
             var mockViewRenderer = new Mock<IViewRenderer>();
 
@@ -79,7 +65,7 @@ namespace MAS.Tests.UnitTests.Controllers
         {
             var items = new List<Item>() { new Item { } }.AsEnumerable();
             var mockContentService = new Mock<IContentService>();
-            mockContentService.Setup(x => x.GetDailyItemsAsync(null)).ReturnsAsync(items);
+            mockContentService.Setup(x => x.GetDailyItemsAsync(It.IsAny<DateTime>())).ReturnsAsync(items);
 
             var mockViewRenderer = new Mock<IViewRenderer>();
 
@@ -99,7 +85,7 @@ namespace MAS.Tests.UnitTests.Controllers
         }
 
         [Fact]
-        public async void SendsSubjectAndBodyToMailService()
+        public async void SendsDateAndBodyToMailService()
         {
             var items = new List<Item>() { new Item { Specialities = new List<Speciality>() } }.AsEnumerable();
             var mockContentService = new Mock<IContentService>();
@@ -115,18 +101,14 @@ namespace MAS.Tests.UnitTests.Controllers
 
             var mockMailService = new Mock<IMailService>();
 
-            var mailConfig = new MailConfig
-            {
-                DailySubject = "Test subject - {0}"
-            };
-
-            var mailController = new MailController(new FakeMailChimpManager().Object, mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), mailConfig, TestAppSettings.MailChimp.Default);
+            var mailController = new MailController(new FakeMailChimpManager().Object, mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
+            var sendDate = new DateTime(1856, 7, 10);
 
             //Act
-            await mailController.PutMailAsync(new DateTime(2020, 1, 15));
+            await mailController.PutMailAsync(sendDate);
 
             //Assert
-            mockMailService.Verify(mock => mock.CreateAndSendDailyAsync("Test subject - 15 January 2020", It.IsAny<string>(), body, It.IsAny<List<string>>(), It.IsAny<IEnumerable<Interest>>(), It.IsAny<string>()), Times.Once());
+            mockMailService.Verify(mock => mock.CreateAndSendDailyAsync(sendDate, It.IsAny<string>(), body, It.IsAny<List<string>>(), It.IsAny<IEnumerable<Interest>>(), It.IsAny<string>()), Times.Once());
         }
     }
 }

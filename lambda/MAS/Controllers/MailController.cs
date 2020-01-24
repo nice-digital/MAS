@@ -40,8 +40,10 @@ namespace MAS.Controllers
         [HttpPut("daily")]
         public async Task<IActionResult> PutMailAsync(DateTime? date = null)
         {
+            var sendDate = date ?? DateTime.Today;
+
             // Load all the required data in parallel
-            var itemsTask = _contentService.GetDailyItemsAsync(date);
+            var itemsTask = _contentService.GetDailyItemsAsync(sendDate);
             var specialitiesCategoryTask = _mailChimpManager.InterestCategories.GetAsync(_mailChimpConfig.ListId, _mailChimpConfig.SpecialityCategoryId);
             var specialitiesGroupsTask = _mailChimpManager.Interests.GetAllAsync(_mailChimpConfig.ListId, _mailChimpConfig.SpecialityCategoryId);
             var receiveEverythingCategoryTask = _mailChimpManager.InterestCategories.GetAsync(_mailChimpConfig.ListId, _mailChimpConfig.ReceiveEverythingCategoryId);
@@ -54,12 +56,10 @@ namespace MAS.Controllers
             var receiveEverythingCategory = await receiveEverythingCategoryTask;
             var receiveEverythingGroups = await receiveEverythingGroupsTask;
 
-            var dateStr = (date ?? DateTime.Today).ToString("dd MMMM yyyy");
-
             // Validate all the data is present and correct
             if (!items.Any())
             {
-                var message = $"Not sending email for {dateStr}, no items returned from the CMS";
+                var message = $"Not sending email for {sendDate}, no items returned from the CMS";
                 _logger.LogWarning(message);
                 return Content(message);
             }
@@ -91,12 +91,12 @@ namespace MAS.Controllers
 
             var body = await _viewRenderer.RenderViewAsync(this, "~/Views/Mail/Daily.cshtml", viewModel);
             var previewText = "The very latest current awareness and evidence-based medicines information";
-            var subject = string.Format(_mailConfig.DailySubject, dateStr);
+
 
             try
             {
                 var campaign = await _mailService.CreateAndSendDailyAsync(
-                    subject, 
+                    sendDate, 
                     previewText, 
                     body, 
                     items.SelectMany(x => x.Specialities).Select(y => y.Title).ToList(),
