@@ -59,7 +59,9 @@ namespace MAS.Services
                         SubjectLine = string.Format(_mailConfig.DailySubject, dateStr),
                         FromName = _mailConfig.FromName,
                         ReplyTo = _mailConfig.ReplyTo,
-                        PreviewText = previewText
+                        PreviewText = previewText,
+                        // We use our own footer in the email template
+                        AutoFooter = false
                     },
                     Recipients = new Recipient
                     {

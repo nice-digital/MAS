@@ -20,7 +20,7 @@ namespace MAS.Tests.UnitTests
     public class MailServiceTests
     {
         [Fact]
-        public async void CreateCampaignAndSendToMailChimpWithCorrectSettings()
+        public async void CreateCampaignWithCorrectSettings()
         {
             //Arrange
             var mockLogger = new Mock<ILogger<MailService>>();
@@ -62,7 +62,8 @@ namespace MAS.Tests.UnitTests
                 () => settings.SubjectLine.ShouldBe("Test - 10 December 1815"),
                 () => settings.FromName.ShouldBe(mailConfig.FromName),
                 () => settings.ReplyTo.ShouldBe(mailConfig.ReplyTo),
-                () => settings.PreviewText.ShouldNotBeNullOrWhiteSpace()
+                () => settings.PreviewText.ShouldNotBeNullOrWhiteSpace(),
+                () => settings.AutoFooter.ShouldBe(false)
             );
 
             var conditions = campaign.Recipients.SegmentOptions.Conditions;
