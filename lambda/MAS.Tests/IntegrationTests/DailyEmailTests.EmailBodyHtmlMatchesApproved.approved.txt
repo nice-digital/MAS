@@ -51,9 +51,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nhs.uk/">
-                                        Wonder Drug
-                                    </a>
+                                        <a class="article-link" href="https://www.nhs.uk/">
+                                            Wonder Drug
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     testing
@@ -94,9 +94,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.bbc.co.uk/">
-                                        Hello world
-                                    </a>
+                                        <span class="article-link">
+                                            Hello world
+                                        </span>
                                 </h4>
                                 <p class="article-description">
                                     test
@@ -150,9 +150,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nice.org.uk/">
-                                        MY MEDICINE
-                                    </a>
+                                        <a class="article-link" href="https://www.nice.org.uk/">
+                                            MY MEDICINE
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     this is my medicine
@@ -193,9 +193,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com/">
-                                        A Placebo
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com/">
+                                            A Placebo
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     hello
@@ -271,9 +271,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nhs.uk/">
-                                        Wonder Drug
-                                    </a>
+                                        <a class="article-link" href="https://www.nhs.uk/">
+                                            Wonder Drug
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     testing
@@ -312,9 +312,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.bbc.co.uk/">
-                                        Hello world
-                                    </a>
+                                        <span class="article-link">
+                                            Hello world
+                                        </span>
                                 </h4>
                                 <p class="article-description">
                                     test
@@ -364,9 +364,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nice.org.uk/">
-                                        MY MEDICINE
-                                    </a>
+                                        <a class="article-link" href="https://www.nice.org.uk/">
+                                            MY MEDICINE
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     this is my medicine
@@ -405,9 +405,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com/">
-                                        A Placebo
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com/">
+                                            A Placebo
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     hello

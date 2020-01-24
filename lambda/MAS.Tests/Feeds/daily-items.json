@@ -92,7 +92,7 @@
     },
     "shortSummary": "test",
     "resourceLinks": "http://localhost:3010/keystone/items",
-    "url": "https://www.bbc.co.uk/",
+    "url": "",
     "title": "Hello world",
     "__v": 0,
     "comment": "<p>comment</p>",
@@ -119,8 +119,7 @@
       "oldEPiServerId": 778708,
       "broaderTitle": "Evidence summary",
       "__v": 0
-    },
-    "isInitial": false
+    }
   },
   {
     "_id": "5db6cbcc8a34d4ca5905b5e4",
@@ -160,7 +159,6 @@
       "oldEPiServerId": 778708,
       "broaderTitle": "Evidence summary 2",
       "__v": 0
-    },
-    "isInitial": false
+    }
   }
 ]

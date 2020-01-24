@@ -51,9 +51,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.abc.com">
-                                        Item 1
-                                    </a>
+                                        <a class="article-link" href="https://www.abc.com">
+                                            Item 1
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     This is some short summary
@@ -91,9 +91,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com">
-                                        Item 2
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com">
+                                            Item 2
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     Some short summary
@@ -131,9 +131,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com/">
-                                        Item 3
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com/">
+                                            Item 3
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     Some short summary
@@ -206,9 +206,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.abc.com">
-                                        Item 1
-                                    </a>
+                                        <a class="article-link" href="https://www.abc.com">
+                                            Item 1
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     This is some short summary
@@ -244,9 +244,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com">
-                                        Item 2
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com">
+                                            Item 2
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     Some short summary
@@ -282,9 +282,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com/">
-                                        Item 3
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com/">
+                                            Item 3
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     Some short summary

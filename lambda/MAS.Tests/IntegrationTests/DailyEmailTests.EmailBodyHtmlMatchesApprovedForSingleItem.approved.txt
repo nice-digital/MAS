@@ -51,9 +51,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nhs.uk/">
-                                        Wonder Drug
-                                    </a>
+                                        <a class="article-link" href="https://www.nhs.uk/">
+                                            Wonder Drug
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     testing
@@ -129,9 +129,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nhs.uk/">
-                                        Wonder Drug
-                                    </a>
+                                        <a class="article-link" href="https://www.nhs.uk/">
+                                            Wonder Drug
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     testing
