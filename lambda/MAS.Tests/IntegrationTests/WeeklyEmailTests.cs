@@ -1,4 +1,5 @@
-﻿using MAS.Configuration;
+﻿using MailChimp.Net.Core;
+using MAS.Configuration;
 using MAS.Controllers;
 using MAS.Services;
 using MAS.Tests.Fakes;
@@ -17,6 +18,50 @@ namespace MAS.Tests.IntegrationTests
     {
         public WeeklyEmailTests(ITestOutputHelper output) : base(output)
         { }
+
+        [Fact]
+        public async void EmailBodyHtmlMatchesApprovedWithMEC()
+        {
+            // Arrange
+            ContentRequest contentRequest = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager
+                .Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()))
+                .Callback<string, ContentRequest>((cId, conReq) => contentRequest = conReq);
+
+            var client = _factory
+                .WithImplementation(fakeMailChimpManager.Object)
+                .WithCMSConfig(cmsConfig => cmsConfig.WeekliesBySendDate = "/weekly.json")
+                .CreateClient();
+
+            // Act
+            await client.PutAsync("/api/mail/weekly/2020-01-13", null);
+
+            // Assert
+            ((string)contentRequest.Template.Sections["body"]).ShouldMatchApproved();
+        }
+
+        [Fact]
+        public async void EmailBodyHtmlMatchesApprovedWithoutMEC()
+        {
+            // Arrange
+            ContentRequest contentRequest = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager
+                .Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()))
+                .Callback<string, ContentRequest>((cId, conReq) => contentRequest = conReq);
+
+            var client = _factory
+                .WithImplementation(fakeMailChimpManager.Object)
+                .WithCMSConfig(cmsConfig => cmsConfig.WeekliesBySendDate = "/weekly-without-mec.json")
+                .CreateClient();
+
+            // Act
+            await client.PutAsync("/api/mail/weekly/2020-01-13", null);
+
+            // Assert
+            ((string)contentRequest.Template.Sections["body"]).ShouldMatchApproved();
+        }
 
         [Fact]
         public async Task GivenNormalMonday_SendEmail()
