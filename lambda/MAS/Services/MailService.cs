@@ -105,7 +105,7 @@ namespace MAS.Services
                     }
                 });
 
-                //await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
+                await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
 
                 return campaign;
             }
