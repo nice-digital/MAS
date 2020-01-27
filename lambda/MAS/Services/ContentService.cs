@@ -12,7 +12,7 @@ namespace MAS.Services
     public interface IContentService
     {
         Task<IEnumerable<ItemLight>> GetAllItemsAsync();
-        Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null);
+        Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime date);
     }
 
     public class ContentService : IContentService
@@ -48,13 +48,11 @@ namespace MAS.Services
             }
         }
 
-        public async Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null)
+        public async Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime date)
         {
-            date = date ?? DateTime.Today;
-
             using (WebClient client = new WebClient())
             {
-                var path = string.Format(_cmsConfig.DailyItemsPath, date.Value.ToString("yyyy-MM-dd"));
+                var path = string.Format(_cmsConfig.DailyItemsPath, date.ToString("yyyy-MM-dd"));
                 try
                 {
                     var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
