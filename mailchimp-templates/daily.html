@@ -2470,25 +2470,15 @@
 									<table class="row header-bgd">
 										<tbody>
 											<tr>
-												<th class="small-6 large-6 columns first">
+												<th class="small-12 large-12 columns first">
 													<table>
 														<tr>
-															<th>
-																<center>
-																	<img src="#{AWS:StaticURL}email/nice-logo-mobile.png" class="float-left top-logo" alt="NICE logo">
-																</center>
-															</th>
-														</tr>
-													</table>
-												</th>
-												<th class="small-6 large-6 columns">
-													<table>
-														<tr>
-															<th>
-																<center>
-																	<img src="#{AWS:StaticURL}email/sps-logo.png" class="float-right top-logo" alt="SPS logo">
-																</center>
-															</th>
+															<td class="top-logo">
+																<img src="#{AWS:StaticURL}email/nice-logo-mobile.png" class="float-left" alt="NICE logo" align="left">
+															</td>
+															<td class="top-logo">
+																<img src="#{AWS:StaticURL}email/sps-logo.png" class="float-right" alt="SPS logo" align="right">
+															</td>
 														</tr>
 													</table>
 												</th>
@@ -2556,7 +2546,9 @@
 																<p class="text-center footer-text">
 																	*|LIST:DESCRIPTION|*
 																	<br>
-																	Copyright © *|CURRENT_YEAR|* *|LIST:COMPANY|*. All rights reserved.  Subject to <a href="https://www.nice.org.uk/terms-and-conditions#notice-of-rights">Notice of rights</a>.
+																	Copyright © *|CURRENT_YEAR|* *|LIST:COMPANY|*.
+																	All rights reserved.
+																	Subject to <a href="https://www.nice.org.uk/terms-and-conditions#notice-of-rights" class="footer-link">Notice of rights</a>.
 																	<br><br>
 																	<strong>Our mailing address is:</strong>
 																	<br>
@@ -2565,7 +2557,7 @@
 																	<a href="*|LIST:ADDRESS_VCARD_HREF|*" class="footer-link">Add us to your address book</a>
 																	<br>
 																	<br>
-																	This email was sent to *|EMAIL|*
+																	This email was sent to <a href="mailto:*|EMAIL|*" class="footer-link">*|EMAIL|*</a>
 																	<br>
 																	<a href="*|UPDATE_PROFILE|*" class="footer-link">Update your preferences</a> or  <a href="*|UNSUB|*" class="footer-link">unsubscribe from this list</a>
 																</p>
