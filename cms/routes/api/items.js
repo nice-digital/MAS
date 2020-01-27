@@ -42,7 +42,8 @@ exports.single = function(req, res) {
 exports.list = function(req, res) {
 	Items.model
 		.find()
-		.select("title slug")
+		.limit(0)
+		.select("title slug updatedAt")
 		.exec(function(err, items) {
 			if (err) {
 				logger.error(`Failed to get list of items`, err);

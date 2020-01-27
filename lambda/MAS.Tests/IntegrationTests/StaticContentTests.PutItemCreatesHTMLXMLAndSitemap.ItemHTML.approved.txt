@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -6,7 +5,7 @@
     <meta name="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-        Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial
+        Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial | Medicines Awareness Service
     </title>
 
     <meta name="description" content="RCT (n=1,312) found that among adults with type 2 diabetes, supplementation with vitamin D3 or omega-3 fatty acids, compared with placebo, resulted in no significant difference in change in eGFR at 5 years." />
@@ -27,6 +26,7 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Specialist Pharmacy Service logo" />
 
+    <link rel="alternate" type="text/xml" href="http://mas-integration-tests/effect-of-vit-d.xml" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700"
           rel="stylesheet"
@@ -56,15 +56,20 @@
 
                 <div class="comment">
                     <h2>SPS commentary:</h2>
-                    A related editorial discusses this research and details previous epidemiological studies that suggest improved outcomes with vitamin D supplementation in various clinical scenarios. It states that contrasting the results of this study and its predecessor vitamin D trials with the impressive body of epidemiological research that implicated vitamin D deficiency in various adverse health outcomes offers a stark lesson on the chasm between association and causation. Editorial authors highlight that it now seems safe to conclude that many prior epidemiological associations between vitamin D deficiency and adverse health outcomes were driven by unmeasured residual confounding or reverse causality.
+                    
+                        <p>A&#160;related editorial discusses this research and details previous epidemiological studies that suggest improved outcomes with vitamin D supplementation in various clinical scenarios. It states that contrasting the results of this study and its predecessor vitamin D trials with the impressive body of epidemiological research that implicated vitamin D deficiency in various adverse health outcomes offers a stark lesson on the chasm between association and causation. Editorial authors highlight that it now seems safe to conclude that many prior epidemiological associations between vitamin D deficiency and adverse health outcomes were driven by unmeasured residual confounding or reverse causality.</p>
+                    
                 </div>
 
             <h2 class="visually-hidden">Source:</h2>
             <p class="source">Journal of the American Medical Association</p>
 
                 <h2>Resource links:</h2>
-<p><a title="Link 1" href="items/5de65fe432281d43fbfcd15a">Vitamin D and Health Outcomes - Then Came the Randomized Clinical Trials</a></p>
-<p><a title="sadada" href="items/5de65fe432281d43fbfcd15a">Link 2</a></p>        </article>
+                
+                    <p><a title="Link 1" href="items/5de65fe432281d43fbfcd15a">Vitamin&#160;D and Health Outcomes - Then Came the Randomized Clinical Trials</a></p>
+<p><a title="sadada" href="items/5de65fe432281d43fbfcd15a">Link 2</a></p>
+                
+        </article>
     </main>
     <footer>
         <p class="terms"><a href="https://www.sps.nhs.uk/terms-and-conditions/">Terms and conditions</a></p>
