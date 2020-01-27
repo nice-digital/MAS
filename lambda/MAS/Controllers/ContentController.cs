@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Amazon.CloudFront;
 
 namespace MAS.Controllers
 {
@@ -27,14 +28,20 @@ namespace MAS.Controllers
         private readonly IContentService _contentService;
         private readonly ILogger<ContentController> _logger;
         private readonly AWSConfig _awsConfig;
+        private ICloudFrontService _cloudFrontService;
 
-        public ContentController(IStaticWebsiteService staticWebsiteService, IViewRenderer viewRenderer, IContentService contentService, ILogger<ContentController> logger, AWSConfig awsConfig)
+        public ContentController(IStaticWebsiteService staticWebsiteService, 
+            IViewRenderer viewRenderer, IContentService contentService, 
+            ILogger<ContentController> logger,
+            AWSConfig awsConfig,
+            ICloudFrontService cloudFrontService)
         {
             _staticWebsiteService = staticWebsiteService;
             _viewRenderer = viewRenderer;
             _contentService = contentService;
             _logger = logger;
             _awsConfig = awsConfig;
+            _cloudFrontService = cloudFrontService;
         }
 
         #endregion
@@ -77,6 +84,23 @@ namespace MAS.Controllers
                 {
                     _logger.LogError($"Writing item XML resulted in a status code of {itemXmlResponseStatus}");
                     return Validate(itemXmlResponseStatus, _logger);
+                }
+
+                //Cache invalidation
+                var paths = new List<string>()
+                {
+                    _awsConfig.ServiceURL + "/sitemap.xml",
+                    _awsConfig.ServiceURL + "/" + item.Slug + ".html",
+                    _awsConfig.ServiceURL + "/" + item.Slug + ".xml"
+                };
+
+                var invalidateCacheTask = _cloudFrontService.InvalidateCacheAsync(paths);
+                var invalidateCacheResponseCode = (await invalidateCacheTask).HttpStatusCode;
+
+                if (invalidateCacheResponseCode != HttpStatusCode.OK)
+                {
+                    _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");
+                    return Validate(invalidateCacheResponseCode, _logger);
                 }
 
                 return Validate(HttpStatusCode.OK, _logger);

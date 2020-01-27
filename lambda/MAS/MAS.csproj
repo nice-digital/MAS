@@ -12,6 +12,7 @@
     <None Remove="setup.sh" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AWSSDK.CloudFront" Version="3.3.101.95" />
     <PackageReference Include="MailChimp.Net.V3" Version="4.2.1" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />

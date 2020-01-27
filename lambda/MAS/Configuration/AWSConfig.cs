@@ -14,5 +14,6 @@
         public string ServiceURL { get; set; }
         public string BucketName { get; set; }
         public string StaticURL { get; set; }
+        public string DistributionId { get; set; }
     }
 }

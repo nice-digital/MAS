@@ -1,4 +1,5 @@
 using Amazon;
+using Amazon.CloudFront;
 using Amazon.S3;
 using MailChimp.Net;
 using MAS.Configuration;
@@ -78,6 +79,28 @@ namespace MAS
             {
                 return new AmazonS3Client(awsConfig.AccessKey, awsConfig.SecretKey, s3config);
             });
+
+            AmazonCloudFrontConfig cloudfrontConfig;
+            if (environmentConfig.Name == "local")  //TODO: Should use Environment.IsDevelopment() here. When running tests it returns "Production"
+            {
+                cloudfrontConfig = new AmazonCloudFrontConfig()
+                {
+                    //dead service?
+                };
+            }
+            else
+            {
+                //Do i even need this?
+                cloudfrontConfig = new AmazonCloudFrontConfig()
+                {
+                    RegionEndpoint = Region,
+                };
+            }
+            services.AddTransient<IAmazonCloudFront>((acf) =>
+            {
+                return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
