@@ -28,7 +28,10 @@ namespace MAS.Tests.UnitTests
             Campaign campaign = null;
             var fakeMailChimpManager = new FakeMailChimpManager();
             fakeMailChimpManager.Setup(s => s.Campaigns.AddAsync(It.IsAny<Campaign>()))
-                .Callback<Campaign>(c => campaign = c)
+                .Callback<Campaign>(c => {
+                    campaign = c;
+                    campaign.Id = "abc";
+                })
                 .ReturnsAsync(() => campaign);
 
             var mailConfig = new MailConfig

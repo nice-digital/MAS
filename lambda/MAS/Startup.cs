@@ -32,7 +32,7 @@ namespace MAS
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
-            services.TryAddSingleton<IStaticContentService, S3StaticContentService>();
+            services.TryAddSingleton<IStaticWebsiteService, S3StaticWebsiteService>();
             services.TryAddSingleton<IViewRenderer, ViewRenderer>();
             services.TryAddTransient<IMailService, MailService>();
             services.TryAddTransient<IContentService, ContentService>();

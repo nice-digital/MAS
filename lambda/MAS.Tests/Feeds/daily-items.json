@@ -38,7 +38,8 @@
       "broaderTitle": "Evidence summary",
       "__v": 0
     },
-    "isInitial": false
+    "updatedAt": "2020-01-22T13:25:53.844Z",
+    "createdAt": "2020-01-22T13:25:53.844Z"
   },
   {
     "_id": "5db02d6d8a34d43bde05b5e1",
@@ -79,7 +80,8 @@
       "broaderTitle": "Evidence summary 2",
       "__v": 0
     },
-    "isInitial": false
+    "updatedAt": "2020-01-22T13:25:53.844Z",
+    "createdAt": "2020-01-22T13:25:53.844Z"
   },
   {
     "_id": "5db031d78a34d4a69905b5e3",
@@ -92,7 +94,7 @@
     },
     "shortSummary": "test",
     "resourceLinks": "http://localhost:3010/keystone/items",
-    "url": "",
+    "url": "https://www.bbc.co.uk/",
     "title": "Hello world",
     "__v": 0,
     "comment": "<p>comment</p>",
@@ -119,7 +121,9 @@
       "oldEPiServerId": 778708,
       "broaderTitle": "Evidence summary",
       "__v": 0
-    }
+    },
+    "updatedAt": "2020-01-22T13:25:53.844Z",
+    "createdAt": "2020-01-22T13:25:53.844Z"
   },
   {
     "_id": "5db6cbcc8a34d4ca5905b5e4",
@@ -159,6 +163,8 @@
       "oldEPiServerId": 778708,
       "broaderTitle": "Evidence summary 2",
       "__v": 0
-    }
+    },
+    "updatedAt": "2020-01-22T13:25:53.844Z",
+    "createdAt": "2020-01-22T13:25:53.844Z"
   }
 ]

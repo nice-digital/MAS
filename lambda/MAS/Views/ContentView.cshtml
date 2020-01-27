@@ -1,33 +1,37 @@
-﻿@model MAS.ViewModels.ContentViewModel
-
+﻿@using MAS.Models
+@using MAS.Configuration
+@addTagHelper *, MAS
+@model Item
+@inject AWSConfig awsConfig
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
 <head>
     <meta charset="utf-8" />
     <meta name="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-        @Model.Item.Title
+        @Model.Title | Medicines Awareness Service
     </title>
 
-    <meta name="description" content="@Model.Item.ShortSummary" />
+    <meta name="description" content="@Model.ShortSummary" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@("@nhs_sps")" />
-    <meta name="twitter:title" content="@Model.Item.Title" />
+    <meta name="twitter:title" content="@Model.Title" />
 
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Medicines awareness service" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="@(Model.StaticURL)@(Model.Item.Slug).html" />
-    <meta property="og:title" content="@Model.Item.Title" />
-    <meta property="og:description" content="@Model.Item.ShortSummary" />
-    <meta property="og:image" content="@(Model.StaticURL)open-graph.png" />
+    <meta property="og:url" content="@(awsConfig.StaticURL)@(Model.Slug).html" />
+    <meta property="og:title" content="@Model.Title" />
+    <meta property="og:description" content="@Model.ShortSummary" />
+    <meta property="og:image" content="@(awsConfig.StaticURL)open-graph.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Specialist Pharmacy Service logo" />
 
+    <link rel="alternate" type="text/xml" href="@(awsConfig.StaticURL)@(Model.Slug).xml" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700"
           rel="stylesheet"
@@ -45,31 +49,35 @@
     <main>
         <article aria-labelledby="title" aria-describedby="description">
             <h1 id="title">
-                <a href="@Model.Item.URL"
+                <a href="@Model.Url"
                    target="_blank" rel="noopener">
-                    @Model.Item.Title
+                    @Model.Title
                 </a>
             </h1>
 
             <p id="description">
-                @Model.Item.ShortSummary
+                @Model.ShortSummary
             </p>
 
-            @if (!string.IsNullOrEmpty(Model.Item.Comment))
+            @if (!string.IsNullOrEmpty(Model.Comment))
             {
                 <div class="comment">
                     <h2>SPS commentary:</h2>
-                    @Html.Raw(@Model.Item.Comment)
+                    <entities>
+                        @Html.Raw(@Model.Comment)
+                    </entities>
                 </div>
             }
 
             <h2 class="visually-hidden">Source:</h2>
-            <p class="source">@Model.Item.Source.Title</p>
+            <p class="source">@Model.Source.Title</p>
 
-            @if (!string.IsNullOrEmpty(Model.Item.ResourceLinks))
+            @if (!string.IsNullOrEmpty(Model.ResourceLinks))
             {
                 <h2>Resource links:</h2>
-                @Html.Raw(Model.Item.ResourceLinks)
+                <entities>
+                    @Html.Raw(Model.ResourceLinks)
+                </entities>
             }
         </article>
     </main>
