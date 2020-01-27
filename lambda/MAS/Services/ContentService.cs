@@ -11,7 +11,7 @@ namespace MAS.Services
 {
     public interface IContentService
     {
-        Task<IEnumerable<Item>> GetAllItemsAsync();
+        Task<IEnumerable<ItemLight>> GetAllItemsAsync();
         Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime? date = null);
         Task<Weekly> GetWeeklyAsync(DateTime sendDate);
     }
@@ -31,14 +31,14 @@ namespace MAS.Services
 
         #endregion
 
-        public async Task<IEnumerable<Item>> GetAllItemsAsync()
+        public async Task<IEnumerable<ItemLight>> GetAllItemsAsync()
         {
             using (WebClient client = new WebClient())
             {
                 try
                 {
                     var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + _cmsConfig.AllItemsPath));
-                    var items = JsonConvert.DeserializeObject<Item[]>(jsonStr);
+                    var items = JsonConvert.DeserializeObject<ItemLight[]>(jsonStr);
                     return items;
                 }
                 catch(Exception e)

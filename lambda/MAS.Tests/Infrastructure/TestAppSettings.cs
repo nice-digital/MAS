@@ -17,9 +17,9 @@ namespace MAS.Tests.Infrastructure
                 {
                     return new CMSConfig()
                     {
-                        BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds").ToString(),
-                        AllItemsPath = "/all-items.json",
-                        DailyItemsPath = "/daily-items.json",
+                        BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/").ToString(),
+                        AllItemsPath = "all-items.json",
+                        DailyItemsPath = "daily-items.json",
                     };
                 }
             }

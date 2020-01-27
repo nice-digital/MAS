@@ -83,7 +83,7 @@ namespace MAS.Tests.IntegrationTests
 
             var client = _factory
                 .WithImplementation(fakeMailChimpManager.Object)
-                .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "/daily-items-single.json")
+                .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "daily-items-single.json")
                 .CreateClient();
 
             // Act
@@ -107,7 +107,7 @@ namespace MAS.Tests.IntegrationTests
 
             var client = _factory
                 .WithImplementation(fakeMailChimpManager.Object)
-                .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "/daily-items-{0}.json")
+                .WithCMSConfig(cmsConfig => cmsConfig.DailyItemsPath = "daily-items-{0}.json")
                 .CreateClient();
 
             // Act

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>1234</Id>
+  <Slug>effect-of-vit-d</Slug>
+  <Title>Effect of Vitamin D and Omega-3 Fatty Acid Supplementation on Kidney Function in Patients With Type 2 Diabetes: A Randomized Clinical Trial</Title>
+  <UpdatedAt>2020-01-22T15:01:37</UpdatedAt>
+  <Source>
+    <Id>789</Id>
+    <Title>Journal of the American Medical Association</Title>
+  </Source>
+  <EvidenceType>
+    <Title>Safety alerts</Title>
+    <Key>mas_evidence_types:Safety%20alerts</Key>
+  </EvidenceType>
+  <ShortSummary>RCT (n=1,312) found that among adults with type 2 diabetes, supplementation with vitamin D3 or omega-3 fatty acids, compared with placebo, resulted in no significant difference in change in eGFR at 5 years.</ShortSummary>
+  <Comment>&lt;p&gt;A&amp;nbsp;related editorial discusses this research and details previous epidemiological studies that suggest improved outcomes with vitamin D supplementation in various clinical scenarios. It states that contrasting the results of this study and its predecessor vitamin D trials with the impressive body of epidemiological research that implicated vitamin D deficiency in various adverse health outcomes offers a stark lesson on the chasm between association and causation. Editorial authors highlight that it now seems safe to conclude that many prior epidemiological associations between vitamin D deficiency and adverse health outcomes were driven by unmeasured residual confounding or reverse causality.&lt;/p&gt;</Comment>
+  <CommentUrl>http://mas-integration-tests/effect-of-vit-d.html</CommentUrl>
+  <ResourceLinks>&lt;p&gt;&lt;a title="Link 1" href="items/5de65fe432281d43fbfcd15a"&gt;Vitamin&amp;nbsp;D and Health Outcomes - Then Came the Randomized Clinical Trials&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a title="sadada" href="items/5de65fe432281d43fbfcd15a"&gt;Link 2&lt;/a&gt;&lt;/p&gt;</ResourceLinks>
+  <Url>www.website.com</Url>
+  <PublicationDate xsi:nil="true" />
+  <CreatedAt>2020-01-22T15:01:37</CreatedAt>
+</Item>
