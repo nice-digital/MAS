@@ -53,12 +53,12 @@ namespace MAS.Services
         {
             using (WebClient client = new WebClient())
             {
-                var path = string.Format(_cmsConfig.WeekliesBySendDate, sendDate.ToString("yyyy-MM-dd"));
+                var path = string.Format(_cmsConfig.WeekliesBySendDatePath, sendDate.ToString("yyyy-MM-dd"));
                 try
                 {
                     var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
-                    var json = JsonConvert.DeserializeObject<Weekly>(jsonStr);
-                    return json;
+                    var weekly = JsonConvert.DeserializeObject<Weekly>(jsonStr);
+                    return weekly;
                 }
                 catch(Exception e)
                 {

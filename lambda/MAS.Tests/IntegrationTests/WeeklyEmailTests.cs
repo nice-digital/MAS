@@ -31,7 +31,7 @@ namespace MAS.Tests.IntegrationTests
 
             var client = _factory
                 .WithImplementation(fakeMailChimpManager.Object)
-                .WithCMSConfig(cmsConfig => cmsConfig.WeekliesBySendDate = "/weekly.json")
+                .WithCMSConfig(cmsConfig => cmsConfig.WeekliesBySendDatePath = "/weekly.json")
                 .CreateClient();
 
             // Act
@@ -53,7 +53,7 @@ namespace MAS.Tests.IntegrationTests
 
             var client = _factory
                 .WithImplementation(fakeMailChimpManager.Object)
-                .WithCMSConfig(cmsConfig => cmsConfig.WeekliesBySendDate = "/weekly-without-mec.json")
+                .WithCMSConfig(cmsConfig => cmsConfig.WeekliesBySendDatePath = "/weekly-without-mec.json")
                 .CreateClient();
 
             // Act
