@@ -19,7 +19,7 @@
                                     <td>
                                         <h4 class="h4 article-title">@Model.CommentaryTitle</h4>
                                         <p class="article-description">@Html.Raw(Model.CommentarySummary)</p>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="#mec">Read full commentary</a></p><!-- TODO: fix link -->
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="#mec">Read full commentary</a></p>
                                         <p class="article-tags">
                                             <span class="source-tag-nice">NICE</span>
                                         </p>
@@ -48,7 +48,7 @@
     <!-- Add Medicines evidence summary and commentary -->
     @if (!string.IsNullOrEmpty(Model.CommentaryTitle))
     {
-        <a name="mec" />
+        <a id="mec" name="mec" />
         @await Html.PartialAsync("_Heading", "Medicines evidence commentary")
 
         <table class="row article-border article-mec">
