@@ -10,6 +10,7 @@ using Amazon.Lambda.AspNetCoreServer.Internal;
 using Amazon.Lambda.Core;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using static Amazon.Lambda.APIGatewayEvents.APIGatewayProxyRequest;
 
 namespace MAS
 {
@@ -46,22 +47,45 @@ namespace MAS
 
         public override Task<APIGatewayProxyResponse> FunctionHandlerAsync(APIGatewayProxyRequest request, ILambdaContext lambdaContext)
         {
-            _logger.LogCritical("FunctionHandlerAsync");
-            _logger.LogCritical("request.QueryStringParameters ", request.QueryStringParameters);
-            _logger.LogCritical("request.PathParameters ", request.PathParameters);
-            _logger.LogCritical("request.Resource ", request.Resource);
-            _logger.LogCritical("request.Body ", request.Body);
-            _logger.LogCritical("", request);
-            _logger.LogCritical("request.Path", request.Path);
-            _logger.LogCritical("request.RequestContext.Path", request.RequestContext.Path);
-            _logger.LogCritical("request.RequestContext.ResourcePath", request.RequestContext.ResourcePath);
-
-            //if (request.Resource == "WarmingLambda")
-            //{
-
-            //}
+            // Using an input of {"resource": "daily"} for a CloudWatch trigger allows Lambda deserialization
+            // to work on the APIGatewayProxyRequest object. But all the other fields are empty so we have to
+            // create our own fake API gateway object that maps to the controller api route
+            if (request.Resource == "daily" || request.Resource == "weekly")
+                request = CreateMailAPIGatewayProxyRequest(request.Resource);
 
             return base.FunctionHandlerAsync(request, lambdaContext);
+        }
+
+        /// <summary>
+        /// Creates an APIGatewayProxyRequest object with the bare minimum offields
+        /// needed to map the DotNetCore runtime.
+        /// </summary>
+        /// <param name="path">Either "daily" or "weekly"</param>
+        /// <returns></returns>
+        private APIGatewayProxyRequest CreateMailAPIGatewayProxyRequest(string path)
+        {
+            return new APIGatewayProxyRequest
+            {
+                Resource = "/{proxy+}",
+                Path = "/api/mail/" + path,
+                HttpMethod = "PUT",
+                Headers = new Dictionary<string, string>(),
+                MultiValueHeaders = new Dictionary<string, IList<string>>(),
+                QueryStringParameters = null,
+                MultiValueQueryStringParameters = null,
+                PathParameters = new Dictionary<string, string>() { { "proxy", "api/mail/" + path } },
+                Body = null,
+                IsBase64Encoded = false,
+                RequestContext = new ProxyRequestContext
+                {
+                    ResourcePath = "/{proxy+}",
+                    HttpMethod = "PUT",
+                    Path = "/fake/api/mail/" + path,
+                    DomainName = "not-used.execute-api.eu-west-1.amazonaws.com",
+                    Stage = "fake",
+                    ApiId = "not-used"
+                }
+            };
         }
     }
 }
