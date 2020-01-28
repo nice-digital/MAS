@@ -1,32 +1,21 @@
 
 
-
-<table class="row article-border article-mec article-section-header">
+<table class="spacer-heading">
     <tbody>
         <tr>
-            <th class="small-12 large-12 first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <p>
-                                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
-                                        Articles that match your chosen specialities today
-                                    *|ELSE:|*
-                                        No articles match your chosen specialities today
-                                    *|END:INTERESTED|*
-                                    - <a class="subtle-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
+            <td height="16px" style="font-size:16px;line-height:16px;">
+                <h3 class="articles-match">
+                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+                    Articles that match your chosen specialities today
+                    *|ELSE:|*
+                    No articles match your chosen specialities today
+                    *|END:INTERESTED|*
+                    - <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
+                </h3>
+            </td>
         </tr>
     </tbody>
 </table>
-
 
     *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
 
@@ -51,9 +40,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nhs.uk/">
-                                        Wonder Drug
-                                    </a>
+                                        <a class="article-link" href="https://www.nhs.uk/">
+                                            Wonder Drug
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     testing
@@ -94,9 +83,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.bbc.co.uk/">
-                                        Hello world
-                                    </a>
+                                        <a class="article-link" href="https://www.bbc.co.uk/">
+                                            Hello world
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     test
@@ -150,9 +139,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nice.org.uk/">
-                                        MY MEDICINE
-                                    </a>
+                                        <a class="article-link" href="https://www.nice.org.uk/">
+                                            MY MEDICINE
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     this is my medicine
@@ -193,9 +182,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com/">
-                                        A Placebo
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com/">
+                                            A Placebo
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     hello
@@ -229,23 +218,14 @@
 
 
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
-<table class="row article-border article-mec article-section-header">
+<table class="spacer-heading">
     <tbody>
         <tr>
-            <th class="small-12 large-12 first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <p>
-                                    All articles from Medicines awareness services: Daily edition
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
+            <td height="16px" style="font-size:16px;line-height:16px;">
+                <h3 class="articles-match">
+                    All articles from Medicines awareness services: Daily edition
+                </h3>
+            </td>
         </tr>
     </tbody>
 </table>
@@ -271,9 +251,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nhs.uk/">
-                                        Wonder Drug
-                                    </a>
+                                        <a class="article-link" href="https://www.nhs.uk/">
+                                            Wonder Drug
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     testing
@@ -312,9 +292,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.bbc.co.uk/">
-                                        Hello world
-                                    </a>
+                                        <a class="article-link" href="https://www.bbc.co.uk/">
+                                            Hello world
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     test
@@ -364,9 +344,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.nice.org.uk/">
-                                        MY MEDICINE
-                                    </a>
+                                        <a class="article-link" href="https://www.nice.org.uk/">
+                                            MY MEDICINE
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     this is my medicine
@@ -405,9 +385,9 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="https://www.google.com/">
-                                        A Placebo
-                                    </a>
+                                        <a class="article-link" href="https://www.google.com/">
+                                            A Placebo
+                                        </a>
                                 </h4>
                                 <p class="article-description">
                                     hello

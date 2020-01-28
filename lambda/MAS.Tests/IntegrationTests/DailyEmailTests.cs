@@ -9,6 +9,7 @@ using Moq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Shouldly;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -48,6 +49,48 @@ namespace MAS.Tests.IntegrationTests
             //var responseJson = JObject.Parse(responseText);
             //var expected = JObject.FromObject(FakeMailChimpManager.Campaign);
             //JObject.DeepEquals(responseJson, expected).ShouldBe(true);
+        }
+
+        [Fact]
+        public async void DateTemplateSectionIsSetWithTheFormattedGivenDate()
+        {
+            // Arrange
+            ContentRequest contentRequest = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager
+                .Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()))
+                .Callback<string, ContentRequest>((cId, conReq) => contentRequest = conReq);
+
+            var client = _factory
+                .WithImplementation(fakeMailChimpManager.Object)
+                .CreateClient();
+
+            // Act
+            await client.PutAsync("/api/mail/daily?date=1912-06-23", null);
+
+            // Assert
+            ((string)contentRequest.Template.Sections["date"]).ShouldBe("23 June 1912");
+        }
+
+        [Fact]
+        public async void DateTemplateSectionDefaultsToFormattedTodaysDateWithNoGivenDate()
+        {
+            // Arrange
+            ContentRequest contentRequest = null;
+            var fakeMailChimpManager = new FakeMailChimpManager();
+            fakeMailChimpManager
+                .Setup(x => x.Content.AddOrUpdateAsync(It.IsAny<string>(), It.IsAny<ContentRequest>()))
+                .Callback<string, ContentRequest>((cId, conReq) => contentRequest = conReq);
+
+            var client = _factory
+                .WithImplementation(fakeMailChimpManager.Object)
+                .CreateClient();
+
+            // Act
+            await client.PutAsync("/api/mail/daily", null);
+
+            // Assert
+            ((string)contentRequest.Template.Sections["date"]).ShouldBe(DateTime.Today.ToString("dd MMMM yyyy"));
         }
 
         [Fact]

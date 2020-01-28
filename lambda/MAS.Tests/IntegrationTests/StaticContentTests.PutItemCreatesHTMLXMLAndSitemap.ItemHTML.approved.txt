@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
 <head>
     <meta charset="utf-8" />
     <meta name="X-UA-Compatible" content="IE=edge,chrome=1" />
