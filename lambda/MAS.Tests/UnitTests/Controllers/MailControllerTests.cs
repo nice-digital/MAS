@@ -95,7 +95,7 @@ namespace MAS.Tests.UnitTests.Controllers
 
             var mockMailService = new Mock<IMailService>();
 
-            var mailController = new MailController(new FakeMailChimpManager().Object, mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
+            var mailController = new MailController(new FakeMailChimpManager().Object, mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<IBankHolidayService>(), Mock.Of<ILogger<MailController>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
             var sendDate = new DateTime(1856, 7, 10);
 
             //Act
