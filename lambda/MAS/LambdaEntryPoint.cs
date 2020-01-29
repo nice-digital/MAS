@@ -54,7 +54,10 @@ namespace MAS
             // to work on the APIGatewayProxyRequest object. But all the other fields are empty so we have to
             // add fields to our own fake API gateway object that maps to the controller api route
             if (request.Resource == DailyEmailResourceName || request.Resource == WeeklyEmailResourceName)
+            {
+                _logger.LogInformation($"Received schedule event for {request.Resource}");
                 SetRequiredFields(request);
+            }
 
             return base.FunctionHandlerAsync(request, lambdaContext);
         }
