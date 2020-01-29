@@ -48,7 +48,7 @@
     <!-- Add Medicines evidence summary and commentary -->
     @if (!string.IsNullOrEmpty(Model.CommentaryTitle))
     {
-        <a id="mec" name="mec" />
+        <a id="mec" name="mec"></a>
         @await Html.PartialAsync("_Heading", "Medicines evidence commentary")
 
         <table class="row article-border article-mec">
