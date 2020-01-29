@@ -25,6 +25,9 @@ namespace MAS
         // the base class to Amazon.Lambda.AspNetCoreServer.ApplicationLoadBalancerFunction
         Amazon.Lambda.AspNetCoreServer.APIGatewayProxyFunction
     {
+        public const string DailyEmailResourceName = "daily";
+        public const string WeeklyEmailResourceName = "weekly";
+
         private ILogger<LambdaEntryPoint> _logger;
 
         protected override void PostCreateWebHost(IWebHost webHost)
@@ -49,42 +52,42 @@ namespace MAS
         {
             // Using an input of {"resource": "daily"} for a CloudWatch trigger allows Lambda deserialization
             // to work on the APIGatewayProxyRequest object. But all the other fields are empty so we have to
-            // create our own fake API gateway object that maps to the controller api route
-            if (request.Resource == "daily" || request.Resource == "weekly")
-                request = CreateMailAPIGatewayProxyRequest(request.Resource);
+            // add fields to our own fake API gateway object that maps to the controller api route
+            if (request.Resource == DailyEmailResourceName || request.Resource == WeeklyEmailResourceName)
+                SetRequiredFields(request);
 
             return base.FunctionHandlerAsync(request, lambdaContext);
         }
 
         /// <summary>
-        /// Creates an APIGatewayProxyRequest object with the bare minimum offields
-        /// needed to map the DotNetCore runtime.
+        /// Sets the bare minimum of fields needed to map the APIGatewayProxyRequest into the DotNetCore runtime.
         /// </summary>
-        /// <param name="path">Either "daily" or "weekly"</param>
-        /// <returns></returns>
-        private APIGatewayProxyRequest CreateMailAPIGatewayProxyRequest(string path)
+        /// <param name="request">Either "daily" or "weekly"</param>
+        private void SetRequiredFields(APIGatewayProxyRequest request)
         {
-            return new APIGatewayProxyRequest
+            var path = request.Resource;
+
+            if (path != DailyEmailResourceName && path != WeeklyEmailResourceName)
+                throw new ArgumentException($"request.Resource should either be daily or weekly but was {request.Resource}");
+
+            request.Resource = "/{proxy+}";
+            request.Path = "/api/mail/" + path;
+            request.HttpMethod = "PUT";
+            request.Headers = new Dictionary<string, string>();
+            request.MultiValueHeaders = new Dictionary<string, IList<string>>();
+            request.QueryStringParameters = null;
+            request.MultiValueQueryStringParameters = null;
+            request.PathParameters = new Dictionary<string, string>() { { "proxy", "api/mail/" + path } };
+            request.Body = null;
+            request.IsBase64Encoded = false;
+            request.RequestContext = new ProxyRequestContext
             {
-                Resource = "/{proxy+}",
-                Path = "/api/mail/" + path,
+                ResourcePath = "/{proxy+}",
                 HttpMethod = "PUT",
-                Headers = new Dictionary<string, string>(),
-                MultiValueHeaders = new Dictionary<string, IList<string>>(),
-                QueryStringParameters = null,
-                MultiValueQueryStringParameters = null,
-                PathParameters = new Dictionary<string, string>() { { "proxy", "api/mail/" + path } },
-                Body = null,
-                IsBase64Encoded = false,
-                RequestContext = new ProxyRequestContext
-                {
-                    ResourcePath = "/{proxy+}",
-                    HttpMethod = "PUT",
-                    Path = "/fake/api/mail/" + path,
-                    DomainName = "not-used.execute-api.eu-west-1.amazonaws.com",
-                    Stage = "fake",
-                    ApiId = "not-used"
-                }
+                Path = "/fake/api/mail/" + path,
+                DomainName = "not-used.execute-api.eu-west-1.amazonaws.com",
+                Stage = "fake",
+                ApiId = "not-used"
             };
         }
     }
