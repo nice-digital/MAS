@@ -235,5 +235,5 @@ Item.schema.post("save", async function(doc, next) {
 	logger.info("...sent PUT request", options);
 });
 
-Item.defaultColumns = "title, source, createdAt";
+Item.defaultColumns = "title, source, relevancy, createdAt";
 Item.register();

@@ -48,6 +48,8 @@ keystone.set("nav", {
 	users: "User"
 });
 
+keystone.set("wysiwyg additional plugins", "paste");
+
 keystone.set("wysiwyg override toolbar", true);
 keystone.set(
 	"wysiwyg additional buttons",
@@ -62,6 +64,7 @@ keystone.set("wysiwyg additional options", {
 	// See https://www.tiny.cloud/docs-4x/plugins/link/#link_title
 	link_title: false,
 	target_list: false,
+	paste_as_text: true,
 	// Default options for "styleselect" if added to buttons on a per-field basis
 	// See https://www.tiny.cloud/docs-4x/configure/content-formatting/#style_formats
 	style_formats: [
