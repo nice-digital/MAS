@@ -177,7 +177,7 @@
     </tbody>
 </table>
     <!-- Add Medicines evidence summary and commentary -->
-        <a id="mec" name="mec" />
+        <a id="mec" name="mec"></a>
 
 <table class="spacer-heading">
     <tbody>
