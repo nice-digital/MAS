@@ -62,48 +62,12 @@ namespace MAS.Controllers
             try
             {
                 // Write the HTML/XML to S3 in parallel
-                var sitemapXmlWriteTask = _staticWebsiteService.WriteFileAsync("sitemap.xml", sitemapXmlStream);
-                var itemHtmlWriteTask = _staticWebsiteService.WriteFileAsync(item.Slug + ".html", itemHtmlString);
-                var itemXmlWriteTask = _staticWebsiteService.WriteFileAsync(item.Slug + ".xml", itemXmlStream);
+                var writeContentResult = await _staticWebsiteService.WriteContentAndInvalidateCacheAsync(
+                        new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = sitemapXmlStream },
+                        new StaticContentRequest { FilePath = item.Slug + ".html", ContentBody = itemHtmlString },
+                        new StaticContentRequest { FilePath = item.Slug + ".xml", ContentStream = itemXmlStream });
 
-                var sitemapXmlResponseStatus = await sitemapXmlWriteTask;
-                var itemHtmlResponseStatus = await itemHtmlWriteTask;
-                var itemXmlResponseStatus = await itemXmlWriteTask;
-
-                if (sitemapXmlResponseStatus != HttpStatusCode.OK)
-                {
-                    _logger.LogError($"Writing sitemap XML resulted in a status code of {sitemapXmlResponseStatus}");
-                    return Validate(sitemapXmlResponseStatus, _logger);
-                }
-                else if (itemHtmlResponseStatus != HttpStatusCode.OK)
-                {
-                    _logger.LogError($"Writing item HTML resulted in a status code of {itemHtmlResponseStatus}");
-                    return Validate(itemHtmlResponseStatus, _logger);
-                }
-                else if (itemXmlResponseStatus != HttpStatusCode.OK)
-                {
-                    _logger.LogError($"Writing item XML resulted in a status code of {itemXmlResponseStatus}");
-                    return Validate(itemXmlResponseStatus, _logger);
-                }
-
-                //Cache invalidation
-                var paths = new List<string>()
-                {
-                    _awsConfig.ServiceURL + "/sitemap.xml",
-                    _awsConfig.ServiceURL + "/" + item.Slug + ".html",
-                    _awsConfig.ServiceURL + "/" + item.Slug + ".xml"
-                };
-
-                var invalidateCacheTask = _cloudFrontService.InvalidateCacheAsync(paths);
-                var invalidateCacheResponseCode = (await invalidateCacheTask).HttpStatusCode;
-
-                if (invalidateCacheResponseCode != HttpStatusCode.OK)
-                {
-                    _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");
-                    return Validate(invalidateCacheResponseCode, _logger);
-                }
-
-                return Validate(HttpStatusCode.OK, _logger);
+                return Validate(writeContentResult, _logger);
             }
             catch (Exception e)
             {
