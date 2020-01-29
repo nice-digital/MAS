@@ -24,6 +24,7 @@
         "_id": "5e29ec6c10cfe51c393d31a1",
         "title": "Guidance and advice - Drug prescribing",
         "key": "mas_evidence_types:Drug%20prescribing",
+        "broaderTitle": "Guidance and advice",
         "oldEPiServerId": 778799,
         "__v": 0
       },
@@ -76,6 +77,7 @@
         "_id": "5e29ec6c10cfe530713d31b2",
         "title": "Primary research - Other primary research",
         "key": "mas_evidence_types:Other%20primary%20research",
+        "broaderTitle": "Guidance and advice",
         "oldEPiServerId": 778930,
         "__v": 0
       },
@@ -122,6 +124,7 @@
         "_id": "5e29ec6c10cfe51c393d31a1",
         "title": "Guidance and advice - Drug prescribing",
         "key": "mas_evidence_types:Drug%20prescribing",
+        "broaderTitle": "Guidance and advice",
         "oldEPiServerId": 778799,
         "__v": 0
       },

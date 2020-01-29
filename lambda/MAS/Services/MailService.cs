@@ -131,7 +131,7 @@ namespace MAS.Services
                     {
                         FolderId = _mailChimpConfig.CampaignFolderId,
                         TemplateId = _mailChimpConfig.WeeklyTemplateId,
-                        SubjectLine = subject,
+                        SubjectLine = string.Format(_mailConfig.WeeklySubject, date),
                         FromName = _mailConfig.FromName,
                         ReplyTo = _mailConfig.ReplyTo,
                         PreviewText = previewText,

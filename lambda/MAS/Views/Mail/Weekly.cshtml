@@ -1,6 +1,6 @@
 ﻿@model MAS.Models.Weekly
 @{
-    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.Title).ToList();
+    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
 }
 
 <div>

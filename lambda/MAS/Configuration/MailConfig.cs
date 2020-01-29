@@ -17,5 +17,6 @@ namespace MAS.Configuration
         public string ReplyTo { get; set; }
         public string FromName { get; set; }
         public string DailySubject { get; set; }
+        public string WeeklySubject { get; set; }
     }
 }
