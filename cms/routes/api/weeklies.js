@@ -26,6 +26,7 @@ exports.singleBySendDate = async function(req, res) {
 			.populate("source")
 			.populate("evidenceType")
 			.populate("specialities")
+			.select(Items.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
 		return res.status(500).json({
