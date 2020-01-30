@@ -30,7 +30,9 @@ exports.singleBySendDate = async function(req, res) {
 			.select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
-		return res.error(err, true);
+		return res.status(500).json({
+			error: err
+		});
 	}
 
 	items = _.map(items, _.partialRight(_.pick, Item.fullResponseFields));
