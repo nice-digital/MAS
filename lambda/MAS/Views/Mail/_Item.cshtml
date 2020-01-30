@@ -12,9 +12,18 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                    <a class="article-link" href="@Model.Url">
-                                        @Model.Title
-                                    </a>
+                                    @if (string.IsNullOrWhiteSpace(Model.Url))
+                                    {
+                                        <span class="article-link">
+                                            @Model.Title
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <a class="article-link" href="@Model.Url">
+                                            @Model.Title
+                                        </a>
+                                    }
                                 </h4>
                                 <p class="article-description">
                                     @Model.ShortSummary

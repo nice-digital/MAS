@@ -13,7 +13,7 @@ namespace MAS.Services
 {
     public interface IMailService
     {
-        Task<Campaign> CreateAndSendDailyAsync(string subject, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
+        Task<Campaign> CreateAndSendDailyAsync(DateTime date, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
     }
 
     public class MailService: IMailService
@@ -35,7 +35,7 @@ namespace MAS.Services
 
         #endregion
 
-        public async Task<Campaign> CreateAndSendDailyAsync(string subject,
+        public async Task<Campaign> CreateAndSendDailyAsync(DateTime date,
             string previewText,
             string body,
             List<string> specialitiesInEmail,
@@ -44,6 +44,8 @@ namespace MAS.Services
         {
             // Every speciality we receive should exist in the complete list from MailChimp
             var interestIds = specialitiesInEmail.Select(title => allSpecialities.Single(s => s.Name == title).Id).Distinct();
+
+            var dateStr = date.ToString("dd MMMM yyyy");
 
             try
             {
@@ -54,10 +56,12 @@ namespace MAS.Services
                     {
                         FolderId = _mailChimpConfig.CampaignFolderId,
                         TemplateId = _mailChimpConfig.DailyTemplateId,
-                        SubjectLine = subject,
+                        SubjectLine = string.Format(_mailConfig.DailySubject, dateStr),
                         FromName = _mailConfig.FromName,
                         ReplyTo = _mailConfig.ReplyTo,
-                        PreviewText = previewText
+                        PreviewText = previewText,
+                        // We use our own footer in the email template
+                        AutoFooter = false
                     },
                     Recipients = new Recipient
                     {
@@ -93,7 +97,10 @@ namespace MAS.Services
                         Id = _mailChimpConfig.DailyTemplateId,
                         Sections = new Dictionary<string, object>
                         {
-                            { "body", body }
+                            { "body", body },
+                            // We can't use the mailchimp date merge tag (e.g. *|DATE:jS F|*) because that defaults to today,
+                            // and we need to be able to send emails for previous dates in case of errors, so we use a template section instead
+                            { "date", dateStr }
                         }
                     }
                 });
@@ -104,8 +111,8 @@ namespace MAS.Services
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to communitcate with MailChimp - exception: {e.Message}");
-                throw new Exception($"Failed to communitcate with MailChimp - exception: {e.Message}");
+                _logger.LogError(e, $"Failed to send daily email for {dateStr}: {e.Message}");
+                throw new Exception($"Failed to send daily email for {dateStr}: {e.Message}", e);
             }
         }
     }

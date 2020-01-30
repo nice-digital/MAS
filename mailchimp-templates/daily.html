@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Medicines awareness service - daily edition</title>
-    <!-- new styles-->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Medicines Awareness Service - daily edition</title>
+	<!-- new styles-->
 
-    <style type="text/css">
+	<style type="text/css">
 		.wrapper{
 			width:100%;
 		}
@@ -655,10 +655,10 @@
 			color:#147dc2;
 		}
 		a:visited{
-			color:#2199e8;
+			color:#0000CD;
 		}
 		h1 a,h1 a:visited,h2 a,h2 a:visited,h3 a,h3 a:visited,h4 a,h4 a:visited,h5 a,h5 a:visited,h6 a,h6 a:visited{
-			color:#2199e8;
+			color:#0000CD;
 		}
 		pre{
 			background:#f3f3f3;
@@ -2333,40 +2333,57 @@
 			line-height:24px;
 		}
 		.article-link{
-			color:#0000CD;
 			font-size:16px;
 			font-weight:800;
 			padding-top:24px;
 			line-height:24px;
 		}
+		a.article-link{
+			color:#0000CD;
+		}
 		.article-description{
-			font-weight:600;
+			font-weight:normal;
 			line-height:24px;
 		}
-		.source-tag{
-			background-color:#393939;
-			color:white;
-			padding-top:3px;
-			padding-bottom:6px;
-			padding-left:6px;
-			padding-right:6px;
-			border-radius:3px;
-			line-height:34px;
-			margin-right:2px;
+		.source-tag {
+			background-color: #393939;
+			color: #ffffff;
+			padding-top: 3px;
+			padding-bottom: 6px;
+			padding-left: 6px;
+			padding-right: 6px;
+			border-radius: 3px;
+			margin-bottom: 4px;
+			display: inline-block;
+			line-height: 18px;
 		}
-		.specialism-tag{
-			background-color:#E9E9E9;
-			color:#393939;
-			padding-top:3px;
-			padding-bottom:6px;
-			padding-left:6px;
-			padding-right:6px;
-			border:#CCCCCC;
-			border-width:1px;
-			border-radius:3px;
-			line-height:34px;
-			margin-right:2px;
-			border-style:solid;
+		.source-tag-nice {
+			background-color: #004650;
+			color: white;
+			padding-top: 3px;
+			padding-bottom: 6px;
+			padding-left: 6px;
+			padding-right: 6px;
+			border-radius: 3px;
+			margin-bottom: 4px;
+			display: inline-block;
+			line-height: 18px;
+		}
+		.specialism-tag {
+			background-color: #E9E9E9;
+			color: white;
+			padding-top: 3px;
+			padding-bottom: 6px;
+			padding-left: 6px;
+			padding-right: 6px;
+			border: #CCCCCC;
+			border-width: 1px;
+			border-radius: 3px;
+			color: #393939;
+			margin-bottom: 4px;
+			border-style: solid;
+			display: inline-block;
+			line-height:18px;
 		}
 		.article-border{
 			border-bottom:#E9E9E9;
@@ -2392,6 +2409,9 @@
 			line-height:24px;
 			margin-bottom:0;
 		}
+		.footer-text a{
+			color:#393939;
+		}
 		.footer-link{
 			color:#393939;
 		}
@@ -2399,135 +2419,163 @@
 			color:#0000CD;
 		}
 		.article-section-header{
-        	border: 1px solid white;
+			border: 1px solid white;
 			background-color: #393939;
 		}
-        .article-section-header *{
-            color: #fff;
-        }
-    </style>
+		.article-section-header *{
+			color: #fff;
+		}
+		.articles-match{
+			background-color: #393939;
+			font-size: 14px;
+			line-height: 20px;
+			padding-left: 30px;
+			color: #ffffff;
+			border-top: 1px #ffffff solid;
+			margin-bottom: 0;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			padding-right: 10px
+		}
+		.white-link{
+			color:#ffffff;
+		}
+		.white-link a{
+				color:#ffffff;
+		}
+		.white-link a:visited{
+				color:#ffffff;
+		}
+	</style>
 </head>
 <body>
-    <!-- -->
-    <table class="body">
-        <tr>
-            <td class="float-center" align="center" valign="top">
-                <center>
-                    <table class="spacer float-center">
-                        <tbody>
-                            <tr>
-                                <td height="16" style="font-size:16px;line-height:16px;"> </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table align="center" class="container float-center">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <!--Email leader - 2 tables, one for logos and one for content -->
-                                    <!-- header logos-->
-                                    <table class="row header-bgd">
-                                        <tbody>
-                                            <tr>
-                                                <th class="small-6 large-6 columns first">
-                                                    <table>
-                                                        <tr>
-                                                            <th>
-                                                                <center>
-                                                                    <img src="#{AWS:StaticURL}email/nice-logo-mobile.png" class="float-left top-logo" alt="NICE logo">
-                                                                </center>
-                                                            </th>
-                                                        </tr>
-                                                    </table>
-                                                </th>
-                                                <th class="small-6 large-6 columns">
-                                                    <table>
-                                                        <tr>
-                                                            <th>
-                                                                <center>
-                                                                    <img src="#{AWS:StaticURL}email/sps-logo.png" class="float-right top-logo" alt="SPS logo">
-                                                                </center>
-                                                            </th>
-                                                        </tr>
-                                                    </table>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- header text -->
-                                    <table class="row header-bgd">
-                                        <tbody>
-                                            <tr>
-                                                <th class="small-12 large-12 columns first last">
-                                                    <table>
-                                                        <tr>
-                                                            <th>
-                                                                <p class="date">*|DATE:jS F|* </p>
-                                                                <h1 class="emailheader">Medicines awareness service - daily</h1>
-                                                                <h2 class="emailsubheader">The very latest current awareness and evidence-based medicines information</h2>
-                                                                <p class="tagline">Content produced by the Specialist Pharmacy Service - Medicines Information</p>
-                                                            </th>
-                                                            <th class="expander"></th>
-                                                        </tr>
-                                                    </table>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- Content HERE -->
-                                    <div mc:edit="body">
-                                    </div>
-                                    <!-- about section -->
-                                    <table class="row header-bgd">
-                                        <tbody>
-                                            <tr>
-                                                <th class="small-12 large-12 columns first last">
-                                                    <table>
-                                                        <tr>
-                                                            <th>
-                                                                <p class="text-center about-text">
-                                                                    Specialist Pharmacy Service and NICE bring you the latest current awareness and evidence-based medicines information, direct to your inbox.<br><a href="#">Terms and conditions</a> | <a href="#">Contact us</a>
-                                                                </p>
-                                                            </th>
-                                                            <th class="expander"></th>
-                                                        </tr>
-                                                    </table>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="row collapsed footer">
-                                        <tbody>
-                                            <tr>
-                                                <th class="small-12 large-12 columns first last">
-                                                    <table>
-                                                        <tr>
-                                                            <th>
-                                                                <table class="spacer">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td height="16" style="font-size:16px;line-height:16px;"> </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <p class="text-center footer-text">
-                                                                    Copyright 2020 © National Institute for Health Care Excellence. All rights reserved.<br>Our mailing address is: Level 1A, City Tower, Piccadilly Plaza, Manchester, M1 4BT <br>Add us to your address book<br><a href="#" class="footer-link">Update your preferences</a> or  <a href="#" class="footer-link">unsubscribe from list</a>
-                                                                </p>
-                                                            </th>
-                                                            <th class="expander"></th>
-                                                        </tr>
-                                                    </table>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </center>
-            </td>
-        </tr>
-    </table>
+	<!-- -->
+	<table class="body">
+		<tr>
+			<td class="float-center" align="center" valign="top">
+				<center>
+					<table class="spacer float-center">
+						<tbody>
+							<tr>
+								<td height="16" style="font-size:16px;line-height:16px;"> </td>
+							</tr>
+						</tbody>
+					</table>
+					<table align="center" class="container float-center">
+						<tbody>
+							<tr>
+								<td>
+									<!--Email leader - 2 tables, one for logos and one for content -->
+									<!-- header logos-->
+									<table class="row header-bgd">
+										<tbody>
+											<tr>
+												<th class="small-12 large-12 columns first">
+													<table>
+														<tr>
+															<td class="top-logo">
+																<img src="#{AWS:StaticURL}email/nice-logo-mobile.png" class="float-left" alt="NICE logo" align="left">
+															</td>
+															<td class="top-logo">
+																<img src="#{AWS:StaticURL}email/sps-logo.png" class="float-right" alt="SPS logo" align="right">
+															</td>
+														</tr>
+													</table>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+									<!-- header text -->
+									<table class="row header-bgd">
+										<tbody>
+											<tr>
+												<th class="small-12 large-12 columns first last">
+													<table>
+														<tr>
+															<th>
+																<p class="date">
+																	<span mc:edit="date">*|DATE:jS F|*</span>
+																</p>
+																<h1 class="emailheader">Medicines Awareness Service: Daily</h1>
+																<h2 class="emailsubheader">Current awareness and evidence-based medicines information</h2>
+																<p class="tagline">Content produced by the Specialist Pharmacy Service - Medicines Information</p>
+															</th>
+															<th class="expander"></th>
+														</tr>
+													</table>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+									<!-- Content HERE -->
+									<div mc:edit="body">
+									</div>
+									<!-- about section -->
+									<table class="row header-bgd">
+										<tbody>
+											<tr>
+												<th class="small-12 large-12 columns first last">
+													<table>
+														<tr>
+															<th>
+																<p class="text-center about-text white-link">
+																	Specialist Pharmacy Service and NICE bring you the latest current awareness and evidence-based medicines information, direct to your inbox.<br><a href="https://www.nice.org.uk/terms-and-conditions">Terms and conditions</a> | <a href="https://www.nice.org.uk/get-involved/contact-us">Contact us</a> | <a href="mailto:nice@nice.org.uk?subject=User feedback: Medicines Awareness Service">Leave feedback</a>
+																</p>
+															</th>
+															<th class="expander"></th>
+														</tr>
+													</table>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+									<table class="row collapsed footer">
+										<tbody>
+											<tr>
+												<th class="small-12 large-12 columns first last">
+													<table>
+														<tr>
+															<th>
+																<table class="spacer">
+																	<tbody>
+																		<tr>
+																			<td height="16" style="font-size:16px;line-height:16px;"> </td>
+																		</tr>
+																	</tbody>
+																</table>
+																<p class="text-center footer-text">
+																	*|LIST:DESCRIPTION|*
+																	<br>
+																	Copyright © *|CURRENT_YEAR|* *|LIST:COMPANY|*.
+																	All rights reserved.
+																	Subject to <a href="https://www.nice.org.uk/terms-and-conditions#notice-of-rights" class="footer-link">Notice of rights</a>.
+																	<br><br>
+																	<strong>Our mailing address is:</strong>
+																	<br>
+																	*|HTML:LIST_ADDRESS|*
+																	<br>
+																	<a href="*|LIST:ADDRESS_VCARD_HREF|*" class="footer-link">Add us to your address book</a>
+																	<br>
+																	<br>
+																	This email was sent to <a href="mailto:*|EMAIL|*" class="footer-link">*|EMAIL|*</a>
+																	<br>
+																	<a href="*|UPDATE_PROFILE|*" class="footer-link">Update your preferences</a> or  <a href="*|UNSUB|*" class="footer-link">unsubscribe from this list</a>
+																</p>
+															</th>
+															<th class="expander"></th>
+														</tr>
+													</table>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</center>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
