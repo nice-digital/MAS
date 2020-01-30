@@ -2,7 +2,8 @@ jest.mock("keystone", () => {
 	const item = {
 		model: {
 			find: jest.fn()
-		}
+		},
+		fullResponseFields: ["_id", "title", "slug"]
 	};
 
 	const weekly = {
@@ -38,8 +39,7 @@ describe("weeklies", () => {
 		Item = keystone.list("Item");
 		singleBySendDate = require("../../../routes/api/weeklies").singleBySendDate;
 		request = { params: {} };
-		json = jest.fn();
-		response = { json, status: jest.fn(() => ({ json })) };
+		response = { json: jest.fn(), error: jest.fn(), notfound: jest.fn() };
 	});
 
 	describe("singleBySendDate", () => {
@@ -62,8 +62,7 @@ describe("weeklies", () => {
 
 			await singleBySendDate({ params: {} }, response);
 
-			expect(response.status).toHaveBeenCalledWith(500);
-			expect(json).toHaveBeenCalledWith({ error: error });
+			expect(response.error).toHaveBeenCalledWith(error, true);
 		});
 
 		it("should return a 404 JSON response when a weekly isn't found", async () => {
@@ -73,8 +72,11 @@ describe("weeklies", () => {
 
 			await singleBySendDate(request, response);
 
-			expect(response.status).toHaveBeenCalledWith(404);
-			expect(json).toHaveBeenCalledWith({ error: "Weekly could not be found" });
+			expect(response.notfound).toHaveBeenCalledWith(
+				"Weekly could not be found",
+				expect.any(String),
+				true
+			);
 		});
 
 		it("should request items for the found weekly's id", async () => {
@@ -91,16 +93,20 @@ describe("weeklies", () => {
 			expect(Item.model.find).toHaveBeenCalledWith({ weekly: weeklyId });
 		});
 
-		it("should populate the source, evidenceType and speciality fields on the items", async () => {
+		it("should populate the required fields on the items", async () => {
 			Weekly.model.findOne.mockImplementation(() => ({
 				exec: () => ({
 					toObject: jest.fn()
 				})
 			}));
 
+			const select = jest.fn(() => ({
+				exec: jest.fn()
+			}));
 			const unusedPopulate = jest.fn();
 			const thirdPopulate = jest.fn(() => ({
-				populate: unusedPopulate
+				populate: unusedPopulate,
+				select: select
 			}));
 			const secondPopulate = jest.fn(() => ({
 				populate: thirdPopulate
@@ -119,6 +125,7 @@ describe("weeklies", () => {
 			expect(secondPopulate).toHaveBeenCalledWith("evidenceType");
 			expect(thirdPopulate).toHaveBeenCalledWith("specialities");
 			expect(unusedPopulate).not.toHaveBeenCalledWith();
+			expect(select).toHaveBeenCalledWith(Item.fullResponseFields.join(" "));
 		});
 
 		it("should return a 500 JSON error response when there's an error getting the items", async () => {
@@ -133,8 +140,7 @@ describe("weeklies", () => {
 
 			await singleBySendDate({ params: {} }, response);
 
-			expect(response.status).toHaveBeenCalledWith(500);
-			expect(json).toHaveBeenCalledWith({ error: error });
+			expect(response.error).toHaveBeenCalledWith(error, true);
 		});
 
 		it("should return the weekly and items as JSON", async () => {
@@ -148,14 +154,17 @@ describe("weeklies", () => {
 
 			const populate = {
 				populate: () => populate,
-				exec: () => [{ b: 2 }]
+				select: () => populate,
+				exec: () => [{ title: "test", something: false }]
 			};
 			Item.model.find.mockImplementation(() => populate);
 
 			await singleBySendDate({ params: {} }, response);
 
-			expect(response.status).not.toHaveBeenCalled();
-			expect(json).toHaveBeenCalledWith({ a: 1, items: [{ b: 2 }] });
+			expect(response.json).toHaveBeenCalledWith({
+				a: 1,
+				items: [{ title: "test" }]
+			});
 		});
 	});
 });

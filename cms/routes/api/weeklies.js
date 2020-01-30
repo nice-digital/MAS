@@ -11,13 +11,15 @@ exports.singleBySendDate = async function(req, res) {
 			.findOne({ sendDate: req.params.sendDate })
 			.exec();
 	} catch (err) {
-		return res.status(500).json({
-			error: err
-		});
+		return res.error(err, true);
 	}
 
 	if (!weekly) {
-		return res.status(404).json({ error: "Weekly could not be found" });
+		return res.notfound(
+			"Weekly could not be found",
+			`Weekly with send date of ${req.params.sendDate} could not be found`,
+			true
+		);
 	}
 
 	let items;
@@ -30,9 +32,7 @@ exports.singleBySendDate = async function(req, res) {
 			.select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
-		return res.status(500).json({
-			error: err
-		});
+		return res.error(err, true);
 	}
 
 	items = _.map(items, _.partialRight(_.pick, Item.fullResponseFields));
