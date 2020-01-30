@@ -1,4 +1,5 @@
-const keystone = require("keystone");
+const keystone = require("keystone"),
+	_ = require("lodash");
 
 const Weekly = keystone.list("Weekly"),
 	Item = keystone.list("Item");
@@ -29,10 +30,9 @@ exports.singleBySendDate = async function(req, res) {
 			.select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
-		return res.status(500).json({
-			error: err
-		});
+		return res.error(err, true);
 	}
 
+	items = _.map(items, _.partialRight(_.pick, Item.fullResponseFields));
 	res.json({ ...weekly.toObject(), items });
 };
