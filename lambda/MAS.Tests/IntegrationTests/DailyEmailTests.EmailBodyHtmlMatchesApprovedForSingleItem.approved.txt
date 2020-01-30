@@ -1,143 +1,142 @@
-
-
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
-                    Articles that match your chosen specialities today
-                    *|ELSE:|*
-                    No articles match your chosen specialities today
-                    *|END:INTERESTED|*
-                    - <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
-                </h3>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
-
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
-                    Evidence summary
-                </h3>
-            </td>
-        </tr>
-    </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
-
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nhs.uk/">
-                                            Wonder Drug
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    testing
-                                </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        ACP Journal Club
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Anaesthesia and pain
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Complementary and alternative therapies
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>        *|END:INTERESTED|*
-    *|END:INTERESTED|*
-
-
+<html>
+	<head></head>
+	<body>
+		<table class="spacer-heading">
+			<tbody>
+				<tr>
+					<td height="16px" style="font-size:16px;line-height:16px;">
+						<h3 class="articles-match">
+*|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+	Articles that match your chosen specialities today
+*|ELSE:|*
+	No articles match your chosen specialities today
+*|END:INTERESTED|*
+	-
+							<a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
+						</h3>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+*|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+	<table class="spacer-heading">
+			<tbody>
+				<tr>
+					<td height="16px" style="font-size:16px; line-height:16px;">
+						<h3 class="article-heading">
+							Evidence summary
+						</h3>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+*|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+	<table class="row article-border">
+			<tbody>
+				<tr>
+					<th class="small-12 large-12 columns first last">
+						<table>
+							<tbody>
+								<tr>
+									<th>
+										<h4 class="h4 article-title">
+											<a class="article-link" href="https://www.nhs.uk/">
+												Wonder Drug
+											</a>
+										</h4>
+										<p class="article-description">
+											testing
+										</p>
+										<p class="article-description">
+											<a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
+												Read SPS commentary
+											</a>
+										</p>
+										<p class="article-tags">
+											<span class="source-tag">
+												ACP Journal Club
+											</span>
+											<span class="specialism-tag">
+												Anaesthesia and pain
+											</span>
+											<span class="specialism-tag">
+												Complementary and alternative therapies
+											</span>
+										</p>
+									</th>
+									<th class="expander"></th>
+								</tr>
+							</tbody>
+						</table>
+					</th>
+				</tr>
+			</tbody>
+		</table>
+*|END:INTERESTED|*
+*|END:INTERESTED|*
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    All articles from Medicines awareness services: Daily edition
-                </h3>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
-                    Evidence summary
-                </h3>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nhs.uk/">
-                                            Wonder Drug
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    testing
-                                </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        ACP Journal Club
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Anaesthesia and pain
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Complementary and alternative therapies
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>*|END:INTERESTED|*
+	<table class="spacer-heading">
+			<tbody>
+				<tr>
+					<td height="16px" style="font-size:16px;line-height:16px;">
+						<h3 class="articles-match">
+							All articles from Medicines awareness services: Daily edition
+						</h3>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="spacer-heading">
+			<tbody>
+				<tr>
+					<td height="16px" style="font-size:16px; line-height:16px;">
+						<h3 class="article-heading">
+							Evidence summary
+						</h3>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="row article-border">
+			<tbody>
+				<tr>
+					<th class="small-12 large-12 columns first last">
+						<table>
+							<tbody>
+								<tr>
+									<th>
+										<h4 class="h4 article-title">
+											<a class="article-link" href="https://www.nhs.uk/">
+												Wonder Drug
+											</a>
+										</h4>
+										<p class="article-description">
+											testing
+										</p>
+										<p class="article-description">
+											<a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
+												Read SPS commentary
+											</a>
+										</p>
+										<p class="article-tags">
+											<span class="source-tag">
+												ACP Journal Club
+											</span>
+											<span class="specialism-tag">
+												Anaesthesia and pain
+											</span>
+											<span class="specialism-tag">
+												Complementary and alternative therapies
+											</span>
+										</p>
+									</th>
+									<th class="expander"></th>
+								</tr>
+							</tbody>
+						</table>
+					</th>
+				</tr>
+			</tbody>
+		</table>*|END:INTERESTED|*
+	</body>
+</html>
