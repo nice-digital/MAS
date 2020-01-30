@@ -80,22 +80,8 @@ namespace MAS
                 return new AmazonS3Client(awsConfig.AccessKey, awsConfig.SecretKey, s3config);
             });
 
-            AmazonCloudFrontConfig cloudfrontConfig;
-            if (environmentConfig.Name == "local")  //TODO: Should use Environment.IsDevelopment() here. When running tests it returns "Production"
-            {
-                cloudfrontConfig = new AmazonCloudFrontConfig()
-                {
-                    //dead service?
-                };
-            }
-            else
-            {
-                //Do i even need this?
-                cloudfrontConfig = new AmazonCloudFrontConfig()
-                {
-                    RegionEndpoint = Region,
-                };
-            }
+            //Is the config set up correctly?
+            var cloudfrontConfig = new AmazonCloudFrontConfig(){ RegionEndpoint = Region };
             services.AddTransient<IAmazonCloudFront>((acf) =>
             {
                 return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);

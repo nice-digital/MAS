@@ -14,6 +14,7 @@
         public string ServiceURL { get; set; }
         public string BucketName { get; set; }
         public string StaticURL { get; set; }
+        //This should bind correctly despit it being a nested object in the application.json
         public string DistributionId { get; set; }
     }
 }

@@ -28,20 +28,17 @@ namespace MAS.Controllers
         private readonly IContentService _contentService;
         private readonly ILogger<ContentController> _logger;
         private readonly AWSConfig _awsConfig;
-        private ICloudFrontService _cloudFrontService;
 
         public ContentController(IStaticWebsiteService staticWebsiteService, 
             IViewRenderer viewRenderer, IContentService contentService, 
             ILogger<ContentController> logger,
-            AWSConfig awsConfig,
-            ICloudFrontService cloudFrontService)
+            AWSConfig awsConfig)
         {
             _staticWebsiteService = staticWebsiteService;
             _viewRenderer = viewRenderer;
             _contentService = contentService;
             _logger = logger;
             _awsConfig = awsConfig;
-            _cloudFrontService = cloudFrontService;
         }
 
         #endregion
@@ -62,7 +59,7 @@ namespace MAS.Controllers
             try
             {
                 // Write the HTML/XML to S3 in parallel
-                var writeContentResult = await _staticWebsiteService.WriteContentAndInvalidateCacheAsync(
+                var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
                         new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = sitemapXmlStream },
                         new StaticContentRequest { FilePath = item.Slug + ".html", ContentBody = itemHtmlString },
                         new StaticContentRequest { FilePath = item.Slug + ".xml", ContentStream = itemXmlStream });

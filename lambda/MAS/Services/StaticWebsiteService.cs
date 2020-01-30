@@ -38,7 +38,7 @@ namespace MAS.Services
 
         //Task<HttpStatusCode> WriteContentAsync(string filePath, dynamic contentOrStream);
 
-        Task<HttpStatusCode> WriteContentAndInvalidateCacheAsync(StaticContentRequest[] requests);
+        Task<HttpStatusCode> WriteFilesAsync(params StaticContentRequest[] requests);
     }
     public class S3StaticWebsiteService : IStaticWebsiteService
     {
@@ -48,28 +48,30 @@ namespace MAS.Services
         private readonly ILogger<S3StaticWebsiteService> _logger;
         private readonly AWSConfig _awsConfig;
         private readonly IAmazonCloudFront _cloudFronService;
+        private readonly EnvironmentConfig _environmentConfig;
 
-        public S3StaticWebsiteService(IAmazonS3 amazonS3, ILogger<S3StaticWebsiteService> logger, AWSConfig awsConfig, IAmazonCloudFront cloudFronService)
+        public S3StaticWebsiteService(IAmazonS3 amazonS3, IAmazonCloudFront cloudFronService, ILogger<S3StaticWebsiteService> logger, AWSConfig awsConfig, EnvironmentConfig environmentConfig)
         {
             _amazonS3 = amazonS3;
             _logger = logger;
             _awsConfig = awsConfig;
             _cloudFronService = cloudFronService;
+            _environmentConfig = environmentConfig;
         }
 
         #endregion
 
 
-        public async Task<HttpStatusCode> WriteContentAndInvalidateCacheAsync(params StaticContentRequest[] requests)
+        public async Task<HttpStatusCode> WriteFilesAsync(params StaticContentRequest[] requests)
         {
+            HttpStatusCode responseCode = HttpStatusCode.OK;
             var taskDict = new Dictionary<StaticContentRequest, Task<PutObjectResponse>>();
             foreach(var req in requests)
                 taskDict.Add(req, WriteFileAsync(req));
 
-            //This is basically syncronous 
             foreach(var task in taskDict)
             {
-                var responseCode = (await task.Value).HttpStatusCode;
+                responseCode = (await task.Value).HttpStatusCode;
                 if (responseCode != HttpStatusCode.OK)
                 {
                     _logger.LogError($"Writing {task.Key} resulted in a status code of {responseCode}");
@@ -77,21 +79,14 @@ namespace MAS.Services
                 }
             }
 
-            //This is all pointless and just add unnessesary complexity
-            //Should I revert to a format similar to the taskDict foreach?
-            var invalidateCacheTasks = new List<Task<HttpStatusCode>>();
-            foreach (var task in taskDict)
-                invalidateCacheTasks.Add(InvalidateCacheAsync(task.Key.FilePath));
+            if (_environmentConfig.Name == "local")
+                responseCode = InvalidateCacheAsync(taskDict.Select(x => x.Key.FilePath).ToList());
 
-            var failedTask = Task.WhenAll(invalidateCacheTasks.ToArray()).Result.FirstOrDefault(x => x != HttpStatusCode.OK);
+            return responseCode;
 
-            if (failedTask == default(HttpStatusCode))
-                return failedTask;
-            else
-                return HttpStatusCode.OK;
         }
         
-        private async Task<PutObjectResponse> WriteFileAsync(StaticContentRequest item)
+        private Task<PutObjectResponse> WriteFileAsync(StaticContentRequest item)
         {
             PutObjectRequest request = new PutObjectRequest()
             {
@@ -104,19 +99,19 @@ namespace MAS.Services
             else
                 request.ContentBody = item.ContentBody;
 
-            return await _amazonS3.PutObjectAsync(request);
+            return _amazonS3.PutObjectAsync(request);
         }
 
-        private async Task<HttpStatusCode> InvalidateCacheAsync(string path)
+        private HttpStatusCode InvalidateCacheAsync(List<string> paths)
         {
             var invalidationBatch = new InvalidationBatch();
-            invalidationBatch.Paths.Items = new List<string> { path };
+            invalidationBatch.Paths.Items = paths;
 
             var req = new CreateInvalidationRequest(_awsConfig.DistributionId, invalidationBatch);
-            var invalidateCacheResponseCode = (await _cloudFronService.CreateInvalidationAsync(req)).HttpStatusCode;
+            var invalidateCacheResponseCode = _cloudFronService.CreateInvalidationAsync(req).Result.HttpStatusCode;
 
             if (invalidateCacheResponseCode != HttpStatusCode.OK)
-                _logger.LogError($"Cache invalidation failed for {path} and resulted in a status code of {invalidateCacheResponseCode}");
+                _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");
 
             return invalidateCacheResponseCode;
         }
