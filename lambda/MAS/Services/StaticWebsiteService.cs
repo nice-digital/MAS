@@ -47,16 +47,23 @@ namespace MAS.Services
         private readonly IAmazonS3 _amazonS3;
         private readonly ILogger<S3StaticWebsiteService> _logger;
         private readonly AWSConfig _awsConfig;
-        private readonly IAmazonCloudFront _cloudFronService;
+        private readonly IAmazonCloudFront _cloudFrontService;
         private readonly EnvironmentConfig _environmentConfig;
+        private readonly CloudFrontConfig _cloudFrontConfig;
 
-        public S3StaticWebsiteService(IAmazonS3 amazonS3, IAmazonCloudFront cloudFronService, ILogger<S3StaticWebsiteService> logger, AWSConfig awsConfig, EnvironmentConfig environmentConfig)
+        public S3StaticWebsiteService(IAmazonS3 amazonS3, 
+            IAmazonCloudFront cloudFrontService, 
+            ILogger<S3StaticWebsiteService> logger,
+            AWSConfig awsConfig, 
+            EnvironmentConfig environmentConfig,
+            CloudFrontConfig cloudFrontConfig)
         {
             _amazonS3 = amazonS3;
             _logger = logger;
             _awsConfig = awsConfig;
-            _cloudFronService = cloudFronService;
+            _cloudFrontService = cloudFrontService;
             _environmentConfig = environmentConfig;
+            _cloudFrontConfig = cloudFrontConfig;
         }
 
         #endregion
@@ -79,7 +86,7 @@ namespace MAS.Services
                 }
             }
 
-            if (_environmentConfig.Name == "local")
+            if (_environmentConfig.Name != "local")
                 responseCode = InvalidateCacheAsync(taskDict.Select(x => x.Key.FilePath).ToList());
 
             return responseCode;
@@ -104,11 +111,10 @@ namespace MAS.Services
 
         private HttpStatusCode InvalidateCacheAsync(List<string> paths)
         {
-            var invalidationBatch = new InvalidationBatch();
-            invalidationBatch.Paths.Items = paths;
+            var invalidationBatch = new InvalidationBatch() { Paths = new Paths() { Items = paths } };
 
-            var req = new CreateInvalidationRequest(_awsConfig.DistributionId, invalidationBatch);
-            var invalidateCacheResponseCode = _cloudFronService.CreateInvalidationAsync(req).Result.HttpStatusCode;
+            var req = new CreateInvalidationRequest(_cloudFrontConfig.DistributionID, invalidationBatch);
+            var invalidateCacheResponseCode = _cloudFrontService.CreateInvalidationAsync(req).Result.HttpStatusCode;
 
             if (invalidateCacheResponseCode != HttpStatusCode.OK)
                 _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");
