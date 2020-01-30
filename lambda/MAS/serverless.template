@@ -79,6 +79,15 @@
               "Path": "/",
               "Method": "ANY"
             }
+          },
+          "DailyScheduleEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(0 21 * * ? *)",
+              "Description" : "Schedule trigger for the MAS daily email",
+              "Enabled": true,
+			        "Input" : "{\"resource\":\"daily\"}"
+            }
           }
         }
       }
