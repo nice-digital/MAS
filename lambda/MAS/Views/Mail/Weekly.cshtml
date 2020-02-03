@@ -1,6 +1,10 @@
 ﻿@model MAS.Models.Weekly
+@using MAS.Configuration;
+@inject MailConfig mailConfig
 @{
-    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
+    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle)
+        .OrderBy(d => Array.IndexOf(mailConfig.EvidenceTypesOrdering, d.Key))
+        .ToList();
 }
 
 <div>
