@@ -15,7 +15,7 @@ namespace MAS.Services
     public interface IMailService
     {
         Task<Campaign> CreateAndSendDailyAsync(DateTime date, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
-        Task<Campaign> CreateAndSendWeeklyAsync(string previewText, string body, string date);
+        Task<Campaign> CreateAndSendWeeklyAsync(string previewText, string body, string title);
     }
 
     public class MailService: IMailService

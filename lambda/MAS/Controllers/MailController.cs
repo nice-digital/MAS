@@ -170,7 +170,7 @@ namespace MAS.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to create and send weekly campaign - exception: {e.Message}");
+                _logger.LogError(e, $"Failed to create and send weekly campaign");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }
