@@ -71,6 +71,7 @@ namespace MAS.Services
 
         public async Task<HttpStatusCode> WriteFilesAsync(params StaticContentRequest[] requests)
         {
+            _logger.LogDebug($"Hit WriteFilesAsync");
             HttpStatusCode responseCode = HttpStatusCode.OK;
             var taskDict = new Dictionary<StaticContentRequest, Task<PutObjectResponse>>();
             foreach(var req in requests)
@@ -89,12 +90,14 @@ namespace MAS.Services
             if (_environmentConfig.Name != "local")
                 responseCode = InvalidateCacheAsync(taskDict.Select(x => x.Key.FilePath).ToList());
 
+            _logger.LogDebug($"Completed WriteFilesAsync");
             return responseCode;
 
         }
         
         private Task<PutObjectResponse> WriteFileAsync(StaticContentRequest item)
         {
+            _logger.LogDebug($"Hit WriteFileAsync");
             PutObjectRequest request = new PutObjectRequest()
             {
                 BucketName = _awsConfig.BucketName,
@@ -106,11 +109,16 @@ namespace MAS.Services
             else
                 request.ContentBody = item.ContentBody;
 
+            _logger.LogDebug($"Finished WriteFileAsync");
             return _amazonS3.PutObjectAsync(request);
         }
 
         private HttpStatusCode InvalidateCacheAsync(List<string> paths)
         {
+            _logger.LogDebug($"Clear cache hit");
+            _logger.LogDebug($"Cache clearing  dist id is: {0} ", _cloudFrontConfig.DistributionID);
+            
+
             var invalidationBatch = new InvalidationBatch() { Paths = new Paths() { Items = paths } };
 
             var req = new CreateInvalidationRequest(_cloudFrontConfig.DistributionID, invalidationBatch);
@@ -119,6 +127,7 @@ namespace MAS.Services
             if (invalidateCacheResponseCode != HttpStatusCode.OK)
                 _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");
 
+            _logger.LogDebug($"Completed cache clear");
             return invalidateCacheResponseCode;
         }
     }
