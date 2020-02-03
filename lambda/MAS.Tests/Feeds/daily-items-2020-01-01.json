@@ -21,10 +21,10 @@
       }
     ],
     "evidenceType": {
-      "_id": "5e1ddf2c306e5d6eabf39641",
-      "title": "Evidence summary - Evidence summaries",
-      "key": "mas_evidence_types:Evidence%20summaries",
-      "broaderTitle": "Evidence summary"
+      "_id": "5e283dc93b5e750642253f24",
+      "title": "Safety alerts",
+      "key": "mas_evidence_types:Safety%20alerts",
+      "broaderTitle": "Safety alerts"
     },
     "publicationDate": "2020-01-16T00:00:00.000Z",
     "updatedAt": "2020-01-16T16:25:37.188Z",
@@ -83,10 +83,10 @@
       }
     ],
     "evidenceType": {
-      "_id": "5e1ddf2c306e5dcf61f39644",
-      "title": "Evidence summary - Eyes on evidence commentaries",
-      "key": "mas_evidence_types:Eyes%20on%20evidence%20commentaries",
-      "broaderTitle": "Evidence summary"
+      "_id": "5e283dc93b5e750642253f13",
+      "title": "Guidance and advice - Guidance",
+      "key": "mas_evidence_types:Guidance",
+      "broaderTitle": "Guidance and advice"
     },
     "publicationDate": "2020-01-16T00:00:00.000Z",
     "updatedAt": "2020-01-16T16:32:02.535Z",

@@ -1,16 +1,19 @@
 ﻿@using MAS.Models;
 @using MAS.ViewModels;
+@using MAS.Configuration;
+@inject MailConfig mailConfig
 @model DailyEmailViewModel
 @{
-    ViewData["Title"] = "MAS Daily";
-
-    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle).ToList();
+    var groupedItems = Model.Items
+        .GroupBy(x => x.EvidenceType.BroaderTitle)
+        .OrderBy(d => Array.IndexOf(mailConfig.EvidenceTypesOrdering, d.Key))
+        .ToList();
 }
 
 @functions {
 string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
 {
-    return String.Join(',', specialites.Select(x => x.Title).Distinct());
+    return String.Join(',', specialites.Select(x => x.Title).Distinct().OrderBy(s => s));
 }
 }
 

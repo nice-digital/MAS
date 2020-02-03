@@ -18,5 +18,6 @@ namespace MAS.Configuration
         public string FromName { get; set; }
         public string DailySubject { get; set; }
         public string WeeklySubject { get; set; }
+        public string[] EvidenceTypesOrdering { get; set; }
     }
 }
