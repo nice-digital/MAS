@@ -1,5 +1,6 @@
 ﻿using MailChimp.Net.Interfaces;
 using MAS.Configuration;
+using MAS.Models;
 using MAS.Services;
 using MAS.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,12 @@ namespace MAS.Controllers
         private readonly IMailService _mailService;
         private readonly IContentService _contentService;
         private readonly IViewRenderer _viewRenderer;
-        private readonly ILogger<MailService> _logger;
+        private readonly ILogger<MailController> _logger;
         private readonly MailConfig _mailConfig;
         private readonly MailChimpConfig _mailChimpConfig;
+        private readonly IBankHolidayService _bankHolidayService;
 
-        public MailController(IMailChimpManager mailChimpManager, IMailService mailService, IContentService contentService, IViewRenderer viewRenderer, ILogger<MailService> logger, MailConfig mailConfig, MailChimpConfig mailChimpConfig)
+        public MailController(IMailChimpManager mailChimpManager, IMailService mailService, IContentService contentService, IViewRenderer viewRenderer, IBankHolidayService bankHolidayService, ILogger<MailController> logger, MailConfig mailConfig, MailChimpConfig mailChimpConfig)
         {
             _mailChimpManager = mailChimpManager;
             _mailService = mailService;
@@ -32,13 +34,14 @@ namespace MAS.Controllers
             _logger = logger;
             _mailConfig = mailConfig;
             _mailChimpConfig = mailChimpConfig;
+            _bankHolidayService = bankHolidayService;
         }
 
         #endregion
 
         //PUT api/mail/daily?date=01-01-2020
         [HttpPut("daily")]
-        public async Task<IActionResult> PutMailAsync(DateTime? date = null)
+        public async Task<IActionResult> PutDailyMailAsync(DateTime? date = null)
         {
             var sendDate = date ?? DateTime.Today;
 
@@ -107,6 +110,67 @@ namespace MAS.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e, $"Failed to send daily email - exception: {e.Message}");
+                return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
+            }
+        }
+
+        //PUT api/mail/weekly or api/mail/weekly/2020-01-13
+        [HttpPut("weekly/{date?}")]
+        public async Task<IActionResult> PutWeeklyMailAsync([FromRoute] DateTime? date = null)
+        {
+            Weekly weeklyContent;
+
+            var todaysDate = date ?? DateTime.Today;
+            var isBankHoliday = _bankHolidayService.IsBankHoliday(todaysDate);
+            if (todaysDate.DayOfWeek == DayOfWeek.Monday)
+            {
+                if (isBankHoliday)
+                {
+                    _logger.LogWarning($"{todaysDate.ToString("dd/MM/yyyy")} is a bank holiday therefore an email isnt sent");
+                    return Content($"{todaysDate.ToString("dd/MM/yyyy")} is a bank holiday therefore an email isnt sent");
+                }
+                else
+                {
+                    weeklyContent = await _contentService.GetWeeklyAsync(todaysDate);
+                }
+            }
+            else
+            {
+                var previousMonday = todaysDate.AddDays(-(int)todaysDate.DayOfWeek + 1);
+                var previousMondayIsBankHoliday = _bankHolidayService.IsBankHoliday(previousMonday);
+                if (previousMondayIsBankHoliday)
+                {
+                    weeklyContent = await _contentService.GetWeeklyAsync(previousMonday);
+                }
+                else
+                {
+                    _logger.LogWarning($"An email was sent on {previousMonday.ToString("dd/MM/yyyy")}");
+                    return Content($"An email was sent on {previousMonday.ToString("dd/MM/yyyy")}");
+                }
+            }
+
+            if (weeklyContent == null)
+            {
+                _logger.LogWarning("No weekly record was found");
+                return Content("No weekly record was found");
+            }
+            else if (weeklyContent.Items.Count == 0)
+            {
+                _logger.LogWarning("The weekly didn't have any items");
+                return Content("The weekly didn't have any items");
+            }
+
+            var body = await _viewRenderer.RenderViewAsync(this, "~/Views/Mail/Weekly.cshtml", weeklyContent);
+            var previewText = "NICE Medicines Awareness Weekly. A selection of the week's current awareness and evidence-based medicines information";
+
+            try
+            {
+                var campaign = await _mailService.CreateAndSendWeeklyAsync(previewText, body, weeklyContent.Title);
+                return Json(campaign);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Failed to create and send weekly campaign");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message });
             }
         }
