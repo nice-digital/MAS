@@ -84,12 +84,10 @@ namespace MAS
                 return new AmazonS3Client(awsConfig.AccessKey, awsConfig.SecretKey, s3config);
             });
 
-            //Is the config set up correctly?
-            //var cloudfrontConfig = new AmazonCloudFrontConfig(){ RegionEndpoint = Region, ServiceURL = awsConfig.ServiceURL,  };
+            var cloudfrontConfig = new AmazonCloudFrontConfig(){ RegionEndpoint = Region, ServiceURL = awsConfig.ServiceURL,  };
             services.AddTransient<IAmazonCloudFront>((acf) =>
             {
-                return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey);
-                //return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);
+                return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);
             });
 
         }
