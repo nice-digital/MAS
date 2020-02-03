@@ -59,19 +59,16 @@ namespace MAS.Controllers
 
             try
             {
-                _logger.LogDebug("Started to write content");
                 // Write the HTML/XML to S3 in parallel
                 var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
                         new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = sitemapXmlStream },
                         new StaticContentRequest { FilePath = item.Slug + ".html", ContentBody = itemHtmlString },
                         new StaticContentRequest { FilePath = item.Slug + ".xml", ContentStream = itemXmlStream });
 
-                _logger.LogDebug("Finished writing content");
                 return Validate(writeContentResult, _logger);
             }
             catch (Exception e)
             {
-                _logger.LogDebug("Failed writing content dylan");
                 _logger.LogError(e, $"Failed to write item content to the static file store: {e.Message}");
                 return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message, Instance = Request.Path });
             }
