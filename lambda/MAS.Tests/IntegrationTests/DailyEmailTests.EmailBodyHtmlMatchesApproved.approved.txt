@@ -5,7 +5,7 @@
         <tr>
             <td height="16px" style="font-size:16px;line-height:16px;">
                 <h3 class="articles-match">
-                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+                    *|INTERESTED:Daily specialities of interest:Allergy and immunology,Cancers,Emergency medicine and urgent care,Gastrointestinal disorders,Haematological disorders,Infection and infectious diseases,Learning disabilities,Mental health and illness,Neurological disorders,Obstetrics and gynaecology,Paediatric and neonatal medicine,Policy, Commissioning and Managerial,Renal and urologic disorders,Respiratory disorders,Skin disorders,Stroke,Travel medicine,Vaccination|*
                     Articles that match your chosen specialities today
                     *|ELSE:|*
                     No articles match your chosen specialities today
@@ -17,19 +17,19 @@
     </tbody>
 </table>
 
-    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+    *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
 
 <table class="spacer-heading">
     <tbody>
         <tr>
             <td height="16px" style="font-size:16px; line-height:16px;">
                 <h3 class="article-heading">
-                    Evidence summary
+                    Guidance and advice
                 </h3>
             </td>
         </tr>
     </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+</table>        *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
 
 <table class="row article-border">
     <tbody>
@@ -40,70 +40,22 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nhs.uk/">
-                                            Wonder Drug
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/ng151">
+                                            Colorectal cancer &#xFFFD; guidance (NG151)
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    testing
+                                    This guideline covers managing colorectal (bowel) cancer in people aged 18 and over and aims to improve quality of life and survival for adults with this disease through management of local disease and management of secondary tumours (metastatic disease).
                                 </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        ACP Journal Club
+                                        National Institute for Health and Care Excellence
                                     </span>
                                         <span class="specialism-tag">
-                                            Anaesthesia and pain
+                                            Cancers
                                         </span>
                                         <span class="specialism-tag">
-                                            Complementary and alternative therapies
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
-
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.bbc.co.uk/">
-                                            Hello world
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    test
-                                </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-world.html" aria-label="Read SPS commentary for Hello world">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        Substance Misuse Management in General Practice
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Anaesthesia and pain
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Complementary and alternative therapies
+                                            Gastrointestinal disorders
                                         </span>
                                 </p>
                             </th>
@@ -116,19 +68,19 @@
     </tbody>
 </table>        *|END:INTERESTED|*
     *|END:INTERESTED|*
-    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+    *|INTERESTED:Daily specialities of interest:Mental health and illness,Renal and urologic disorders|*
 
 <table class="spacer-heading">
     <tbody>
         <tr>
             <td height="16px" style="font-size:16px; line-height:16px;">
                 <h3 class="article-heading">
-                    Evidence summary 2
+                    Safety alerts
                 </h3>
             </td>
         </tr>
     </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+</table>        *|INTERESTED:Daily specialities of interest:Mental health and illness,Renal and urologic disorders|*
 
 <table class="row article-border">
     <tbody>
@@ -139,27 +91,22 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nice.org.uk/">
-                                            MY MEDICINE
+                                        <a class="article-link" href="https://www.cas.mhra.gov.uk/ViewandAcknowledgment/ViewAttachment.aspx?Attachment_id=103389">
+                                            CLASS 4 DRUG ALERT: For information, Dr. Reddy&#xFFFD;s Laboratories (UK) Ltd, Finasteride 5mg tablets
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    this is my medicine
+                                    Patient information leaflets for specific batches are missing the warnings relating to mood alteration and depression. HCPs are asked to ensure that patients are aware of the missing information and the current SmPC should be included when dispensing these batches.
                                 </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/my-medicine.html" aria-label="Read SPS commentary for MY MEDICINE">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        ADHD Awareness Month
+                                        Medicines and Healthcare products Regulatory Agency
                                     </span>
                                         <span class="specialism-tag">
-                                            Anaesthesia and pain
+                                            Renal and urologic disorders
                                         </span>
                                         <span class="specialism-tag">
-                                            Complementary and alternative therapies
+                                            Mental health and illness
                                         </span>
                                 </p>
                             </th>
@@ -171,7 +118,20 @@
         </tr>
     </tbody>
 </table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Vaccination|*
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Systematic review
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Vaccination|*
 
 <table class="row article-border">
     <tbody>
@@ -182,27 +142,644 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.google.com/">
-                                            A Placebo
+                                        <a class="article-link" href="https://discover.dc.nihr.ac.uk/content/signal-000865/shingles-vaccination-uptake-more-likely-if-proactively-offered">
+                                            NIHR Signal: Uptake of shingles vaccination is more likely if proactively offered in primary care
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    hello
+                                    Expert commentary is provided for a study (n=2,530) which found that people were more than twice as likely to have had the shingles vaccine if it was offered by a GP or nurse. It also reported that awareness of the vaccine could be improved through more effective campaigns.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        NIHR Dissemination Centre
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Vaccination
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Emergency medicine and urgent care,Haematological disorders,Neurological disorders|*
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Evidence summary
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Emergency medicine and urgent care,Haematological disorders,Neurological disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://discover.dc.nihr.ac.uk/content/signal-000870/tranexamic-acid-following-mild-to-moderate-traumatic-brain-injury-is-safe-and-reduces-deaths">
+                                            NIHR Signal: Tranexamic acid is safe to use following mild-to-moderate traumatic brain injury and reduces deaths
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Expert commentary is provided for an RCT (n=12,737) which found fewer deaths from mild-moderate head injury in those given tranexamic acid vs placebo (5.8% vs 7.5%, RR 0.78, p&lt;0.05), though the young age of the cohort raises concerns about applying the findings to older patients.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        NIHR Dissemination Centre
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Emergency medicine and urgent care
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Neurological disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Neurological disorders,Obstetrics and gynaecology|*
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Primary research
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Neurological disorders,Obstetrics and gynaecology|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://jamanetwork.com/journals/jama/fullarticle/2759460">
+                                            First-Trimester Pregnancy Exposure to Modafinil and Risk of Congenital Malformations
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Danish Health Registry analysis (49 pregnancies exposed to modafinil and 828,644 unexposed) found that modafinil was associated with significantly more congenital defects than no exposure (OR 3.4, 95% CI 1.5-7.4), or methylphenidate exposure (3.0, 1.2-7.4)
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Journal of the American Medical Association
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Neurological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Obstetrics and gynaecology
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Policy, Commissioning and Managerial|*
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Policy
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Policy, Commissioning and Managerial|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.bmj.com/content/368/bmj.m35">
+                                            Adapting Lean methods to facilitate stakeholder engagement and co-design in healthcare
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review highlights the Lean approach for quality improvement, and how it can be implemented in healthcare, which has a multistakeholder view of value (i.e. clinicians and management as well as patients), rather than targeting improvements just for customers.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        British Medical Journal
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Policy, Commissioning and Managerial
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Allergy and immunology,Cancers,Haematological disorders,Infection and infectious diseases,Learning disabilities,Mental health and illness,Obstetrics and gynaecology,Paediatric and neonatal medicine,Respiratory disorders,Skin disorders,Stroke,Travel medicine|*
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Media and commentaries
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Obstetrics and gynaecology|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.cqc.org.uk/publications/surveys/maternity-services-survey-2019">
+                                            Maternity services survey 2019
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This report found positive upward trends in areas such as feeding choices and partner involvement, however in line with previous years, results still indicate poorer experience of care for many women postnatally vs antenatal care and care during labour.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Care Quality Commission
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Obstetrics and gynaecology
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Allergy and immunology,Skin disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.biospace.com/article/incyte-s-ruxolitinib-hits-mark-in-dermatitis-trial/">
+                                            Manufacturers report positive results for ruxolitinib cream in atopic dermatitis
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Results from the Phase III TruR-AD2 trial found that ruxolitinib was superior to placebo vehicle by at least 2 points in the Investigator&#xFFFD;s Global Assessment Treatment Success score. The manufacturers have not yet made a submission for regulatory review for this treatment.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Biospace Inc.
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Skin disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Allergy and immunology
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Learning disabilities,Paediatric and neonatal medicine|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.bmj.com/content/368/bmj.l6880">
+                                            Linking risk factors and outcomes in autism spectrum disorder: is there evidence for resilience?
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review discusses advances in understanding of the causal pathways leading to autism and overlapping neurodevelopmental conditions. It highlights recent improvements in early identification, but that key knowledge gaps remain.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        British Medical Journal
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Learning disabilities
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Paediatric and neonatal medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Cancers,Haematological disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30253-4/fulltext">
+                                            Tumour lysis syndrome in patients with chronic lymphocytic leukaemia treated with BCL-2 inhibitors: risk factors, prophylaxis, and treatment recommendations
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This viewpoint discusses the pathophysiology, risk factors, monitoring, changes in laboratory parameters, and clinical manifestations of tumour lysis syndrome, and the prophylaxis and treatments available for this complication.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Cancers,Haematological disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30256-X/fulltext">
+                                            Prophylaxis and management of graft versus host disease after stem-cell transplantation for haematological malignancies: updated consensus recommendations of the European Society for Blood and Marrow Transplantation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Key updates in these guidelines include recommendations for lower steroid doses for the management of grade 2 acute GVHD with isolated skin or upper gastrointestinal tract manifestations and the addition of newer treatment options for steroid-refractory acute and chronic GVHD.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Stroke|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(19)30415-6/fulltext">
+                                            Advances and challenges in stroke rehabilitation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review highlights that substantial advances are yet to be made in stroke rehabilitation practice. It concludes that although stroke rehabilitation research strives for better trials, rehabilitation practices continue to help patients regain independence after stroke.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Neurology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Stroke
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Cancers,Respiratory disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/indevelopment/gid-ta10317/consultation/html-content-2">
+                                            Lorlatinib for treating ALK-positive advanced non-small-cell lung cancer &#xFFFD; appraisal consultation document
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    In DRAFT guidance NICE does not recommend lorlatinib for ALK&#x2B;ve advanced NSCLC after progression on alectinib, ceritinib or crizotinib as the most likely cost-effectiveness estimates are higher than what NICE normally considers an acceptable use of NHS resources.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        National Institute for Health and Care Excellence
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Respiratory disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Infection and infectious diseases,Travel medicine|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.rpharms.com/resources/pharmacy-guides/wuhan-novel-coronavirus">
+                                            Wuhan novel coronavirus &#xFFFD; RPS resource page
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This new resource page highlights five key facts for pharmacy teams on the Wuhan novel coronavirus, and links to the various national documents and communications on this (e.g. PHE).
                                 </p>
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-there.html" aria-label="Read SPS commentary for A Placebo">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/wuhan-novel-coronavirus-rps-resource-page.html" aria-label="Read SPS commentary for Wuhan novel coronavirus &#xFFFD; RPS resource page">
                                             Read SPS commentary
                                         </a>
                                     </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        Journal of Surgical Oncology
+                                        Royal Pharmaceutical Society
                                     </span>
                                         <span class="specialism-tag">
-                                            Anaesthesia and pain
+                                            Infection and infectious diseases
                                         </span>
                                         <span class="specialism-tag">
-                                            Complementary and alternative therapies
+                                            Travel medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Mental health and illness,Paediatric and neonatal medicine|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.england.nhs.uk/publication/taskforce-charter-children-young-peoples-mental-health/">
+                                            Taskforce Charter: National Quality Improvement Taskforce for children and young people&#xFFFD;s mental health inpatient services
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This document provides details of NHS England&#xFFFD;s vision for mental health, learning disability, and autism inpatient services to be delivered to the consistently high standard that children and young people deserve.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        NHS England
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Mental health and illness
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Paediatric and neonatal medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Stroke|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="http://www.pharmatimes.com/news/brilinta_hits_endpoint_in_late-stage_stroke_trial_1323581">
+                                            Ticagrelor hits primary endpoint in the THALES Phase III trial for use in stroke
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    In this study, the manufacturers report that ticagrelor 90 mg twice daily plus aspirin for 30 days showed a statistically significant and clinically meaningful reduction in the risk of stroke and death vs aspirin alone.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        PharmaTimes
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Stroke
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.sps.nhs.uk/articles/rmoc-shared-care-guidance-consultation-running-until-7-2-2020/">
+                                            RMOC Shared Care Guidance: Consultation running
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    RMOC North is seeking comments on the draft Shared Care Guidance V2 document which includes; a definition of shared care, letter templates to support shared care communications, and a list of medicines deemed suitable for shared care. The deadline for comments is 4th February.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Specialist Pharmacy Service
+                                    </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Other evidence
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/qs20">
+                                            Colorectal cancer updated quality standard &#xFFFD; update (QS20)
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This quality standard has been updated following publication of new NCIE guidance for colorectal cancer (NG151).  Statements 1, 2, 3, 5 and 7 were removed because they are no longer in line with the NICE guideline, and statements 4 and 6 were amended.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        National Institute for Health and Care Excellence
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Gastrointestinal disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Cancers
                                         </span>
                                 </p>
                             </th>
@@ -236,7 +813,7 @@
         <tr>
             <td height="16px" style="font-size:16px; line-height:16px;">
                 <h3 class="article-heading">
-                    Evidence summary
+                    Guidance and advice
                 </h3>
             </td>
         </tr>
@@ -251,68 +828,22 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nhs.uk/">
-                                            Wonder Drug
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/ng151">
+                                            Colorectal cancer &#xFFFD; guidance (NG151)
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    testing
+                                    This guideline covers managing colorectal (bowel) cancer in people aged 18 and over and aims to improve quality of life and survival for adults with this disease through management of local disease and management of secondary tumours (metastatic disease).
                                 </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        ACP Journal Club
+                                        National Institute for Health and Care Excellence
                                     </span>
                                         <span class="specialism-tag">
-                                            Anaesthesia and pain
+                                            Cancers
                                         </span>
                                         <span class="specialism-tag">
-                                            Complementary and alternative therapies
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.bbc.co.uk/">
-                                            Hello world
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    test
-                                </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-world.html" aria-label="Read SPS commentary for Hello world">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        Substance Misuse Management in General Practice
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Anaesthesia and pain
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Complementary and alternative therapies
+                                            Gastrointestinal disorders
                                         </span>
                                 </p>
                             </th>
@@ -329,7 +860,7 @@
         <tr>
             <td height="16px" style="font-size:16px; line-height:16px;">
                 <h3 class="article-heading">
-                    Evidence summary 2
+                    Safety alerts
                 </h3>
             </td>
         </tr>
@@ -344,27 +875,251 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nice.org.uk/">
-                                            MY MEDICINE
+                                        <a class="article-link" href="https://www.cas.mhra.gov.uk/ViewandAcknowledgment/ViewAttachment.aspx?Attachment_id=103389">
+                                            CLASS 4 DRUG ALERT: For information, Dr. Reddy&#xFFFD;s Laboratories (UK) Ltd, Finasteride 5mg tablets
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    this is my medicine
+                                    Patient information leaflets for specific batches are missing the warnings relating to mood alteration and depression. HCPs are asked to ensure that patients are aware of the missing information and the current SmPC should be included when dispensing these batches.
                                 </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/my-medicine.html" aria-label="Read SPS commentary for MY MEDICINE">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        ADHD Awareness Month
+                                        Medicines and Healthcare products Regulatory Agency
                                     </span>
                                         <span class="specialism-tag">
-                                            Anaesthesia and pain
+                                            Renal and urologic disorders
                                         </span>
                                         <span class="specialism-tag">
-                                            Complementary and alternative therapies
+                                            Mental health and illness
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Systematic review
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://discover.dc.nihr.ac.uk/content/signal-000865/shingles-vaccination-uptake-more-likely-if-proactively-offered">
+                                            NIHR Signal: Uptake of shingles vaccination is more likely if proactively offered in primary care
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Expert commentary is provided for a study (n=2,530) which found that people were more than twice as likely to have had the shingles vaccine if it was offered by a GP or nurse. It also reported that awareness of the vaccine could be improved through more effective campaigns.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        NIHR Dissemination Centre
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Vaccination
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Evidence summary
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://discover.dc.nihr.ac.uk/content/signal-000870/tranexamic-acid-following-mild-to-moderate-traumatic-brain-injury-is-safe-and-reduces-deaths">
+                                            NIHR Signal: Tranexamic acid is safe to use following mild-to-moderate traumatic brain injury and reduces deaths
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Expert commentary is provided for an RCT (n=12,737) which found fewer deaths from mild-moderate head injury in those given tranexamic acid vs placebo (5.8% vs 7.5%, RR 0.78, p&lt;0.05), though the young age of the cohort raises concerns about applying the findings to older patients.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        NIHR Dissemination Centre
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Emergency medicine and urgent care
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Neurological disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Primary research
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://jamanetwork.com/journals/jama/fullarticle/2759460">
+                                            First-Trimester Pregnancy Exposure to Modafinil and Risk of Congenital Malformations
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Danish Health Registry analysis (49 pregnancies exposed to modafinil and 828,644 unexposed) found that modafinil was associated with significantly more congenital defects than no exposure (OR 3.4, 95% CI 1.5-7.4), or methylphenidate exposure (3.0, 1.2-7.4)
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Journal of the American Medical Association
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Neurological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Obstetrics and gynaecology
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Policy
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.bmj.com/content/368/bmj.m35">
+                                            Adapting Lean methods to facilitate stakeholder engagement and co-design in healthcare
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review highlights the Lean approach for quality improvement, and how it can be implemented in healthcare, which has a multistakeholder view of value (i.e. clinicians and management as well as patients), rather than targeting improvements just for customers.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        British Medical Journal
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Policy, Commissioning and Managerial
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Media and commentaries
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.cqc.org.uk/publications/surveys/maternity-services-survey-2019">
+                                            Maternity services survey 2019
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This report found positive upward trends in areas such as feeding choices and partner involvement, however in line with previous years, results still indicate poorer experience of care for many women postnatally vs antenatal care and care during labour.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Care Quality Commission
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Obstetrics and gynaecology
                                         </span>
                                 </p>
                             </th>
@@ -385,27 +1140,386 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.google.com/">
-                                            A Placebo
+                                        <a class="article-link" href="https://www.biospace.com/article/incyte-s-ruxolitinib-hits-mark-in-dermatitis-trial/">
+                                            Manufacturers report positive results for ruxolitinib cream in atopic dermatitis
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    hello
+                                    Results from the Phase III TruR-AD2 trial found that ruxolitinib was superior to placebo vehicle by at least 2 points in the Investigator&#xFFFD;s Global Assessment Treatment Success score. The manufacturers have not yet made a submission for regulatory review for this treatment.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Biospace Inc.
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Skin disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Allergy and immunology
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.bmj.com/content/368/bmj.l6880">
+                                            Linking risk factors and outcomes in autism spectrum disorder: is there evidence for resilience?
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review discusses advances in understanding of the causal pathways leading to autism and overlapping neurodevelopmental conditions. It highlights recent improvements in early identification, but that key knowledge gaps remain.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        British Medical Journal
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Learning disabilities
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Paediatric and neonatal medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30253-4/fulltext">
+                                            Tumour lysis syndrome in patients with chronic lymphocytic leukaemia treated with BCL-2 inhibitors: risk factors, prophylaxis, and treatment recommendations
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This viewpoint discusses the pathophysiology, risk factors, monitoring, changes in laboratory parameters, and clinical manifestations of tumour lysis syndrome, and the prophylaxis and treatments available for this complication.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30256-X/fulltext">
+                                            Prophylaxis and management of graft versus host disease after stem-cell transplantation for haematological malignancies: updated consensus recommendations of the European Society for Blood and Marrow Transplantation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Key updates in these guidelines include recommendations for lower steroid doses for the management of grade 2 acute GVHD with isolated skin or upper gastrointestinal tract manifestations and the addition of newer treatment options for steroid-refractory acute and chronic GVHD.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(19)30415-6/fulltext">
+                                            Advances and challenges in stroke rehabilitation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review highlights that substantial advances are yet to be made in stroke rehabilitation practice. It concludes that although stroke rehabilitation research strives for better trials, rehabilitation practices continue to help patients regain independence after stroke.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Neurology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Stroke
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/indevelopment/gid-ta10317/consultation/html-content-2">
+                                            Lorlatinib for treating ALK-positive advanced non-small-cell lung cancer &#xFFFD; appraisal consultation document
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    In DRAFT guidance NICE does not recommend lorlatinib for ALK&#x2B;ve advanced NSCLC after progression on alectinib, ceritinib or crizotinib as the most likely cost-effectiveness estimates are higher than what NICE normally considers an acceptable use of NHS resources.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        National Institute for Health and Care Excellence
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Respiratory disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.rpharms.com/resources/pharmacy-guides/wuhan-novel-coronavirus">
+                                            Wuhan novel coronavirus &#xFFFD; RPS resource page
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This new resource page highlights five key facts for pharmacy teams on the Wuhan novel coronavirus, and links to the various national documents and communications on this (e.g. PHE).
                                 </p>
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/hello-there.html" aria-label="Read SPS commentary for A Placebo">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/wuhan-novel-coronavirus-rps-resource-page.html" aria-label="Read SPS commentary for Wuhan novel coronavirus &#xFFFD; RPS resource page">
                                             Read SPS commentary
                                         </a>
                                     </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        Journal of Surgical Oncology
+                                        Royal Pharmaceutical Society
                                     </span>
                                         <span class="specialism-tag">
-                                            Anaesthesia and pain
+                                            Infection and infectious diseases
                                         </span>
                                         <span class="specialism-tag">
-                                            Complementary and alternative therapies
+                                            Travel medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.england.nhs.uk/publication/taskforce-charter-children-young-peoples-mental-health/">
+                                            Taskforce Charter: National Quality Improvement Taskforce for children and young people&#xFFFD;s mental health inpatient services
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This document provides details of NHS England&#xFFFD;s vision for mental health, learning disability, and autism inpatient services to be delivered to the consistently high standard that children and young people deserve.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        NHS England
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Mental health and illness
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Paediatric and neonatal medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="http://www.pharmatimes.com/news/brilinta_hits_endpoint_in_late-stage_stroke_trial_1323581">
+                                            Ticagrelor hits primary endpoint in the THALES Phase III trial for use in stroke
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    In this study, the manufacturers report that ticagrelor 90 mg twice daily plus aspirin for 30 days showed a statistically significant and clinically meaningful reduction in the risk of stroke and death vs aspirin alone.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        PharmaTimes
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Stroke
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.sps.nhs.uk/articles/rmoc-shared-care-guidance-consultation-running-until-7-2-2020/">
+                                            RMOC Shared Care Guidance: Consultation running
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    RMOC North is seeking comments on the draft Shared Care Guidance V2 document which includes; a definition of shared care, letter templates to support shared care communications, and a list of medicines deemed suitable for shared care. The deadline for comments is 4th February.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Specialist Pharmacy Service
+                                    </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px; line-height:16px;">
+                <h3 class="article-heading">
+                    Other evidence
+                </h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/qs20">
+                                            Colorectal cancer updated quality standard &#xFFFD; update (QS20)
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This quality standard has been updated following publication of new NCIE guidance for colorectal cancer (NG151).  Statements 1, 2, 3, 5 and 7 were removed because they are no longer in line with the NICE guideline, and statements 4 and 6 were amended.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        National Institute for Health and Care Excellence
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Gastrointestinal disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Cancers
                                         </span>
                                 </p>
                             </th>

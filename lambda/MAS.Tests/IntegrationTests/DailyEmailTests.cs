@@ -191,7 +191,7 @@ namespace MAS.Tests.IntegrationTests
                 () => specialitiesCondition.Type.ShouldBe(ConditionType.Interests),
                 () => specialitiesCondition.Operator.ShouldBe(Operator.InterestContains),
                 () => specialitiesCondition.Field.ShouldBe("interests-" + TestAppSettings.MailChimp.Default.SpecialityCategoryId),
-                () => (specialitiesCondition.Value as string[]).ShouldBe(new string[] { "2", "5" }),
+                () => (specialitiesCondition.Value as string[]).ShouldBe(new string[] { "30", "20", "22", "24", "29", "33", "1", "18", "27", "3", "15", "35", "31", "16", "37", "13", "9", "38" }),
                 // Check the receive everything dynamic segment
                 () => receiveEverythingCondition.Type.ShouldBe(ConditionType.Interests),
                 () => receiveEverythingCondition.Operator.ShouldBe(Operator.InterestContains),
