@@ -25,7 +25,7 @@ namespace MAS.Tests.UnitTests.Controllers
             var mailService = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
 
             //Act
-            await mailService.PutMailAsync(date);
+            await mailService.PutDailyMailAsync(date);
 
             //Assert
             mockContentService.Verify(mock => mock.GetDailyItemsAsync(date), Times.Once());
@@ -48,7 +48,7 @@ namespace MAS.Tests.UnitTests.Controllers
             var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), mailConfig, TestAppSettings.MailChimp.Default);
             
             //Act
-            await mailController.PutMailAsync();
+            await mailController.PutDailyMailAsync();
 
             //Assert
             mockViewRenderer.Verify(mock => mock.RenderViewAsync(mailController, "~/Views/Mail/Daily.cshtml", items, false), Times.Never());
@@ -71,7 +71,7 @@ namespace MAS.Tests.UnitTests.Controllers
             var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), mailConfig, TestAppSettings.MailChimp.Default);
             
             //Act
-            await mailController.PutMailAsync();
+            await mailController.PutDailyMailAsync();
 
             //Assert
             // TODO: Assert on the actual view model
@@ -99,7 +99,7 @@ namespace MAS.Tests.UnitTests.Controllers
             var sendDate = new DateTime(1856, 7, 10);
 
             //Act
-            await mailController.PutMailAsync(sendDate);
+            await mailController.PutDailyMailAsync(sendDate);
 
             //Assert
             mockMailService.Verify(mock => mock.CreateAndSendDailyAsync(sendDate, It.IsAny<string>(), body, It.IsAny<List<string>>(), It.IsAny<IEnumerable<Interest>>(), It.IsAny<string>()), Times.Once());

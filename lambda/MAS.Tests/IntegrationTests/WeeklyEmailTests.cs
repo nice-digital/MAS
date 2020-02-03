@@ -31,7 +31,6 @@ namespace MAS.Tests.IntegrationTests
 
             var client = _factory
                 .WithImplementation(fakeMailChimpManager.Object)
-                .WithCMSConfig(cmsConfig => cmsConfig.WeekliesBySendDatePath = "/weekly.json")
                 .CreateClient();
 
             // Act

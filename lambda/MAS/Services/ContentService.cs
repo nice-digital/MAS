@@ -62,8 +62,8 @@ namespace MAS.Services
                 }
                 catch(Exception e)
                 {
-                    _logger.LogError($"Failed to get weekly item from CMS - exception: {e.Message}");
-                    throw new Exception($"Failed to get weekly item from CMS - exception: {e.Message}");
+                    _logger.LogError(e, $"Failed to get weekly item from CMS");
+                    throw new Exception($"Failed to get weekly item from CMS", e);
                 }
             }
         }

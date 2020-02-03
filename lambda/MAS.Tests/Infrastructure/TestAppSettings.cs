@@ -20,6 +20,7 @@ namespace MAS.Tests.Infrastructure
                         BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/").ToString(),
                         AllItemsPath = "all-items.json",
                         DailyItemsPath = "daily-items.json",
+                        WeekliesBySendDatePath = "weekly.json"
                     };
                 }
             }
@@ -53,15 +54,6 @@ namespace MAS.Tests.Infrastructure
                     };
                 }
             }
-        }
-
-        public static CMSConfig GetWeeklyFeed()
-        {
-            return new CMSConfig()
-            {
-                BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory()).ToString(),
-                WeekliesBySendDatePath = "/Feeds/weekly.json"
-            };
         }
     }
 }

@@ -1,6 +1,5 @@
 
 <div>
-    <!-- Add Medicines evidence summary -->
 
 <table class="spacer-heading">
     <tbody>
@@ -21,8 +20,8 @@
                                 <tr>
                                     <td>
                                         <h4 class="h4 article-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h4>
-                                        <p class="article-description"><p><strong>Lorem ipsum dolor sit amet, </strong></p>
-<p>consectetur adipiscing elit. Quisque imperdiet consequat eros, quis sollicitudin neque euismod ut. Cras sagittis, mi non rhoncus interdum, quam neque hendrerit diam, at molestie augue nisi accumsan metus. Nunc quis ipsum diam. Mauris tincidunt, diam id vestibulum congue, risus magna viverra turpis, et tincidunt nibh tortor a lectus. Fusce pretium pellentesque ante et vehicula. Nunc augue dolor, convallis eu erat volutpat, vehicula lacinia neque. Integer rhoncus mauris id lacus pulvinar porttitor. Maecenas eu nibh neque. Cras id turpis in tortor dignissim facilisis ac at justo. Sed ullamcorper sit amet ante quis euismod.</p></p>
+                                        <div class="article-description"><p><strong>Lorem ipsum dolor sit amet, </strong></p>
+<p>consectetur adipiscing elit. Quisque imperdiet consequat eros, quis sollicitudin neque euismod ut. Cras sagittis, mi non rhoncus interdum, quam neque hendrerit diam, at molestie augue nisi accumsan metus. Nunc quis ipsum diam. Mauris tincidunt, diam id vestibulum congue, risus magna viverra turpis, et tincidunt nibh tortor a lectus. Fusce pretium pellentesque ante et vehicula. Nunc augue dolor, convallis eu erat volutpat, vehicula lacinia neque. Integer rhoncus mauris id lacus pulvinar porttitor. Maecenas eu nibh neque. Cras id turpis in tortor dignissim facilisis ac at justo. Sed ullamcorper sit amet ante quis euismod.</p></div>
                                         <p class="article-description"><a class="article-link-subtle standard-link" href="#mec">Read full commentary</a></p>
                                         <p class="article-tags">
                                             <span class="source-tag-nice">NICE</span>
@@ -37,7 +36,6 @@
             </tbody>
         </table>
 
-    <!-- Add Items -->
 
 <table class="spacer-heading">
     <tbody>
@@ -165,7 +163,6 @@
         </tr>
     </tbody>
 </table>
-    <!-- Add Medicines evidence summary and commentary -->
         <a id="mec" name="mec"></a>
 
 <table class="spacer-heading">

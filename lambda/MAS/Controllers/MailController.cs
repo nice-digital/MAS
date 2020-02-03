@@ -41,7 +41,7 @@ namespace MAS.Controllers
 
         //PUT api/mail/daily?date=01-01-2020
         [HttpPut("daily")]
-        public async Task<IActionResult> PutMailAsync(DateTime? date = null)
+        public async Task<IActionResult> PutDailyMailAsync(DateTime? date = null)
         {
             var sendDate = date ?? DateTime.Today;
 
@@ -161,13 +161,12 @@ namespace MAS.Controllers
             }
 
             var body = await _viewRenderer.RenderViewAsync(this, "~/Views/Mail/Weekly.cshtml", weeklyContent);
-            var subject = "Weekly: Medicines Awareness Service " + weeklyContent.Title;
             var previewText = "NICE Medicines Awareness Weekly. A selection of the week's current awareness and evidence-based medicines information";
 
             try
             {
-                var campaignId = await _mailService.CreateAndSendWeeklyAsync(subject, previewText, body, weeklyContent.Title);
-                return Content(campaignId);
+                var campaign = await _mailService.CreateAndSendWeeklyAsync(previewText, body, weeklyContent.Title);
+                return Json(campaign);
             }
             catch (Exception e)
             {

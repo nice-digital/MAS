@@ -1,8 +1,6 @@
 
 <div>
-    <!-- Add Medicines evidence summary -->
 
-    <!-- Add Items -->
 
 <table class="spacer-heading">
     <tbody>
@@ -130,5 +128,4 @@
         </tr>
     </tbody>
 </table>
-    <!-- Add Medicines evidence summary and commentary -->
 </div>
