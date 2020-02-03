@@ -2345,9 +2345,6 @@
             font-weight:normal;
             line-height:24px;
         }
-        .article-mec {
-            border-left: 4px solid #004650;
-        }
         .source-tag {
             background-color: #393939;
             color: #ffffff;
@@ -2395,6 +2392,9 @@
             border-top:none;
             border-left:none;
             border-right:none;
+        }
+        .article-mec {
+            border-left: 4px solid #004650;
         }
         .about-text{
             color:white;
@@ -2475,30 +2475,22 @@
                     <!--Email leader - 2 tables, one for logos and one for content -->
                     <!-- header logos-->
                     <table class="row header-bgd">
-                      <tbody>
-                        <tr>
-                          <th class="small-6 large-6 columns first">
-                            <table>
-                              <tr>
-                                <th>
-                                  <center> <img src="#{AWS:StaticURL}email/nice-logo-mobile.png" class="float-left top-logo" alt="nice-logo-mobile.png">
-                                  </center>
+                        <tbody>
+                            <tr>
+                                <th class="small-12 large-12 columns first">
+                                    <table>
+                                        <tr>
+                                            <td class="top-logo">
+                                                <img src="#{AWS:StaticURL}email/nice-logo-mobile.png" class="float-left" alt="NICE logo" align="left">
+                                            </td>
+                                            <td class="top-logo">
+                                                <img src="#{AWS:StaticURL}email/sps-logo.png" class="float-right" alt="SPS logo" align="right">
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </th>
-                              </tr>
-                            </table>
-                          </th>
-                          <th class="small-6 large-6 columns">
-                            <table>
-                              <tr>
-                                <th>
-                                  <center> <img src="#{AWS:StaticURL}email/sps-logo.png" class="float-right top-logo" alt="sps-logo.png">
-                                  </center>
-                                </th>
-                              </tr>
-                            </table>
-                          </th>
-                        </tr>
-                      </tbody>
+                            </tr>
+                        </tbody>
                     </table>
                     <!-- header text -->
                     <table class="row header-bgd">
@@ -2510,7 +2502,8 @@
                                 <th>
                                   <p class="date"><span mc:edit="date">*|DATE:jS F|* </span></p>
                                   <h1 class="emailheader">Medicines Awareness Service: Weekly</h1>
-                                  <h2 class="emailsubheader">The very latest current awareness and evidence-based medicines information</h2>
+                                  <h2 class="emailsubheader">Current awareness and evidence-based medicines information</h2>
+                                  <p class="tagline">Content produced by the Specialist Pharmacy Service - Medicines Information</p>
                                 </th>
                                 <th class="expander"></th>
                               </tr>
@@ -2542,41 +2535,43 @@
                   </table>
                   <table class="row collapsed footer">
                     <tbody>
-                      <tr>
-                        <th class="small-12 large-12 columns first last">
-                          <table>
-                            <tr>
-                              <th>
-                                <table class="spacer">
-                                  <tbody>
+                        <tr>
+                            <th class="small-12 large-12 columns first last">
+                                <table>
                                     <tr>
-                                      <td height="16" style="font-size:16px;line-height:16px;"> </td>
+                                        <th>
+                                            <table class="spacer">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height="16" style="font-size:16px;line-height:16px;"> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p class="text-center footer-text">
+                                                *|LIST:DESCRIPTION|*
+                                                <br>
+                                                Copyright © *|CURRENT_YEAR|* *|LIST:COMPANY|*.
+                                                All rights reserved.
+                                                Subject to <a href="https://www.nice.org.uk/terms-and-conditions#notice-of-rights" class="footer-link">Notice of rights</a>.
+                                                <br><br>
+                                                <strong>Our mailing address is:</strong>
+                                                <br>
+                                                *|HTML:LIST_ADDRESS|*
+                                                <br>
+                                                <a href="*|LIST:ADDRESS_VCARD_HREF|*" class="footer-link">Add us to your address book</a>
+                                                <br>
+                                                <br>
+                                                This email was sent to <a href="mailto:*|EMAIL|*" class="footer-link">*|EMAIL|*</a>
+                                                <br>
+                                                <a href="*|UPDATE_PROFILE|*" class="footer-link">Update your preferences</a> or  <a href="*|UNSUB|*" class="footer-link">unsubscribe from this list</a>
+                                            </p>
+                                        </th>
+                                        <th class="expander"></th>
                                     </tr>
-                                  </tbody>
-                                </table>                                
-                               	<p class="text-center footer-text">
-									*|LIST:DESCRIPTION|*
-									<br>
-									Copyright © *|CURRENT_YEAR|* *|LIST:COMPANY|*. All rights reserved.
-									<br><br>
-									<strong>Our mailing address is:</strong>
-									<br>
-									*|HTML:LIST_ADDRESS|*
-									<br>
-									<a href="*|LIST:ADDRESS_VCARD_HREF|*" class="footer-link">Add us to your address book</a>
-									<br>
-									<br>
-									This email was sent to *|EMAIL|*
-									<br>
-									<a href="*|UPDATE_PROFILE|*" class="footer-link">Update your preferences</a> or  <a href="*|UNSUB|*" class="footer-link">unsubscribe from this list</a>
-								</p>
-                              </th>
-                            <th class="expander"></th>
-                          </tr>
-                        </table>
-                      </th>
-                    </tr>
-                  </tbody>
+                                </table>
+                            </th>
+                        </tr>
+                    </tbody>
                 </table>
               </td>
             </tr>
