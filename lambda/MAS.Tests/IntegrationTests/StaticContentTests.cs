@@ -1,3 +1,5 @@
+using Amazon.CloudFront;
+using Amazon.CloudFront.Model;
 using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Models;
@@ -50,6 +52,10 @@ namespace MAS.Tests.IntegrationTests
         {
             // Arrange
             var fakeS3Service = new Mock<IAmazonS3>();
+            var fakeCloudFrontService = new Mock<IAmazonCloudFront>();
+
+            fakeCloudFrontService.Setup(s => s.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
+                .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = System.Net.HttpStatusCode.OK });
 
             PutObjectRequest xmlSitemapPutRequest = null;
             fakeS3Service.Setup(s => s.PutObjectAsync(It.Is<PutObjectRequest>((req) => req.Key == "sitemap.xml"), default(CancellationToken)))
@@ -66,7 +72,7 @@ namespace MAS.Tests.IntegrationTests
                 .Callback<PutObjectRequest, CancellationToken>((pOR, cT) => itemXmlPutRequest = pOR)
                 .ReturnsAsync(new PutObjectResponse { HttpStatusCode = System.Net.HttpStatusCode.OK });
 
-            var client = _factory.WithImplementation(fakeS3Service.Object).CreateClient();
+            var client = _factory.WithImplementations(fakeS3Service.Object, fakeCloudFrontService.Object).CreateClient();
             var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
 
             // Act
@@ -90,11 +96,12 @@ namespace MAS.Tests.IntegrationTests
         {
             // Arrange
             var fakeS3Service = new Mock<IAmazonS3>();
-            
+            var fakeCloudFrontService = new Mock<IAmazonCloudFront>();
+
             fakeS3Service.Setup(s => s.PutObjectAsync(It.IsAny<PutObjectRequest>(), default(CancellationToken)))
                 .Callback<PutObjectRequest, CancellationToken>((pOR, cT) => throw new Exception());
 
-            var client = _factory.WithImplementation(fakeS3Service.Object).CreateClient();
+            var client = _factory.WithImplementations(fakeS3Service.Object, fakeCloudFrontService.Object).CreateClient();
             var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
 
             // Act
