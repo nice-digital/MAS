@@ -84,7 +84,7 @@ namespace MAS
                 return new AmazonS3Client(awsConfig.AccessKey, awsConfig.SecretKey, s3config);
             });
 
-            var cloudfrontConfig = new AmazonCloudFrontConfig(){ RegionEndpoint = Region, ServiceURL = awsConfig.ServiceURL,  };
+            var cloudfrontConfig = new AmazonCloudFrontConfig(){ RegionEndpoint = Region, /*ServiceURL = cloudFrontConfig.ServiceURL  */};
             services.AddTransient<IAmazonCloudFront>((acf) =>
             {
                 return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);
