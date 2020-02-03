@@ -116,10 +116,17 @@ namespace MAS.Services
         private HttpStatusCode InvalidateCacheAsync(List<string> paths)
         {
             _logger.LogDebug($"Clear cache hit");
-            _logger.LogDebug($"Cache clearing  dist id is: {0} ", _cloudFrontConfig.DistributionID);
-            
+            _logger.LogDebug($"Cache clearing  dist id is: " + _cloudFrontConfig.DistributionID);
 
-            var invalidationBatch = new InvalidationBatch() { Paths = new Paths() { Items = paths } };
+            var invalidationBatch = new InvalidationBatch()
+            {
+                CallerReference = DateTime.Now.Ticks.ToString(),
+                Paths = new Paths()
+                {
+                    Items = paths,
+                    Quantity = paths.Count()
+                }
+            };
 
             var req = new CreateInvalidationRequest(_cloudFrontConfig.DistributionID, invalidationBatch);
             var invalidateCacheResponseCode = _cloudFrontService.CreateInvalidationAsync(req).Result.HttpStatusCode;
