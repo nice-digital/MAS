@@ -110,9 +110,7 @@ namespace MAS.Services
         }
 
         private HttpStatusCode InvalidateCacheAsync(List<string> paths)
-        {
-            _logger.LogDebug($"Cache clearing  dist id is: " + _cloudFrontConfig.DistributionID);
-
+        {           
             var invalidationBatch = new InvalidationBatch()
             {
                 CallerReference = DateTime.Now.Ticks.ToString(),
@@ -126,7 +124,7 @@ namespace MAS.Services
             var req = new CreateInvalidationRequest(_cloudFrontConfig.DistributionID, invalidationBatch);
             var invalidateCacheResponseCode = _cloudFrontService.CreateInvalidationAsync(req).Result.HttpStatusCode;
 
-            if (invalidateCacheResponseCode != HttpStatusCode.OK)
+            if (invalidateCacheResponseCode != HttpStatusCode.Created)
                 _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");
 
             return invalidateCacheResponseCode;
