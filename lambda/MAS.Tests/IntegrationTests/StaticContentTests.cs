@@ -55,7 +55,7 @@ namespace MAS.Tests.IntegrationTests
             var fakeCloudFrontService = new Mock<IAmazonCloudFront>();
 
             fakeCloudFrontService.Setup(s => s.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
-                .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = System.Net.HttpStatusCode.OK });
+                .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = System.Net.HttpStatusCode.Created });
 
             PutObjectRequest xmlSitemapPutRequest = null;
             fakeS3Service.Setup(s => s.PutObjectAsync(It.Is<PutObjectRequest>((req) => req.Key == "sitemap.xml"), default(CancellationToken)))

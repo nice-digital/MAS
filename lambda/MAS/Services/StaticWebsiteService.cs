@@ -3,6 +3,7 @@ using Amazon.CloudFront.Model;
 using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Configuration;
+using MAS.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,31 +14,13 @@ using System.Threading.Tasks;
 
 namespace MAS.Services
 {
-    public class StaticContentRequest
-    {
-        public string ContentBody { get; set; }
-
-        public Stream ContentStream { get; set; }
-
-        public string FilePath { get; set; }
-    }
-
     public interface IStaticWebsiteService
     {
         /// <summary>
         /// Asynchronous writes a file to the statice website
         /// </summary>
-        /// <param name="filePath">The path of the file, relative to the root e.g. "sitemap.xml"</param>
-        /// <param name="contentBody">The body of the file</param>
+        /// <param name="requests">This objects contains the file path relative to the root e.g. "sitemap.xml" and file data</param>
         /// <returns>The http status code of the request to write the file</returns>
-        //Task<HttpStatusCode> WriteFileAsync(string filePath, string contentBody);
-
-        //Task<HttpStatusCode> WriteFileAsync(string filePath, Stream inputStream);
-
-        //Task<HttpStatusCode> InvalidateCacheAsync(string paths);
-
-        //Task<HttpStatusCode> WriteContentAsync(string filePath, dynamic contentOrStream);
-
         Task<HttpStatusCode> WriteFilesAsync(params StaticContentRequest[] requests);
     }
     public class S3StaticWebsiteService : IStaticWebsiteService
@@ -86,7 +69,7 @@ namespace MAS.Services
                 }
             }
 
-            if (_environmentConfig.Name != "local")
+            if (_environmentConfig.Name != "local" && requests.Count() > 0)
                 responseCode = InvalidateCacheAsync(taskDict.Select(x => "/" + x.Key.FilePath).ToList());
 
             return responseCode;
