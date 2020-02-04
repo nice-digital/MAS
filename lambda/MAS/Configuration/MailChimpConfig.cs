@@ -15,5 +15,7 @@
         public string CampaignFolderId { get; set; }
         public string SpecialityCategoryId { get; set; }
         public string ReceiveEverythingCategoryId { get; set; }
+        public int WeeklyTemplateId { get; set; }
+        public int WeeklySegmentId { get; set; }
     }
 }

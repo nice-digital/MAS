@@ -1,0 +1,76 @@
+﻿@model MAS.Models.Weekly
+@using MAS.Configuration;
+@inject MailConfig mailConfig
+@{
+    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle)
+        .OrderBy(d => Array.IndexOf(mailConfig.EvidenceTypesOrdering, d.Key))
+        .ToList();
+}
+
+<div>
+    @if (!string.IsNullOrEmpty(Model.CommentarySummary))
+    {
+        @await Html.PartialAsync("_Heading", "Medicines evidence commentary")
+
+        <table class="row article-border article-mec">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4 class="h4 article-title">@Model.CommentaryTitle</h4>
+                                        <div class="article-description">@Html.Raw(Model.CommentarySummary)</div>
+                                        <p class="article-description"><a class="article-link-subtle standard-link" href="#mec">Read full commentary</a></p>
+                                        <p class="article-tags">
+                                            <span class="source-tag-nice">NICE</span>
+                                        </p>
+                                    </td>
+                                    <th class="expander"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+    @foreach (var group in groupedItems)
+    {
+        @await Html.PartialAsync("_Heading", group.Key)
+
+        @foreach (var item in group)
+        {
+            @await Html.PartialAsync("_Item", item)
+        }
+    }
+
+    @if (!string.IsNullOrEmpty(Model.CommentaryTitle))
+    {
+        <a id="mec" name="mec"></a>
+        @await Html.PartialAsync("_Heading", "Medicines evidence commentary")
+
+        <table class="row article-border article-mec">
+            <tbody>
+                <tr>
+                    <th class="small-12 large-12 columns first last">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4 class="h4 article-title">@Model.CommentaryTitle</h4>
+                                        <div class="article-description">@Html.Raw(Model.CommentarySummary)</div>
+                                        <div class="article-description">@Html.Raw(Model.CommentaryBody)</div>
+                                    </td>
+                                    <td class="expander"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>

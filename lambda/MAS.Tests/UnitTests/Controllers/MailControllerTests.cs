@@ -1,5 +1,4 @@
-﻿using MailChimp.Net.Interfaces;
-using MailChimp.Net.Models;
+﻿using MailChimp.Net.Models;
 using MAS.Configuration;
 using MAS.Controllers;
 using MAS.Models;
@@ -7,16 +6,11 @@ using MAS.Services;
 using MAS.Tests.Fakes;
 using MAS.Tests.Infrastructure;
 using MAS.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Moq;
-using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace MAS.Tests.UnitTests.Controllers
@@ -28,10 +22,10 @@ namespace MAS.Tests.UnitTests.Controllers
         {
             DateTime date = new DateTime(2020, 1, 15);
             var mockContentService = new Mock<IContentService>();
-            var mailService = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), Mock.Of<ILogger<MailService>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
+            var mailService = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, Mock.Of<IViewRenderer>(), new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
 
             //Act
-            await mailService.PutMailAsync(date);
+            await mailService.PutDailyMailAsync(date);
 
             //Assert
             mockContentService.Verify(mock => mock.GetDailyItemsAsync(date), Times.Once());
@@ -51,10 +45,10 @@ namespace MAS.Tests.UnitTests.Controllers
                     DailySubject = ""
                 };
 
-            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), mailConfig, TestAppSettings.MailChimp.Default);
-
+            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), mailConfig, TestAppSettings.MailChimp.Default);
+            
             //Act
-            await mailController.PutMailAsync();
+            await mailController.PutDailyMailAsync();
 
             //Assert
             mockViewRenderer.Verify(mock => mock.RenderViewAsync(mailController, "~/Views/Mail/Daily.cshtml", items, false), Times.Never());
@@ -74,10 +68,10 @@ namespace MAS.Tests.UnitTests.Controllers
                 DailySubject = ""
             };
 
-            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), mailConfig, TestAppSettings.MailChimp.Default);
-
+            var mailController = new MailController(new FakeMailChimpManager().Object, Mock.Of<IMailService>(), mockContentService.Object, mockViewRenderer.Object, new FakeBankHolidayService(), Mock.Of<ILogger<MailController>>(), mailConfig, TestAppSettings.MailChimp.Default);
+            
             //Act
-            await mailController.PutMailAsync();
+            await mailController.PutDailyMailAsync();
 
             //Assert
             // TODO: Assert on the actual view model
@@ -101,11 +95,11 @@ namespace MAS.Tests.UnitTests.Controllers
 
             var mockMailService = new Mock<IMailService>();
 
-            var mailController = new MailController(new FakeMailChimpManager().Object, mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<ILogger<MailService>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
+            var mailController = new MailController(new FakeMailChimpManager().Object, mockMailService.Object, mockContentService.Object, mockViewRenderer.Object, Mock.Of<IBankHolidayService>(), Mock.Of<ILogger<MailController>>(), Mock.Of<MailConfig>(), TestAppSettings.MailChimp.Default);
             var sendDate = new DateTime(1856, 7, 10);
 
             //Act
-            await mailController.PutMailAsync(sendDate);
+            await mailController.PutDailyMailAsync(sendDate);
 
             //Assert
             mockMailService.Verify(mock => mock.CreateAndSendDailyAsync(sendDate, It.IsAny<string>(), body, It.IsAny<List<string>>(), It.IsAny<IEnumerable<Interest>>(), It.IsAny<string>()), Times.Once());

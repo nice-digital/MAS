@@ -8,12 +8,12 @@ using MailChimp.Net.Models;
 using MailChimp.Net.Core;
 using Shouldly;
 using Microsoft.Extensions.Logging;
-using MAS.Configuration;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using MAS.Tests.Fakes;
 using System.Linq.Expressions;
+using MAS.Configuration;
 
 namespace MAS.Tests.UnitTests
 {
