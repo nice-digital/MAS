@@ -64,7 +64,9 @@ keystone.set("wysiwyg additional options", {
 	// See https://www.tiny.cloud/docs-4x/plugins/link/#link_title
 	link_title: false,
 	target_list: false,
-	paste_word_valid_elements: "p,b,strong,i,em,br,ul,ol,table,tbody,tr,td",
+	//Allows a restricted list of elements to be copied across from word whilst stripping most formatting
+	paste_word_valid_elements:
+		"p,b,strong,i,em,br,ul,ol,table,tbody,tr,td,a[href],h2,h3,h4",
 	// Default options for "styleselect" if added to buttons on a per-field basis
 	// See https://www.tiny.cloud/docs-4x/configure/content-formatting/#style_formats
 	style_formats: [
