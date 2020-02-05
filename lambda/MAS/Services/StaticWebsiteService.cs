@@ -17,9 +17,9 @@ namespace MAS.Services
     public interface IStaticWebsiteService
     {
         /// <summary>
-        /// Asynchronous writes a file to the statice website
+        /// Asynchronous writes a files to the statice website and invalidates cache for those items.
         /// </summary>
-        /// <param name="requests">This objects contains the file path relative to the root e.g. "sitemap.xml" and file data</param>
+        /// <param name="requests">These objects contain the file paths relative to the root e.g. "sitemap.xml" and file data.</param>
         /// <returns>The http status code of the request to write the file</returns>
         Task<HttpStatusCode> WriteFilesAsync(params StaticContentRequest[] requests);
     }
@@ -64,12 +64,12 @@ namespace MAS.Services
                 responseCode = (await task.Value).HttpStatusCode;
                 if (responseCode != HttpStatusCode.OK)
                 {
-                    _logger.LogError($"Writing {task.Key} resulted in a status code of {responseCode}");
+                    _logger.LogError($"Writing {task.Key.FilePath} resulted in a status code of {responseCode}");
                     return responseCode;
                 }
             }
 
-            if (_environmentConfig.Name != "local" && requests.Count() > 0)
+            if (_cloudFrontConfig.Enabled.ToLower() == "true" && requests.Count() > 0)
                 responseCode = await InvalidateCacheAsync(taskDict.Select(x => "/" + x.Key.FilePath).ToList());
 
             return responseCode;
@@ -105,10 +105,13 @@ namespace MAS.Services
             };
 
             var req = new CreateInvalidationRequest(_cloudFrontConfig.DistributionID, invalidationBatch);
-            var invalidateCacheResponseCode = (await _cloudFrontService.CreateInvalidationAsync(req)).HttpStatusCode;
+            var invalidateCacheResponse = (await _cloudFrontService.CreateInvalidationAsync(req));
+            var invalidateCacheResponseCode = invalidateCacheResponse.HttpStatusCode;
+            var requestId = invalidateCacheResponse?.ResponseMetadata?.RequestId;
+            var invalidationId = invalidateCacheResponse?.Invalidation?.Id;
 
             if (invalidateCacheResponseCode != HttpStatusCode.Created)
-                _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");
+                _logger.LogError($"Cache invalidation failed.\n Status code: {invalidateCacheResponseCode}\n Request ID: {requestId}\n Invalidation ID: {invalidationId}");
 
             return invalidateCacheResponseCode;
         }

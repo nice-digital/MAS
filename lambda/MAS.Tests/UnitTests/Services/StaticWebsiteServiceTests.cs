@@ -21,7 +21,7 @@ namespace MAS.Tests.UnitTests.Services
     public class StaticWebsiteServiceTests
     {
         [Fact]
-        public async Task CanSuccessfullyWriteFiles()
+        public async Task CanSuccessfullyWriteFilesAndInvalidateCache()
         {
             var mockLogger = new Mock<ILogger<S3StaticWebsiteService>>();
 
@@ -37,9 +37,9 @@ namespace MAS.Tests.UnitTests.Services
             var mockCloudFrontService = new Mock<IAmazonCloudFront>();
             mockCloudFrontService.Setup(cf => cf.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
                 .ReturnsAsync(mockCfResposne.Object);
-     
 
-            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, mockLogger.Object, Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), Mock.Of<CloudFrontConfig>());
+            var cfConfig = new CloudFrontConfig() { Enabled = "true" };
+            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, mockLogger.Object, Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
@@ -69,8 +69,8 @@ namespace MAS.Tests.UnitTests.Services
             mockCloudFrontService.Setup(cf => cf.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
                 .ReturnsAsync(mockCfResposne.Object);
 
-
-            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, mockLogger.Object, Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), Mock.Of<CloudFrontConfig>());
+            var cfConfig = new CloudFrontConfig() { Enabled = "true" };
+            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, mockLogger.Object, Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
