@@ -43,11 +43,14 @@ namespace MAS.Tests.UnitTests.Services
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
+            var filePaths = new List<string>() { "/" + a.FilePath, "/" + b.FilePath };
 
             var result = service.WriteFilesAsync(a,b).Result;
 
-            mockCloudFrontService.Verify(x => x.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)), Times.Once);
-            mockS3.Verify(x => x.PutObjectAsync(It.IsAny<PutObjectRequest>(), default(CancellationToken)), Times.Exactly(2));
+            mockCloudFrontService.Verify(x => x.CreateInvalidationAsync(It.Is<CreateInvalidationRequest>(
+                o => Enumerable.SequenceEqual(o.InvalidationBatch.Paths.Items, filePaths)), default(CancellationToken)), Times.Once);
+            mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == a.FilePath), default(CancellationToken)), Times.Exactly(1));
+            mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == b.FilePath), default(CancellationToken)), Times.Exactly(1));
             Assert.Equal(HttpStatusCode.Created, result);
         }
 
@@ -74,11 +77,14 @@ namespace MAS.Tests.UnitTests.Services
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
+            var filePaths = new List<string>() { "/" + a.FilePath, "/" + b.FilePath };
 
             var result = service.WriteFilesAsync(a, b).Result;
 
-            mockCloudFrontService.Verify(x => x.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)), Times.Once);
-            mockS3.Verify(x => x.PutObjectAsync(It.IsAny<PutObjectRequest>(), default(CancellationToken)), Times.Exactly(2));
+            mockCloudFrontService.Verify(x => x.CreateInvalidationAsync(It.Is<CreateInvalidationRequest>(
+                o => Enumerable.SequenceEqual(o.InvalidationBatch.Paths.Items, filePaths)), default(CancellationToken)), Times.Once);
+            mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == a.FilePath), default(CancellationToken)), Times.Exactly(1));
+            mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == b.FilePath), default(CancellationToken)), Times.Exactly(1));
             Assert.Equal(HttpStatusCode.InternalServerError, result);
         }
 
@@ -99,10 +105,12 @@ namespace MAS.Tests.UnitTests.Services
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
+            var filePaths = new List<string>() { "/" + a.FilePath, "/" + b.FilePath };
 
             var result = service.WriteFilesAsync(a, b).Result;
-            
-            mockS3.Verify(x => x.PutObjectAsync(It.IsAny<PutObjectRequest>(), default(CancellationToken)), Times.Exactly(2));
+
+            mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == a.FilePath), default(CancellationToken)), Times.Exactly(1));
+            mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == b.FilePath), default(CancellationToken)), Times.Exactly(1));
             Assert.Equal(HttpStatusCode.InternalServerError, result);
         }
     }
