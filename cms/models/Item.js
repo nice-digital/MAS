@@ -96,7 +96,7 @@ Item.add({
 	commentUrl: {
 		type: Types.Text,
 		watch: "title",
-		value: function() {
+		value: function () {
 			return (
 				process.env.STATIC_SITE_PATH +
 				(this.slug || utils.slug(this.title)) +
@@ -129,7 +129,7 @@ Item.fullResponseFields = [
 	"createdAt"
 ];
 
-Item.schema.pre("validate", function(next) {
+Item.schema.pre("validate", function (next) {
 	if (this.isInitial) {
 		this.isInitial = false;
 		next();
@@ -174,7 +174,7 @@ const createWeeklyIfNeeded = async () => {
 };
 
 // Post save hook to trigger a lambda with the document details
-Item.schema.post("save", async function(doc, next) {
+Item.schema.post("save", async function (doc, next) {
 	await createWeeklyIfNeeded();
 
 	logger.info("Post save, sending request...");
@@ -216,7 +216,7 @@ Item.schema.post("save", async function(doc, next) {
 	else options.headers.host = "localhost";
 
 	const req = (hostport === "443" ? https : http).request(options, res => {
-		if (res.statusCode >= "200" && res.statusCode <= "299") {
+		if (res.statusCode >= 200 && res.statusCode <= 299) {
 			next();
 		} else {
 			logger.error("Post save PUT request error: Status code ", res.statusCode);
