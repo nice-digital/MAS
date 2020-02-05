@@ -70,7 +70,7 @@ namespace MAS.Services
             }
 
             if (_environmentConfig.Name != "local" && requests.Count() > 0)
-                responseCode = InvalidateCacheAsync(taskDict.Select(x => "/" + x.Key.FilePath).ToList());
+                responseCode = await InvalidateCacheAsync(taskDict.Select(x => "/" + x.Key.FilePath).ToList());
 
             return responseCode;
 
@@ -84,7 +84,7 @@ namespace MAS.Services
                 Key = item.FilePath
             };
 
-            if (string.IsNullOrEmpty(request.ContentBody))
+            if (string.IsNullOrEmpty(item.ContentBody))
                 request.InputStream = item.ContentStream;
             else
                 request.ContentBody = item.ContentBody;
@@ -92,7 +92,7 @@ namespace MAS.Services
             return _amazonS3.PutObjectAsync(request);
         }
 
-        private HttpStatusCode InvalidateCacheAsync(List<string> paths)
+        private async Task<HttpStatusCode> InvalidateCacheAsync(List<string> paths)
         {           
             var invalidationBatch = new InvalidationBatch()
             {
@@ -105,7 +105,7 @@ namespace MAS.Services
             };
 
             var req = new CreateInvalidationRequest(_cloudFrontConfig.DistributionID, invalidationBatch);
-            var invalidateCacheResponseCode = _cloudFrontService.CreateInvalidationAsync(req).Result.HttpStatusCode;
+            var invalidateCacheResponseCode = (await _cloudFrontService.CreateInvalidationAsync(req)).HttpStatusCode;
 
             if (invalidateCacheResponseCode != HttpStatusCode.Created)
                 _logger.LogError($"Cache invalidation failed and resulted in a status code of {invalidateCacheResponseCode}");

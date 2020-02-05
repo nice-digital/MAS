@@ -79,7 +79,7 @@ namespace MAS.Tests.IntegrationTests
             var response = await client.PutAsync("/api/content/", content);
 
             // Assert
-            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
+            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.Created);
             
             itemHtmlPutRequest.ContentBody.ShouldMatchApproved(c => c.WithDescriminator("ItemHTML"));
 
@@ -88,6 +88,7 @@ namespace MAS.Tests.IntegrationTests
 
             var sitemapXmlStr = Encoding.UTF8.GetString(((MemoryStream)xmlSitemapPutRequest.InputStream).ToArray());
             sitemapXmlStr.ShouldMatchApproved(c => c.WithDescriminator("SitemapXML"));
+            
         }
 
 
