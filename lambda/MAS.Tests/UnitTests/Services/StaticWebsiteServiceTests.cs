@@ -23,30 +23,26 @@ namespace MAS.Tests.UnitTests.Services
         [Fact]
         public async Task CanSuccessfullyWriteFilesAndInvalidateCache()
         {
-            var mockLogger = new Mock<ILogger<S3StaticWebsiteService>>();
-
+            //Arrange
             var mockS3 = new Mock<IAmazonS3>();
-            var mockS3Resposne = new Mock<PutObjectResponse>();
-            mockS3Resposne.Object.HttpStatusCode = HttpStatusCode.OK;
             mockS3.Setup(s3 => s3.PutObjectAsync(It.IsAny<PutObjectRequest>(), default(CancellationToken)))
-                .ReturnsAsync(mockS3Resposne.Object);
-
-            var mockCfResposne = new Mock<CreateInvalidationResponse>();
-            mockCfResposne.Object.HttpStatusCode = HttpStatusCode.Created;
+                .ReturnsAsync(new PutObjectResponse { HttpStatusCode = HttpStatusCode.OK });
 
             var mockCloudFrontService = new Mock<IAmazonCloudFront>();
             mockCloudFrontService.Setup(cf => cf.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
-                .ReturnsAsync(mockCfResposne.Object);
+                .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = HttpStatusCode.Created });
 
             var cfConfig = new CloudFrontConfig() { Enabled = "true" };
-            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, mockLogger.Object, Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
+            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, Mock.Of<ILogger<S3StaticWebsiteService>>(), Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
             var filePaths = new List<string>() { "/" + a.FilePath, "/" + b.FilePath };
 
+            //Act
             var result = service.WriteFilesAsync(a,b).Result;
 
+            //Assert
             mockCloudFrontService.Verify(x => x.CreateInvalidationAsync(It.Is<CreateInvalidationRequest>(
                 o => Enumerable.SequenceEqual(o.InvalidationBatch.Paths.Items, filePaths)), default(CancellationToken)), Times.Once);
             mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == a.FilePath), default(CancellationToken)), Times.Exactly(1));
@@ -57,30 +53,26 @@ namespace MAS.Tests.UnitTests.Services
         [Fact]
         public async Task ReturnErrorCodeIfCacheInvalidationFails()
         {
-            var mockLogger = new Mock<ILogger<S3StaticWebsiteService>>();
-
+            //Arrange
             var mockS3 = new Mock<IAmazonS3>();
-            var mockS3Resposne = new Mock<PutObjectResponse>();
-            mockS3Resposne.Object.HttpStatusCode = HttpStatusCode.OK;
             mockS3.Setup(s3 => s3.PutObjectAsync(It.IsAny<PutObjectRequest>(), default(CancellationToken)))
-                .ReturnsAsync(mockS3Resposne.Object);
-
-            var mockCfResposne = new Mock<CreateInvalidationResponse>();
-            mockCfResposne.Object.HttpStatusCode = HttpStatusCode.InternalServerError;
+                .ReturnsAsync(new PutObjectResponse { HttpStatusCode = HttpStatusCode.OK });
 
             var mockCloudFrontService = new Mock<IAmazonCloudFront>();
             mockCloudFrontService.Setup(cf => cf.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
-                .ReturnsAsync(mockCfResposne.Object);
+                .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = HttpStatusCode.InternalServerError });
 
             var cfConfig = new CloudFrontConfig() { Enabled = "true" };
-            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, mockLogger.Object, Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
+            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, Mock.Of<ILogger<S3StaticWebsiteService>>(), Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
             var filePaths = new List<string>() { "/" + a.FilePath, "/" + b.FilePath };
 
+            //Act
             var result = service.WriteFilesAsync(a, b).Result;
 
+            //Assert
             mockCloudFrontService.Verify(x => x.CreateInvalidationAsync(It.Is<CreateInvalidationRequest>(
                 o => Enumerable.SequenceEqual(o.InvalidationBatch.Paths.Items, filePaths)), default(CancellationToken)), Times.Once);
             mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == a.FilePath), default(CancellationToken)), Times.Exactly(1));
@@ -91,24 +83,23 @@ namespace MAS.Tests.UnitTests.Services
         [Fact]
         public async Task ReturnsErrorCodeWhenWriteFails()
         {
-            var mockLogger = new Mock<ILogger<S3StaticWebsiteService>>();
-
+            //Arrange
             var mockS3 = new Mock<IAmazonS3>();
-            var mockS3Resposne = new Mock<PutObjectResponse>();
-            mockS3Resposne.Object.HttpStatusCode = HttpStatusCode.InternalServerError;
             mockS3.Setup(s3 => s3.PutObjectAsync(It.IsAny<PutObjectRequest>(), default(CancellationToken)))
-                .ReturnsAsync(mockS3Resposne.Object);
+                .ReturnsAsync(new PutObjectResponse { HttpStatusCode = HttpStatusCode.InternalServerError });
 
             var mockCloudFrontService = new Mock<IAmazonCloudFront>();
 
-            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, mockLogger.Object, Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), Mock.Of<CloudFrontConfig>());
+            var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, Mock.Of<ILogger<S3StaticWebsiteService>>(), Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), Mock.Of<CloudFrontConfig>());
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
             var b = new StaticContentRequest { FilePath = "abc.html", ContentBody = "Some html" };
             var filePaths = new List<string>() { "/" + a.FilePath, "/" + b.FilePath };
 
+            //Act
             var result = service.WriteFilesAsync(a, b).Result;
 
+            //Assert
             mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == a.FilePath), default(CancellationToken)), Times.Exactly(1));
             mockS3.Verify(x => x.PutObjectAsync(It.Is<PutObjectRequest>(o => o.Key == b.FilePath), default(CancellationToken)), Times.Exactly(1));
             Assert.Equal(HttpStatusCode.InternalServerError, result);
