@@ -69,8 +69,9 @@ keystone.set("wysiwyg additional options", {
 		"p,b,strong,i,em,br,ul,ol,table,tbody,tr,td,a[href]",
 	// Default options for "styleselect" if added to buttons on a per-field basis
 	// See https://www.tiny.cloud/docs-4x/configure/content-formatting/#style_formats
+	content_style: "h5 { font-size: 16px; }" + "h6 { font-size: 14px; }",
 	style_formats: [
-		{ title: "Top level heading", format: "h5" },
+		{ title: "Primary heading", format: "h5" },
 		{ title: "Secondary heading", format: "h6" },
 		{ title: "Paragraph", format: "p" }
 	]
