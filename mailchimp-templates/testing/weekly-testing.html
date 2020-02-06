@@ -7,6 +7,10 @@
     <!-- new styles-->
 
     <style type="text/css">
+		.padded {
+			margin: 24px 30px;
+			
+		}
       .wrapper {
         width: 100%;
       }
@@ -20,9 +24,7 @@
         -ms-text-size-adjust: 100%;
         margin: 0;
         padding: 0;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
+
       }
       .ExternalClass {
         width: 100%;
@@ -95,6 +97,9 @@
         margin: 0 auto;
         text-align: inherit;
       }
+		@media (max-width: 749px) {
+			table.
+		}
       table.row {
         padding: 0;
         width: 100%;
@@ -753,28 +758,7 @@
         width: 100%;
         text-align: center;
       }
-      @media only screen and (max-width: 596px) {
-        .small-float-center {
-          margin: 0 auto !important;
-          float: none !important;
-          text-align: center !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        .small-text-center {
-          text-align: center !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        .small-text-left {
-          text-align: left !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        .small-text-right {
-          text-align: right !important;
-        }
-      }
+     
       img.float-left {
         float: left;
         text-align: left;
@@ -796,49 +780,12 @@
         float: none;
         text-align: center;
       }
-      .hide-for-large {
-        display: none !important;
-        mso-hide: all;
-        overflow: hidden;
-        max-height: 0;
-        font-size: 0;
-        width: 0;
-        line-height: 0;
-      }
-      @media only screen and (max-width: 596px) {
-        .hide-for-large {
-          display: block !important;
-          width: auto !important;
-          overflow: visible !important;
-          max-height: none !important;
-          font-size: inherit !important;
-          line-height: inherit !important;
-        }
-      }
+ 
+     
       table.body table.container .hide-for-large * {
         mso-hide: all;
       }
-      @media only screen and (max-width: 596px) {
-        table.body table.container .hide-for-large,
-        table.body table.container .row.hide-for-large {
-          display: table !important;
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body table.container .callout-inner.hide-for-large {
-          display: table-cell !important;
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body table.container .show-for-large {
-          display: none !important;
-          width: 0;
-          mso-hide: all;
-          overflow: hidden;
-        }
-      }
+      
       body,
       table.body,
       h1,
@@ -854,8 +801,7 @@
         color: #0a0a0a;
         font-family: lato, sans-serif;
         font-weight: normal;
-        padding: 0;
-        margin: 0;
+   
         text-align: left;
         line-height: 1.3;
       }
@@ -990,194 +936,7 @@
         opacity: 0;
         overflow: hidden;
       }
-      table.button {
-        width: auto;
-        margin: 0 0 16px;
-      }
-      table.button table td {
-        text-align: left;
-        color: #fefefe;
-        background: #2199e8;
-        border: 2px solid #2199e8;
-      }
-      table.button table td a {
-        font-family: lato, sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fefefe;
-        text-decoration: none;
-        display: inline-block;
-        padding: 8px 16px;
-        border: 0 solid #2199e8;
-        border-radius: 3px;
-      }
-      table.button.radius table td {
-        border-radius: 3px;
-        border: none;
-      }
-      table.button.rounded table td {
-        border-radius: 500px;
-        border: none;
-      }
-      table.button:hover table tr td a,
-      table.button:active table tr td a,
-      table.button table tr td a:visited,
-      table.button.tiny:hover table tr td a,
-      table.button.tiny:active table tr td a,
-      table.button.tiny table tr td a:visited,
-      table.button.small:hover table tr td a,
-      table.button.small:active table tr td a,
-      table.button.small table tr td a:visited,
-      table.button.large:hover table tr td a,
-      table.button.large:active table tr td a,
-      table.button.large table tr td a:visited {
-        color: #fefefe;
-      }
-      table.button.tiny table td,
-      table.button.tiny table a {
-        padding: 4px 8px;
-      }
-      table.button.tiny table a {
-        font-size: 10px;
-        font-weight: normal;
-      }
-      table.button.small table td,
-      table.button.small table a {
-        padding: 5px 10px;
-        font-size: 12px;
-      }
-      table.button.large table a {
-        padding: 10px 20px;
-        font-size: 20px;
-      }
-      table.button.expand,
-      table.button.expanded {
-        width: 100% !important;
-      }
-      table.button.expand table,
-      table.button.expanded table {
-        width: 100%;
-      }
-      table.button.expand table a,
-      table.button.expanded table a {
-        text-align: center;
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-      }
-      table.button.expand center,
-      table.button.expanded center {
-        min-width: 0;
-      }
-      table.button:hover table td,
-      table.button:visited table td,
-      table.button:active table td {
-        background: #147dc2;
-        color: #fefefe;
-      }
-      table.button:hover table a,
-      table.button:visited table a,
-      table.button:active table a {
-        border: 0 solid #147dc2;
-      }
-      table.button.secondary table td {
-        background: #777777;
-        color: #fefefe;
-        border: 0 solid #777777;
-      }
-      table.button.secondary table a {
-        color: #fefefe;
-        border: 0 solid #777777;
-      }
-      table.button.secondary:hover table td {
-        background: #919191;
-        color: #fefefe;
-      }
-      table.button.secondary:hover table a {
-        border: 0 solid #919191;
-      }
-      table.button.secondary:hover table td a {
-        color: #fefefe;
-      }
-      table.button.secondary:active table td a {
-        color: #fefefe;
-      }
-      table.button.secondary table td a:visited {
-        color: #fefefe;
-      }
-      table.button.success table td {
-        background: #3adb76;
-        border: 0 solid #3adb76;
-      }
-      table.button.success table a {
-        border: 0 solid #3adb76;
-      }
-      table.button.success:hover table td {
-        background: #23bf5d;
-      }
-      table.button.success:hover table a {
-        border: 0 solid #23bf5d;
-      }
-      table.button.alert table td {
-        background: #ec5840;
-        border: 0 solid #ec5840;
-      }
-      table.button.alert table a {
-        border: 0 solid #ec5840;
-      }
-      table.button.alert:hover table td {
-        background: #e23317;
-      }
-      table.button.alert:hover table a {
-        border: 0 solid #e23317;
-      }
-      table.button.warning table td {
-        background: #ffae00;
-        border: 0 solid #ffae00;
-      }
-      table.button.warning table a {
-        border: 0 solid #ffae00;
-      }
-      table.button.warning:hover table td {
-        background: #cc8b00;
-      }
-      table.button.warning:hover table a {
-        border: 0 solid #cc8b00;
-      }
-      table.callout {
-        margin-bottom: 16px;
-      }
-      th.callout-inner {
-        width: 100%;
-        border: 1px solid #cbcbcb;
-        padding: 10px;
-        background: #fefefe;
-      }
-      th.callout-inner.primary {
-        background: #def0fc;
-        border: 1px solid #444444;
-        color: #0a0a0a;
-      }
-      th.callout-inner.secondary {
-        background: #ebebeb;
-        border: 1px solid #444444;
-        color: #0a0a0a;
-      }
-      th.callout-inner.success {
-        background: #e1faea;
-        border: 1px solid #1b9448;
-        color: #fefefe;
-      }
-      th.callout-inner.warning {
-        background: #fff3d9;
-        border: 1px solid #996800;
-        color: #fefefe;
-      }
-      th.callout-inner.alert {
-        background: #fce6e2;
-        border: 1px solid #b42912;
-        color: #fefefe;
-      }
+      
       .thumbnail {
         border: solid 4px #fefefe;
         box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
@@ -1229,278 +988,7 @@
       body.outlook p {
         display: inline !important;
       }
-      @media only screen and (max-width: 596px) {
-        table.body img {
-          width: auto;
-          height: auto;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body center {
-          min-width: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .container {
-          width: 95% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .columns,
-        table.body .column {
-          height: auto !important;
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          padding-left: 30px !important;
-          padding-right: 30px !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .columns .column,
-        table.body .columns .columns,
-        table.body .column .column,
-        table.body .column .columns {
-          padding-left: 0 !important;
-          padding-right: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .collapse .columns,
-        table.body .collapse .column {
-          padding-left: 0 !important;
-          padding-right: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-1,
-        th.small-1 {
-          display: inline-block !important;
-          width: 8.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-2,
-        th.small-2 {
-          display: inline-block !important;
-          width: 16.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-3,
-        th.small-3 {
-          display: inline-block !important;
-          width: 25% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-4,
-        th.small-4 {
-          display: inline-block !important;
-          width: 33.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-5,
-        th.small-5 {
-          display: inline-block !important;
-          width: 41.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-6,
-        th.small-6 {
-          display: inline-block !important;
-          width: 50% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-7,
-        th.small-7 {
-          display: inline-block !important;
-          width: 58.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-8,
-        th.small-8 {
-          display: inline-block !important;
-          width: 66.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-9,
-        th.small-9 {
-          display: inline-block !important;
-          width: 75% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-10,
-        th.small-10 {
-          display: inline-block !important;
-          width: 83.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-11,
-        th.small-11 {
-          display: inline-block !important;
-          width: 91.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-12,
-        th.small-12 {
-          display: inline-block !important;
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        .columns td.small-12,
-        .column td.small-12,
-        .columns th.small-12,
-        .column th.small-12 {
-          display: block !important;
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-1,
-        table.body th.small-offset-1 {
-          margin-left: 8.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-2,
-        table.body th.small-offset-2 {
-          margin-left: 16.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-3,
-        table.body th.small-offset-3 {
-          margin-left: 25% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-4,
-        table.body th.small-offset-4 {
-          margin-left: 33.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-5,
-        table.body th.small-offset-5 {
-          margin-left: 41.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-6,
-        table.body th.small-offset-6 {
-          margin-left: 50% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-7,
-        table.body th.small-offset-7 {
-          margin-left: 58.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-8,
-        table.body th.small-offset-8 {
-          margin-left: 66.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-9,
-        table.body th.small-offset-9 {
-          margin-left: 75% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-10,
-        table.body th.small-offset-10 {
-          margin-left: 83.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-11,
-        table.body th.small-offset-11 {
-          margin-left: 91.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body table.columns td.expander,
-        table.body table.columns th.expander {
-          display: none !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .right-text-pad,
-        table.body .text-pad-right {
-          padding-left: 10px !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .left-text-pad,
-        table.body .text-pad-left {
-          padding-right: 10px !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu {
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu td,
-        table.menu th {
-          width: auto !important;
-          display: inline-block !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu.vertical td,
-        table.menu.vertical th,
-        table.menu.small-vertical td,
-        table.menu.small-vertical th {
-          display: block !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu[align="center"] {
-          width: auto !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand,
-        table.button.small-expanded {
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand table,
-        table.button.small-expanded table {
-          width: 100%;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand table a,
-        table.button.small-expanded table a {
-          text-align: center !important;
-          width: 100% !important;
-          padding-left: 0 !important;
-          padding-right: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand center,
-        table.button.small-expanded center {
-          min-width: 0;
-        }
-      }
+      
       .wrapper {
         width: 100%;
       }
@@ -1514,9 +1002,7 @@
         -ms-text-size-adjust: 100%;
         margin: 0;
         padding: 0;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
+       
       }
       .ExternalClass {
         width: 100%;
@@ -1603,606 +1089,7 @@
       table.container table.row {
         display: table;
       }
-      td.columns,
-      td.column,
-      th.columns,
-      th.column {
-        margin: 0 auto;
-        padding-left: 30px;
-        padding-bottom: 16px;
-      }
-      td.columns .column,
-      td.columns .columns,
-      td.column .column,
-      td.column .columns,
-      th.columns .column,
-      th.columns .columns,
-      th.column .column,
-      th.column .columns {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
-      td.columns .column center,
-      td.columns .columns center,
-      td.column .column center,
-      td.column .columns center,
-      th.columns .column center,
-      th.columns .columns center,
-      th.column .column center,
-      th.column .columns center {
-        min-width: none !important;
-      }
-      td.columns.last,
-      td.column.last,
-      th.columns.last,
-      th.column.last {
-        padding-right: 30px;
-      }
-      td.columns table:not(.button),
-      td.column table:not(.button),
-      th.columns table:not(.button),
-      th.column table:not(.button) {
-        width: 100%;
-      }
-      td.large-1,
-      th.large-1 {
-        width: 32.33333px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-1.first,
-      th.large-1.first {
-        padding-left: 30px;
-      }
-      td.large-1.last,
-      th.large-1.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-1,
-      .collapse > tbody > tr > th.large-1 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 48.33333px;
-      }
-      .collapse td.large-1.first,
-      .collapse th.large-1.first,
-      .collapse td.large-1.last,
-      .collapse th.large-1.last {
-        width: 56.33333px;
-      }
-      td.large-1 center,
-      th.large-1 center {
-        min-width: 0.33333px;
-      }
-      .body .columns td.large-1,
-      .body .column td.large-1,
-      .body .columns th.large-1,
-      .body .column th.large-1 {
-        width: 8.33333%;
-      }
-      td.large-2,
-      th.large-2 {
-        width: 80.66667px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-2.first,
-      th.large-2.first {
-        padding-left: 30px;
-      }
-      td.large-2.last,
-      th.large-2.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-2,
-      .collapse > tbody > tr > th.large-2 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 96.66667px;
-      }
-      .collapse td.large-2.first,
-      .collapse th.large-2.first,
-      .collapse td.large-2.last,
-      .collapse th.large-2.last {
-        width: 104.66667px;
-      }
-      td.large-2 center,
-      th.large-2 center {
-        min-width: 48.66667px;
-      }
-      .body .columns td.large-2,
-      .body .column td.large-2,
-      .body .columns th.large-2,
-      .body .column th.large-2 {
-        width: 16.66667%;
-      }
-      td.large-3,
-      th.large-3 {
-        width: 129px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-3.first,
-      th.large-3.first {
-        padding-left: 30px;
-      }
-      td.large-3.last,
-      th.large-3.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-3,
-      .collapse > tbody > tr > th.large-3 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 145px;
-      }
-      .collapse td.large-3.first,
-      .collapse th.large-3.first,
-      .collapse td.large-3.last,
-      .collapse th.large-3.last {
-        width: 153px;
-      }
-      td.large-3 center,
-      th.large-3 center {
-        min-width: 97px;
-      }
-      .body .columns td.large-3,
-      .body .column td.large-3,
-      .body .columns th.large-3,
-      .body .column th.large-3 {
-        width: 25%;
-      }
-      td.large-4,
-      th.large-4 {
-        width: 177.33333px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-4.first,
-      th.large-4.first {
-        padding-left: 30px;
-      }
-      td.large-4.last,
-      th.large-4.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-4,
-      .collapse > tbody > tr > th.large-4 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 193.33333px;
-      }
-      .collapse td.large-4.first,
-      .collapse th.large-4.first,
-      .collapse td.large-4.last,
-      .collapse th.large-4.last {
-        width: 201.33333px;
-      }
-      td.large-4 center,
-      th.large-4 center {
-        min-width: 145.33333px;
-      }
-      .body .columns td.large-4,
-      .body .column td.large-4,
-      .body .columns th.large-4,
-      .body .column th.large-4 {
-        width: 33.33333%;
-      }
-      td.large-5,
-      th.large-5 {
-        width: 225.66667px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-5.first,
-      th.large-5.first {
-        padding-left: 30px;
-      }
-      td.large-5.last,
-      th.large-5.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-5,
-      .collapse > tbody > tr > th.large-5 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 241.66667px;
-      }
-      .collapse td.large-5.first,
-      .collapse th.large-5.first,
-      .collapse td.large-5.last,
-      .collapse th.large-5.last {
-        width: 249.66667px;
-      }
-      td.large-5 center,
-      th.large-5 center {
-        min-width: 193.66667px;
-      }
-      .body .columns td.large-5,
-      .body .column td.large-5,
-      .body .columns th.large-5,
-      .body .column th.large-5 {
-        width: 41.66667%;
-      }
-      td.large-6,
-      th.large-6 {
-        width: 274px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-6.first,
-      th.large-6.first {
-        padding-left: 30px;
-      }
-      td.large-6.last,
-      th.large-6.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-6,
-      .collapse > tbody > tr > th.large-6 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 290px;
-      }
-      .collapse td.large-6.first,
-      .collapse th.large-6.first,
-      .collapse td.large-6.last,
-      .collapse th.large-6.last {
-        width: 298px;
-      }
-      td.large-6 center,
-      th.large-6 center {
-        min-width: 242px;
-      }
-      .body .columns td.large-6,
-      .body .column td.large-6,
-      .body .columns th.large-6,
-      .body .column th.large-6 {
-        width: 50%;
-      }
-      td.large-7,
-      th.large-7 {
-        width: 322.33333px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-7.first,
-      th.large-7.first {
-        padding-left: 30px;
-      }
-      td.large-7.last,
-      th.large-7.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-7,
-      .collapse > tbody > tr > th.large-7 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 338.33333px;
-      }
-      .collapse td.large-7.first,
-      .collapse th.large-7.first,
-      .collapse td.large-7.last,
-      .collapse th.large-7.last {
-        width: 346.33333px;
-      }
-      td.large-7 center,
-      th.large-7 center {
-        min-width: 290.33333px;
-      }
-      .body .columns td.large-7,
-      .body .column td.large-7,
-      .body .columns th.large-7,
-      .body .column th.large-7 {
-        width: 58.33333%;
-      }
-      td.large-8,
-      th.large-8 {
-        width: 370.66667px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-8.first,
-      th.large-8.first {
-        padding-left: 30px;
-      }
-      td.large-8.last,
-      th.large-8.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-8,
-      .collapse > tbody > tr > th.large-8 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 386.66667px;
-      }
-      .collapse td.large-8.first,
-      .collapse th.large-8.first,
-      .collapse td.large-8.last,
-      .collapse th.large-8.last {
-        width: 394.66667px;
-      }
-      td.large-8 center,
-      th.large-8 center {
-        min-width: 338.66667px;
-      }
-      .body .columns td.large-8,
-      .body .column td.large-8,
-      .body .columns th.large-8,
-      .body .column th.large-8 {
-        width: 66.66667%;
-      }
-      td.large-9,
-      th.large-9 {
-        width: 419px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-9.first,
-      th.large-9.first {
-        padding-left: 30px;
-      }
-      td.large-9.last,
-      th.large-9.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-9,
-      .collapse > tbody > tr > th.large-9 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 435px;
-      }
-      .collapse td.large-9.first,
-      .collapse th.large-9.first,
-      .collapse td.large-9.last,
-      .collapse th.large-9.last {
-        width: 443px;
-      }
-      td.large-9 center,
-      th.large-9 center {
-        min-width: 387px;
-      }
-      .body .columns td.large-9,
-      .body .column td.large-9,
-      .body .columns th.large-9,
-      .body .column th.large-9 {
-        width: 75%;
-      }
-      td.large-10,
-      th.large-10 {
-        width: 467.33333px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-10.first,
-      th.large-10.first {
-        padding-left: 30px;
-      }
-      td.large-10.last,
-      th.large-10.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-10,
-      .collapse > tbody > tr > th.large-10 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 483.33333px;
-      }
-      .collapse td.large-10.first,
-      .collapse th.large-10.first,
-      .collapse td.large-10.last,
-      .collapse th.large-10.last {
-        width: 491.33333px;
-      }
-      td.large-10 center,
-      th.large-10 center {
-        min-width: 435.33333px;
-      }
-      .body .columns td.large-10,
-      .body .column td.large-10,
-      .body .columns th.large-10,
-      .body .column th.large-10 {
-        width: 83.33333%;
-      }
-      td.large-11,
-      th.large-11 {
-        width: 515.66667px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-11.first,
-      th.large-11.first {
-        padding-left: 30px;
-      }
-      td.large-11.last,
-      th.large-11.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-11,
-      .collapse > tbody > tr > th.large-11 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 531.66667px;
-      }
-      .collapse td.large-11.first,
-      .collapse th.large-11.first,
-      .collapse td.large-11.last,
-      .collapse th.large-11.last {
-        width: 539.66667px;
-      }
-      td.large-11 center,
-      th.large-11 center {
-        min-width: 483.66667px;
-      }
-      .body .columns td.large-11,
-      .body .column td.large-11,
-      .body .columns th.large-11,
-      .body .column th.large-11 {
-        width: 91.66667%;
-      }
-      td.large-12,
-      th.large-12 {
-        width: 564px;
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-      td.large-12.first,
-      th.large-12.first {
-        padding-left: 30px;
-      }
-      td.large-12.last,
-      th.large-12.last {
-        padding-right: 30px;
-      }
-      .collapse > tbody > tr > td.large-12,
-      .collapse > tbody > tr > th.large-12 {
-        padding-right: 0;
-        padding-left: 0;
-        width: 750px;
-      }
-      .collapse td.large-12.first,
-      .collapse th.large-12.first,
-      .collapse td.large-12.last,
-      .collapse th.large-12.last {
-        width: 588px;
-      }
-      td.large-12 center,
-      th.large-12 center {
-        min-width: 532px;
-      }
-      .body .columns td.large-12,
-      .body .column td.large-12,
-      .body .columns th.large-12,
-      .body .column th.large-12 {
-        width: 100%;
-      }
-      td.large-offset-1,
-      td.large-offset-1.first,
-      td.large-offset-1.last,
-      th.large-offset-1,
-      th.large-offset-1.first,
-      th.large-offset-1.last {
-        padding-left: 64.33333px;
-      }
-      td.large-offset-2,
-      td.large-offset-2.first,
-      td.large-offset-2.last,
-      th.large-offset-2,
-      th.large-offset-2.first,
-      th.large-offset-2.last {
-        padding-left: 112.66667px;
-      }
-      td.large-offset-3,
-      td.large-offset-3.first,
-      td.large-offset-3.last,
-      th.large-offset-3,
-      th.large-offset-3.first,
-      th.large-offset-3.last {
-        padding-left: 161px;
-      }
-      td.large-offset-4,
-      td.large-offset-4.first,
-      td.large-offset-4.last,
-      th.large-offset-4,
-      th.large-offset-4.first,
-      th.large-offset-4.last {
-        padding-left: 209.33333px;
-      }
-      td.large-offset-5,
-      td.large-offset-5.first,
-      td.large-offset-5.last,
-      th.large-offset-5,
-      th.large-offset-5.first,
-      th.large-offset-5.last {
-        padding-left: 257.66667px;
-      }
-      td.large-offset-6,
-      td.large-offset-6.first,
-      td.large-offset-6.last,
-      th.large-offset-6,
-      th.large-offset-6.first,
-      th.large-offset-6.last {
-        padding-left: 306px;
-      }
-      td.large-offset-7,
-      td.large-offset-7.first,
-      td.large-offset-7.last,
-      th.large-offset-7,
-      th.large-offset-7.first,
-      th.large-offset-7.last {
-        padding-left: 354.33333px;
-      }
-      td.large-offset-8,
-      td.large-offset-8.first,
-      td.large-offset-8.last,
-      th.large-offset-8,
-      th.large-offset-8.first,
-      th.large-offset-8.last {
-        padding-left: 402.66667px;
-      }
-      td.large-offset-9,
-      td.large-offset-9.first,
-      td.large-offset-9.last,
-      th.large-offset-9,
-      th.large-offset-9.first,
-      th.large-offset-9.last {
-        padding-left: 451px;
-      }
-      td.large-offset-10,
-      td.large-offset-10.first,
-      td.large-offset-10.last,
-      th.large-offset-10,
-      th.large-offset-10.first,
-      th.large-offset-10.last {
-        padding-left: 499.33333px;
-      }
-      td.large-offset-11,
-      td.large-offset-11.first,
-      td.large-offset-11.last,
-      th.large-offset-11,
-      th.large-offset-11.first,
-      th.large-offset-11.last {
-        padding-left: 547.66667px;
-      }
-      td.expander,
-      th.expander {
-        visibility: hidden;
-        width: 0;
-        padding: 0 !important;
-      }
-      table.container.radius {
-        border-radius: 0;
-        border-collapse: separate;
-      }
-      .block-grid {
-        width: 100%;
-        max-width: 750px;
-      }
-      .block-grid td {
-        display: inline-block;
-        padding: 8px;
-      }
-      .up-2 td {
-        width: 274px !important;
-      }
-      .up-3 td {
-        width: 177px !important;
-      }
-      .up-4 td {
-        width: 129px !important;
-      }
-      .up-5 td {
-        width: 100px !important;
-      }
-      .up-6 td {
-        width: 80px !important;
-      }
-      .up-7 td {
-        width: 66px !important;
-      }
-      .up-8 td {
-        width: 56px !important;
-      }
+
       table.text-center,
       th.text-center,
       td.text-center,
@@ -2464,180 +1351,7 @@
         border-left: 0;
         margin: 20px auto;
         clear: both;
-      }
-      .stat {
-        font-size: 40px;
-        line-height: 1;
-      }
-      p + .stat {
-        margin-top: -16px;
-      }
-      span.preheader {
-        display: none !important;
-        visibility: hidden;
-        mso-hide: all !important;
-        font-size: 1px;
-        color: #f3f3f3;
-        line-height: 1px;
-        max-height: 0;
-        max-width: 0;
-        opacity: 0;
-        overflow: hidden;
-      }
-      table.button {
-        width: auto;
-        margin: 0 0 16px;
-      }
-      table.button table td {
-        text-align: left;
-        color: #fefefe;
-        background: #2199e8;
-        border: 2px solid #2199e8;
-      }
-      table.button table td a {
-        font-family: lato, sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fefefe;
-        text-decoration: none;
-        display: inline-block;
-        padding: 8px 16px;
-        border: 0 solid #2199e8;
-        border-radius: 3px;
-      }
-      table.button.radius table td {
-        border-radius: 3px;
-        border: none;
-      }
-      table.button.rounded table td {
-        border-radius: 500px;
-        border: none;
-      }
-      table.button:hover table tr td a,
-      table.button:active table tr td a,
-      table.button table tr td a:visited,
-      table.button.tiny:hover table tr td a,
-      table.button.tiny:active table tr td a,
-      table.button.tiny table tr td a:visited,
-      table.button.small:hover table tr td a,
-      table.button.small:active table tr td a,
-      table.button.small table tr td a:visited,
-      table.button.large:hover table tr td a,
-      table.button.large:active table tr td a,
-      table.button.large table tr td a:visited {
-        color: #fefefe;
-      }
-      table.button.tiny table td,
-      table.button.tiny table a {
-        padding: 4px 8px;
-      }
-      table.button.tiny table a {
-        font-size: 10px;
-        font-weight: normal;
-      }
-      table.button.small table td,
-      table.button.small table a {
-        padding: 5px 10px;
-        font-size: 12px;
-      }
-      table.button.large table a {
-        padding: 10px 20px;
-        font-size: 20px;
-      }
-      table.button.expand,
-      table.button.expanded {
-        width: 100% !important;
-      }
-      table.button.expand table,
-      table.button.expanded table {
-        width: 100%;
-      }
-      table.button.expand table a,
-      table.button.expanded table a {
-        text-align: center;
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-      }
-      table.button.expand center,
-      table.button.expanded center {
-        min-width: 0;
-      }
-      table.button:hover table td,
-      table.button:visited table td,
-      table.button:active table td {
-        background: #147dc2;
-        color: #fefefe;
-      }
-      table.button:hover table a,
-      table.button:visited table a,
-      table.button:active table a {
-        border: 0 solid #147dc2;
-      }
-      table.button.secondary table td {
-        background: #777777;
-        color: #fefefe;
-        border: 0 solid #777777;
-      }
-      table.button.secondary table a {
-        color: #fefefe;
-        border: 0 solid #777777;
-      }
-      table.button.secondary:hover table td {
-        background: #919191;
-        color: #fefefe;
-      }
-      table.button.secondary:hover table a {
-        border: 0 solid #919191;
-      }
-      table.button.secondary:hover table td a {
-        color: #fefefe;
-      }
-      table.button.secondary:active table td a {
-        color: #fefefe;
-      }
-      table.button.secondary table td a:visited {
-        color: #fefefe;
-      }
-      table.button.success table td {
-        background: #3adb76;
-        border: 0 solid #3adb76;
-      }
-      table.button.success table a {
-        border: 0 solid #3adb76;
-      }
-      table.button.success:hover table td {
-        background: #23bf5d;
-      }
-      table.button.success:hover table a {
-        border: 0 solid #23bf5d;
-      }
-      table.button.alert table td {
-        background: #ec5840;
-        border: 0 solid #ec5840;
-      }
-      table.button.alert table a {
-        border: 0 solid #ec5840;
-      }
-      table.button.alert:hover table td {
-        background: #e23317;
-      }
-      table.button.alert:hover table a {
-        border: 0 solid #e23317;
-      }
-      table.button.warning table td {
-        background: #ffae00;
-        border: 0 solid #ffae00;
-      }
-      table.button.warning table a {
-        border: 0 solid #ffae00;
-      }
-      table.button.warning:hover table td {
-        background: #cc8b00;
-      }
-      table.button.warning:hover table a {
-        border: 0 solid #cc8b00;
-      }
+		}
       table.callout {
         margin-bottom: 16px;
       }
@@ -2723,278 +1437,7 @@
       body.outlook p {
         display: inline !important;
       }
-      @media only screen and (max-width: 596px) {
-        table.body img {
-          width: auto;
-          height: auto;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body center {
-          min-width: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .container {
-          width: 95% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .columns,
-        table.body .column {
-          height: auto !important;
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          padding-left: 30px !important;
-          padding-right: 30px !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .columns .column,
-        table.body .columns .columns,
-        table.body .column .column,
-        table.body .column .columns {
-          padding-left: 0 !important;
-          padding-right: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .collapse .columns,
-        table.body .collapse .column {
-          padding-left: 0 !important;
-          padding-right: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-1,
-        th.small-1 {
-          display: inline-block !important;
-          width: 8.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-2,
-        th.small-2 {
-          display: inline-block !important;
-          width: 16.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-3,
-        th.small-3 {
-          display: inline-block !important;
-          width: 25% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-4,
-        th.small-4 {
-          display: inline-block !important;
-          width: 33.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-5,
-        th.small-5 {
-          display: inline-block !important;
-          width: 41.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-6,
-        th.small-6 {
-          display: inline-block !important;
-          width: 50% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-7,
-        th.small-7 {
-          display: inline-block !important;
-          width: 58.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-8,
-        th.small-8 {
-          display: inline-block !important;
-          width: 66.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-9,
-        th.small-9 {
-          display: inline-block !important;
-          width: 75% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-10,
-        th.small-10 {
-          display: inline-block !important;
-          width: 83.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-11,
-        th.small-11 {
-          display: inline-block !important;
-          width: 91.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        td.small-12,
-        th.small-12 {
-          display: inline-block !important;
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        .columns td.small-12,
-        .column td.small-12,
-        .columns th.small-12,
-        .column th.small-12 {
-          display: block !important;
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-1,
-        table.body th.small-offset-1 {
-          margin-left: 8.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-2,
-        table.body th.small-offset-2 {
-          margin-left: 16.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-3,
-        table.body th.small-offset-3 {
-          margin-left: 25% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-4,
-        table.body th.small-offset-4 {
-          margin-left: 33.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-5,
-        table.body th.small-offset-5 {
-          margin-left: 41.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-6,
-        table.body th.small-offset-6 {
-          margin-left: 50% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-7,
-        table.body th.small-offset-7 {
-          margin-left: 58.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-8,
-        table.body th.small-offset-8 {
-          margin-left: 66.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-9,
-        table.body th.small-offset-9 {
-          margin-left: 75% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-10,
-        table.body th.small-offset-10 {
-          margin-left: 83.33333% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body td.small-offset-11,
-        table.body th.small-offset-11 {
-          margin-left: 91.66667% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body table.columns td.expander,
-        table.body table.columns th.expander {
-          display: none !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .right-text-pad,
-        table.body .text-pad-right {
-          padding-left: 10px !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.body .left-text-pad,
-        table.body .text-pad-left {
-          padding-right: 10px !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu {
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu td,
-        table.menu th {
-          width: auto !important;
-          display: inline-block !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu.vertical td,
-        table.menu.vertical th,
-        table.menu.small-vertical td,
-        table.menu.small-vertical th {
-          display: block !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.menu[align="center"] {
-          width: auto !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand,
-        table.button.small-expanded {
-          width: 100% !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand table,
-        table.button.small-expanded table {
-          width: 100%;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand table a,
-        table.button.small-expanded table a {
-          text-align: center !important;
-          width: 100% !important;
-          padding-left: 0 !important;
-          padding-right: 0 !important;
-        }
-      }
-      @media only screen and (max-width: 596px) {
-        table.button.small-expand center,
-        table.button.small-expanded center {
-          min-width: 0;
-        }
-      }
+     
       body,
       html,
       .body {
@@ -3024,15 +1467,14 @@
       }
       table.spacer-heading {
         width: 100%;
-        background-color: #e9e9e9;
+        
       }
       table.spacer-heading td {
         mso-line-height-rule: exactly;
       }
       .article-heading {
-        padding-top: 10px;
-        padding-left: 30px;
-        padding-bottom: 0;
+margin-left: 30px;
+		  margin-top: 10px;
         font-size: 20px;
         color: #5c5c5c;
       }
@@ -3040,7 +1482,6 @@
         font-size: 16px;
         font-weight: 800;
         color: #000000;
-        padding-top: 24px;
         line-height: 24px;
       }
       .article-link {
@@ -3056,7 +1497,12 @@
         font-weight: normal;
         line-height: 24px;
       }
-      .source-tag {
+		
+		.article-tags {
+
+		}
+		
+		.source-tag {
         background-color: #393939;
         color: #ffffff;
         padding-top: 3px;
@@ -3067,7 +1513,7 @@
         margin-bottom: 4px;
         display: inline-block;
         line-height: 18px;
-      }
+       }
       .source-tag-nice {
         background-color: #004650;
         color: white;
@@ -3179,48 +1625,64 @@
                 </tr>
               </tbody>
             </table>
-            <table align="center" class="container float-center">
+            <table align="center" class="float-center">
               <tbody>
                 <tr>
                   <td>
-                    <!--Email leader - 2 tables, one for logos and one for content -->
-                    <!-- header logos-->
-                    <table class="row header-bgd">
+                   
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  <table bgcolor="#004650" class="row">
+					  	<tbody>
+					  		<tr>
+					  			<td>
+					  				<div class="padded">
+									
+									
+									<table>
                       <tbody>
                         <tr>
-                          <th class="small-12 large-12 columns first" bgcolor="#004650">
+                          <th>
                             <table>
                               <tr>
-                                <td class="top-logo">
-                                  <img
-                                    src="https://www.medicinesresources.nhs.uk/email/nice-logo-mobile.png"
+                                <td>
+									<div style="margin-bottom: 20px">
+										<img src="https://www.medicinesresources.nhs.uk/email/nice-logo-mobile.png"
                                     class="float-left"
                                     alt="NICE logo"
                                     align="left"
                                   />
+									</div>
+                                  
                                 </td>
-                                <td class="top-logo">
-                                  <img
-                                    src="https://www.medicinesresources.nhs.uk/email/sps-logo.png"
+                                <td>
+									<div style="margin-bottom: 20px">
+                                  <img src="https://www.medicinesresources.nhs.uk/email/sps-logo.png"
                                     class="float-right"
                                     alt="SPS logo"
                                     align="right"
                                   />
+									</div>
                                 </td>
                               </tr>
                             </table>
                           </th>
                         </tr>
-                      </tbody>
-                    </table>
-                    <!-- header text -->
-                    <table class="row header-bgd">
-                      <tbody>
-                        <tr>
-                          <th bgcolor="#004650" class="small-12 large-12 columns first last">
+						<tr>
+                          <th>
                             <table>
                               <tr>
                                 <th>
+									<div>
                                   <p class="date">
                                     <span mc:edit="date">04 February 2020</span>
                                   </p>
@@ -3235,6 +1697,7 @@
                                     Content produced by the Specialist Pharmacy
                                     Service - Medicines Information
                                   </p>
+									</div>
                                 </th>
                                 <th class="expander"></th>
                               </tr>
@@ -3243,16 +1706,36 @@
                         </tr>
                       </tbody>
                     </table>
+									
+									
+									</div>
+					  			</td>
+					  		</tr>
+					  	</tbody>
+					  </table>
+					  
+					  
+                    
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+                    <!-- header text -->
+					  
                     <!-- Content START -->
                     <div mc:edit="body">
                       <!-- MEC CONTENT START -->
-                      <table class="spacer-heading">
+                      <table class="spacer-heading" bgcolor="#e9e9e9">
                         <tbody>
                           <tr>
-                            <td
-                              height="16px"
-                              style="font-size:16px; line-height:16px;"
-                            >
+                            <td>
                               <h3 class="article-heading">
                                 Medicines evidence commentary
                               </h3>
@@ -3261,15 +1744,20 @@
                         </tbody>
                       </table>
 
-                      <table class="row article-border article-mec">
+                      <table border="0" class="row">
                         <tbody>
                           <tr>
-                            <th class="small-12 large-12 columns first last">
+                            <th>
                               <table>
                                 <tbody>
                                   <tr>
                                     <td>
-                                      <h4 class="h4 article-title">
+										<div class="article-mec">
+										<table>
+											<tbody>
+												<tr>
+													<td><div class="padded">
+                                      <h4 class="article-title">
                                         New MHRA drug safety advice: September
                                         to November 2019
                                       </h4>
@@ -3333,7 +1821,15 @@
                                           >NICE</span
                                         >
                                       </p>
-                                    </td>
+                                    </div></td>
+												</tr>
+											</tbody>
+										</table></div>
+										
+										
+										
+										
+									  </td>
                                     <th class="expander"></th>
                                   </tr>
                                 </tbody>
@@ -3346,13 +1842,10 @@
 
                       <!-- GENERIC SECTION START -->
                       <!-- HEADING START -->
-                      <table class="spacer-heading">
+                      <table class="spacer-heading" bgcolor="#e9e9e9">
                         <tbody>
                           <tr>
-                            <td
-                              height="16px"
-                              style="font-size:16px; line-height:16px;"
-                            >
+                            <td>
                               <h3 class="article-heading">
                                 @Model
                               </h3>
@@ -3365,11 +1858,12 @@
                       <table class="row article-border">
                         <tbody>
                           <tr>
-                            <th class="small-12 large-12 columns first last">
+                            <th class="">
                               <table>
                                 <tbody>
                                   <tr>
                                     <th>
+										<div class="padded">
                                       <h4 class="h4 article-title">
                                         <span class="article-link">
                                         @Model.Title
@@ -3411,7 +1905,9 @@
                                           Really long title here
                                         </span>
                                       </p>
+											</div>
                                     </th>
+									  
                                     <th class="expander"></th>
                                   </tr>
                                 </tbody>
@@ -3420,169 +1916,21 @@
                           </tr>
                         </tbody>
                       </table>
-
-                      <table class="row article-border">
-                        <tbody>
-                          <tr>
-                            <th class="small-12 large-12 columns first last">
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <th>
-                                      <h4 class="h4 article-title">
-                                        <a
-                                          class="article-link"
-                                          href="@Model.Url"
-                                        >
-                                          @Model.Title
-                                        </a>
-                                      </h4>
-                                      <p class="article-description">
-                                        @Model.ShortSummary
-                                      </p>
-
-                                      <p class="article-tags">
-                                        <span class="source-tag">
-                                          @Model.Source.Title
-                                        </span>
-                                      </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!-- ITEMS END -->
+<!-- ITEMS END -->
                       <!-- GENERIC SECTION END -->
 
                       <!-- GENERIC SECTION START -->
-                      <!-- HEADING START -->
-                      <table class="spacer-heading">
-                        <tbody>
-                          <tr>
-                            <td
-                              height="16px"
-                              style="font-size:16px; line-height:16px;"
-                            >
-                              <h3 class="article-heading">
-                                @Model
-                              </h3>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <!-- HEADING END -->
+                      <!-- HEADING START -->                      <!-- HEADING END -->
                       <!-- ITEMS START -->
-                      <table class="row article-border">
-                        <tbody>
-                          <tr>
-                            <th class="small-12 large-12 columns first last">
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <th>
-                                      <h4 class="h4 article-title">
-                                        <span class="article-link">
-                                        @Model.Title
-                                      </span>
-                                      </h4>
-                                      <p class="article-description">
-                                        This is a summary
-                                      </p>
-
-                                      <p class="article-description">
-                                        <a
-                                          class="article-link-subtle standard-link"
-                                          href="@(awsConfig.StaticURL)@(Model.Slug).html"
-                                          aria-label="Read SPS commentary for @Model.Title"
-                                        >
-                                          Read SPS commentary
-                                        </a>
-                                      </p>
-
-                                      <p class="article-tags">
-                                        <span class="source-tag">
-                                          @Model.Source.Title
-                                        </span>
-
-                                        <span class="specialism-tag">
-                                          @spec.Title
-                                        </span>
-                                        <span class="specialism-tag">
-                                          Fairly long title here that's longer
-                                          than expected
-                                        </span>
-                                        <span class="specialism-tag">
-                                          @spec.Title
-                                        </span>
-                                        <span class="specialism-tag">
-                                          @spec.Title
-                                        </span>
-                                        <span class="specialism-tag">
-                                          Really long title here
-                                        </span>
-                                      </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table class="row article-border">
-                        <tbody>
-                          <tr>
-                            <th class="small-12 large-12 columns first last">
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <th>
-                                      <h4 class="h4 article-title">
-                                        <a
-                                          class="article-link"
-                                          href="@Model.Url"
-                                        >
-                                          @Model.Title
-                                        </a>
-                                      </h4>
-                                      <p class="article-description">
-                                        @Model.ShortSummary
-                                      </p>
-
-                                      <p class="article-tags">
-                                        <span class="source-tag">
-                                          @Model.Source.Title
-                                        </span>
-                                      </p>
-                                    </th>
-                                    <th class="expander"></th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-
                       <!-- ITEMS END -->
                       <!-- GENERIC SECTION END -->
 
                       <!-- MEC FULL START -->
                        <!-- HEADING START -->
-                       <table class="spacer-heading">
+                       <table class="spacer-heading" bgcolor="#e9e9e9">
                         <tbody>
                           <tr>
-                            <td
-                              height="16px"
-                              style="font-size:16px; line-height:16px;"
-                            >
+                            <td>
                               <h3 class="article-heading">
                                 Medicines evidence commentary
                             </h3>
@@ -3595,7 +1943,8 @@
                       <table class="row article-border article-mec">
                         <tbody>
                           <tr>
-                            <th class="small-12 large-12 columns first last">
+                            <th>
+								<div class="padded">
                               <table>
                                 <tbody>
                                   <tr>
@@ -3607,13 +1956,49 @@
                                         @Html.Raw(Model.CommentarySummary)
                                       </div>
                                       <div class="article-description">
-                                        @Html.Raw(Model.CommentaryBody)
+<!--                                        @Html.Raw(Model.CommentaryBody)-->
+										  <h5>Overview and current advice</h5>
+<p>The NICE guideline on <a href="https://www.nice.org.uk/guidance/ng136">hypertension in adults</a> covers diagnosing and managing hypertension. It provides recommendations on when antihypertensive medicines should be offered or considered, monitoring treatment and blood pressure targets.</p>
+<p>The NICE guideline recommends a stepped approach to the use of antihypertensives, monotherapy at step 1, dual therapy at step 2 and triple therapy at step 3. If hypertension is not controlled in adults taking optimal tolerated doses of step 3 treatment, then people should be regarded as having resistant hypertension (step 4 treatment). For full details on the treatment recommendations see the <a href="https://www.nice.org.uk/guidance/ng136/chapter/Recommendations#treating-and-monitoring-hypertension">NICE guideline</a>. NICE does not make any recommendations on which time of day antihypertensives should be taken.</p>
+<p>A review article summarised results from recent research on timing of administration of antihypertensive medication. It concluded that in general, night-time administration improved overall 24-hour blood pressure profiles regardless of disease comorbidity. However, inconsistencies between studies suggested a need for more prospective randomised controlled trials with sufficient statistical power (<a href="https://rd.springer.com/article/10.1007/s11906-018-0897-4">Bowles et al. 2018</a>). For some types of antihypertensive medication for example, thiazide-like diuretics, it may be necessary to take them in the morning to avoid diuresis interfering with sleep if taken later in the day or at bedtime.</p>
+<p>NICE has produced a <a href="https://www.nice.org.uk/guidance/ng136/resources">patient decision aid</a> on treatment options for hypertension to help people and their healthcare professionals discuss the different types of treatment and make a decision that is right for each person. The NICE guideline also highlights the importance of supporting adherence and ensuring that people with hypertension make the most effective use of their medicines, see NICE&rsquo;s guideline on <a href="https://www.nice.org.uk/guidance/cg76">medicines adherence</a>.</p>
+<h5>New evidence</h5>
+<p>A multicentre, controlled, prospective randomised, open-label, blinded endpoint study aimed to assess whether taking all antihypertensive medication at bedtime reduced cardiovascular risk compared with taking them in the morning (<a href="https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehz754/5602478">Hermida et al. 2019</a>).</p>
+<p>The Spanish study included 19,084 Caucasian people (10,614 men and 8,470 women; mean age 60.5&nbsp;years) with confirmed hypertension taking 1 or more antihypertensives. Within the group 23.9% had type 2 diabetes, 29.4% had chronic kidney disease, 43.0% were obese and 10.4% had a previous cardiovascular disease (CVD) event. People were excluded from the study if they did night or rotating shift work, were pregnant, had secondary hypertension or had CVD and certain associated co-morbidities including unstable angina, heart failure, atrial fibrillation and kidney failure.</p>
+<p>Participants were randomised to either take all of their antihypertensives as a once-daily dosage at bedtime (n=9,532) or immediately upon waking (n=9,552) and had a minimum of 1&nbsp;year of follow-up. At baseline, there was no statistically significant difference between the 2 groups for previous CVD events, type 2 diabetes, chronic kidney disease, smoking status, cholesterol levels or office and ambulatory blood pressure measurements.</p>
+<p>Antihypertensive medication from any of the following therapeutic classes was allowed. The proportion of participants taking a drug from each of the therapeutic classes at the end of the study in the upon waking and bedtime groups respectively was:</p>
+<ul>
+<li>angiotensin II receptor blockers: 53.1% in both groups</li>
+<li>angiotensin converting enzyme inhibitors: 25.3% and 23.4%</li>
+<li>calcium channel blockers: 32.7% and 36.8%</li>
+<li>beta-blockers: 22.0% and 17.5%</li>
+<li>diuretics: 46.5% and 39.5%.</li>
+</ul>
+<p>Dual and triple treatment regimens, where available, were prescribed as single-tablet fixed combinations.</p>
+<p>Over a median follow-up of 6.3&nbsp;years, 1,752 (9.2%) participants had a CVD event listed in the combined primary outcome (myocardial infarction, coronary revascularisation, heart failure, ischaemic stroke, haemorrhagic stroke and CVD death). Participants in the bedtime administration group had a <a href="https://www.nice.org.uk/Glossary?letter=S">statistically significant</a> lower risk of the primary CVD outcome compared with those in the upon waking group (adjusted <a href="https://www.nice.org.uk/Glossary?letter=H">hazard ratio</a> 0.55, 95% <a href="https://www.nice.org.uk/Glossary?letter=C">confidence interval</a> 0.50 to 0.61, p&lt;0.001; adjusted for baseline characteristics such as age, sex and co-morbidities).There was also a statistically significant lower risk of all of these outcomes individually in the bedtime compared with upon waking group. Throughout the study, 48-hour ambulatory blood pressure was recorded at least annually. There was no statistically significant difference between the 2 groups for mean awake systolic or diastolic blood pressure, but there was a statistically significant lower mean asleep systolic and diastolic blood pressure in the bedtime administration group.</p>
+<p>There was no statistically significant difference in the frequency of adverse effects (reported by 6.7% and 6.0% of the upon waking and bedtime administration groups respectively, p=0.061), or poor adherence to the allocated treatment schedule (2.8% and 2.9% respectively, p=0.813). The study only reported overall incidence of adverse events and did not report on specific adverse events such as falls. In addition, adverse events were only recorded if spontaneously reported by participants or revealed through non-direct questioning and physical examination. There was no statistically significant difference between the 2 groups for sleep time hypotension (0.3% of all participants).</p>
+<p>This was a large study with a long duration of follow-up. However, the study authors have highlighted some study limitations. The study population was Caucasian, therefore validation of the results for other ethnic groups is needed. Also, the study did not allocate participants to specific antihypertensive medication therapeutic classes or set medication within each class as treatment was chosen by each participating clinician. For diuretics for instance, at the end of the study, there were more participants taking them in the upon waking group (46.5%) compared with the bedtime administration group (39.5%, p&lt;0.001). Finally, the method by which adverse events were assessed is open to recall bias.</p>
+<h6>Commentary provided by Dr Mark Shapley, member of NICE hypertension in adults guideline committee and retired General Practitioner</h6>
+<p>This large prospective trial aimed to answer a simple question directly relevant to general practice where there is a lack of good quality evidence. This new evidence suggests that taking the total daily dose of antihypertensive medication at bedtime, compared with in the morning, reduces cardiovascular events and mortality over a mean of 6.3&nbsp;years. A major clinically significant result - but there are caveats.</p>
+<p>The study included a non-UK (Spanish), Caucasian population and therefore, the findings may not apply to other populations with different sleeping patterns (although participants were encouraged not to sleep in the day) or people with different family origins. The mean age of the cohort was 60.5 years and therefore results may not apply to older cohorts.</p>
+<p>As is common in many trials of antihypertensive therapy, patient centred adverse events were poorly reported (sleep disturbance due to nocturia, falls and dizzy episodes due to postural hypotension). These were only collated via spontaneous reports which relies on people remembering to report such events. Assessing this by active questioning would have been preferable.</p>
+<p>The classes of drugs prescribed were not blinded and there were differences between the 2&nbsp;study groups with those who took a morning dose more likely to be on diuretics and beta-blockers.</p>
+<p>Broadly the clinicians appeared to prescribe classes of drugs in the manner of the NICE guidance but the criteria for diagnosing hypertension differed by using not only ambulatory blood pressure monitoring whilst awake but also allowed recruitment of those with raised blood pressure diagnosed using ambulatory blood pressure monitoring whilst asleep. The monitoring period for ambulatory blood pressure in the study was also 48 hours.</p>
+<p>The NICE guidance makes no recommendation as to when to take antihypertensive medication and it was a question that the development group did not consider.</p>
+<p>In conclusion, and despite the limitations discussed above, there may be a potential health gain in switching to a regimen of taking a total daily dose of antihypertensive medication at bedtime. This seems reasonable to do but we should be cautious if considering this in older people, in those at risk of falls and in those in whom such a change may reduce concordance with medication (for example, those taking antihypertensives which may not be suitable for bedtime administration such as diuretics).</p>
+<p>Declaration of interests: Dr Mark Shapley declared no interests.</p>
+<h5>Study sponsorship</h5>
+<p>The randomised controlled trial was funded by the Hygia Project, an independent investigator-promoted research network supported by unrestricted grants from several Spanish Government and European Regional Development Funds.</p>
+<h5>References</h5>
+<p>Bowles NP, Thosar SS, Herzig MX, et al (2018) <a href="https://rd.springer.com/article/10.1007/s11906-018-0897-4">Chronotherapy for hypertension</a>. Current Hypertension Reports 20: 97</p>
+<p>Hermida RC, Crespo JJ, Dominguez-Sardina M et al (2019) <a href="https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehz754/5602478">Bedtime hypertension treatment improves cardiovascular risk reduction: the Hygia Chronotherapy Trial</a>. European Heart Journal 0: 1&ndash;12</p>
                                       </div>
                                     </td>
                                     <td class="expander"></td>
                                   </tr>
                                 </tbody>
                               </table>
+								</div>
                             </th>
                           </tr>
                         </tbody>
@@ -3625,10 +2010,11 @@
                     <table class="row header-bgd">
                       <tbody>
                         <tr>
-                          <th class="small-12 large-12 columns first last">
+                          <th bgcolor="#004650">
                             <table>
                               <tr>
                                 <th>
+									<div class="padded">
                                   <p class="text-center about-text">
                                     Specialist Pharmacy Service and NICE bring
                                     you the latest current awareness and
@@ -3651,6 +2037,8 @@
                                       >Leave feedback</a
                                     >
                                   </p>
+									</div>
+									
                                 </th>
                                 <th class="expander"></th>
                               </tr>
