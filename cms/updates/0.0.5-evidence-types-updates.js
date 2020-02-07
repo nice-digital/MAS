@@ -6,17 +6,18 @@ const keystone = require("keystone"),
 const logger = log4js.getLogger();
 const EvidenceTypeList = keystone.list("EvidenceType");
 
-const deleteEvidenceType = async (title, done) => {
-	logger.info(`Deleting evidence type: ${title}`);
+const deleteEvidenceType = async (etitle, done) => {
+	logger.info(`Deleting evidence type: ${etitle}`);
 
 	try {
-		await EvidenceTypeList.model.find({ title: title }).remove();
-		logger.info(`Successfully deleted ${title}`);
+		await EvidenceTypeList.model.findOne({ title: { "$regex": etitle, "$options": "i" } }).remove();
 		done();
 	} catch (err) {
-		logger.error(`Error deleting ${title}`, err);
+		logger.error(`Error deleting ${etitle}`, err);
 		done(err);
 	}
+
+	logger.info(`Successfully deleted ${etitle}`);
 };
 
 const renameEvidenceType = async (evidenceType, done) => {
@@ -28,14 +29,17 @@ const renameEvidenceType = async (evidenceType, done) => {
 	logger.info(`Renaming evidence type ${oldTitle} to ${newTitle}`);
 
 	try {
-		let item = await EvidenceTypeList.model.find({ title: oldTitle });
-		item.title = newTitle;
-		logger.info(`Successfully renamed ${oldTitle} to ${newTitle}`);
+		await EvidenceTypeList.model.updateOne(
+			{ title: { "$regex": oldTitle, "$options": "i" } },
+			{ $set: { title: newTitle } }
+		);
 		done();
 	} catch (err) {
 		logger.error(`Error renaming ${oldTitle} to ${newTitle}`, err);
 		done(err);
 	}
+
+	logger.info(`Successfully renamed ${oldTitle} to ${newTitle}`);
 };
 
 const addNewEvidenceType = async (evidenceType, done) => {
