@@ -38,6 +38,7 @@ namespace MAS
             services.TryAddSingleton<IViewRenderer, ViewRenderer>();
             services.TryAddTransient<IMailService, MailService>();
             services.TryAddTransient<IContentService, ContentService>();
+            services.TryAddTransient<IBankHolidayService, BankHolidayService>();
 
             EnvironmentConfig environmentConfig = new EnvironmentConfig();
             AWSConfig awsConfig = new AWSConfig();

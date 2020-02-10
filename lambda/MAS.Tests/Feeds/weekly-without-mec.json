@@ -1,0 +1,150 @@
+{
+  "_id": "5e29ed4710cfe5d68e3d31bf",
+  "updatedAt": "2020-01-23T19:13:45.349Z",
+  "createdAt": "2020-01-23T19:00:23.821Z",
+  "title": "20th January 2020 to 24th January 2020",
+  "sendDate": "2020-01-27T00:00:00.000Z",
+  "startDate": "2020-01-20T00:00:00.000Z",
+  "endDate": "2020-01-24T00:00:00.000Z",
+  "__v": 0,
+  "commentaryBody": "",
+  "commentarySummary": "",
+  "commentaryTitle": "",
+  "updatedBy": "5e29ec6810cfe524ee3d2bac",
+  "items": [
+    {
+      "_id": "5e29ed4710cfe56f493d31be",
+      "updatedBy": "5e29ec6810cfe524ee3d2bac",
+      "updatedAt": "2020-01-23T19:00:56.218Z",
+      "createdBy": "5e29ec6810cfe524ee3d2bac",
+      "createdAt": "2020-01-23T19:00:23.810Z",
+      "slug": "emgality-galcanezumab-injection-in-pre-filled-pen",
+      "staticPath": "http://localhost:8000/emgality-galcanezumab-injection-in-pre-filled-pen.html",
+      "evidenceType": {
+        "_id": "5e29ec6c10cfe51c393d31a1",
+        "title": "Guidance and advice - Drug prescribing",
+        "key": "mas_evidence_types:Drug%20prescribing",
+        "broaderTitle": "Guidance and advice",
+        "oldEPiServerId": 778799,
+        "__v": 0
+      },
+      "source": {
+        "_id": "5e29ec6b10cfe5ccca3d2d68",
+        "oldEPiServerId": 1211,
+        "title": "electronic Medicines compendium",
+        "__v": 0
+      },
+      "url": "https://www.medicines.org.uk/emc/product/10478/smpc",
+      "title": "Emgality (galcanezumab) injection in pre-filled pen ",
+      "__v": 1,
+      "comment": "",
+      "publicationDate": "2020-01-23T00:00:00.000Z",
+      "relevancy": 1,
+      "resourceLinks": "",
+      "shortSummary": "SPC now advises that serious hypersensitivity reactions including cases of anaphylaxis, angioedema and urticaria have been reported. If a serious hypersensitivity reaction occurs, administration of galcanezumab should be discontinued immediately and appropriate therapy initiated",
+      "weekly": "5e29ed4710cfe5d68e3d31bf",
+      "isInitial": false,
+      "specialities": [
+        {
+          "_id": "5e29ec6c10cfe530c73d3173",
+          "key": "023caa1d-543e-4cd4-a89d-8eaa2c0ec513",
+          "title": "Allergy and immunology",
+          "__v": 0
+        },
+        {
+          "_id": "5e29ec6c10cfe531923d317b",
+          "key": "ea782323-1ebb-44d6-ba9e-2d97e78b8cf5",
+          "title": "Emergency medicine and urgent care",
+          "__v": 0
+        },
+        {
+          "_id": "5e29ec6c10cfe550d53d3188",
+          "key": "793637c7-9615-42b1-905c-4827a6fab04c",
+          "title": "Neurological disorders",
+          "__v": 0
+        }
+      ]
+    },
+    {
+      "_id": "5e29ed9110cfe5e07a3d31c0",
+      "updatedBy": "5e29ec6810cfe524ee3d2bac",
+      "updatedAt": "2020-01-23T19:02:02.083Z",
+      "createdBy": "5e29ec6810cfe524ee3d2bac",
+      "createdAt": "2020-01-23T19:01:37.351Z",
+      "slug": "opioid-prescribing-trends-and-geographical-variation-in-england",
+      "staticPath": "http://localhost:8000/opioid-prescribing-trends-and-geographical-variation-in-england.html",
+      "evidenceType": {
+        "_id": "5e29ec6c10cfe530713d31b2",
+        "title": "Primary research - Other primary research",
+        "key": "mas_evidence_types:Other%20primary%20research",
+        "broaderTitle": "Guidance and advice",
+        "oldEPiServerId": 778930,
+        "__v": 0
+      },
+      "source": {
+        "_id": "5e29ec6c10cfe50f303d30ef",
+        "oldEPiServerId": 649,
+        "title": "The Lancet Psychiatry",
+        "__v": 0
+      },
+      "url": "https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(18)30471-1/fulltext",
+      "title": "Opioid prescribing trends and geographical variation in England",
+      "__v": 1,
+      "comment": "<p>Study also found that the larger practice list size, ruralness, and deprivation were associated with greater high-dose prescribing rates. The CCG to which a practice belongs accounted for 11.7% of the variation in high-dose prescribing.</p>",
+      "publicationDate": "2020-01-23T00:00:00.000Z",
+      "relevancy": 2,
+      "resourceLinks": "",
+      "shortSummary": "There were substantial increase in opioid (OP) prescribing in NHS between 1998 and 2016; OP prescriptions increased by 34% (from 568/1000 patients to 761/1000). After correcting for total oral morphine equivalency, increase was 127% (from 190,000 to 431,000mg/1000 population).",
+      "weekly": "5e29ed4710cfe5d68e3d31bf",
+      "isInitial": false,
+      "specialities": [
+        {
+          "_id": "5e29ec6c10cfe552dc3d3174",
+          "key": "be1c2e2f-745e-4a82-b5aa-d4cef4d31a1b",
+          "title": "Anaesthesia and pain",
+          "__v": 0
+        },
+        {
+          "_id": "5e29ec6c10cfe596833d3186",
+          "key": "9e36e9bc-220b-41d6-9d5c-600921d39e72",
+          "title": "Mental health and illness",
+          "__v": 0
+        }
+      ]
+    },
+    {
+      "_id": "5e29f15910cfe55f753d31c2",
+      "updatedBy": "5e29ec6810cfe524ee3d2bac",
+      "updatedAt": "2020-01-23T19:18:23.571Z",
+      "createdBy": "5e29ec6810cfe524ee3d2bac",
+      "createdAt": "2020-01-23T19:17:45.519Z",
+      "slug": "effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock",
+      "staticPath": "http://localhost:8000/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html",
+      "evidenceType": {
+        "_id": "5e29ec6c10cfe51c393d31a1",
+        "title": "Guidance and advice - Drug prescribing",
+        "key": "mas_evidence_types:Drug%20prescribing",
+        "broaderTitle": "Guidance and advice",
+        "oldEPiServerId": 778799,
+        "__v": 0
+      },
+      "source": {
+        "_id": "5e29ec6b10cfe55fb23d2ec2",
+        "oldEPiServerId": 263,
+        "title": "Journal of the American Medical Association",
+        "__v": 0
+      },
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/2759414",
+      "title": "Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock",
+      "__v": 0,
+      "comment": "<p>The median of all paired differences between the two arms was &ndash;0.6 hours (95% CI, &ndash;8.3 to 7.2 hours; p=&thinsp;0.83).&nbsp;</p>\r\n<p>A related editorial states this RCT adds to the cumulative evidence from 13 different studies performed in 10 different countries; which all indicate that high-dose vitamin C with or without thiamine and steroids does not provide significant survival benefits for patients with sepsis or septic shock.</p>",
+      "publicationDate": "2020-01-23T00:00:00.000Z",
+      "relevancy": 3,
+      "resourceLinks": "<p><a href=\"https://jamanetwork.com/journals/jama/fullarticle/2759413\">Editorial</a></p>",
+      "shortSummary": "Exploratory RCT (n=216) found IV vitamin C, hydrocortisone & thiamine vs. IV hydrocortisone alone, does not significantly improve duration of time alive & free of vasopressor administration over 7 days (122.1 hrs vs. 124.6 hrs, respectively).",
+      "weekly": "5e29ed4710cfe5d68e3d31bf",
+      "isInitial": false,
+      "specialities": []
+    }
+  ]
+}
