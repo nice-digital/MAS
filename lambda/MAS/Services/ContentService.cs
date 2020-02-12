@@ -13,6 +13,7 @@ namespace MAS.Services
     {
         Task<IEnumerable<ItemLight>> GetAllItemsAsync();
         Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime date);
+        Task<Weekly> GetWeeklyAsync(DateTime sendDate);
     }
 
     public class ContentService : IContentService
@@ -44,6 +45,25 @@ namespace MAS.Services
                 {
                     _logger.LogError(e, $"Failed to get all items from CMS");
                     throw new Exception($"Failed to get all items from CMS", e);
+                }
+            }
+        }
+
+        public async Task<Weekly> GetWeeklyAsync(DateTime sendDate)
+        {
+            using (WebClient client = new WebClient())
+            {
+                var path = string.Format(_cmsConfig.WeekliesBySendDatePath, sendDate.ToString("yyyy-MM-dd"));
+                try
+                {
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
+                    var weekly = JsonConvert.DeserializeObject<Weekly>(jsonStr);
+                    return weekly;
+                }
+                catch(Exception e)
+                {
+                    _logger.LogError(e, $"Failed to get weekly item from CMS");
+                    throw new Exception($"Failed to get weekly item from CMS", e);
                 }
             }
         }

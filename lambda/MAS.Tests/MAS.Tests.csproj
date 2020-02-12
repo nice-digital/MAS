@@ -17,7 +17,11 @@
     <None Remove="Feeds\daily-items-single.json" />
     <None Remove="Feeds\daily-items.json" />
     <None Remove="Feeds\single-item.json5daeb5af22565a82530d7373" />
+    <None Remove="Feeds\weekly-without-mec.json" />
+    <None Remove="Feeds\weekly.json" />
     <None Remove="IntegrationTests\DailyEmailTests.SomeTest.actual.txt" />
+    <None Remove="Feeds\weekly.json2019-08-26" />
+    <None Remove="Feeds\weekly.json2020-01-13" />
     <None Remove="single-item.json" />
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +41,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Feeds\all-items.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Feeds\weekly-without-mec.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Feeds\weekly.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

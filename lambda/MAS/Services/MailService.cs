@@ -2,6 +2,7 @@
 using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MAS.Configuration;
+using MAS.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace MAS.Services
     public interface IMailService
     {
         Task<Campaign> CreateAndSendDailyAsync(DateTime date, string previewText, string body, List<string> specialitiesInEmail, IEnumerable<Interest> allSpecialities, string receiveEverythingGroupId);
+        Task<Campaign> CreateAndSendWeeklyAsync(string previewText, string body, string title);
     }
 
     public class MailService: IMailService
@@ -89,6 +91,7 @@ namespace MAS.Services
                         }
                     }
                 });
+                _logger.LogInformation($"Daily campaign has been created with campaignId {campaign.Id}");
 
                 await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
                 {
@@ -104,6 +107,7 @@ namespace MAS.Services
                         }
                     }
                 });
+                _logger.LogInformation($"The body of daily template {_mailChimpConfig.DailyTemplateId} has been updated");
 
                 await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
 
@@ -113,6 +117,57 @@ namespace MAS.Services
             {
                 _logger.LogError(e, $"Failed to send daily email for {dateStr}: {e.Message}");
                 throw new Exception($"Failed to send daily email for {dateStr}: {e.Message}", e);
+            }  
+        }
+          
+        public async Task<Campaign> CreateAndSendWeeklyAsync(string previewText, string body, string title)
+        {
+            try
+            { 
+                var campaign = await _mailChimpManager.Campaigns.AddAsync(new Campaign
+                {
+                    Type = CampaignType.Regular,
+                    Settings = new Setting
+                    {
+                        FolderId = _mailChimpConfig.CampaignFolderId,
+                        TemplateId = _mailChimpConfig.WeeklyTemplateId,
+                        SubjectLine = string.Format(_mailConfig.WeeklySubject, title),
+                        FromName = _mailConfig.FromName,
+                        ReplyTo = _mailConfig.ReplyTo,
+                        PreviewText = previewText,
+                        AutoFooter = false
+                    },
+                    Recipients = new Recipient
+                    {
+                        ListId = _mailChimpConfig.ListId,
+                        SegmentOptions = new SegmentOptions
+                        {
+                            SavedSegmentId = _mailChimpConfig.WeeklySegmentId,
+                        }
+                    }
+                });
+                _logger.LogInformation($"Weekly campaign has been created with campaignId {campaign.Id}");
+                await _mailChimpManager.Content.AddOrUpdateAsync(campaign.Id, new ContentRequest
+                {
+                    Template = new ContentTemplate
+                    {
+                        Id = _mailChimpConfig.WeeklyTemplateId,
+                        Sections = new Dictionary<string, object> {
+                            { "body", body },
+                            { "date", title }
+                        }
+                    }
+                });
+                _logger.LogInformation($"The body of weekly template {_mailChimpConfig.WeeklyTemplateId} has been updated");
+
+                await _mailChimpManager.Campaigns.SendAsync(campaign.Id.ToString());
+
+                return campaign;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Failed to send weekly email for {title}: {e.Message}");
+                throw new Exception($"Failed to send weekly email for {title}: {e.Message}, e");
             }
         }
     }
