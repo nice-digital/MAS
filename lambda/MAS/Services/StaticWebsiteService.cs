@@ -69,7 +69,7 @@ namespace MAS.Services
                 }
             }
 
-            if (_cloudFrontConfig.Enabled.ToLower() == "true" && requests.Count() > 0)
+            if (_cloudFrontConfig.Enabled == true && requests.Count() > 0)
                 responseCode = await InvalidateCacheAsync(taskDict.Select(x => "/" + x.Key.FilePath).ToList());
 
             return responseCode;

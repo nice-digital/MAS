@@ -32,7 +32,7 @@ namespace MAS.Tests.UnitTests.Services
             mockCloudFrontService.Setup(cf => cf.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
                 .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = HttpStatusCode.Created });
 
-            var cfConfig = new CloudFrontConfig() { Enabled = "true" };
+            var cfConfig = new CloudFrontConfig() { Enabled = true };
             var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, Mock.Of<ILogger<S3StaticWebsiteService>>(), Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };
@@ -62,7 +62,7 @@ namespace MAS.Tests.UnitTests.Services
             mockCloudFrontService.Setup(cf => cf.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
                 .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = HttpStatusCode.InternalServerError });
 
-            var cfConfig = new CloudFrontConfig() { Enabled = "true" };
+            var cfConfig = new CloudFrontConfig() { Enabled = true };
             var service = new S3StaticWebsiteService(mockS3.Object, mockCloudFrontService.Object, Mock.Of<ILogger<S3StaticWebsiteService>>(), Mock.Of<AWSConfig>(), Mock.Of<EnvironmentConfig>(), cfConfig);
 
             var a = new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = new System.IO.MemoryStream() };

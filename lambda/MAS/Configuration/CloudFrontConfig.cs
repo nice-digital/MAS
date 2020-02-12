@@ -14,7 +14,7 @@ namespace MAS.Configuration
             Current = this;
         }
 
-        public string Enabled { get; set; }
+        public bool Enabled { get; set; }
         public string DistributionID { get; set; }
     }
 }
