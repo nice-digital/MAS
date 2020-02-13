@@ -1,4 +1,5 @@
 using Amazon;
+using Amazon.CloudFront;
 using Amazon.S3;
 using MailChimp.Net;
 using MAS.Configuration;
@@ -29,6 +30,7 @@ namespace MAS
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
@@ -40,21 +42,24 @@ namespace MAS
 
             EnvironmentConfig environmentConfig = new EnvironmentConfig();
             AWSConfig awsConfig = new AWSConfig();
+            CloudFrontConfig cloudFrontConfig = new CloudFrontConfig();
             CMSConfig cmsConfig = new CMSConfig();
             MailChimpConfig mailChimpConfig = new MailChimpConfig();
             MailConfig mailConfig = new MailConfig();
 
             Configuration.Bind("AppSettings:Environment", environmentConfig);
             Configuration.Bind("AWS", awsConfig);
+            Configuration.Bind("AWS:CloudFront", cloudFrontConfig);
             Configuration.Bind("CMS", cmsConfig);
             Configuration.Bind("MailChimp", mailChimpConfig);
             Configuration.Bind("Mail", mailConfig);
 
             services.AddSingleton(environmentConfig)
-                .AddSingleton(awsConfig)
-                .AddSingleton(cmsConfig)
-                .AddSingleton(mailChimpConfig)
-                .AddSingleton(mailConfig);
+            .AddSingleton(awsConfig)
+            .AddSingleton(cloudFrontConfig)
+            .AddSingleton(cmsConfig)
+            .AddSingleton(mailChimpConfig)
+            .AddSingleton(mailConfig);
 
             services.AddMailChimpClient(mailChimpConfig.ApiKey);
 
@@ -79,6 +84,13 @@ namespace MAS
             {
                 return new AmazonS3Client(awsConfig.AccessKey, awsConfig.SecretKey, s3config);
             });
+
+            var cloudfrontConfig = new AmazonCloudFrontConfig(){ RegionEndpoint = Region };
+            services.AddTransient<IAmazonCloudFront>((acf) =>
+            {
+                return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
