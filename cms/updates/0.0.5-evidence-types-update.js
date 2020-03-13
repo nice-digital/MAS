@@ -2,8 +2,7 @@ const keystone = require("keystone"),
 	async = require("async"),
 	log4js = require("log4js"),
 	fs = require("fs"),
-	path = require("path"),
-	util = require("util");
+	path = require("path");
 
 const logger = log4js.getLogger();
 const evidenceTypeList = keystone.list("EvidenceType");
@@ -16,56 +15,50 @@ const deleteEvidenceType = async (evidenceType, done) => {
 		await evidenceTypeList.model.findOne({ title: { "$regex": eTitle, "$options": "i" } }).remove();
 		done();
 	} catch (err) {
-		logger.error(`Error deleting ${eTitle}`, err);
+		logger.error(`Error deleting '${eTitle}'`, err);
 		done(err);
 	}
 
-	logger.info(`Successfully deleted ${eTitle}`);
+	logger.info(`Successfully deleted '${eTitle}'`);
 };
 
-const updateEvidenceType = async (evidenceType, done) => {
-	let evidenceTypeInKeystone = await evidenceTypeList.model.findOne({key: evidenceType["@id"] }).exec();
-	if(!evidenceTypeInKeystone)
+const updateEvidenceType = async (jsonldEvidenceType, done) => {
+	let masEvidenceType = await evidenceTypeList.model.findOne({key: jsonldEvidenceType["@id"] }).exec();
+	if(!masEvidenceType)
 		return;
 
-	let newTitle = evidenceTypeInKeystone.broaderTitle + " - " + evidenceType["prefLabel"]["@value"];
-	let oldTitle = evidenceTypeInKeystone.title;
+	let newTitleShort = jsonldEvidenceType["prefLabel"]["@value"];
+	let newTitle = masEvidenceType.broaderTitle + " - " + newTitleShort;
+	let oldTitle = masEvidenceType.title;
 
-	if(newTitle != oldTitle){
-		logger.info(`Renaming evidence type ${oldTitle} to ${newTitle}`);
+	if(newTitle != oldTitle && !oldTitle.includes(newTitleShort)){
+
+		logger.info(`Updating evidence type '${oldTitle}' to '${newTitle}'`);
 
 		try {
-			var docToUpdate = await evidenceTypeList.model.findOne({ key: evidenceType["@id"] });
+			var docToUpdate = await evidenceTypeList.model.findOne({ key: jsonldEvidenceType["@id"] });
 			docToUpdate.title = newTitle;
-			docToUpdate.key = evidenceType["@id"];
+			docToUpdate.key = jsonldEvidenceType["@id"];
 			await docToUpdate.save();
 			done();
 		} catch (err) {
-			logger.error(`Error renaming ${oldTitle} to ${newTitle}`, err);
+			logger.error(`Error updating '${oldTitle}' to '${newTitle}'`, err);
 			done(err);
 		}
 	
-		logger.info(`Successfully renamed ${oldTitle} to ${newTitle}`);
+		logger.info(`Successfully updated '${oldTitle}' to '${newTitle}'`);
 	}	
 }
 
-const addNewEvidenceType = async (evidenceType, done) => {
-	let title = evidenceType.prefLabel["@value"];
-	let key = evidenceType["@id"];
+const addNewMasEvidenceType = async (masEvidenceType, done) => {
+	logger.info(`Adding new evidence type: ${masEvidenceType.title}`);
 
-	logger.info(`Adding new evidence type: ${title}`);
-
-	const newEvidenceTypeDbModel = new evidenceTypeList.model({
-		title: title,
-		key: key
-	});
-
-	newEvidenceTypeDbModel.save(function (err) {
+	masEvidenceType.save(function (err) {
 		if (err) {
-			logger.error(`Error adding evidence type ${title} to the database`, err);
+			logger.error(`Error adding evidence type '${masEvidenceType.title}' to the database`, err);
 			throw err;
 		} else {
-			logger.info(`Added evidence type ${title} to the database.`);
+			logger.info(`Successfully added evidence type '${masEvidenceType.title}' to the database.`);
 		}
 		done();
 	});
@@ -77,8 +70,8 @@ exports = module.exports = async function (done) {
 		path.resolve(__dirname, "0.0.5-evidence-types-update.jsonld"),
 		"UTF-8",
 		async function(err, contents){
-			const evidenceTypesJsonLd = JSON.parse(contents),
-				latestEvidenceTypes = evidenceTypesJsonLd["@graph"]
+			const jsonldObj = JSON.parse(contents),
+				jsonldEvidenceTypes = jsonldObj["@graph"]
 					.filter(a => a.prefLabel != undefined && a.prefLabel["@value"] != undefined);
 			
 			let callback = function (err) {
@@ -88,10 +81,10 @@ exports = module.exports = async function (done) {
 			}
 
 			//Deletes
-			let latestEvidenceTypesIds = latestEvidenceTypes.map(a => a["@id"]);
+			let jsonldEvidenceTypesIds = jsonldEvidenceTypes.map(a => a["@id"]);
 			let evidenceTypesToDelete;
 			try {
-				evidenceTypesToDelete = await evidenceTypeList.model.find( { key: { $nin: latestEvidenceTypesIds } }).exec();
+				evidenceTypesToDelete = await evidenceTypeList.model.find( { key: { $nin: jsonldEvidenceTypesIds } }).exec();
 			} catch (err) {
 				logger.error(`Error:`, err);
 				throw err;
@@ -99,12 +92,24 @@ exports = module.exports = async function (done) {
 			let deletes = async.forEach(evidenceTypesToDelete, deleteEvidenceType, callback);
 			
 			//Renames
-			let updates = async.forEach(latestEvidenceTypes, updateEvidenceType, callback); 
+			let updates = async.forEach(jsonldEvidenceTypes, updateEvidenceType, callback); 
 
 			//Additions
-			let newEvidenceTypes = latestEvidenceTypes.filter(et => et.prefLabel["@value"] == "Safety support material");
-			//TODO: Ensure the title for the new types incorporates the broader title eg saferty alters - saferty support material
-			let adds = async.forEach(newEvidenceTypes, addNewEvidenceType, callback); 
+			function createMasEvidenceType(jsonldEvidenceType){
+				let broaderTitle = jsonldEvidenceTypes.find(x => x["@id"] == jsonldEvidenceType.broader).prefLabel["@value"];
+				
+				return new evidenceTypeList.model({
+					title: broaderTitle  + " - " + jsonldEvidenceType.prefLabel["@value"],
+					key: jsonldEvidenceType["@id"]
+				});
+			}
+
+			let additionsFromJsonld = ["Safety support material"]
+			let newEvidenceTypes = jsonldEvidenceTypes
+				.filter(et => additionsFromJsonld.includes(et.prefLabel["@value"]))
+				.map(et => createMasEvidenceType(et));
+
+			let adds = async.forEach(newEvidenceTypes, addNewMasEvidenceType, callback); 
 			
 			Promise.all([deletes, updates, adds]).then(() => {
 				logger.info(`Finished update 05.`);
