@@ -12,6 +12,9 @@ namespace MAS.Controllers
             if (httpStatusCode == HttpStatusCode.OK)
                 return Ok();
 
+            if (httpStatusCode == HttpStatusCode.Created)
+                return Created("", new { });
+
             logger.LogWarning("An error has occurred. Status code :" + httpStatusCode);
 
             if (httpStatusCode == HttpStatusCode.Unauthorized)

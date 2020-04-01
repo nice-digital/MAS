@@ -48,7 +48,7 @@ keystone.set("nav", {
 	users: "User"
 });
 
-keystone.set("wysiwyg additional plugins", "paste");
+keystone.set("wysiwyg additional plugins", "paste, lists");
 
 keystone.set("wysiwyg override toolbar", true);
 keystone.set(
@@ -64,15 +64,15 @@ keystone.set("wysiwyg additional options", {
 	// See https://www.tiny.cloud/docs-4x/plugins/link/#link_title
 	link_title: false,
 	target_list: false,
-	paste_as_text: true,
+	//Allows a restricted list of elements to be copied across from word whilst stripping most formatting
+	paste_word_valid_elements:
+		"p,b,strong,i,em,br,ul,ol,table,tbody,tr,td,a[href]",
 	// Default options for "styleselect" if added to buttons on a per-field basis
 	// See https://www.tiny.cloud/docs-4x/configure/content-formatting/#style_formats
+	content_style: "h5 { font-size: 16px; }" + "h6 { font-size: 14px; }",
 	style_formats: [
-		{ title: "Header 2", format: "h2" },
-		{ title: "Header 3", format: "h3" },
-		{ title: "Header 4", format: "h4" },
-		{ title: "Header 5", format: "h5" },
-		{ title: "Header 6", format: "h6" },
+		{ title: "Primary heading", format: "h5" },
+		{ title: "Secondary heading", format: "h6" },
 		{ title: "Paragraph", format: "p" }
 	]
 });
