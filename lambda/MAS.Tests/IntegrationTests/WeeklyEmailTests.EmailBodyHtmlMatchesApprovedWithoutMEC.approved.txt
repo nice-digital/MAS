@@ -5,10 +5,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Guidance and advice
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -16,38 +16,46 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.medicines.org.uk/emc/product/10478/smpc">
                                             Emgality (galcanezumab) injection in pre-filled pen 
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     SPC now advises that serious hypersensitivity reactions including cases of anaphylaxis, angioedema and urticaria have been reported. If a serious hypersensitivity reaction occurs, administration of galcanezumab should be discontinued immediately and appropriate therapy initiated
                                 </p>
+
+                                <p class="source-tag-container">
+                                    <span class="source-tag">electronic Medicines compendium</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        electronic Medicines compendium
-                                    </span>
                                         <span class="specialism-tag">
                                             Allergy and immunology
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Emergency medicine and urgent care
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Neurological disorders
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -55,40 +63,47 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(18)30471-1/fulltext">
                                             Opioid prescribing trends and geographical variation in England
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     There were substantial increase in opioid (OP) prescribing in NHS between 1998 and 2016; OP prescriptions increased by 34% (from 568/1000 patients to 761/1000). After correcting for total oral morphine equivalency, increase was 127% (from 190,000 to 431,000mg/1000 population).
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/opioid-prescribing-trends-and-geographical-variation-in-england.html" aria-label="Read SPS commentary for Opioid prescribing trends and geographical variation in England">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">The Lancet Psychiatry</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        The Lancet Psychiatry
-                                    </span>
                                         <span class="specialism-tag">
                                             Anaesthesia and pain
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Mental health and illness
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -96,34 +111,39 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://jamanetwork.com/journals/jama/fullarticle/2759414">
                                             Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     Exploratory RCT (n=216) found IV vitamin C, hydrocortisone &amp; thiamine vs. IV hydrocortisone alone, does not significantly improve duration of time alive &amp; free of vasopressor administration over 7 days (122.1 hrs vs. 124.6 hrs, respectively).
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read SPS commentary for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Journal of the American Medical Association</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        Journal of the American Medical Association
-                                    </span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
