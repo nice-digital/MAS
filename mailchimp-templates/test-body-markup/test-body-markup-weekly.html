@@ -1,0 +1,499 @@
+<div mc:edit="body" class="mailchimp-edit-region">
+  <table class="spacer-heading">
+    <tbody>
+      <tr>
+        <td>
+          <h3 class="article-heading">
+            Medicines Evidence Commentary
+          </h3>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table border="0" class="row">
+    <tbody>
+      <tr>
+        <th>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="article-mec">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="padded">
+                              <h3 class="article-title">
+                                New MHRA drug safety advice: September to
+                                November 2019
+                              </h3>
+                              <div class="article-description">
+                                <p>
+                                  The
+                                  <a
+                                    href="https://www.gov.uk/government/organisations/medicines-and-healthcare-products-regulatory-agency"
+                                    >MHRA</a
+                                  >
+                                  and
+                                  <a
+                                    href="https://www.gov.uk/government/organisations/commission-on-human-medicines"
+                                    >CHM</a
+                                  >
+                                  publish the monthly newsletter
+                                  <a
+                                    href="https://www.gov.uk/drug-safety-update"
+                                    >Drug Safety Update</a
+                                  >, highlighting important information and
+                                  advice to support the safer use of medicines.
+                                  To subscribe to Drug Safety Update email
+                                  alerts, please visit
+                                  <a
+                                    href="https://www.gov.uk/government/organisations/medicines-and-healthcare-products-regulatory-agency/email-signup"
+                                    >this link</a
+                                  >
+                                  to register.
+                                </p>
+                                <p>
+                                  The MHRA has provided the following synopsis
+                                  of key drug safety issues from the September
+                                  2019 to November 2019 issues of Drug Safety
+                                  Update.
+                                </p>
+                                <p>
+                                  Please continue to report any suspected side
+                                  effects of medicines to the MHRA on a
+                                  <a href="https://yellowcard.mhra.gov.uk/"
+                                    >Yellow Card</a
+                                  >. There is now a
+                                  <a
+                                    href="https://www.gov.uk/drug-safety-update/download-the-yellow-card-mobile-app-to-report-suspected-adverse-drug-reactions"
+                                    >mobile app</a
+                                  >
+                                  available for download for reporting via your
+                                  device.
+                                </p>
+                              </div>
+                              <div
+                                style="Margin-bottom: 10px"
+                                class="article-description"
+                              >
+                                <a
+                                  class="article-link-subtle standard-link"
+                                  href="#mec"
+                                  >Read full commentary</a
+                                >
+                              </div>
+                              <p>
+                                <b>Source: NICE</b>
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+                <th class="expander"></th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <table class="spacer-heading">
+    <tbody>
+      <tr>
+        <td><h3 class="article-heading">@Model</h3></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="row article-border">
+    <tbody>
+      <tr>
+        <th class="">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <div class="padded">
+                    <h3 class="article-title">
+                      @Model.Title
+                    </h3>
+                    <p class="article-description">
+                      @Model.ShortSummary
+                    </p>
+                    <div
+                      class="article-description"
+                      style="Margin-bottom: 10px"
+                    >
+                      <a
+                        class="article-link-subtle standard-link"
+                        href="@(awsConfig.StaticURL)@(Model.Slug).html"
+                        aria-label="Read SPS commentary for @Model.Title"
+                      >
+                        Read SPS commentary
+                      </a>
+                    </div>
+                    <p class="source-tag-container">
+                      <span class="source-tag">
+                        @Model.Source.Title
+                      </span>
+                    </p>
+                    <p class="article-tags">
+                      <span class="specialism-tag">
+                        @spec.Title
+                      </span>
+                      <span class="specialism-tag-spacer">&nbsp;</span>
+                      <span class="specialism-tag">
+                        Fairly long title here that's longer than expected
+                      </span>
+                      <span class="specialism-tag-spacer">&nbsp;</span>
+                      <span class="specialism-tag">
+                        @spec.Title
+                      </span>
+                      <span class="specialism-tag-spacer">&nbsp;</span>
+                      <span class="specialism-tag">
+                        @spec.Title
+                      </span>
+                      <span class="specialism-tag-spacer">&nbsp;</span>
+                      <span class="specialism-tag">
+                        Really long title here
+                      </span>
+                      <span class="specialism-tag-spacer">&nbsp;</span>
+                    </p>
+                  </div>
+                </th>
+                <th class="expander"></th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <table class="spacer-heading">
+    <tbody>
+      <tr>
+        <td>
+          <h2 class="article-heading">
+            Medicines Evidence Commentary
+          </h2>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="mec" name="mec"></a>
+  <table class="row article-border article-mec">
+    <tbody>
+      <tr>
+        <th>
+          <div class="padded">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <h3 class="article-title">
+                      @Model.CommentaryTitle
+                    </h3>
+                    <div class="article-description">
+                      @Html.Raw(Model.CommentarySummary)
+                    </div>
+                    <div class="article-description">
+                      <h4>
+                        Overview and current advice H4
+                      </h4>
+                      <h5>Here's an H5 as well</h5>
+                      <p>
+                        The NICE guideline on
+                        <a href="https://www.nice.org.uk/guidance/ng136"
+                          >hypertension in adults</a
+                        >
+                        covers diagnosing and managing hypertension. It provides
+                        recommendations on when antihypertensive medicines
+                        should be offered or considered, monitoring treatment
+                        and blood pressure targets.
+                      </p>
+                      <p>
+                        The NICE guideline recommends a stepped approach to the
+                        use of antihypertensives, monotherapy at step 1, dual
+                        therapy at step 2 and triple therapy at step 3. If
+                        hypertension is not controlled in adults taking optimal
+                        tolerated doses of step 3 treatment, then people should
+                        be regarded as having resistant hypertension (step 4
+                        treatment). For full details on the treatment
+                        recommendations see the
+                        <a
+                          href="https://www.nice.org.uk/guidance/ng136/chapter/Recommendations#treating-and-monitoring-hypertension"
+                          >NICE guideline</a
+                        >. NICE does not make any recommendations on which time
+                        of day antihypertensives should be taken.
+                      </p>
+                      <p>
+                        A review article summarised results from recent research
+                        on timing of administration of antihypertensive
+                        medication. It concluded that in general, night-time
+                        administration improved overall 24-hour blood pressure
+                        profiles regardless of disease comorbidity. However,
+                        inconsistencies between studies suggested a need for
+                        more prospective randomised controlled trials with
+                        sufficient statistical power (<a
+                          href="https://rd.springer.com/article/10.1007/s11906-018-0897-4"
+                          >Bowles et al. 2018</a
+                        >). For some types of antihypertensive medication for
+                        example, thiazide-like diuretics, it may be necessary to
+                        take them in the morning to avoid diuresis interfering
+                        with sleep if taken later in the day or at bedtime.
+                      </p>
+                      <p>
+                        NICE has produced a
+                        <a
+                          href="https://www.nice.org.uk/guidance/ng136/resources"
+                          >patient decision aid</a
+                        >
+                        on treatment options for hypertension to help people and
+                        their healthcare professionals discuss the different
+                        types of treatment and make a decision that is right for
+                        each person. The NICE guideline also highlights the
+                        importance of supporting adherence and ensuring that
+                        people with hypertension make the most effective use of
+                        their medicines, see NICE&rsquo;s guideline on
+                        <a href="https://www.nice.org.uk/guidance/cg76"
+                          >medicines adherence</a
+                        >.
+                      </p>
+                      <h5>New evidence</h5>
+                      <p>
+                        A multicentre, controlled, prospective randomised,
+                        open-label, blinded endpoint study aimed to assess
+                        whether taking all antihypertensive medication at
+                        bedtime reduced cardiovascular risk compared with taking
+                        them in the morning (<a
+                          href="https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehz754/5602478"
+                          >Hermida et al. 2019</a
+                        >).
+                      </p>
+                      <p>
+                        The Spanish study included 19,084 Caucasian people
+                        (10,614 men and 8,470 women; mean age 60.5&nbsp;years)
+                        with confirmed hypertension taking 1 or more
+                        antihypertensives. Within the group 23.9% had type 2
+                        diabetes, 29.4% had chronic kidney disease, 43.0% were
+                        obese and 10.4% had a previous cardiovascular disease
+                        (CVD) event. People were excluded from the study if they
+                        did night or rotating shift work, were pregnant, had
+                        secondary hypertension or had CVD and certain associated
+                        co-morbidities including unstable angina, heart failure,
+                        atrial fibrillation and kidney failure.
+                      </p>
+                      <p>
+                        Participants were randomised to either take all of their
+                        antihypertensives as a once-daily dosage at bedtime
+                        (n=9,532) or immediately upon waking (n=9,552) and had a
+                        minimum of 1&nbsp;year of follow-up. At baseline, there
+                        was no statistically significant difference between the
+                        2 groups for previous CVD events, type 2 diabetes,
+                        chronic kidney disease, smoking status, cholesterol
+                        levels or office and ambulatory blood pressure
+                        measurements.
+                      </p>
+                      <p>
+                        Antihypertensive medication from any of the following
+                        therapeutic classes was allowed. The proportion of
+                        participants taking a drug from each of the therapeutic
+                        classes at the end of the study in the upon waking and
+                        bedtime groups respectively was:
+                      </p>
+                      <ul>
+                        <li>
+                          angiotensin II receptor blockers: 53.1% in both groups
+                        </li>
+                        <li>
+                          angiotensin converting enzyme inhibitors: 25.3% and
+                          23.4%
+                        </li>
+                        <li>
+                          calcium channel blockers: 32.7% and 36.8%
+                        </li>
+                        <li>
+                          beta-blockers: 22.0% and 17.5%
+                        </li>
+                        <li>diuretics: 46.5% and 39.5%.</li>
+                      </ul>
+                      <p>
+                        Dual and triple treatment regimens, where available,
+                        were prescribed as single-tablet fixed combinations.
+                      </p>
+                      <p>
+                        Over a median follow-up of 6.3&nbsp;years, 1,752 (9.2%)
+                        participants had a CVD event listed in the combined
+                        primary outcome (myocardial infarction, coronary
+                        revascularisation, heart failure, ischaemic stroke,
+                        haemorrhagic stroke and CVD death). Participants in the
+                        bedtime administration group had a
+                        <a href="https://www.nice.org.uk/Glossary?letter=S"
+                          >statistically significant</a
+                        >
+                        lower risk of the primary CVD outcome compared with
+                        those in the upon waking group (adjusted
+                        <a href="https://www.nice.org.uk/Glossary?letter=H"
+                          >hazard ratio</a
+                        >
+                        0.55, 95%
+                        <a href="https://www.nice.org.uk/Glossary?letter=C"
+                          >confidence interval</a
+                        >
+                        0.50 to 0.61, p&lt;0.001; adjusted for baseline
+                        characteristics such as age, sex and
+                        co-morbidities).There was also a statistically
+                        significant lower risk of all of these outcomes
+                        individually in the bedtime compared with upon waking
+                        group. Throughout the study, 48-hour ambulatory blood
+                        pressure was recorded at least annually. There was no
+                        statistically significant difference between the 2
+                        groups for mean awake systolic or diastolic blood
+                        pressure, but there was a statistically significant
+                        lower mean asleep systolic and diastolic blood pressure
+                        in the bedtime administration group.
+                      </p>
+                      <p>
+                        There was no statistically significant difference in the
+                        frequency of adverse effects (reported by 6.7% and 6.0%
+                        of the upon waking and bedtime administration groups
+                        respectively, p=0.061), or poor adherence to the
+                        allocated treatment schedule (2.8% and 2.9%
+                        respectively, p=0.813). The study only reported overall
+                        incidence of adverse events and did not report on
+                        specific adverse events such as falls. In addition,
+                        adverse events were only recorded if spontaneously
+                        reported by participants or revealed through non-direct
+                        questioning and physical examination. There was no
+                        statistically significant difference between the 2
+                        groups for sleep time hypotension (0.3% of all
+                        participants).
+                      </p>
+                      <p>
+                        This was a large study with a long duration of
+                        follow-up. However, the study authors have highlighted
+                        some study limitations. The study population was
+                        Caucasian, therefore validation of the results for other
+                        ethnic groups is needed. Also, the study did not
+                        allocate participants to specific antihypertensive
+                        medication therapeutic classes or set medication within
+                        each class as treatment was chosen by each participating
+                        clinician. For diuretics for instance, at the end of the
+                        study, there were more participants taking them in the
+                        upon waking group (46.5%) compared with the bedtime
+                        administration group (39.5%, p&lt;0.001). Finally, the
+                        method by which adverse events were assessed is open to
+                        recall bias.
+                      </p>
+                      <h6>
+                        Commentary provided by Dr Mark Shapley, member of NICE
+                        hypertension in adults guideline committee and retired
+                        General Practitioner
+                      </h6>
+                      <p>
+                        This large prospective trial aimed to answer a simple
+                        question directly relevant to general practice where
+                        there is a lack of good quality evidence. This new
+                        evidence suggests that taking the total daily dose of
+                        antihypertensive medication at bedtime, compared with in
+                        the morning, reduces cardiovascular events and mortality
+                        over a mean of 6.3&nbsp;years. A major clinically
+                        significant result - but there are caveats.
+                      </p>
+                      <p>
+                        The study included a non-UK (Spanish), Caucasian
+                        population and therefore, the findings may not apply to
+                        other populations with different sleeping patterns
+                        (although participants were encouraged not to sleep in
+                        the day) or people with different family origins. The
+                        mean age of the cohort was 60.5 years and therefore
+                        results may not apply to older cohorts.
+                      </p>
+                      <p>
+                        As is common in many trials of antihypertensive therapy,
+                        patient centred adverse events were poorly reported
+                        (sleep disturbance due to nocturia, falls and dizzy
+                        episodes due to postural hypotension). These were only
+                        collated via spontaneous reports which relies on people
+                        remembering to report such events. Assessing this by
+                        active questioning would have been preferable.
+                      </p>
+                      <p>
+                        The classes of drugs prescribed were not blinded and
+                        there were differences between the 2&nbsp;study groups
+                        with those who took a morning dose more likely to be on
+                        diuretics and beta-blockers.
+                      </p>
+                      <p>
+                        Broadly the clinicians appeared to prescribe classes of
+                        drugs in the manner of the NICE guidance but the
+                        criteria for diagnosing hypertension differed by using
+                        not only ambulatory blood pressure monitoring whilst
+                        awake but also allowed recruitment of those with raised
+                        blood pressure diagnosed using ambulatory blood pressure
+                        monitoring whilst asleep. The monitoring period for
+                        ambulatory blood pressure in the study was also 48
+                        hours.
+                      </p>
+                      <p>
+                        The NICE guidance makes no recommendation as to when to
+                        take antihypertensive medication and it was a question
+                        that the development group did not consider.
+                      </p>
+                      <p>
+                        In conclusion, and despite the limitations discussed
+                        above, there may be a potential health gain in switching
+                        to a regimen of taking a total daily dose of
+                        antihypertensive medication at bedtime. This seems
+                        reasonable to do but we should be cautious if
+                        considering this in older people, in those at risk of
+                        falls and in those in whom such a change may reduce
+                        concordance with medication (for example, those taking
+                        antihypertensives which may not be suitable for bedtime
+                        administration such as diuretics).
+                      </p>
+                      <p>
+                        Declaration of interests: Dr Mark Shapley declared no
+                        interests.
+                      </p>
+                      <h5>Study sponsorship</h5>
+                      <p>
+                        The randomised controlled trial was funded by the Hygia
+                        Project, an independent investigator-promoted research
+                        network supported by unrestricted grants from several
+                        Spanish Government and European Regional Development
+                        Funds.
+                      </p>
+                      <h5>References</h5>
+                      <p>
+                        Bowles NP, Thosar SS, Herzig MX, et al (2018)
+                        <a
+                          href="https://rd.springer.com/article/10.1007/s11906-018-0897-4"
+                          >Chronotherapy for hypertension</a
+                        >. Current Hypertension Reports 20: 97
+                      </p>
+                      <p>
+                        Hermida RC, Crespo JJ, Dominguez-Sardina M et al (2019)
+                        <a
+                          href="https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehz754/5602478"
+                          >Bedtime hypertension treatment improves
+                          cardiovascular risk reduction: the Hygia Chronotherapy
+                          Trial</a
+                        >. European Heart Journal 0: 1&ndash;12
+                      </p>
+                    </div>
+                  </td>
+                  <td class="expander"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
