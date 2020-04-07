@@ -1,20 +1,39 @@
 
 
 <table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
-                    Articles that match your chosen specialities today
-                    *|ELSE:|*
-                    No articles match your chosen specialities today
-                    *|END:INTERESTED|*
-                    - <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
-                </h3>
-            </td>
-        </tr>
-    </tbody>
+	<tbody>
+		<tr>
+			<td>
+				<div class="articles-match">
+                    <p class="white-text">
+                        <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
+                    </p>               
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="spacer-heading">
+	<tbody>
+		<tr>
+			<td>
+				<div class="articles-match">
+                    <p class="white-text">
+                        *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+                        Articles that match your chosen specialities today
+                        *|ELSE:|*
+                        No articles match your chosen specialities today
+                        *|END:INTERESTED|*
+                        - 
+                        <a class="white-link" href="*|UPDATE_PROFILE|*"
+                            >Edit your subscription</a
+                        >
+                    </p>
+				</div>
+			</td>
+		</tr>
+	</tbody>
 </table>
 
     *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
@@ -86,10 +105,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    All articles from Medicines awareness services: Daily edition
-                </h3>
+            <td>
+                <div class="articles-match">
+                    <p class="text-white">All articles from Medicines Awareness Service: Daily edition</p>
+                </div>
             </td>
         </tr>
     </tbody>
