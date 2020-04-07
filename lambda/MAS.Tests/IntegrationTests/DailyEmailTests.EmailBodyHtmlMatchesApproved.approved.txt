@@ -1,6 +1,6 @@
 
 
-<table class="row" bgcolor="#393939">
+<table class="row articles-match-container" bgcolor="#393939">
 	<tbody>
 		<tr>
 			<td>
@@ -20,7 +20,7 @@
 	</tbody>
 </table>
 
-<table class="row" bgcolor="#393939">
+<table class="row articles-match-container" bgcolor="#393939">
 	<tbody>
 		<tr>
 			<td>
@@ -946,7 +946,7 @@
 
 
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
-<table class="row" bgcolor="#393939">
+<table class="row articles-match-container" bgcolor="#393939">
 	<tbody>
 		<tr>
 			<td>
