@@ -33,7 +33,7 @@
                                 </p>
 
                                 <p class="source-tag-container">
-                                    <span class="source-tag">electronic Medicines compendium</span>
+                                    <span class="source-tag">Source: electronic Medicines compendium</span>
                                 </p>
                                 
                                 <p class="article-tags">
@@ -85,7 +85,7 @@
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
-                                    <span class="source-tag">The Lancet Psychiatry</span>
+                                    <span class="source-tag">Source: The Lancet Psychiatry</span>
                                 </p>
                                 
                                 <p class="article-tags">
@@ -133,7 +133,7 @@
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
-                                    <span class="source-tag">Journal of the American Medical Association</span>
+                                    <span class="source-tag">Source: Journal of the American Medical Association</span>
                                 </p>
                                 
                                 <p class="article-tags">

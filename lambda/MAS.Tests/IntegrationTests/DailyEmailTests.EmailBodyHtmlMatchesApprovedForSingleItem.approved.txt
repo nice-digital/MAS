@@ -56,7 +56,7 @@
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
-                                    <span class="source-tag">ACP Journal Club</span>
+                                    <span class="source-tag">Source: ACP Journal Club</span>
                                 </p>
                                 
                                 <p class="article-tags">
@@ -132,7 +132,7 @@
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
-                                    <span class="source-tag">ACP Journal Club</span>
+                                    <span class="source-tag">Source: ACP Journal Club</span>
                                 </p>
                                 
                                 <p class="article-tags">
