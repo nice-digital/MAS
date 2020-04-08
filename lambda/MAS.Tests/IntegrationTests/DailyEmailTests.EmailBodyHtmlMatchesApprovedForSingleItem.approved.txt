@@ -28,7 +28,7 @@
                     <tr>
                         <td>
                             <div class="articles-match">
-                                <p class="white-text">
+                                <div class="white-text">
                                     *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
                                     Articles that match your chosen specialities today
                                     *|ELSE:|*
@@ -38,7 +38,7 @@
                                     <a class="white-link" href="*|UPDATE_PROFILE|*"
                                         >Edit your subscription</a
                                     >
-                                </p>
+                                </div>
 				            </div>
                         </td>
                     </tr>
