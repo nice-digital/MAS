@@ -45,7 +45,7 @@ string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
                     <tr>
                         <td>
                             <div class="articles-match">
-                                <p class="white-text">
+                                <div class="white-text">
                                     *|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(Model.Items.SelectMany(x => x.Specialities))|*
                                     Articles that match your chosen specialities today
                                     *|ELSE:|*
@@ -55,7 +55,7 @@ string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
                                     <a class="white-link" href="*|UPDATE_PROFILE|*"
                                         >Edit your subscription</a
                                     >
-                                </p>
+                                </div>
 				            </div>
                         </td>
                     </tr>
