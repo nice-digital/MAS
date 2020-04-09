@@ -9,26 +9,6 @@
                         <td>
                             <div class="articles-match">
                                 <div class="white-text">
-                                    <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>               
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<table class="row articles-match-container" bgcolor="#393939">
-	<tbody>
-		<tr>
-			<td>
-                <table>
-                    <tr>
-                        <td>
-                            <div class="articles-match">
-                                <div class="white-text">
                                     *|INTERESTED:Daily specialities of interest:Cancers,Later life,Stroke|*
                                     Articles that match your chosen specialities today
                                     *|ELSE:|*
