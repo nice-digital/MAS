@@ -332,7 +332,7 @@
             </td>
         </tr>
     </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Obstetrics and gynaecology|*
+</table>        *|INTERESTED:Daily specialities of interest:Cancers,Respiratory disorders|*
 
 <table class="row article-border">
     <tbody>
@@ -343,19 +343,22 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.cqc.org.uk/publications/surveys/maternity-services-survey-2019">
-                                            Maternity services survey 2019
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/indevelopment/gid-ta10317/consultation/html-content-2">
+                                            Lorlatinib for treating ALK-positive advanced non-small-cell lung cancer &#xFFFD; appraisal consultation document
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    This report found positive upward trends in areas such as feeding choices and partner involvement, however in line with previous years, results still indicate poorer experience of care for many women postnatally vs antenatal care and care during labour.
+                                    In DRAFT guidance NICE does not recommend lorlatinib for ALK&#x2B;ve advanced NSCLC after progression on alectinib, ceritinib or crizotinib as the most likely cost-effectiveness estimates are higher than what NICE normally considers an acceptable use of NHS resources.
                                 </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        Care Quality Commission
+                                        National Institute for Health and Care Excellence
                                     </span>
                                         <span class="specialism-tag">
-                                            Obstetrics and gynaecology
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Respiratory disorders
                                         </span>
                                 </p>
                             </th>
@@ -443,7 +446,7 @@
         </tr>
     </tbody>
 </table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Cancers,Haematological disorders|*
+        *|INTERESTED:Daily specialities of interest:Obstetrics and gynaecology|*
 
 <table class="row article-border">
     <tbody>
@@ -454,176 +457,19 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30253-4/fulltext">
-                                            Tumour lysis syndrome in patients with chronic lymphocytic leukaemia treated with BCL-2 inhibitors: risk factors, prophylaxis, and treatment recommendations
+                                        <a class="article-link" href="https://www.cqc.org.uk/publications/surveys/maternity-services-survey-2019">
+                                            Maternity services survey 2019
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    This viewpoint discusses the pathophysiology, risk factors, monitoring, changes in laboratory parameters, and clinical manifestations of tumour lysis syndrome, and the prophylaxis and treatments available for this complication.
+                                    This report found positive upward trends in areas such as feeding choices and partner involvement, however in line with previous years, results still indicate poorer experience of care for many women postnatally vs antenatal care and care during labour.
                                 </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        The Lancet Haematology
+                                        Care Quality Commission
                                     </span>
                                         <span class="specialism-tag">
-                                            Cancers
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Haematological disorders
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Cancers,Haematological disorders|*
-
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30256-X/fulltext">
-                                            Prophylaxis and management of graft versus host disease after stem-cell transplantation for haematological malignancies: updated consensus recommendations of the European Society for Blood and Marrow Transplantation
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    Key updates in these guidelines include recommendations for lower steroid doses for the management of grade 2 acute GVHD with isolated skin or upper gastrointestinal tract manifestations and the addition of newer treatment options for steroid-refractory acute and chronic GVHD.
-                                </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        The Lancet Haematology
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Haematological disorders
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Cancers
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Stroke|*
-
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(19)30415-6/fulltext">
-                                            Advances and challenges in stroke rehabilitation
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    This review highlights that substantial advances are yet to be made in stroke rehabilitation practice. It concludes that although stroke rehabilitation research strives for better trials, rehabilitation practices continue to help patients regain independence after stroke.
-                                </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        The Lancet Neurology
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Stroke
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Cancers,Respiratory disorders|*
-
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nice.org.uk/guidance/indevelopment/gid-ta10317/consultation/html-content-2">
-                                            Lorlatinib for treating ALK-positive advanced non-small-cell lung cancer &#xFFFD; appraisal consultation document
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    In DRAFT guidance NICE does not recommend lorlatinib for ALK&#x2B;ve advanced NSCLC after progression on alectinib, ceritinib or crizotinib as the most likely cost-effectiveness estimates are higher than what NICE normally considers an acceptable use of NHS resources.
-                                </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        National Institute for Health and Care Excellence
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Cancers
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Respiratory disorders
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>        *|END:INTERESTED|*
-        *|INTERESTED:Daily specialities of interest:Infection and infectious diseases,Travel medicine|*
-
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.rpharms.com/resources/pharmacy-guides/wuhan-novel-coronavirus">
-                                            Wuhan novel coronavirus &#xFFFD; RPS resource page
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    This new resource page highlights five key facts for pharmacy teams on the Wuhan novel coronavirus, and links to the various national documents and communications on this (e.g. PHE).
-                                </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/wuhan-novel-coronavirus-rps-resource-page.html" aria-label="Read SPS commentary for Wuhan novel coronavirus &#xFFFD; RPS resource page">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        Royal Pharmaceutical Society
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Infection and infectious diseases
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Travel medicine
+                                            Obstetrics and gynaecology
                                         </span>
                                 </p>
                             </th>
@@ -708,6 +554,49 @@
         </tr>
     </tbody>
 </table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Infection and infectious diseases,Travel medicine|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.rpharms.com/resources/pharmacy-guides/wuhan-novel-coronavirus">
+                                            Wuhan novel coronavirus &#xFFFD; RPS resource page
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This new resource page highlights five key facts for pharmacy teams on the Wuhan novel coronavirus, and links to the various national documents and communications on this (e.g. PHE).
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/wuhan-novel-coronavirus-rps-resource-page.html" aria-label="Read SPS commentary for Wuhan novel coronavirus &#xFFFD; RPS resource page">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Royal Pharmaceutical Society
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Infection and infectious diseases
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Travel medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
         *|INTERESTED:Daily specialities of interest:|*
 
 <table class="row article-border">
@@ -730,6 +619,117 @@
                                     <span class="source-tag">
                                         Specialist Pharmacy Service
                                     </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Cancers,Haematological disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30256-X/fulltext">
+                                            Prophylaxis and management of graft versus host disease after stem-cell transplantation for haematological malignancies: updated consensus recommendations of the European Society for Blood and Marrow Transplantation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Key updates in these guidelines include recommendations for lower steroid doses for the management of grade 2 acute GVHD with isolated skin or upper gastrointestinal tract manifestations and the addition of newer treatment options for steroid-refractory acute and chronic GVHD.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Cancers,Haematological disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30253-4/fulltext">
+                                            Tumour lysis syndrome in patients with chronic lymphocytic leukaemia treated with BCL-2 inhibitors: risk factors, prophylaxis, and treatment recommendations
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This viewpoint discusses the pathophysiology, risk factors, monitoring, changes in laboratory parameters, and clinical manifestations of tumour lysis syndrome, and the prophylaxis and treatments available for this complication.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+        *|INTERESTED:Daily specialities of interest:Stroke|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(19)30415-6/fulltext">
+                                            Advances and challenges in stroke rehabilitation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review highlights that substantial advances are yet to be made in stroke rehabilitation practice. It concludes that although stroke rehabilitation research strives for better trials, rehabilitation practices continue to help patients regain independence after stroke.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Neurology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Stroke
+                                        </span>
                                 </p>
                             </th>
                             <th class="expander"></th>
@@ -1107,19 +1107,22 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.cqc.org.uk/publications/surveys/maternity-services-survey-2019">
-                                            Maternity services survey 2019
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/indevelopment/gid-ta10317/consultation/html-content-2">
+                                            Lorlatinib for treating ALK-positive advanced non-small-cell lung cancer &#xFFFD; appraisal consultation document
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    This report found positive upward trends in areas such as feeding choices and partner involvement, however in line with previous years, results still indicate poorer experience of care for many women postnatally vs antenatal care and care during labour.
+                                    In DRAFT guidance NICE does not recommend lorlatinib for ALK&#x2B;ve advanced NSCLC after progression on alectinib, ceritinib or crizotinib as the most likely cost-effectiveness estimates are higher than what NICE normally considers an acceptable use of NHS resources.
                                 </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        Care Quality Commission
+                                        National Institute for Health and Care Excellence
                                     </span>
                                         <span class="specialism-tag">
-                                            Obstetrics and gynaecology
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Respiratory disorders
                                         </span>
                                 </p>
                             </th>
@@ -1212,168 +1215,19 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30253-4/fulltext">
-                                            Tumour lysis syndrome in patients with chronic lymphocytic leukaemia treated with BCL-2 inhibitors: risk factors, prophylaxis, and treatment recommendations
+                                        <a class="article-link" href="https://www.cqc.org.uk/publications/surveys/maternity-services-survey-2019">
+                                            Maternity services survey 2019
                                         </a>
                                 </h4>
                                 <p class="article-description">
-                                    This viewpoint discusses the pathophysiology, risk factors, monitoring, changes in laboratory parameters, and clinical manifestations of tumour lysis syndrome, and the prophylaxis and treatments available for this complication.
+                                    This report found positive upward trends in areas such as feeding choices and partner involvement, however in line with previous years, results still indicate poorer experience of care for many women postnatally vs antenatal care and care during labour.
                                 </p>
                                 <p class="article-tags">
                                     <span class="source-tag">
-                                        The Lancet Haematology
+                                        Care Quality Commission
                                     </span>
                                         <span class="specialism-tag">
-                                            Cancers
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Haematological disorders
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30256-X/fulltext">
-                                            Prophylaxis and management of graft versus host disease after stem-cell transplantation for haematological malignancies: updated consensus recommendations of the European Society for Blood and Marrow Transplantation
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    Key updates in these guidelines include recommendations for lower steroid doses for the management of grade 2 acute GVHD with isolated skin or upper gastrointestinal tract manifestations and the addition of newer treatment options for steroid-refractory acute and chronic GVHD.
-                                </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        The Lancet Haematology
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Haematological disorders
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Cancers
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(19)30415-6/fulltext">
-                                            Advances and challenges in stroke rehabilitation
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    This review highlights that substantial advances are yet to be made in stroke rehabilitation practice. It concludes that although stroke rehabilitation research strives for better trials, rehabilitation practices continue to help patients regain independence after stroke.
-                                </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        The Lancet Neurology
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Stroke
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.nice.org.uk/guidance/indevelopment/gid-ta10317/consultation/html-content-2">
-                                            Lorlatinib for treating ALK-positive advanced non-small-cell lung cancer &#xFFFD; appraisal consultation document
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    In DRAFT guidance NICE does not recommend lorlatinib for ALK&#x2B;ve advanced NSCLC after progression on alectinib, ceritinib or crizotinib as the most likely cost-effectiveness estimates are higher than what NICE normally considers an acceptable use of NHS resources.
-                                </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        National Institute for Health and Care Excellence
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Cancers
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Respiratory disorders
-                                        </span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th class="small-12 large-12 columns first last">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h4 class="h4 article-title">
-                                        <a class="article-link" href="https://www.rpharms.com/resources/pharmacy-guides/wuhan-novel-coronavirus">
-                                            Wuhan novel coronavirus &#xFFFD; RPS resource page
-                                        </a>
-                                </h4>
-                                <p class="article-description">
-                                    This new resource page highlights five key facts for pharmacy teams on the Wuhan novel coronavirus, and links to the various national documents and communications on this (e.g. PHE).
-                                </p>
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/wuhan-novel-coronavirus-rps-resource-page.html" aria-label="Read SPS commentary for Wuhan novel coronavirus &#xFFFD; RPS resource page">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
-                                <p class="article-tags">
-                                    <span class="source-tag">
-                                        Royal Pharmaceutical Society
-                                    </span>
-                                        <span class="specialism-tag">
-                                            Infection and infectious diseases
-                                        </span>
-                                        <span class="specialism-tag">
-                                            Travel medicine
+                                            Obstetrics and gynaecology
                                         </span>
                                 </p>
                             </th>
@@ -1463,6 +1317,47 @@
                         <tr>
                             <th>
                                 <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.rpharms.com/resources/pharmacy-guides/wuhan-novel-coronavirus">
+                                            Wuhan novel coronavirus &#xFFFD; RPS resource page
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This new resource page highlights five key facts for pharmacy teams on the Wuhan novel coronavirus, and links to the various national documents and communications on this (e.g. PHE).
+                                </p>
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/wuhan-novel-coronavirus-rps-resource-page.html" aria-label="Read SPS commentary for Wuhan novel coronavirus &#xFFFD; RPS resource page">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        Royal Pharmaceutical Society
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Infection and infectious diseases
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Travel medicine
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
                                         <a class="article-link" href="https://www.sps.nhs.uk/articles/rmoc-shared-care-guidance-consultation-running-until-7-2-2020/">
                                             RMOC Shared Care Guidance: Consultation running
                                         </a>
@@ -1474,6 +1369,111 @@
                                     <span class="source-tag">
                                         Specialist Pharmacy Service
                                     </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30256-X/fulltext">
+                                            Prophylaxis and management of graft versus host disease after stem-cell transplantation for haematological malignancies: updated consensus recommendations of the European Society for Blood and Marrow Transplantation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    Key updates in these guidelines include recommendations for lower steroid doses for the management of grade 2 acute GVHD with isolated skin or upper gastrointestinal tract manifestations and the addition of newer treatment options for steroid-refractory acute and chronic GVHD.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(19)30253-4/fulltext">
+                                            Tumour lysis syndrome in patients with chronic lymphocytic leukaemia treated with BCL-2 inhibitors: risk factors, prophylaxis, and treatment recommendations
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This viewpoint discusses the pathophysiology, risk factors, monitoring, changes in laboratory parameters, and clinical manifestations of tumour lysis syndrome, and the prophylaxis and treatments available for this complication.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Haematology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Cancers
+                                        </span>
+                                        <span class="specialism-tag">
+                                            Haematological disorders
+                                        </span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h4 class="h4 article-title">
+                                        <a class="article-link" href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(19)30415-6/fulltext">
+                                            Advances and challenges in stroke rehabilitation
+                                        </a>
+                                </h4>
+                                <p class="article-description">
+                                    This review highlights that substantial advances are yet to be made in stroke rehabilitation practice. It concludes that although stroke rehabilitation research strives for better trials, rehabilitation practices continue to help patients regain independence after stroke.
+                                </p>
+                                <p class="article-tags">
+                                    <span class="source-tag">
+                                        The Lancet Neurology
+                                    </span>
+                                        <span class="specialism-tag">
+                                            Stroke
+                                        </span>
                                 </p>
                             </th>
                             <th class="expander"></th>
