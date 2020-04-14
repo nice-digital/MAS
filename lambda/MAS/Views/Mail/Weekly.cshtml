@@ -2,7 +2,11 @@
 @using MAS.Configuration;
 @inject MailConfig mailConfig
 @{
-    var groupedItems = Model.Items.GroupBy(x => x.EvidenceType.BroaderTitle)
+    var groupedItems = Model.Items
+        .OrderBy(g => g.Source.Title != "National Institute for Health and Care Excellence")
+        .ThenBy(g=> g.Source.Title)
+        .ThenBy(g => g.Title)
+        .GroupBy(x => x.EvidenceType.BroaderTitle)
         .OrderBy(d => Array.IndexOf(mailConfig.EvidenceTypesOrdering, d.Key))
         .ToList();
 }
