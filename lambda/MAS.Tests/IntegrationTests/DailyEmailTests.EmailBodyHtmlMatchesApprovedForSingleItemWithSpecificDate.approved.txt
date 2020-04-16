@@ -1,5 +1,6 @@
 
 
+*|INTERESTED:Daily specialities of interest:Allergy and immunology,Anaesthesia and pain,Cancers,Cardiovascular system disorders,Complementary and alternative therapies,Critical care,Diabetes,Ear, nose and throat disorders,Emergency medicine and urgent care,Endocrine system disorders,Eyes and vision,Family planning,Gastrointestinal disorders,Genetics,Haematological disorders,Infection and infectious diseases,Later life,Learning disabilities,Liver disorders,Mental health and illness,Musculo-skeletal disorders,Neurological disorders,Nutritional and metabolic disorders,Obstetrics and gynaecology,Oral and dental health,Other / Unclassified,Paediatric and neonatal medicine,Palliative and End of Life Care,Policy, Commissioning and Managerial,Renal and urologic disorders,Respiratory disorders,Sexual health,Skin disorders,Sports medicine,Stroke,Surgery,Travel medicine,Vaccination,Wounds and injuries|*
 <table class="spacer-heading">
     <tbody>
         <tr>
@@ -16,6 +17,7 @@
         </tr>
     </tbody>
 </table>
+*|END:INTERESTED|*
 
     *|INTERESTED:Daily specialities of interest:Later life|*
 

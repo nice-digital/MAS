@@ -89,12 +89,12 @@ namespace MAS.Controllers
                 Items = items.ToList(),
                 SpecialitiesGroupCategoryName = specialitiesCategory.Title,
                 EverythingGroupCategoryName = receiveEverythingCategory.Title,
-                EverythingGroupName = receiveEverythingGroups.Single().Name
+                EverythingGroupName = receiveEverythingGroups.Single().Name,
+                AllSpecialities = string.Join(",", specialitiesGroups.Select(y => y.Name).ToList())
             };
 
             var body = await _viewRenderer.RenderViewAsync(this, "~/Views/Mail/Daily.cshtml", viewModel);
             var previewText = "The very latest current awareness and evidence-based medicines information";
-
 
             try
             {

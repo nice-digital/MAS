@@ -17,6 +17,7 @@ string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
 }
 }
 
+*|INTERESTED:@Model.SpecialitiesGroupCategoryName:@Model.AllSpecialities|*
 <table class="spacer-heading">
     <tbody>
         <tr>
@@ -33,6 +34,7 @@ string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
         </tr>
     </tbody>
 </table>
+*|END:INTERESTED|*
 
 @foreach (var group in groupedItems)
 {
