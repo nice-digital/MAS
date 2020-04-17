@@ -17,7 +17,6 @@
         </tr>
     </tbody>
 </table>
-*|END:INTERESTED|*
 
     *|INTERESTED:Daily specialities of interest:Later life|*
 
@@ -178,7 +177,7 @@
     </tbody>
 </table>        *|END:INTERESTED|*
     *|END:INTERESTED|*
-
+*|END:INTERESTED|*
 
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
 <table class="spacer-heading">
