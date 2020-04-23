@@ -1,20 +1,31 @@
 
 
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
-                    Articles that match your chosen specialities today
-                    *|ELSE:|*
-                    No articles match your chosen specialities today
-                    *|END:INTERESTED|*
-                    - <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
-                </h3>
-            </td>
-        </tr>
-    </tbody>
+<table class="row articles-match-container" bgcolor="#393939">
+	<tbody>
+		<tr>
+			<td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="articles-match">
+                                <div class="white-text">
+                                    *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
+                                    Articles that match your chosen specialities today
+                                    *|ELSE:|*
+                                    No articles match your chosen specialities today
+                                    *|END:INTERESTED|*
+                                    - 
+                                    <a class="white-link" href="*|UPDATE_PROFILE|*"
+                                        >Edit your subscription</a
+                                    >
+                                </div>
+				            </div>
+                        </td>
+                    </tr>
+                </table>               
+			</td>
+		</tr>
+	</tbody>
 </table>
 
     *|INTERESTED:Daily specialities of interest:Anaesthesia and pain,Complementary and alternative therapies|*
@@ -22,10 +33,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Evidence summary
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -34,40 +45,47 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.nhs.uk/">
                                             Wonder Drug
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     testing
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: ACP Journal Club</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        ACP Journal Club
-                                    </span>
                                         <span class="specialism-tag">
                                             Anaesthesia and pain
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Complementary and alternative therapies
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -76,26 +94,34 @@
 
 
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    All articles from Medicines awareness services: Daily edition
-                </h3>
-            </td>
-        </tr>
-    </tbody>
+<table class="row articles-match-container" bgcolor="#393939">
+	<tbody>
+		<tr>
+			<td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="articles-match">
+                                <p class="white-text">
+                                    All articles from Medicines Awareness Service: Daily edition
+                                </p>
+				            </div>
+                        </td>
+                    </tr>
+                </table>               
+			</td>
+		</tr>
+	</tbody>
 </table>
 
 
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Evidence summary
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -103,40 +129,47 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.nhs.uk/">
                                             Wonder Drug
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     testing
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: ACP Journal Club</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        ACP Journal Club
-                                    </span>
                                         <span class="specialism-tag">
                                             Anaesthesia and pain
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Complementary and alternative therapies
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
