@@ -1,21 +1,32 @@
 
 
 *|INTERESTED:Daily specialities of interest:Allergy and immunology,Anaesthesia and pain,Cancers,Cardiovascular system disorders,Complementary and alternative therapies,Critical care,Diabetes,Ear, nose and throat disorders,Emergency medicine and urgent care,Endocrine system disorders,Eyes and vision,Family planning,Gastrointestinal disorders,Genetics,Haematological disorders,Infection and infectious diseases,Later life,Learning disabilities,Liver disorders,Mental health and illness,Musculo-skeletal disorders,Neurological disorders,Nutritional and metabolic disorders,Obstetrics and gynaecology,Oral and dental health,Other / Unclassified,Paediatric and neonatal medicine,Palliative and End of Life Care,Policy, Commissioning and Managerial,Renal and urologic disorders,Respiratory disorders,Sexual health,Skin disorders,Sports medicine,Stroke,Surgery,Travel medicine,Vaccination,Wounds and injuries|*
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    *|INTERESTED:Daily specialities of interest:Cancers,Later life,Stroke|*
-                    Articles that match your chosen specialities today
-                    *|ELSE:|*
-                    No articles match your chosen specialities today
-                    *|END:INTERESTED|*
-                    - <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
-                </h3>
-            </td>
-        </tr>
-    </tbody>
+<table class="row articles-match-container" bgcolor="#393939">
+	<tbody>
+		<tr>
+			<td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="articles-match">
+                                <div class="white-text">
+                                    *|INTERESTED:Daily specialities of interest:Cancers,Later life,Stroke|*
+                                    Articles that match your chosen specialities today
+                                    *|ELSE:|*
+                                    No articles match your chosen specialities today
+                                    *|END:INTERESTED|*
+                                    - 
+                                    <a class="white-link" href="*|UPDATE_PROFILE|*"
+                                        >Edit your subscription</a
+                                    >
+                                </div>
+				            </div>
+                        </td>
+                    </tr>
+                </table>               
+			</td>
+		</tr>
+	</tbody>
 </table>
 
     *|INTERESTED:Daily specialities of interest:Later life|*
@@ -23,10 +34,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Guidance and advice
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -35,37 +46,43 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.google.com/">
                                             Item 3
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     Some short summary
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-3.html" aria-label="Read SPS commentary for Item 3">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: ABL Health Ltd</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        ABL Health Ltd
-                                    </span>
                                         <span class="specialism-tag">
                                             Later life
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -76,10 +93,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Safety alerts
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -88,37 +105,43 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.abc.com">
                                             Item 1
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     This is some short summary
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-1.html" aria-label="Read SPS commentary for Item 1">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: 2020health</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        2020health
-                                    </span>
                                         <span class="specialism-tag">
                                             Cancers
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -129,10 +152,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Evidence summary
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -141,37 +164,43 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.google.com">
                                             Item 2
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     Some short summary
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-2.html" aria-label="Read SPS commentary for Item 2">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: ABL Health Ltd</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        ABL Health Ltd
-                                    </span>
                                         <span class="specialism-tag">
                                             Stroke
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -180,26 +209,34 @@
 *|END:INTERESTED|*
 
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    All articles from Medicines awareness services: Daily edition
-                </h3>
-            </td>
-        </tr>
-    </tbody>
+<table class="row articles-match-container" bgcolor="#393939">
+	<tbody>
+		<tr>
+			<td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="articles-match">
+                                <p class="white-text">
+                                    All articles from Medicines Awareness Service: Daily edition
+                                </p>
+				            </div>
+                        </td>
+                    </tr>
+                </table>               
+			</td>
+		</tr>
+	</tbody>
 </table>
 
 
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Guidance and advice
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -207,37 +244,43 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.google.com/">
                                             Item 3
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     Some short summary
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-3.html" aria-label="Read SPS commentary for Item 3">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: ABL Health Ltd</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        ABL Health Ltd
-                                    </span>
                                         <span class="specialism-tag">
                                             Later life
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -245,10 +288,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Safety alerts
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -256,37 +299,43 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.abc.com">
                                             Item 1
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     This is some short summary
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-1.html" aria-label="Read SPS commentary for Item 1">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: 2020health</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        2020health
-                                    </span>
                                         <span class="specialism-tag">
                                             Cancers
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -294,10 +343,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Evidence summary
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -305,37 +354,43 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.google.com">
                                             Item 2
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     Some short summary
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-2.html" aria-label="Read SPS commentary for Item 2">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: ABL Health Ltd</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        ABL Health Ltd
-                                    </span>
                                         <span class="specialism-tag">
                                             Stroke
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>

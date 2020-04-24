@@ -4,33 +4,35 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Medicines evidence commentary
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
 </table>        <table class="row article-border article-mec">
             <tbody>
                 <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4 class="h4 article-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h4>
-                                        <div class="article-description"><p><strong>Lorem ipsum dolor sit amet, </strong></p>
+                    <th>
+                        <div class="article-wrapper">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3 class="article-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h3>
+                                            <div class="article-description"><p><strong>Lorem ipsum dolor sit amet, </strong></p>
 <p>consectetur adipiscing elit. Quisque imperdiet consequat eros, quis sollicitudin neque euismod ut. Cras sagittis, mi non rhoncus interdum, quam neque hendrerit diam, at molestie augue nisi accumsan metus. Nunc quis ipsum diam. Mauris tincidunt, diam id vestibulum congue, risus magna viverra turpis, et tincidunt nibh tortor a lectus. Fusce pretium pellentesque ante et vehicula. Nunc augue dolor, convallis eu erat volutpat, vehicula lacinia neque. Integer rhoncus mauris id lacus pulvinar porttitor. Maecenas eu nibh neque. Cras id turpis in tortor dignissim facilisis ac at justo. Sed ullamcorper sit amet ante quis euismod.</p></div>
-                                        <p class="article-description"><a class="article-link-subtle standard-link" href="#mec">Read full commentary</a></p>
-                                        <p class="article-tags">
-                                            <span class="source-tag-nice">NICE</span>
-                                        </p>
-                                    </td>
-                                    <th class="expander"></th>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            <p class="article-description"><a class="article-link-subtle standard-link" href="#mec">Read full commentary</a></p>
+                                            <p class="article-tags">
+                                                <span class="source-tag-nice">NICE</span>
+                                            </p>
+                                        </td>
+                                        <td class="expander"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </th>
                 </tr>
             </tbody>
@@ -40,10 +42,10 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Guidance and advice
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
@@ -51,38 +53,46 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.medicines.org.uk/emc/product/10478/smpc">
                                             Emgality (galcanezumab) injection in pre-filled pen 
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     SPC now advises that serious hypersensitivity reactions including cases of anaphylaxis, angioedema and urticaria have been reported. If a serious hypersensitivity reaction occurs, administration of galcanezumab should be discontinued immediately and appropriate therapy initiated
                                 </p>
+
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: electronic Medicines compendium</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        electronic Medicines compendium
-                                    </span>
                                         <span class="specialism-tag">
                                             Allergy and immunology
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Emergency medicine and urgent care
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Neurological disorders
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -90,40 +100,47 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(18)30471-1/fulltext">
                                             Opioid prescribing trends and geographical variation in England
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     There were substantial increase in opioid (OP) prescribing in NHS between 1998 and 2016; OP prescriptions increased by 34% (from 568/1000 patients to 761/1000). After correcting for total oral morphine equivalency, increase was 127% (from 190,000 to 431,000mg/1000 population).
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/opioid-prescribing-trends-and-geographical-variation-in-england.html" aria-label="Read SPS commentary for Opioid prescribing trends and geographical variation in England">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: The Lancet Psychiatry</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        The Lancet Psychiatry
-                                    </span>
                                         <span class="specialism-tag">
                                             Anaesthesia and pain
                                         </span>
+                                        <span>&nbsp;</span>
                                         <span class="specialism-tag">
                                             Mental health and illness
                                         </span>
+                                        <span>&nbsp;</span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -131,34 +148,39 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://jamanetwork.com/journals/jama/fullarticle/2759414">
                                             Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock
                                         </a>
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     Exploratory RCT (n=216) found IV vitamin C, hydrocortisone &amp; thiamine vs. IV hydrocortisone alone, does not significantly improve duration of time alive &amp; free of vasopressor administration over 7 days (122.1 hrs vs. 124.6 hrs, respectively).
                                 </p>
+
                                     <p class="article-description">
                                         <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read SPS commentary for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
                                             Read SPS commentary
                                         </a>
                                     </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: Journal of the American Medical Association</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        Journal of the American Medical Association
-                                    </span>
                                 </p>
                             </th>
                             <th class="expander"></th>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
@@ -168,34 +190,36 @@
 <table class="spacer-heading">
     <tbody>
         <tr>
-            <td height="16px" style="font-size:16px; line-height:16px;">
-                <h3 class="article-heading">
+            <td>
+                <h2 class="article-heading">
                     Medicines evidence commentary
-                </h3>
+                </h2>
             </td>
         </tr>
     </tbody>
 </table>        <table class="row article-border article-mec">
             <tbody>
                 <tr>
-                    <th class="small-12 large-12 columns first last">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4 class="h4 article-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h4>
-                                        <div class="article-description"><p><strong>Lorem ipsum dolor sit amet, </strong></p>
+                    <th>
+                        <div class="article-wrapper">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3 class="article-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h3>
+                                            <div class="article-description"><p><strong>Lorem ipsum dolor sit amet, </strong></p>
 <p>consectetur adipiscing elit. Quisque imperdiet consequat eros, quis sollicitudin neque euismod ut. Cras sagittis, mi non rhoncus interdum, quam neque hendrerit diam, at molestie augue nisi accumsan metus. Nunc quis ipsum diam. Mauris tincidunt, diam id vestibulum congue, risus magna viverra turpis, et tincidunt nibh tortor a lectus. Fusce pretium pellentesque ante et vehicula. Nunc augue dolor, convallis eu erat volutpat, vehicula lacinia neque. Integer rhoncus mauris id lacus pulvinar porttitor. Maecenas eu nibh neque. Cras id turpis in tortor dignissim facilisis ac at justo. Sed ullamcorper sit amet ante quis euismod.</p></div>
-                                        <div class="article-description"><p>Nullam mattis leo nec urna suscipit aliquet. Nam lacinia arcu nec scelerisque euismod. Vivamus ut felis eget metus lobortis fringilla iaculis ut purus. Ut a sollicitudin tortor, sit amet sagittis lorem. Nulla blandit non urna ac accumsan. Fusce at semper dolor.<em><strong> Vivamus interdum eros non dapibus imperdiet.</strong></em></p>
+                                            <div class="article-description"><p>Nullam mattis leo nec urna suscipit aliquet. Nam lacinia arcu nec scelerisque euismod. Vivamus ut felis eget metus lobortis fringilla iaculis ut purus. Ut a sollicitudin tortor, sit amet sagittis lorem. Nulla blandit non urna ac accumsan. Fusce at semper dolor.<em><strong> Vivamus interdum eros non dapibus imperdiet.</strong></em></p>
 <p style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: 'Open Sans', Arial, sans-serif;">Pellentesque porta consectetur quam, in sagittis enim condimentum et. Nam lorem nisl, sodales in mi ut, tristique eleifend libero. Curabitur pharetra, odio eleifend posuere molestie, orci ex gravida dolor, et fermentum enim lectus ac sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque enim dolor, commodo eu consectetur vitae, sollicitudin sit amet neque. Quisque nec urna ex. Praesent et felis ac velit finibus posuere. Donec imperdiet congue vestibulum. Aenean porta dui congue accumsan pharetra. Praesent blandit nisl nec aliquam pellentesque. Nullam eget tristique diam, a efficitur ipsum. Fusce tincidunt ligula sem, eu maximus nunc rhoncus quis. Phasellus sollicitudin sagittis turpis, sed suscipit ex bibendum sit amet. Donec tellus erat, sagittis eget lorem non, aliquam feugiat tortor. Praesent elementum, odio nec vehicula imperdiet, eros erat ultrices ex, malesuada pellentesque nibh enim id orci.</p>
 <p style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: 'Open Sans', Arial, sans-serif;">In leo enim, cursus vehicula convallis eu, finibus mattis ipsum. Aliquam ultricies elit ac felis tincidunt, ac condimentum elit mattis. Nunc ultrices elementum nibh, non rhoncus libero mollis sit amet. Proin bibendum tempor convallis. Vivamus condimentum faucibus erat vitae malesuada. Quisque luctus lorem id urna facilisis, nec euismod magna mollis. Nam in tincidunt lorem. Duis euismod neque id libero commodo, id gravida massa dapibus. Phasellus sagittis ante a facilisis pellentesque. Suspendisse a lobortis neque, et aliquam nisl. Mauris bibendum mauris nec purus vestibulum venenatis. In hac habitasse platea dictumst.</p>
 <h3 style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: 'Open Sans', Arial, sans-serif;">Sed tempus sed arcu eu ultrices.</h3>
 <p style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: 'Open Sans', Arial, sans-serif;">Cras eget augue tincidunt, tincidunt dolor ac, fringilla odio. Donec at ante consectetur, posuere turpis quis, vulputate enim. Integer viverra ante a libero facilisis scelerisque. Nam id nulla vitae mi sodales elementum nec ac est. Praesent lobortis ligula enim. Phasellus venenatis leo eu bibendum imperdiet. Morbi fermentum, sem tincidunt porta egestas, purus eros consectetur massa, ac posuere erat est in sem. Curabitur id felis et tortor eleifend euismod.</p></div>
-                                    </td>
-                                    <td class="expander"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                        <td class="expander"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </th>
                 </tr>
             </tbody>
