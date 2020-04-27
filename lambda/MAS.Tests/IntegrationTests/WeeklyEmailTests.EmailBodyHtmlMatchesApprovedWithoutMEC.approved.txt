@@ -70,6 +70,46 @@
                         <tr>
                             <th>
                                 <h3 class="article-title">
+                                        <a class="article-link" href="https://jamanetwork.com/journals/jama/fullarticle/2759414">
+                                            Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock
+                                        </a>
+                                </h3>
+                                
+                                <p class="article-description">
+                                    Exploratory RCT (n=216) found IV vitamin C, hydrocortisone &amp; thiamine vs. IV hydrocortisone alone, does not significantly improve duration of time alive &amp; free of vasopressor administration over 7 days (122.1 hrs vs. 124.6 hrs, respectively).
+                                </p>
+
+                                    <p class="article-description">
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read SPS commentary for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
+                                            Read SPS commentary
+                                        </a>
+                                    </p>
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: Journal of the American Medical Association</span>
+                                </p>
+                                
+                                <p class="article-tags">
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th>
+            <div class="article-wrapper">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h3 class="article-title">
                                         <a class="article-link" href="https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(18)30471-1/fulltext">
                                             Opioid prescribing trends and geographical variation in England
                                         </a>
@@ -97,46 +137,6 @@
                                             Mental health and illness
                                         </span>
                                         <span>&nbsp;</span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-            </th>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th>
-            <div class="article-wrapper">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h3 class="article-title">
-                                        <a class="article-link" href="https://jamanetwork.com/journals/jama/fullarticle/2759414">
-                                            Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock
-                                        </a>
-                                </h3>
-                                
-                                <p class="article-description">
-                                    Exploratory RCT (n=216) found IV vitamin C, hydrocortisone &amp; thiamine vs. IV hydrocortisone alone, does not significantly improve duration of time alive &amp; free of vasopressor administration over 7 days (122.1 hrs vs. 124.6 hrs, respectively).
-                                </p>
-
-                                    <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read SPS commentary for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
-                                            Read SPS commentary
-                                        </a>
-                                    </p>
-                                <p class="source-tag-container">
-                                    <span class="source-tag">Source: Journal of the American Medical Association</span>
-                                </p>
-                                
-                                <p class="article-tags">
                                 </p>
                             </th>
                             <th class="expander"></th>
