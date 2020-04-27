@@ -6,12 +6,13 @@
 <table class="row article-border">
     <tbody>
         <tr>
-            <th class="small-12 large-12 columns first last">
+            <th>
+            <div class="article-wrapper">
                 <table>
                     <tbody>
                         <tr>
                             <th>
-                                <h4 class="h4 article-title">
+                                <h3 class="article-title">
                                     @if (string.IsNullOrWhiteSpace(Model.Url))
                                     {
                                         <span class="article-link">
@@ -24,10 +25,12 @@
                                             @Model.Title
                                         </a>
                                     }
-                                </h4>
+                                </h3>
+                                
                                 <p class="article-description">
                                     @Model.ShortSummary
                                 </p>
+
                                 @if (!string.IsNullOrEmpty(Model.Comment))
                                 {
                                     <p class="article-description">
@@ -36,15 +39,17 @@
                                         </a>
                                     </p>
                                 }
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: @Model.Source.Title</span>
+                                </p>
+                                
                                 <p class="article-tags">
-                                    <span class="source-tag">
-                                        @Model.Source.Title
-                                    </span>
                                     @foreach (var spec in Model.Specialities)
                                     {
                                         <span class="specialism-tag">
                                             @spec.Title
                                         </span>
+                                        <span>&nbsp;</span>
                                     }
                                 </p>
                             </th>
@@ -52,6 +57,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </th>
         </tr>
     </tbody>
