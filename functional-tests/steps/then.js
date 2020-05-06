@@ -53,8 +53,9 @@ Then(
 Then(
     /^I expect the new record is added to the list of items$/, () => {
         browser.pause(3000);
+        browser.scroll("[data-list-path='items'] a", 100, 50)
         browser.click("[data-list-path='items'] a");
-        browser.waitForVisible("//A[text()='NSAIDs Automated test again']", 3000);      
+        browser.waitForVisible("//A[text()='NSAIDs Automated test again']", 10000);      
     }          
 );
 Then(

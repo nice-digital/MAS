@@ -1,10 +1,14 @@
-﻿@using MAS.Models;
+﻿@using MAS.Common
+@using MAS.Models;
 @using MAS.ViewModels;
 @using MAS.Configuration;
 @inject MailConfig mailConfig
 @model DailyEmailViewModel
 @{
     var groupedItems = Model.Items
+        .OrderBy(g => g.Source.Title != Constants.nice)
+        .ThenBy(g=> g.Source.Title)
+        .ThenBy(g => g.Title)
         .GroupBy(x => x.EvidenceType.BroaderTitle)
         .OrderBy(d => Array.IndexOf(mailConfig.EvidenceTypesOrdering, d.Key))
         .ToList();
@@ -17,21 +21,33 @@ string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
 }
 }
 
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    *|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(Model.Items.SelectMany(x => x.Specialities))|*
-                    Articles that match your chosen specialities today
-                    *|ELSE:|*
-                    No articles match your chosen specialities today
-                    *|END:INTERESTED|*
-                    - <a class="white-link" href="*|UPDATE_PROFILE|*">Edit your subscription</a>
-                </h3>
-            </td>
-        </tr>
-    </tbody>
+*|INTERESTED:@Model.SpecialitiesGroupCategoryName:@Model.AllSpecialities|*
+<table class="row articles-match-container" bgcolor="#393939">
+	<tbody>
+		<tr>
+			<td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="articles-match">
+                                <div class="white-text">
+                                    *|INTERESTED:@Model.SpecialitiesGroupCategoryName:@getSpecialitiesListForMergeTag(Model.Items.SelectMany(x => x.Specialities))|*
+                                    Articles that match your chosen specialities today
+                                    *|ELSE:|*
+                                    No articles match your chosen specialities today
+                                    *|END:INTERESTED|*
+                                    - 
+                                    <a class="white-link" href="*|UPDATE_PROFILE|*"
+                                        >Edit your subscription</a
+                                    >
+                                </div>
+				            </div>
+                        </td>
+                    </tr>
+                </table>               
+			</td>
+		</tr>
+	</tbody>
 </table>
 
 @foreach (var group in groupedItems)
@@ -48,19 +64,27 @@ string getSpecialitiesListForMergeTag(IEnumerable<Speciality> specialites)
     }
     @:*|END:INTERESTED|*
 }
-
+*|END:INTERESTED|*
 
 *|INTERESTED:@Model.EverythingGroupCategoryName:@Model.EverythingGroupName|*
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td height="16px" style="font-size:16px;line-height:16px;">
-                <h3 class="articles-match">
-                    All articles from Medicines awareness services: Daily edition
-                </h3>
-            </td>
-        </tr>
-    </tbody>
+<table class="row articles-match-container" bgcolor="#393939">
+	<tbody>
+		<tr>
+			<td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="articles-match">
+                                <p class="white-text">
+                                    All articles from Medicines Awareness Service: Daily edition
+                                </p>
+				            </div>
+                        </td>
+                    </tr>
+                </table>               
+			</td>
+		</tr>
+	</tbody>
 </table>
 
 @foreach (var group in groupedItems)

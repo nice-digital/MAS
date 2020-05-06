@@ -63,4 +63,6 @@ errorShots
 
 # Screenshots copied from inside a docker container
 errorShots_docker
+# Screenshots copied from inside a docker container
+docker-output
 
