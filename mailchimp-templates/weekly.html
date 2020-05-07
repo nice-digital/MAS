@@ -355,8 +355,22 @@
       a {
         margin: inherit;
       }
+      .mcnPreviewText {
+        display: none !important; 
+        font-size: 0px; 
+        line-height: 0px; 
+        max-height: 0px; 
+        max-width: 0px; 
+        opacity: 0; 
+        overflow: hidden; 
+        visibility: hidden; 
+        mso-hide: all;
+      }
     </style>
   </head>
+  <!--*|IF:MC_PREVIEW_TEXT|*--> 
+  <!--[if !gte mso 9]><!----><span class="mcnPreviewText">*|MC_PREVIEW_TEXT|*</span><!--<![endif]--> 
+  <!--*|END:IF|*-->
   <body id="top">
     <table class="body" width="100%">
       <tr>
