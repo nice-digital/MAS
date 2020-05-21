@@ -23,5 +23,10 @@ namespace MAS.ViewModels
         /// The name of the single group for receiving everything in the daily.
         /// </summary>
         public string EverythingGroupName { get; set; }
+
+        /// <summary>
+        /// List of all specialities from MailChimp.
+        /// </summary>
+        public string AllSpecialities { get; set; }
     }
 }

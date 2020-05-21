@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Amazon.CloudFront;
 
 namespace MAS.Controllers
 {
@@ -28,7 +29,10 @@ namespace MAS.Controllers
         private readonly ILogger<ContentController> _logger;
         private readonly AWSConfig _awsConfig;
 
-        public ContentController(IStaticWebsiteService staticWebsiteService, IViewRenderer viewRenderer, IContentService contentService, ILogger<ContentController> logger, AWSConfig awsConfig)
+        public ContentController(IStaticWebsiteService staticWebsiteService, 
+            IViewRenderer viewRenderer, IContentService contentService, 
+            ILogger<ContentController> logger,
+            AWSConfig awsConfig)
         {
             _staticWebsiteService = staticWebsiteService;
             _viewRenderer = viewRenderer;
@@ -43,6 +47,7 @@ namespace MAS.Controllers
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] Item item)
         {
+            _logger.LogDebug("Executing PutAsync");
             var getAllItemsTask = _contentService.GetAllItemsAsync();
             var renderItemHtmlTask = _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", item, false);
             var sitemapXmlCreateTask = CreateSitemapXml(await getAllItemsTask);
@@ -55,31 +60,12 @@ namespace MAS.Controllers
             try
             {
                 // Write the HTML/XML to S3 in parallel
-                var sitemapXmlWriteTask = _staticWebsiteService.WriteFileAsync("sitemap.xml", sitemapXmlStream);
-                var itemHtmlWriteTask = _staticWebsiteService.WriteFileAsync(item.Slug + ".html", itemHtmlString);
-                var itemXmlWriteTask = _staticWebsiteService.WriteFileAsync(item.Slug + ".xml", itemXmlStream);
+                var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
+                        new StaticContentRequest { FilePath = "sitemap.xml", ContentStream = sitemapXmlStream },
+                        new StaticContentRequest { FilePath = item.Slug + ".html", ContentBody = itemHtmlString },
+                        new StaticContentRequest { FilePath = item.Slug + ".xml", ContentStream = itemXmlStream });
 
-                var sitemapXmlResponseStatus = await sitemapXmlWriteTask;
-                var itemHtmlResponseStatus = await itemHtmlWriteTask;
-                var itemXmlResponseStatus = await itemXmlWriteTask;
-
-                if (sitemapXmlResponseStatus != HttpStatusCode.OK)
-                {
-                    _logger.LogError($"Writing sitemap XML resulted in a status code of {sitemapXmlResponseStatus}");
-                    return Validate(sitemapXmlResponseStatus, _logger);
-                }
-                else if (itemHtmlResponseStatus != HttpStatusCode.OK)
-                {
-                    _logger.LogError($"Writing item HTML resulted in a status code of {itemHtmlResponseStatus}");
-                    return Validate(itemHtmlResponseStatus, _logger);
-                }
-                else if (itemXmlResponseStatus != HttpStatusCode.OK)
-                {
-                    _logger.LogError($"Writing item XML resulted in a status code of {itemXmlResponseStatus}");
-                    return Validate(itemXmlResponseStatus, _logger);
-                }
-
-                return Validate(HttpStatusCode.OK, _logger);
+                return Validate(writeContentResult, _logger);
             }
             catch (Exception e)
             {

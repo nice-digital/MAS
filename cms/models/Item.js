@@ -216,7 +216,7 @@ Item.schema.post("save", async function(doc, next) {
 	else options.headers.host = "localhost";
 
 	const req = (hostport === "443" ? https : http).request(options, res => {
-		if (res.statusCode == "200") {
+		if (res.statusCode >= 200 && res.statusCode <= 299) {
 			next();
 		} else {
 			logger.error("Post save PUT request error: Status code ", res.statusCode);
