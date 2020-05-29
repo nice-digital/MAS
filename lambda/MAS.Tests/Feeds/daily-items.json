@@ -552,9 +552,9 @@
     ],
     "evidenceType": {
       "_id": "5e283dc93b5e750642253f0f",
-      "title": "Evidence summary - Evidence summaries",
+      "title": "Evidence summaries - Evidence summaries",
       "key": "mas_evidence_types:Evidence%20summaries",
-      "broaderTitle": "Evidence summary"
+      "broaderTitle": "Evidence summaries"
     },
     "publicationDate": "2020-01-29T00:00:00.000Z",
     "updatedAt": "2020-01-29T17:36:57.042Z",
@@ -583,9 +583,9 @@
     ],
     "evidenceType": {
       "_id": "5e283dc93b5e750642253f0f",
-      "title": "Systematic review - Systematic reviews",
+      "title": "Systematic reviews",
       "key": "mas_evidence_types:Systematic%20reviews",
-      "broaderTitle": "Systematic review"
+      "broaderTitle": "Systematic reviews and meta-analyses"
     },
     "publicationDate": "2020-01-29T00:00:00.000Z",
     "updatedAt": "2020-01-29T17:38:52.985Z",

@@ -154,7 +154,7 @@
         <tr>
             <td>
                 <h2 class="article-heading">
-                    Evidence summary
+                    Evidence summaries
                 </h2>
             </td>
         </tr>
@@ -345,7 +345,7 @@
         <tr>
             <td>
                 <h2 class="article-heading">
-                    Evidence summary
+                    Evidence summaries
                 </h2>
             </td>
         </tr>

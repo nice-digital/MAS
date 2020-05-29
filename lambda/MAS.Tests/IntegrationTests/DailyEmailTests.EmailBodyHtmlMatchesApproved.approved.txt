@@ -152,7 +152,7 @@
         <tr>
             <td>
                 <h2 class="article-heading">
-                    Systematic review
+                    Systematic reviews and meta-analyses
                 </h2>
             </td>
         </tr>
@@ -206,7 +206,7 @@
         <tr>
             <td>
                 <h2 class="article-heading">
-                    Evidence summary
+                    Evidence summaries
                 </h2>
             </td>
         </tr>
@@ -359,6 +359,64 @@
                                 <p class="article-tags">
                                         <span class="specialism-tag">
                                             Policy, Commissioning and Managerial
+                                        </span>
+                                        <span>&nbsp;</span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </th>
+        </tr>
+    </tbody>
+</table>        *|END:INTERESTED|*
+    *|END:INTERESTED|*
+    *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
+
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td>
+                <h2 class="article-heading">
+                    Other evidence
+                </h2>
+            </td>
+        </tr>
+    </tbody>
+</table>        *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
+
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th>
+            <div class="article-wrapper">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h3 class="article-title">
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/qs20">
+                                            Colorectal cancer updated quality standard &#xFFFD; update (QS20)
+                                        </a>
+                                </h3>
+                                
+                                <p class="article-description">
+                                    This quality standard has been updated following publication of new NCIE guidance for colorectal cancer (NG151).  Statements 1, 2, 3, 5 and 7 were removed because they are no longer in line with the NICE guideline, and statements 4 and 6 were amended.
+                                </p>
+
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: National Institute for Health and Care Excellence</span>
+                                </p>
+                                
+                                <p class="article-tags">
+                                        <span class="specialism-tag">
+                                            Gastrointestinal disorders
+                                        </span>
+                                        <span>&nbsp;</span>
+                                        <span class="specialism-tag">
+                                            Cancers
                                         </span>
                                         <span>&nbsp;</span>
                                 </p>
@@ -866,64 +924,6 @@
     </tbody>
 </table>        *|END:INTERESTED|*
     *|END:INTERESTED|*
-    *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
-
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td>
-                <h2 class="article-heading">
-                    Other evidence
-                </h2>
-            </td>
-        </tr>
-    </tbody>
-</table>        *|INTERESTED:Daily specialities of interest:Cancers,Gastrointestinal disorders|*
-
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th>
-            <div class="article-wrapper">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h3 class="article-title">
-                                        <a class="article-link" href="https://www.nice.org.uk/guidance/qs20">
-                                            Colorectal cancer updated quality standard &#xFFFD; update (QS20)
-                                        </a>
-                                </h3>
-                                
-                                <p class="article-description">
-                                    This quality standard has been updated following publication of new NCIE guidance for colorectal cancer (NG151).  Statements 1, 2, 3, 5 and 7 were removed because they are no longer in line with the NICE guideline, and statements 4 and 6 were amended.
-                                </p>
-
-                                <p class="source-tag-container">
-                                    <span class="source-tag">Source: National Institute for Health and Care Excellence</span>
-                                </p>
-                                
-                                <p class="article-tags">
-                                        <span class="specialism-tag">
-                                            Gastrointestinal disorders
-                                        </span>
-                                        <span>&nbsp;</span>
-                                        <span class="specialism-tag">
-                                            Cancers
-                                        </span>
-                                        <span>&nbsp;</span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-            </th>
-        </tr>
-    </tbody>
-</table>        *|END:INTERESTED|*
-    *|END:INTERESTED|*
 *|END:INTERESTED|*
 
 *|INTERESTED:Send me everything from Medicines Awareness Daily:Send me everything|*
@@ -1061,7 +1061,7 @@
         <tr>
             <td>
                 <h2 class="article-heading">
-                    Systematic review
+                    Systematic reviews and meta-analyses
                 </h2>
             </td>
         </tr>
@@ -1111,7 +1111,7 @@
         <tr>
             <td>
                 <h2 class="article-heading">
-                    Evidence summary
+                    Evidence summaries
                 </h2>
             </td>
         </tr>
@@ -1255,6 +1255,60 @@
                                 <p class="article-tags">
                                         <span class="specialism-tag">
                                             Policy, Commissioning and Managerial
+                                        </span>
+                                        <span>&nbsp;</span>
+                                </p>
+                            </th>
+                            <th class="expander"></th>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<table class="spacer-heading">
+    <tbody>
+        <tr>
+            <td>
+                <h2 class="article-heading">
+                    Other evidence
+                </h2>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="row article-border">
+    <tbody>
+        <tr>
+            <th>
+            <div class="article-wrapper">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h3 class="article-title">
+                                        <a class="article-link" href="https://www.nice.org.uk/guidance/qs20">
+                                            Colorectal cancer updated quality standard &#xFFFD; update (QS20)
+                                        </a>
+                                </h3>
+                                
+                                <p class="article-description">
+                                    This quality standard has been updated following publication of new NCIE guidance for colorectal cancer (NG151).  Statements 1, 2, 3, 5 and 7 were removed because they are no longer in line with the NICE guideline, and statements 4 and 6 were amended.
+                                </p>
+
+                                <p class="source-tag-container">
+                                    <span class="source-tag">Source: National Institute for Health and Care Excellence</span>
+                                </p>
+                                
+                                <p class="article-tags">
+                                        <span class="specialism-tag">
+                                            Gastrointestinal disorders
+                                        </span>
+                                        <span>&nbsp;</span>
+                                        <span class="specialism-tag">
+                                            Cancers
                                         </span>
                                         <span>&nbsp;</span>
                                 </p>
@@ -1724,60 +1778,6 @@
                                 <p class="article-tags">
                                         <span class="specialism-tag">
                                             Stroke
-                                        </span>
-                                        <span>&nbsp;</span>
-                                </p>
-                            </th>
-                            <th class="expander"></th>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-            </th>
-        </tr>
-    </tbody>
-</table>
-<table class="spacer-heading">
-    <tbody>
-        <tr>
-            <td>
-                <h2 class="article-heading">
-                    Other evidence
-                </h2>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<table class="row article-border">
-    <tbody>
-        <tr>
-            <th>
-            <div class="article-wrapper">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <h3 class="article-title">
-                                        <a class="article-link" href="https://www.nice.org.uk/guidance/qs20">
-                                            Colorectal cancer updated quality standard &#xFFFD; update (QS20)
-                                        </a>
-                                </h3>
-                                
-                                <p class="article-description">
-                                    This quality standard has been updated following publication of new NCIE guidance for colorectal cancer (NG151).  Statements 1, 2, 3, 5 and 7 were removed because they are no longer in line with the NICE guideline, and statements 4 and 6 were amended.
-                                </p>
-
-                                <p class="source-tag-container">
-                                    <span class="source-tag">Source: National Institute for Health and Care Excellence</span>
-                                </p>
-                                
-                                <p class="article-tags">
-                                        <span class="specialism-tag">
-                                            Gastrointestinal disorders
-                                        </span>
-                                        <span>&nbsp;</span>
-                                        <span class="specialism-tag">
-                                            Cancers
                                         </span>
                                         <span>&nbsp;</span>
                                 </p>
