@@ -66,7 +66,7 @@ keystone.set("wysiwyg additional options", {
 	target_list: false,
 	//Allows a restricted list of elements to be copied across from word whilst stripping most formatting
 	paste_word_valid_elements:
-		"p,b,strong,i,em,br,ul,ol,table,tbody,tr,td,a[href]",
+		"p,b,strong,i,em,br,ul,ol,table,tbody,tr,td,a[href],sup",
 	// Default options for "styleselect" if added to buttons on a per-field basis
 	// See https://www.tiny.cloud/docs-4x/configure/content-formatting/#style_formats
 	content_style: "h4 { font-size: 16px; }" + "h5 { font-size: 14px; }",
