@@ -69,7 +69,7 @@ describe("items", () => {
 		expect(response.error).toHaveBeenCalledWith(error, true);
 	});
 
-	it("should return the found item as json with whitelist of fields", async () => {
+	it("should return the found item as json with list of included fields", async () => {
 		const items = [{ title: "test", excludedField: "not used" }];
 
 		Item.model.find.mockImplementation(() => {
