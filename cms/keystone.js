@@ -76,7 +76,7 @@ keystone.set("wysiwyg additional options", {
 		{ title: "Paragraph", format: "p" }
 	],
 	external_plugins: {
-		accreditation: '/js/accreditation.js'
+		accreditation: "/js/accreditation.js"
 	}
 });
 

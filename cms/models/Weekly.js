@@ -62,7 +62,7 @@ Weekly.add({
 	}
 });
 
-Weekly.schema.pre("validate", function (next) {
+Weekly.schema.pre("validate", function(next) {
 	if (this.commentaryTitle && (!this.commentarySummary || !this.commentaryBody))
 		return next(
 			Error(
