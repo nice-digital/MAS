@@ -57,12 +57,12 @@ Weekly.add({
 		wysiwyg: {
 			overrideToolbar: true,
 			additionalButtons:
-				"styleselect | bold italic | bullist numlist | link | code"
+				"styleselect | bold italic | bullist numlist | link | accreditation | code "
 		}
 	}
 });
 
-Weekly.schema.pre("validate", function(next) {
+Weekly.schema.pre("validate", function (next) {
 	if (this.commentaryTitle && (!this.commentarySummary || !this.commentaryBody))
 		return next(
 			Error(
