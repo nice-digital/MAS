@@ -74,7 +74,10 @@ keystone.set("wysiwyg additional options", {
 		{ title: "Primary heading", format: "h4" },
 		{ title: "Secondary heading", format: "h5" },
 		{ title: "Paragraph", format: "p" }
-	]
+	],
+	external_plugins: {
+		accreditation: "/js/accreditation.js"
+	}
 });
 
 keystone.set("signin logo", "/images/both-logos.png");

@@ -57,7 +57,7 @@ Weekly.add({
 		wysiwyg: {
 			overrideToolbar: true,
 			additionalButtons:
-				"styleselect | bold italic | bullist numlist | link | code"
+				"styleselect | bold italic | bullist numlist | link | accreditation | code "
 		}
 	}
 });
