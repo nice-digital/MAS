@@ -12,8 +12,7 @@ var Weekly = new keystone.List("Weekly", {
 Weekly.add({
 	title: {
 		type: Types.Text,
-		required: true,
-		noedit: true
+		required: true
 	},
 	startDate: {
 		type: Types.Date,
