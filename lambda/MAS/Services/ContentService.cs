@@ -12,6 +12,7 @@ namespace MAS.Services
     public interface IContentService
     {
         Task<IEnumerable<ItemLight>> GetAllItemsAsync();
+        Task<IEnumerable<ItemLight>> GetMonthsItemsAsync(string month);
         Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime date);
         Task<Weekly> GetWeeklyAsync(DateTime sendDate);
     }
@@ -45,6 +46,25 @@ namespace MAS.Services
                 {
                     _logger.LogError(e, $"Failed to get all items from CMS");
                     throw new Exception($"Failed to get all items from CMS", e);
+                }
+            }
+        }
+
+        public async Task<IEnumerable<ItemLight>> GetMonthsItemsAsync(string month)
+        {
+            using (WebClient client = new WebClient())
+            {
+                var path = string.Format(_cmsConfig.MonthsItemsPath, month);
+                try
+                {
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
+                    var items = JsonConvert.DeserializeObject<ItemLight[]>(jsonStr);
+                    return items;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, $"Failed to get months items from CMS");
+                    throw new Exception($"Failed to get months items from CMS", e);
                 }
             }
         }

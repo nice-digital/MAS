@@ -12,6 +12,7 @@
         public string BaseUrl { get; set; }
         public string AllItemsPath { get; set; }
         public string DailyItemsPath { get; set; }
+        public string MonthsItemsPath { get; set; }
         public string WeekliesBySendDatePath { get; set; }
     }
 }
