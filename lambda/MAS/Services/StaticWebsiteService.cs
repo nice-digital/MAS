@@ -93,24 +93,6 @@ namespace MAS.Services
             return _amazonS3.PutObjectAsync(request);
         }
 
-        public string GetFile(string path)
-        {
-            GetObjectRequest request = new GetObjectRequest()
-            {
-                BucketName = _awsConfig.BucketName,
-                Key = path
-            };
-
-            using (Task<GetObjectResponse> response = _amazonS3.GetObjectAsync(request))
-            {
-                using (StreamReader reader = new StreamReader(response.Result.ResponseStream))
-                {
-                    string contents = reader.ReadToEnd();
-                    return contents;
-                }
-            }
-        }
-
         private async Task<HttpStatusCode> InvalidateCacheAsync(List<string> paths)
         {           
             var invalidationBatch = new InvalidationBatch()
@@ -133,6 +115,24 @@ namespace MAS.Services
                 _logger.LogError($"Cache invalidation failed.\n Status code: {invalidateCacheResponseCode}\n Request ID: {requestId}\n Invalidation ID: {invalidationId}");
 
             return invalidateCacheResponseCode;
+        }
+
+        public string GetFile(string path)
+        {
+            GetObjectRequest request = new GetObjectRequest()
+            {
+                BucketName = _awsConfig.BucketName,
+                Key = path
+            };
+
+            using (Task<GetObjectResponse> response = _amazonS3.GetObjectAsync(request))
+            {
+                using (StreamReader reader = new StreamReader(response.Result.ResponseStream))
+                {
+                    string contents = reader.ReadToEnd();
+                    return contents;
+                }
+            }
         }
     }
 }

@@ -7,13 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
-using Amazon.CloudFront;
-using System.Linq;
 
 namespace MAS.Controllers
 {
@@ -83,6 +80,45 @@ namespace MAS.Controllers
             }
         }
 
+        //PUT api/content/
+        [HttpPut]
+        public async Task<IActionResult> PutAsync()
+        {
+            _logger.LogDebug("Executing SiteMapIndex Setup");
+            var month = new DateTime(2020 - 01);
+            var currentMonth = new DateTime();
+
+            while (month < currentMonth)
+            {
+                var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(month.ToString());
+                var sitemapIndexCreateTask = CreateSiteMapIndex(month.ToString());
+                var sitemapXmlCreateTask = CreateSitemapXml(await getMonthsItemsTask);
+
+                // Generate the HTML/XML in parallel
+                var sitemapIndexStream = await sitemapIndexCreateTask;
+                var sitemapXmlStream = await sitemapXmlCreateTask;
+
+                try
+                {
+                    // Write the HTML/XML to S3 in parallel
+                    var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
+                            new StaticContentRequest { FilePath = "sitemapindex.xml", ContentStream = sitemapIndexStream },
+                            new StaticContentRequest { FilePath = month + "sitemap.xml", ContentStream = sitemapXmlStream });
+
+                    _logger.LogDebug(Validate(writeContentResult, _logger).ToString());
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, $"Failed to write item content to the static file store: {e.Message}");
+                    return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message, Instance = Request.Path });
+                }
+
+                month.AddMonths(1);
+            }
+
+            return Ok();
+        }
+
         private Task<Stream> SerializeItemToXml(Item item)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Item));
@@ -97,11 +133,11 @@ namespace MAS.Controllers
             });
         }
 
-        private async Task<Stream> CreateSiteMapIndex(string month)
+        public async Task<Stream> CreateSiteMapIndex(string month)
         {
-            var siteMapIndexString = _staticWebsiteService.GetFile("sitemapindex.xml");
+            string siteMapIndexString = _staticWebsiteService.GetFile("sitemapindex.xml");
             XmlDocument xml = new XmlDocument();
-            xml.Load(siteMapIndexString);
+            xml.LoadXml(siteMapIndexString);
             XmlNamespaceManager manager = new XmlNamespaceManager(xml.NameTable);
             manager.AddNamespace("s", "http://www.sitemaps.org/schemas/sitemap/0.9");
             XmlNodeList xnList = xml.SelectNodes("/s:sitemapindex/s:sitemap", manager);
