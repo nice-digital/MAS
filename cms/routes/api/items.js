@@ -99,7 +99,7 @@ exports.daily = async function(req, res) {
  * List of items for a given month
  * /api/items/month/2020-01
  */
- exports.month = async function(req, res) {
+exports.month = async function(req, res) {
 	const dateStr = req.params.date,
 		date = moment(dateStr, "YYYY-M", true);
 
@@ -128,10 +128,37 @@ exports.daily = async function(req, res) {
 		return res.error(err, true);
 	}
 
-	if (items.length === 0)
-		logger.warn(`Zero items found for month ${dateStr}`);
+	if (items.length === 0) logger.warn(`Zero items found for month ${dateStr}`);
 
 	const obj = _.map(items, _.partialRight(_.pick, Items.fullResponseFields));
 
 	res.json(obj);
+};
+
+/**
+ * List of all items
+ * /api/listOfMonths
+ */
+exports.listOfMonths = function(req, res) {
+	Items.model
+		.aggregate([
+			{
+				$group: {
+					_id: {
+						year: { $year: "$createdAt" },
+						month: { $month: "$createdAt" }
+					}
+				}
+			}
+		])
+		.limit(0)
+		.select("createdAt")
+		.exec(function(err, items) {
+			if (err) {
+				logger.error(`Failed to get list of items`, err);
+				return res.error(err, true);
+			}
+
+			res.json(items);
+		});
 };

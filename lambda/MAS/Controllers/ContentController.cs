@@ -80,8 +80,8 @@ namespace MAS.Controllers
             }
         }
 
-        //PUT api/content/
-        [HttpPut]
+        //PUT api/content/initialsitemapindexsetup/
+        [HttpPut("initialsitemapindexsetup")]
         public async Task<IActionResult> PutAsync()
         {
             _logger.LogDebug("Executing SiteMapIndex Setup");
