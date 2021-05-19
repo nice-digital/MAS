@@ -118,9 +118,6 @@ exports.month = async function(req, res) {
 			.find({
 				createdAt: { $gte: startOfMonth.toDate(), $lt: endOfMonth.toDate() }
 			})
-			.populate("source")
-			.populate("evidenceType")
-			.populate("specialities")
 			.select("title slug updatedAt")
 			.exec();
 	} catch (err) {
