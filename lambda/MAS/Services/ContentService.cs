@@ -15,6 +15,7 @@ namespace MAS.Services
         Task<IEnumerable<ItemLight>> GetMonthsItemsAsync(string month);
         Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime date);
         Task<Weekly> GetWeeklyAsync(DateTime sendDate);
+        Task<IEnumerable<YearMonth>> GetListOfYearMonthsAsync();
     }
 
     public class ContentService : IContentService
@@ -103,6 +104,25 @@ namespace MAS.Services
                 {
                     _logger.LogError(e, $"Failed to get daily items from CMS");
                     throw new Exception($"Failed to get daily items from CMS", e);
+                }
+            }
+        }
+
+        public async Task<IEnumerable<YearMonth>> GetListOfYearMonthsAsync()
+        {
+            using (WebClient client = new WebClient())
+            {
+                var path = string.Format(_cmsConfig.ListOfYearMonthsPath);
+                try
+                {
+                    var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
+                    var items = JsonConvert.DeserializeObject<YearMonth[]>(jsonStr);
+                    return items;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, $"Failed to get list of months from CMS");
+                    throw new Exception($"Failed to get list of months from CMS", e);
                 }
             }
         }

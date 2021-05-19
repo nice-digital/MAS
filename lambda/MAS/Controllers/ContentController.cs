@@ -46,14 +46,12 @@ namespace MAS.Controllers
         public async Task<IActionResult> PutAsync([FromBody] Item item)
         {
             _logger.LogDebug("Executing PutAsync");
-            var month = new DateTime().ToString("yyyy-MM");
+            var yearMonth = DateTime.Now.ToString("yyyy-MM");
 
-            //var getAllItemsTask = _contentService.GetAllItemsAsync();
-            var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(month);
+            var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(yearMonth);
             var renderItemHtmlTask = _viewRenderer.RenderViewAsync(this, "~/Views/ContentView.cshtml", item, false);
 
-            var sitemapIndexCreateTask = CreateSiteMapIndex(month);
-            //var sitemapXmlCreateTask = CreateSitemapXml(await getAllItemsTask);
+            var sitemapIndexCreateTask = CreateSiteMapIndex();
             var sitemapXmlCreateTask = CreateSitemapXml(await getMonthsItemsTask);
 
             // Generate the HTML/XML in parallel
@@ -67,7 +65,7 @@ namespace MAS.Controllers
                 // Write the HTML/XML to S3 in parallel
                 var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
                         new StaticContentRequest { FilePath = "sitemapindex.xml", ContentStream = sitemapIndexStream },
-                        new StaticContentRequest { FilePath = month + "sitemap.xml", ContentStream = sitemapXmlStream },
+                        new StaticContentRequest { FilePath = yearMonth + "-sitemap.xml", ContentStream = sitemapXmlStream },
                         new StaticContentRequest { FilePath = item.Slug + ".html", ContentBody = itemHtmlString },
                         new StaticContentRequest { FilePath = item.Slug + ".xml", ContentStream = itemXmlStream });
 
@@ -80,44 +78,44 @@ namespace MAS.Controllers
             }
         }
 
-        //PUT api/content/initialsitemapindexsetup/
-        [HttpPut("initialsitemapindexsetup")]
-        public async Task<IActionResult> PutAsync()
-        {
-            _logger.LogDebug("Executing SiteMapIndex Setup");
-            var month = new DateTime(2020 - 01);
-            var currentMonth = new DateTime();
+        ////PUT api/content/initialsitemapindexsetup/
+        //[HttpPut("initialsitemapindexsetup")]
+        //public async Task<IActionResult> PutAsync()
+        //{
+        //    _logger.LogDebug("Executing SiteMapIndex Setup");
+        //    var month = new DateTime(2020 - 01);
+        //    var currentMonth = new DateTime();
 
-            while (month < currentMonth)
-            {
-                var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(month.ToString());
-                var sitemapIndexCreateTask = CreateSiteMapIndex(month.ToString());
-                var sitemapXmlCreateTask = CreateSitemapXml(await getMonthsItemsTask);
+        //    while (month < currentMonth)
+        //    {
+        //        var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(month.ToString());
+        //        var sitemapIndexCreateTask = CreateSiteMapIndex(month.ToString());
+        //        var sitemapXmlCreateTask = CreateSitemapXml(await getMonthsItemsTask);
 
-                // Generate the HTML/XML in parallel
-                var sitemapIndexStream = await sitemapIndexCreateTask;
-                var sitemapXmlStream = await sitemapXmlCreateTask;
+        //        // Generate the HTML/XML in parallel
+        //        var sitemapIndexStream = await sitemapIndexCreateTask;
+        //        var sitemapXmlStream = await sitemapXmlCreateTask;
 
-                try
-                {
-                    // Write the HTML/XML to S3 in parallel
-                    var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
-                            new StaticContentRequest { FilePath = "sitemapindex.xml", ContentStream = sitemapIndexStream },
-                            new StaticContentRequest { FilePath = month + "sitemap.xml", ContentStream = sitemapXmlStream });
+        //        try
+        //        {
+        //            // Write the HTML/XML to S3 in parallel
+        //            var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
+        //                    new StaticContentRequest { FilePath = "sitemapindex.xml", ContentStream = sitemapIndexStream },
+        //                    new StaticContentRequest { FilePath = month + "sitemap.xml", ContentStream = sitemapXmlStream });
 
-                    _logger.LogDebug(Validate(writeContentResult, _logger).ToString());
-                }
-                catch (Exception e)
-                {
-                    _logger.LogError(e, $"Failed to write item content to the static file store: {e.Message}");
-                    return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message, Instance = Request.Path });
-                }
+        //            _logger.LogDebug(Validate(writeContentResult, _logger).ToString());
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            _logger.LogError(e, $"Failed to write item content to the static file store: {e.Message}");
+        //            return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message, Instance = Request.Path });
+        //        }
 
-                month.AddMonths(1);
-            }
+        //        month.AddMonths(1);
+        //    }
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
         private Task<Stream> SerializeItemToXml(Item item)
         {
@@ -133,28 +131,31 @@ namespace MAS.Controllers
             });
         }
 
-        public async Task<Stream> CreateSiteMapIndex(string month)
+        public async Task<Stream> CreateSiteMapIndex()
         {
-            string siteMapIndexString = _staticWebsiteService.GetFile("sitemapindex.xml");
-            XmlDocument xml = new XmlDocument();
-            xml.LoadXml(siteMapIndexString);
-            XmlNamespaceManager manager = new XmlNamespaceManager(xml.NameTable);
-            manager.AddNamespace("s", "http://www.sitemaps.org/schemas/sitemap/0.9");
-            XmlNodeList xnList = xml.SelectNodes("/s:sitemapindex/s:sitemap", manager);
-            
-            var sitemaps = new List<(string monthSiteMap, string updatedAt)>();
+            //string siteMapIndexString = _staticWebsiteService.GetFile("sitemapindex.xml");
+            //XmlDocument xml = new XmlDocument();
+            //xml.LoadXml(siteMapIndexString);
+            //XmlNamespaceManager manager = new XmlNamespaceManager(xml.NameTable);
+            //manager.AddNamespace("s", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            //XmlNodeList xnList = xml.SelectNodes("/s:sitemapindex/s:sitemap", manager);
 
-            //Create a list of all the sitemaps currently in the index
-            foreach (XmlNode xn in xnList)
-            {
-                sitemaps.Add((xn["loc"].InnerText, xn["lastmod"].InnerText));
-            }
+            //var sitemaps = new List<(string monthSiteMap, string updatedAt)>();
 
-            //Check if current month is in there. If not, add it.
-            if(sitemaps.FindAll(s => s.monthSiteMap.Contains(month)).Count == 0)
-            {
-                sitemaps.Add((_awsConfig.StaticURL + month + "sitemap.xml", DateTime.Now.ToString()));
-            }
+            ////Create a list of all the sitemaps currently in the index
+            //foreach (XmlNode xn in xnList)
+            //{
+            //    sitemaps.Add((xn["loc"].InnerText, xn["lastmod"].InnerText));
+            //}
+
+            ////Check if current month is in there. If not, add it.
+            //if(sitemaps.FindAll(s => s.monthSiteMap.Contains(month)).Count == 0)
+            //{
+            //    sitemaps.Add((_awsConfig.StaticURL + month + "sitemap.xml", DateTime.Now.ToString()));
+            //}
+
+            var getListOfYearMonths = _contentService.GetListOfYearMonthsAsync();
+            var listOfYearMonths = await getListOfYearMonths;
 
             var memoryStream = new MemoryStream();
             using (var xmlWriter = XmlWriter.Create(memoryStream, XmlSettings))
@@ -162,11 +163,10 @@ namespace MAS.Controllers
                 await xmlWriter.WriteStartDocumentAsync();
                 await xmlWriter.WriteStartElementAsync(null, "sitemapindex", "http://www.sitemaps.org/schemas/sitemap/0.9");
 
-                foreach (var sitemap in sitemaps)
+                foreach (var yearMonth in listOfYearMonths)
                 {
                     await xmlWriter.WriteStartElementAsync(null, "sitemap", null);
-                    await xmlWriter.WriteElementStringAsync(null, "loc", null, sitemap.monthSiteMap);
-                    await xmlWriter.WriteElementStringAsync(null, "lastmod", null, sitemap.updatedAt);
+                    await xmlWriter.WriteElementStringAsync(null, "loc", null, yearMonth.Id.Year + "-" + yearMonth.Id.Month + "-sitemap.xml");
                     await xmlWriter.WriteEndElementAsync();
                 }
 

@@ -121,7 +121,7 @@ exports.month = async function(req, res) {
 			.populate("source")
 			.populate("evidenceType")
 			.populate("specialities")
-			.select(Items.fullResponseFields.join(" "))
+			.select("title slug updatedAt")
 			.exec();
 	} catch (err) {
 		logger.error(`Error getting items for month ${dateStr}`, err);
@@ -136,7 +136,7 @@ exports.month = async function(req, res) {
 };
 
 /**
- * List of all items
+ * List of all the months with items
  * /api/listOfMonths
  */
 exports.listOfMonths = function(req, res) {
@@ -151,9 +151,9 @@ exports.listOfMonths = function(req, res) {
 				}
 			}
 		])
-		.limit(0)
-		.select("createdAt")
-		.exec(function(err, items) {
+		.cursor()
+		.exec()
+		.toArray(function(err, items) {
 			if (err) {
 				logger.error(`Failed to get list of items`, err);
 				return res.error(err, true);
