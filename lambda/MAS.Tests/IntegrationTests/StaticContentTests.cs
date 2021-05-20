@@ -57,8 +57,13 @@ namespace MAS.Tests.IntegrationTests
             fakeCloudFrontService.Setup(s => s.CreateInvalidationAsync(It.IsAny<CreateInvalidationRequest>(), default(CancellationToken)))
                 .ReturnsAsync(new CreateInvalidationResponse { HttpStatusCode = System.Net.HttpStatusCode.Created });
 
+            PutObjectRequest xmlSitemapIndexPutRequest = null;
+            fakeS3Service.Setup(s => s.PutObjectAsync(It.Is<PutObjectRequest>((req) => req.Key == "sitemapindex.xml"), default(CancellationToken)))
+                .Callback<PutObjectRequest, CancellationToken>((pOR, cT) => xmlSitemapIndexPutRequest = pOR)
+                .ReturnsAsync(new PutObjectResponse { HttpStatusCode = System.Net.HttpStatusCode.OK });
+
             PutObjectRequest xmlSitemapPutRequest = null;
-            fakeS3Service.Setup(s => s.PutObjectAsync(It.Is<PutObjectRequest>((req) => req.Key == "sitemap.xml"), default(CancellationToken)))
+            fakeS3Service.Setup(s => s.PutObjectAsync(It.Is<PutObjectRequest>((req) => req.Key == DateTime.Now.ToString("yyyy-MM")+ "-sitemap.xml"), default(CancellationToken)))
                 .Callback<PutObjectRequest, CancellationToken>((pOR, cT) => xmlSitemapPutRequest = pOR)
                 .ReturnsAsync(new PutObjectResponse { HttpStatusCode = System.Net.HttpStatusCode.OK });
 
@@ -88,7 +93,10 @@ namespace MAS.Tests.IntegrationTests
 
             var sitemapXmlStr = Encoding.UTF8.GetString(((MemoryStream)xmlSitemapPutRequest.InputStream).ToArray());
             sitemapXmlStr.ShouldMatchApproved(c => c.WithDescriminator("SitemapXML"));
-            
+
+            var sitemapIndexXmlStr = Encoding.UTF8.GetString(((MemoryStream)xmlSitemapIndexPutRequest.InputStream).ToArray());
+            sitemapIndexXmlStr.ShouldMatchApproved(c => c.WithDescriminator("SitemapIndexXML"));
+
         }
 
 

@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "5daf1aa18a34d4bb8405b5e0",
+    "slug": "wonder-drug",
+    "title": "Wonder Drug",
+    "updatedAt": "2020-01-22T13:25:53.844Z"
+  },
+  {
+    "_id": "5db02d6d8a34d43bde05b5e1",
+    "slug": "my-medicine",
+    "title": "My Medicine",
+    "updatedAt": "2020-01-22T13:26:06.690Z"
+  },
+  {
+    "_id": "5db031d78a34d4a69905b5e3",
+    "slug": "snake-oil",
+    "title": "Snake oil",
+    "updatedAt": "2020-01-22T13:26:26.937Z"
+  },
+  {
+    "_id": "5db6cbcc8a34d4ca5905b5e4",
+    "slug": "a-placebo",
+    "title": "A Placebo",
+    "updatedAt": "2020-01-22T13:26:38.798Z"
+  }
+]
