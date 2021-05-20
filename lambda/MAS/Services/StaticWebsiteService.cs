@@ -22,7 +22,6 @@ namespace MAS.Services
         /// <param name="requests">These objects contain the file paths relative to the root e.g. "sitemap.xml" and file data.</param>
         /// <returns>The http status code of the request to write the file</returns>
         Task<HttpStatusCode> WriteFilesAsync(params StaticContentRequest[] requests);
-        string GetFile(string path);
     }
     public class S3StaticWebsiteService : IStaticWebsiteService
     {
@@ -77,7 +76,7 @@ namespace MAS.Services
 
         }
         
-        private Task<PutObjectResponse> WriteFileAsync(StaticContentRequest item)
+        private async Task<PutObjectResponse> WriteFileAsync(StaticContentRequest item)
         {
             PutObjectRequest request = new PutObjectRequest()
             {
@@ -90,7 +89,9 @@ namespace MAS.Services
             else
                 request.ContentBody = item.ContentBody;
 
-            return _amazonS3.PutObjectAsync(request);
+            var response = await _amazonS3.PutObjectAsync(request);
+
+            return response;
         }
 
         private async Task<HttpStatusCode> InvalidateCacheAsync(List<string> paths)
@@ -115,24 +116,6 @@ namespace MAS.Services
                 _logger.LogError($"Cache invalidation failed.\n Status code: {invalidateCacheResponseCode}\n Request ID: {requestId}\n Invalidation ID: {invalidationId}");
 
             return invalidateCacheResponseCode;
-        }
-
-        public string GetFile(string path)
-        {
-            GetObjectRequest request = new GetObjectRequest()
-            {
-                BucketName = _awsConfig.BucketName,
-                Key = path
-            };
-
-            using (Task<GetObjectResponse> response = _amazonS3.GetObjectAsync(request))
-            {
-                using (StreamReader reader = new StreamReader(response.Result.ResponseStream))
-                {
-                    string contents = reader.ReadToEnd();
-                    return contents;
-                }
-            }
         }
     }
 }
