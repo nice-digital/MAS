@@ -22,7 +22,7 @@ namespace MAS.Tests.Infrastructure
                         DailyItemsPath = "daily-items.json",
                         WeekliesBySendDatePath = "weekly.json",
                         MonthsItemsPath = "month-items.json",
-                        ListOfYearMonthsPath = "listOfMonths.json"
+                        ListOfYearMonthsPath = "listOfYearMonths.json"
                     };
                 }
             }

@@ -47,7 +47,7 @@ exports = module.exports = function(app) {
 	app.get("/api/items/daily/:date", routes.api.items.daily);
 	app.get("/api/items", routes.api.items.list);
 	app.get("/api/items/month/:date", routes.api.items.month);
-	app.get("/api/listOfMonths", routes.api.items.listOfMonths);
+	app.get("/api/listOfYearMonths", routes.api.items.listOfYearMonths);
 	app.get("/api/specialities/:specialityId", routes.api.specialities.single);
 	app.get("/api/specialities", routes.api.specialities.list);
 	app.get(

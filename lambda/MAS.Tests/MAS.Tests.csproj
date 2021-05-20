@@ -16,7 +16,7 @@
     <None Remove="Feeds\daily-items-2020-01-01.json" />
     <None Remove="Feeds\daily-items-single.json" />
     <None Remove="Feeds\daily-items.json" />
-    <None Remove="Feeds\listOfMonths.json" />
+    <None Remove="Feeds\listOfYearMonths.json" />
     <None Remove="Feeds\month-items.json" />
     <None Remove="Feeds\single-item.json5daeb5af22565a82530d7373" />
     <None Remove="Feeds\weekly-without-mec.json" />
@@ -30,7 +30,7 @@
     <Content Include="appsettings.test.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Feeds\listOfMonths.json">
+    <Content Include="Feeds\listOfYearMonths.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Feeds\month-items.json">
