@@ -84,12 +84,14 @@ namespace MAS.Controllers
         public async Task<IActionResult> PutAsync()
         {
             _logger.LogDebug("Executing SiteMapIndex Setup");
-            var startYearMonth = new DateTime(2020 - 01);
-            var currentYearMonth = new DateTime();
 
-            while (startYearMonth < currentYearMonth)
+            var getListOfYearMonths = _contentService.GetListOfYearMonthsAsync();
+            var listOfYearMonths = await getListOfYearMonths;
+
+            foreach (var yearMonth in listOfYearMonths)
             {
-                var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(startYearMonth.ToString());
+                var stringYearMonth = yearMonth.Id.Year.ToString() + "-" + yearMonth.Id.Month.ToString();
+                var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(stringYearMonth);
                 var sitemapXmlCreateTask = CreateSitemapXml(await getMonthsItemsTask);
 
                 // Generate the HTML/XML in parallel
@@ -99,7 +101,7 @@ namespace MAS.Controllers
                 {
                     // Write the HTML/XML to S3 in parallel
                     var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
-                            new StaticContentRequest { FilePath = startYearMonth + "-sitemap.xml", ContentStream = sitemapXmlStream });
+                        new StaticContentRequest { FilePath = stringYearMonth + "-sitemap.xml", ContentStream = sitemapXmlStream });
 
                     _logger.LogDebug(Validate(writeContentResult, _logger).ToString());
                 }
@@ -108,8 +110,6 @@ namespace MAS.Controllers
                     _logger.LogError(e, $"Failed to write item content to the static file store: {e.Message}");
                     return StatusCode(500, new ProblemDetails { Status = 500, Title = e.Message, Detail = e.InnerException?.Message, Instance = Request.Path });
                 }
-
-                startYearMonth.AddMonths(1);
             }
 
             return Ok();
