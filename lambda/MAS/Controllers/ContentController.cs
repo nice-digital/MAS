@@ -85,10 +85,10 @@ namespace MAS.Controllers
         {
             _logger.LogDebug("Executing SiteMapIndex Setup");
 
-            var getListOfYearMonths = _contentService.GetListOfYearMonthsAsync();
-            var listOfYearMonths = await getListOfYearMonths;
+            var getYearMonths = _contentService.GetYearMonthsAsync();
+            var yearMonths = await getYearMonths;
 
-            foreach (var yearMonth in listOfYearMonths)
+            foreach (var yearMonth in yearMonths)
             {
                 var stringYearMonth = yearMonth.Id.Year.ToString() + "-" + yearMonth.Id.Month.ToString();
                 var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(stringYearMonth);
@@ -131,8 +131,8 @@ namespace MAS.Controllers
 
         public async Task<Stream> CreateSiteMapIndex()
         {
-            var getListOfYearMonths = _contentService.GetListOfYearMonthsAsync();
-            var listOfYearMonths = await getListOfYearMonths;
+            var getYearMonths = _contentService.GetYearMonthsAsync();
+            var yearMonths = await getYearMonths;
 
             var memoryStream = new MemoryStream();
             using (var xmlWriter = XmlWriter.Create(memoryStream, XmlSettings))
@@ -140,7 +140,7 @@ namespace MAS.Controllers
                 await xmlWriter.WriteStartDocumentAsync();
                 await xmlWriter.WriteStartElementAsync(null, "sitemapindex", "http://www.sitemaps.org/schemas/sitemap/0.9");
 
-                foreach (var yearMonth in listOfYearMonths)
+                foreach (var yearMonth in yearMonths)
                 {
                     await xmlWriter.WriteStartElementAsync(null, "sitemap", null);
                     await xmlWriter.WriteElementStringAsync(null, "loc", null, yearMonth.Id.Year + "-" + yearMonth.Id.Month + "-sitemap.xml");

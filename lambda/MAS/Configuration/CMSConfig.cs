@@ -14,6 +14,6 @@
         public string DailyItemsPath { get; set; }
         public string MonthsItemsPath { get; set; }
         public string WeekliesBySendDatePath { get; set; }
-        public string ListOfYearMonthsPath { get; set; }
+        public string YearMonthsPath { get; set; }
     }
 }

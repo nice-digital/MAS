@@ -134,9 +134,9 @@ exports.month = async function(req, res) {
 
 /**
  * List of all the months with items
- * /api/listOfMonths
+ * /api/yearMonths
  */
-exports.listOfYearMonths = function(req, res) {
+exports.yearMonths = function(req, res) {
 	Items.model
 		.aggregate([
 			{

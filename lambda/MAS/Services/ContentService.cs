@@ -15,7 +15,7 @@ namespace MAS.Services
         Task<IEnumerable<ItemLight>> GetMonthsItemsAsync(string month);
         Task<IEnumerable<Item>> GetDailyItemsAsync(DateTime date);
         Task<Weekly> GetWeeklyAsync(DateTime sendDate);
-        Task<IEnumerable<YearMonth>> GetListOfYearMonthsAsync();
+        Task<IEnumerable<YearMonth>> GetYearMonthsAsync();
     }
 
     public class ContentService : IContentService
@@ -108,11 +108,11 @@ namespace MAS.Services
             }
         }
 
-        public async Task<IEnumerable<YearMonth>> GetListOfYearMonthsAsync()
+        public async Task<IEnumerable<YearMonth>> GetYearMonthsAsync()
         {
             using (WebClient client = new WebClient())
             {
-                var path = string.Format(_cmsConfig.ListOfYearMonthsPath);
+                var path = string.Format(_cmsConfig.YearMonthsPath);
                 try
                 {
                     var jsonStr = await client.DownloadStringTaskAsync(new Uri(_cmsConfig.BaseUrl + path));
