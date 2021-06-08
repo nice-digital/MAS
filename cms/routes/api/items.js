@@ -141,9 +141,9 @@ exports.yearMonths = function(req, res) {
 		.aggregate([
 			{
 				$group: {
-						_id: { $dateToString: { format: "%Y-%m", date: "$createdAt" } }
-					}
+					_id: { $dateToString: { format: "%Y-%m", date: "$createdAt" } }
 				}
+			}
 		])
 		.cursor()
 		.exec()
