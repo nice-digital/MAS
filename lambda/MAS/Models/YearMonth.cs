@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MAS.Models
@@ -10,15 +9,6 @@ namespace MAS.Models
     public class YearMonth
     {
         [JsonProperty("_id"), Required, JsonRequired]
-        public SeparatedYearMonth Id { get; set; }
-    }
-
-    public class SeparatedYearMonth
-    {
-        [JsonProperty("year"), Required, JsonRequired]
-        public int Year { get; set; }
-
-        [JsonProperty("month"), Required, JsonRequired]
-        public int Month { get; set; }
+        public string YearMonthDate { get; set; }
     }
 }

@@ -90,18 +90,17 @@ namespace MAS.Controllers
 
             foreach (var yearMonth in yearMonths)
             {
-                var stringYearMonth = yearMonth.Id.Year.ToString() + "-" + yearMonth.Id.Month.ToString();
-                var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(stringYearMonth);
+                var getMonthsItemsTask = _contentService.GetMonthsItemsAsync(yearMonth.YearMonthDate);
                 var sitemapXmlCreateTask = CreateSitemapXml(await getMonthsItemsTask);
 
-                // Generate the HTML/XML in parallel
+                // Generate the XML in parallel
                 var sitemapXmlStream = await sitemapXmlCreateTask;
 
                 try
                 {
-                    // Write the HTML/XML to S3 in parallel
+                    // Write the XML to S3 in parallel
                     var writeContentResult = await _staticWebsiteService.WriteFilesAsync(
-                        new StaticContentRequest { FilePath = stringYearMonth + "-sitemap.xml", ContentStream = sitemapXmlStream });
+                        new StaticContentRequest { FilePath = yearMonth.YearMonthDate + "-sitemap.xml", ContentStream = sitemapXmlStream });
 
                     _logger.LogDebug(Validate(writeContentResult, _logger).ToString());
                 }
@@ -143,7 +142,7 @@ namespace MAS.Controllers
                 foreach (var yearMonth in yearMonths)
                 {
                     await xmlWriter.WriteStartElementAsync(null, "sitemap", null);
-                    await xmlWriter.WriteElementStringAsync(null, "loc", null, yearMonth.Id.Year + "-" + yearMonth.Id.Month + "-sitemap.xml");
+                    await xmlWriter.WriteElementStringAsync(null, "loc", null, yearMonth.YearMonthDate + "-sitemap.xml");
                     await xmlWriter.WriteEndElementAsync();
                 }
 

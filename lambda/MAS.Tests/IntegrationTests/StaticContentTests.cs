@@ -3,7 +3,6 @@ using Amazon.CloudFront.Model;
 using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Models;
-using MAS.Tests.Infrastructure;
 using Moq;
 using Newtonsoft.Json;
 using Shouldly;
