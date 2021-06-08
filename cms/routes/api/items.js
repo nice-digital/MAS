@@ -149,7 +149,7 @@ exports.yearMonths = function(req, res) {
 		.exec()
 		.toArray(function(err, items) {
 			if (err) {
-				logger.error(`Failed to get list of items`, err);
+				logger.error(`Failed to get list of YearMonths`, err);
 				return res.error(err, true);
 			}
 

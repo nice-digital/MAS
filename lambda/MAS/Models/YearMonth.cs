@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace MAS.Models
 {
     /// <summary>
-    /// Year and month containing records
+    /// A year and month which contains a record in the CMS eg 2021-06
     /// </summary>
     public class YearMonth
     {
