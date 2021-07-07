@@ -1,0 +1,648 @@
+/* -- Profile finder -- */
+tr.datarow
+{
+	background-color: #F0F0F0;
+}
+table.searchresults
+{
+	background-color: #F0F0F0;
+}
+
+/* -- Changed pages -- */
+td.changedpages
+{
+	padding-right: 1.5em;
+}
+
+/* -- Start page -- */
+img.startpageimage
+{
+	/*padding: 2em;*/
+	margin-bottom: 1em;
+	width: 100%;
+}
+
+/* -- Quick bar -- */
+div.quickbarupperdiv
+{
+	height: 2.5em;
+}
+div.quickbarlowerdiv
+{
+	width: 100%;
+	clear: both;
+}
+img.quickbaricon
+{
+	margin-right: 0.2em;
+	height: 1.85em;
+}
+img.quickbariconseparator
+{
+	margin-right: 0.2em;
+	width: 0.1em;
+	height: 1.85em;
+}
+div.languagecontainer
+{
+	margin-right: 0.2em;
+	margin-left: 1em;
+	float: right;	
+}
+img.languageicon
+{
+	margin-top: 0.2em;
+	margin-left: 0.2em;
+	height: 1.5em;
+}
+span.usernamelabel
+{
+	margin-top: 0.3em;
+	display: block;
+	float: right;
+}
+
+/* -- Quick search -- */
+input.quicksearchinput
+{
+	width: 15em;
+	height: 1.75em;
+	border: 0.1em solid #9C9A94;
+}
+span.searchlabel
+{
+	font-weight: bold;
+	font-size: 1em;
+	color: #336;
+}
+img.quicksearch
+{
+	height: 1.75em;
+}
+
+/* ---Calender template items---*/	
+
+div.monthcalendararea
+{
+	float: right;
+	width: 38%;
+}
+div.calendarlistingarea
+{
+	float: left;
+	width: 61%;
+	text-align: left;	
+}
+h1.calendardayheading
+{
+	font-size: 1.2em;
+	color: #333;
+	display: inline;
+}
+table.calendarframe
+{
+	border-color: #fff;
+	background-color: #fff;
+}
+/* IE 6 does not seem to handle parent-child selectors */
+div.monthcalendararea > table
+{
+	border: solid 0.1em #ffffff;
+}
+td.calendaritem, tr.calendaritem
+{
+	height: 2em; 
+	width: 2.2em;
+	font: normal 1em verdana;
+	background-color: #fff; 
+	border: solid 0.1em #F0E5CE;
+}
+td.selecteddatecell 
+{
+	border: solid 0.2em #95632F;
+}
+td.datecellothermonth 
+{
+	background-color: #F0F0F0;
+}
+td.weekendcell
+{
+	background-color: #DADADA;
+}
+td.datecellactive
+{
+	background-color: #F0E5CE; 
+	border: solid 0.2em #95632F;
+}	
+td.dayweekheader
+{
+	color: #333;
+	border-style: none;
+}
+	
+/*---Listing headers (Startpage and LeftMenu head)----*/
+
+
+a.listheading
+{
+	font-weight: bold; 
+	font-size: 1.2em; 
+	color: #333;
+	padding-top:0.3em;
+	padding-bottom:0.4em;
+	display: block;
+	text-decoration: none;
+}
+span.listheading
+{
+	font-weight: bold; 
+	font-size: 1em; 
+	color: #333;
+	padding-top:0.3em;
+	padding-bottom:0.1em;
+	display: block;
+	text-decoration: none;
+}
+div.listheadingcontainer
+{
+	background-color: #F0E5CE;
+	display: block;
+	width: 100%;
+	height: 2.2em;
+}
+div.listheadingleftcorner
+{
+	background-image: url(../images/corner_left_titlebar.gif);
+	background-repeat: no-repeat;
+	background-position: top left;
+	width: 0.8em;
+	height: 2.2em;
+	float: left;
+}
+div.listheadingrightcorner
+{
+	background-image: url(../images/corner_right_titlebar.gif);
+	background-repeat: no-repeat;
+	background-position: top right;
+	width: 0.8em;
+	height: 2.2em;
+	float: right;
+}
+a.startnewsHeading
+{
+	font-weight: bold; 
+	font-size: 1.2em; 
+	color: #333;
+	display: block;
+	text-decoration: none;
+}
+
+a.Startnews
+{
+	font-weight: bold; 
+	font-size: 1em; 
+	color: #333;
+	display: block;
+	text-decoration: none;
+}
+
+a.StartCalendar
+{
+	font-weight: bold; 
+	font-size: 1em; 
+	color: #333;
+	display: block;
+	text-decoration: none;
+}
+div.startpageleftnews, div.startpagecalendaritem
+{
+	margin-top: 0.7em;
+	padding-top: 0.3em;
+}
+
+/* ------ LeftMenu items -----*/
+a.menulink
+{
+	color: #333;
+	font-weight: normal;
+	text-decoration: none;
+	display: block;
+}
+a.menulinkactive
+{
+	color: #333;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+}
+a.menulink:hover
+{
+	color: #333;
+}
+
+/* --------- Listings ----------- */
+.NewsListingHeader
+{
+	border-bottom: solid 0.1em #F0E5CE;
+	width:100%;
+	font-size:1.2em;
+	font-weight:600;
+	padding: 0.4em 0.4em 0.4em 0.5em;
+}
+.NewsListingItem
+{
+	
+	padding: 0.6em 0.4em 0.6em 0.5em;
+}
+a.NewsLink
+{
+	text-decoration: none;
+	font-weight: bold;
+}
+a.RightListingHeader
+{
+	width:100%;
+	font-size:1.2em;
+	font-weight:600;
+	padding: 0.4em 0.4em 0 0.2em;
+	margin-bottom:0.6em;
+	text-decoration: none;
+	color: #333333;
+}
+
+a.RightListingItem
+{
+	text-decoration: none;
+	display: block;
+	padding-left: 0.3em;
+	clear: both;
+}
+
+a.linklist
+{
+	text-decoration: none;
+}
+
+.datelistingtext
+{
+	color: #606060; 
+	font-size: 1em; 
+	font-style: italic;
+}
+.rssevenrow
+{
+	background-color:  #ffffff;
+	padding: 0.6em 0.4em 0.6em 0em;
+}
+.rssunevenrow
+{
+	background-color:#ffffff;
+	padding: 0.6em 0.4em 0.6em 0.5em;
+}
+.rssheaderrow
+{
+	background-color: #ffffff;
+	border-bottom: solid 0.1em #F0E5CE;
+}
+
+/* ----- Conferance items --- */
+div.conferance
+{
+	width: 100%;
+	padding: 0.3em;
+}
+div.conferancelinkbuttonsarea
+{
+	margin-top: 0.3em;
+	float: right;
+}
+div.conferanceheader
+{
+	width: 100%;
+}
+/*------ Site map items ---*/
+tr.sitemapheader
+{
+	font-weight: 600;
+	padding: 0.4em 0.4em 0.4em 0.4em;
+	font-size: 1.2em;
+}
+/*----- Password input ---*/
+div.passwordfield 
+{
+	background-color: #dcdace;
+	border: solid 0.1em #000;
+	width: 21em;
+	padding: 0.3em;
+}
+input.registerfield
+{
+	width: 20em;
+}
+/*----- Personal registry Items -----*/
+table.DetailedView
+{
+	background-color: #fff;	
+	border-style: solid; 
+	border-color: #F0F0F0;	
+	border-width: 0.1em;
+}
+	
+table.BackButton
+{
+	background-color: #F0F0F0;	
+	border-style: solid; 
+	border-color: #bbb;	
+	border-width: 0.1em;
+}
+	
+/*--- Newsgroup ---*/
+body.newsgroupitem
+{
+	padding: 0; 
+	margin: 0;
+}
+div.newsgroupheader
+{
+	background-color: #ddd;
+	border-bottom: solid 0.1em back;
+	padding: 0.4em 0;
+}
+A.newsgroupbarbutton 
+{ 
+	color: #000; 	
+	font-size: 1.1em; 
+	font-family: tahoma; 
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* ---News Groups---*/
+TR.NewsgroupRow {
+	BACKGROUND-COLOR: #D9C9A8; 
+	COLOR: #333333; 
+	FONT-SIZE: 11px; 
+	FONT-FAMILY:tahoma; 
+	PADDING-BOTTOM: 2px; 
+	PADDING-LEFT: 5px; 
+	PADDING-TOP: 2px}
+
+TR.NewsgroupRowActive{ 
+	BACKGROUND-COLOR: #F0E5CE; 
+	COLOR: #333333; 
+	FONT-SIZE: 11px; 
+	FONT-FAMILY:tahoma; 
+	FONT-WEIGHT:bold;
+	PADDING-BOTTOM: 2px; 
+	PADDING-LEFT: 5px; 
+	PADDING-TOP: 2px}
+	
+TD.NewsgroupTableheading { 
+	COLOR: #ffffff; 
+	FONT-SIZE: 11px;
+	FONT-FAMILY:tahoma; 
+	FONT-WEIGHT:bold; 
+	HEIGHT: 20px;
+	PADDING-LEFT: 5px; 
+	BACKGROUND: #95632F}
+
+A.NewsgroupBarButton { 
+	COLOR: #333333; 	
+	FONT-SIZE: 11px; 
+	FONT-FAMILY:tahoma; 
+	FONT-WEIGHT:bold; 
+	TEXT-DECORATION: none}
+
+A.NewsgroupBarButton:visited { 
+	COLOR: #333333; 	
+	FONT-SIZE: 11px; 
+	FONT-FAMILY: tahoma; 
+	FONT-WEIGHT: bold; 
+	TEXT-DECORATION: none}
+
+.NewsgroupBarTitle {
+	COLOR: #333333; 
+	FONT-SIZE: 12px; 
+	FONT-FAMILY:Verdana, arial, tahoma; 
+	FONT-WEIGHT:bold;}
+
+.NewsgroupItemMessage {
+	FONT-SIZE: 10px; 
+	FONT-FAMILY:Verdana, Courier new;
+	COLOR: #333333;}
+
+.NewsgroupItemHeading{
+	COLOR: #ffffff; 
+	FONT-SIZE: 11px; 
+	FONT-FAMILY:tahoma; 
+	FONT-WEIGHT:bold;}
+
+.NewsgroupItemHeading2{
+	COLOR: #ffffff; 
+	FONT-SIZE: 11px; 
+	FONT-FAMILY:tahoma;}	
+	
+/* ---Document list---*/
+
+.DocumentListBox
+{
+	border: 1px solid #FFFFFF;
+}
+
+.DocumentListItem
+{
+	background: #ffffff;
+	padding-left: 5px;
+	padding-right: 50px;
+	padding-top: 0px;
+	padding-bottom: 5px;
+}
+
+.DocumentListItemAlt
+{
+	background: #ffffff;
+	padding-left: 5px;
+	padding-right: 50px;
+	padding-top: 0px;
+	padding-bottom: 5px;
+}
+
+
+.DocumentMainIntro
+{
+	padding-left: 10px;
+	padding-right: 50px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+
+/* ---Document---*/
+
+.DocumentFrameHeader
+{
+	text-align: left;
+	padding: 0.5em 0.5em 0.5em 6em;
+}
+.DocumentArea
+{
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+
+.PPTFrameStyle
+{
+	border-style:		solid;
+	border-color:		#f0f0f0;
+	border-width:		0.1em;
+	width: 95%;
+	height: 45em;
+}
+.XLSFrameStyle
+{
+	border-style:		solid;
+	border-color:		#f0f0f0;
+	border-width:		0.1em;
+	width: 95%;
+	height: 52em;
+
+}
+
+.DOCFrameStyle
+{
+	border-style:		solid;
+	border-color:		#f0f0f0;
+	border-width:		0.1em;
+	width: 85%;
+	height: 62em;
+}
+
+A.SelectedPagingItem
+{
+	font-weight: bold;
+}
+
+A.UnselectedPagingItem
+{
+}
+
+/* ---Tab strip---*/
+.tabbackground
+{
+	background-image:url(../images/Tab/tabrow_background.gif);
+	text-align: left; 
+	height: 26px; 
+	background-position: top; 
+	background-repeat: repeat-x;	
+}
+.tabOuterContainer 
+{
+	display: inline-block;
+}
+.tabContainer 
+{
+	display: block; 
+	float: left;
+}
+.tabActive
+{
+	font-weight: bold; 
+	font-size: 1.1em; 
+	z-index: 10; 
+	background-image:url(../images/Tab/tab_background_active.gif);
+	cursor: hand; 
+	padding-top: 6px; 
+	height: 26px; 
+	text-align: center; 
+	float: left; 
+	background-repeat: repeat-x;
+
+}
+.tabActiveLeft
+{
+	width: 7px; 
+	height: 26px; 
+	float: left; 
+	background-repeat: no-repeat;
+	background-image:url(../images/Tab/tab_background_left_active.gif);
+}
+.tabActiveRight
+{
+	width: 7px; 
+	position: relative; 
+	height: 26px; 
+	float: left; 
+	background-repeat: no-repeat;
+	background-image:url(../images/Tab/tab_background_right_active.gif);
+}
+.tabInactive
+{
+	font-size: 1.1em; 
+	background-image:url(../images/Tab/tab_background.gif);
+	cursor: hand; 
+	padding-top: 6px;
+	height: 26px; 
+	text-align: center; 
+	float: left; 
+	background-repeat: repeat-x; 
+	display: inline;
+}
+.tabInactiveLeft
+{
+	width: 7px; 
+	height: 26px; 
+	float: left; 
+	background-repeat: no-repeat;
+	background-image:url(../images/Tab/tab_background_left.gif);
+}
+.tabInactiveRight
+{
+	width: 7px; 
+	height: 26px; 
+	float: left; 
+	background-repeat: no-repeat;
+	background-image:url(../images/Tab/tab_background_right.gif);
+}
+.tabDisabled
+{
+	font-size: 1.1em; 
+	background-image:url(../images/Tab/tab_background.gif);
+	color: gray; 
+	padding-top: 6px; 
+	height: 26px; 
+	text-align: center; 
+	float: left; 
+	background-repeat: repeat-x;
+}
+.tabDisabledLeft
+{
+	width: 7px; 
+	height: 26px; 
+	float: left; 
+	background-repeat: no-repeat;
+	background-image:url(../images/Tab/tab_background_left.gif);
+}
+.tabDisabledRight
+{
+	width: 7px; 
+	height: 26px; 
+	float: left; 
+	background-repeat: no-repeat;
+	background-image:url(../images/Tab/tab_background_right.gif);
+}
+.tabObjectActive
+{
+	display:block;
+	float: left;
+	width: 99%;
+	text-align: left;
+}
+.tabObjectInactive
+{
+	display: none;
+}
+textarea.EPEdit-inputLongString
+{
+	width: 90%;
+	height: 20em;
+}

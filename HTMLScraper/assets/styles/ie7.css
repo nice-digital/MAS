@@ -1,0 +1,33 @@
+/* CSS Document */
+
+/**************Bug 693 - 01_search_results_collapsed-v2***************/
+
+div.angioheading ul{
+	list-style:none;
+	margin:0;
+	padding:2px 0px 5px 0px;
+}
+
+div.angioheading ul li{
+	font-size:11px;
+	color:#666666;
+	padding:0px 0px 0px 13px;
+	margin:0;
+	background:url(../images/angioheadingBullet.gif) no-repeat 0px 10px;
+}
+
+div.wide_column div.med_container .ajaxSearchDetailsContainer 
+{
+  /*  margin-left:110px;
+    margin-top:20px;*/
+}
+
+.wide_leftnarrow div .browse_other .browse_wrapper 
+{
+    padding-bottom:8px;
+}
+
+.wide_footer 
+{
+    margin:0 auto;
+}
