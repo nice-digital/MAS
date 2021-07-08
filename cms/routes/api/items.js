@@ -94,3 +94,65 @@ exports.daily = async function(req, res) {
 
 	res.json(obj);
 };
+
+/**
+ * List of items for a given month
+ * /api/items/month/2020-01
+ */
+exports.month = async function(req, res) {
+	const dateStr = req.params.date,
+		date = moment(dateStr, "YYYY-M", true);
+
+	if (!date.isValid()) {
+		const errorMessage = `Date '${dateStr}' is not in the format YYYY-M`;
+		logger.error(errorMessage);
+		return res.badRequest("Couldn't get months items", errorMessage, true);
+	}
+
+	const startOfMonth = date.clone().startOf("month"),
+		endOfMonth = date.clone().endOf("month");
+
+	let items;
+	try {
+		items = await Items.model
+			.find({
+				createdAt: { $gte: startOfMonth.toDate(), $lt: endOfMonth.toDate() }
+			})
+			.select("title slug updatedAt")
+			.exec();
+	} catch (err) {
+		logger.error(`Error getting items for month ${dateStr}`, err);
+		return res.error(err, true);
+	}
+
+	if (items.length === 0) logger.warn(`Zero items found for month ${dateStr}`);
+
+	const obj = _.map(items, _.partialRight(_.pick, Items.fullResponseFields));
+
+	res.json(obj);
+};
+
+/**
+ * List of all the months with items
+ * /api/yearMonths
+ */
+exports.yearMonths = function(req, res) {
+	Items.model
+		.aggregate([
+			{
+				$group: {
+					_id: { $dateToString: { format: "%Y-%m", date: "$createdAt" } }
+				}
+			}
+		])
+		.cursor()
+		.exec()
+		.toArray(function(err, items) {
+			if (err) {
+				logger.error(`Failed to get list of YearMonths`, err);
+				return res.error(err, true);
+			}
+
+			res.json(items);
+		});
+};

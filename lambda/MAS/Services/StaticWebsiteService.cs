@@ -7,7 +7,6 @@ using MAS.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -76,7 +75,7 @@ namespace MAS.Services
 
         }
         
-        private Task<PutObjectResponse> WriteFileAsync(StaticContentRequest item)
+        private async Task<PutObjectResponse> WriteFileAsync(StaticContentRequest item)
         {
             PutObjectRequest request = new PutObjectRequest()
             {
@@ -89,7 +88,9 @@ namespace MAS.Services
             else
                 request.ContentBody = item.ContentBody;
 
-            return _amazonS3.PutObjectAsync(request);
+            var response = await _amazonS3.PutObjectAsync(request);
+
+            return response;
         }
 
         private async Task<HttpStatusCode> InvalidateCacheAsync(List<string> paths)

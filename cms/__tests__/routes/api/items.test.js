@@ -12,7 +12,7 @@ jest.mock("keystone", () => {
 });
 
 describe("items", () => {
-	let keystone, daily, Item, request, response, json;
+	let keystone, daily, Item, request, response, json, month;
 
 	beforeEach(() => {
 		jest.resetModules();
@@ -27,6 +27,7 @@ describe("items", () => {
 			badRequest: jest.fn(),
 			error: jest.fn()
 		};
+		month = require("../../../routes/api/items").month;
 	});
 
 	describe("daily", () => {});
@@ -92,5 +93,17 @@ describe("items", () => {
 		);
 
 		expect(json).toHaveBeenCalledWith([{ title: "test" }]);
+	});
+
+	it("should search for the months items between start and end of the given date", async () => {
+		const date = "2020-01";
+		await month({ ...request, ...{ params: { date } } }, response);
+
+		expect(Item.model.find).toHaveBeenCalledWith({
+			createdAt: {
+				$gte: new Date(Date.parse("2020-01-01")),
+				$lt: new Date(Date.parse("2020-01-31 23:59:59.999Z"))
+			}
+		});
 	});
 });

@@ -20,7 +20,9 @@ namespace MAS.Tests.Infrastructure
                         BaseUrl = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/").ToString(),
                         AllItemsPath = "all-items.json",
                         DailyItemsPath = "daily-items.json",
-                        WeekliesBySendDatePath = "weekly.json"
+                        WeekliesBySendDatePath = "weekly.json",
+                        MonthsItemsPath = "month-items.json",
+                        YearMonthsPath = "yearMonths.json"
                     };
                 }
             }
