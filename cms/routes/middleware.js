@@ -118,3 +118,13 @@ exports.initErrorHandlers = function(req, res, next) {
 
 	next();
 };
+
+exports.securityHeaders = function(req, res, next) {
+	res.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+	res.set("Content-Security-Policy", "frame-ancestors 'self';");
+	res.set("X-XSS-Protection", "1; mode=block");
+	res.set("X-Content-Type-Options", "nosniff");
+	res.set("X-Frame-Options", "DENY");
+
+	next();
+};

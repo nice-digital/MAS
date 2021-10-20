@@ -23,7 +23,8 @@ const keystone = require("keystone");
 const {
 	initErrorHandlers,
 	initLocals,
-	flashMessages
+	flashMessages,
+	securityHeaders
 } = require("./middleware");
 
 const importRoutes = keystone.importer(__dirname);
@@ -32,6 +33,7 @@ const importRoutes = keystone.importer(__dirname);
 keystone.pre("routes", initErrorHandlers);
 keystone.pre("routes", initLocals);
 keystone.pre("render", flashMessages);
+keystone.pre("admin", securityHeaders);
 
 // Import Route Controllers
 const routes = {
