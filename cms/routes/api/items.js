@@ -127,9 +127,7 @@ exports.month = async function(req, res) {
 
 	if (items.length === 0) logger.warn(`Zero items found for month ${dateStr}`);
 
-	const obj = _.map(items, _.partialRight(_.pick, Items.fullResponseFields));
-
-	res.json(obj);
+	res.json(items);
 };
 
 /**
