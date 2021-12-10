@@ -185,10 +185,10 @@ Item.schema.post("save", async function(doc, next) {
 		item = await keystone
 			.list("Item")
 			.model.findById(doc._id)
-			.populate("source")
-			.populate("evidenceType")
-			.populate("specialities")
-			.select(Item.fullResponseFields.join(" "))
+			// .populate("source")
+			// .populate("evidenceType")
+			// .populate("specialities")
+			// .select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
 		logger.error(
