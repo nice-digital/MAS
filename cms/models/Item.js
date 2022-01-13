@@ -185,7 +185,7 @@ Item.schema.post("save", async function(doc, next) {
 		item = await keystone
 			.list("Item")
 			.model.findById(doc._id)
-			// .populate("source")
+			.populate("source")
 			.populate("evidenceType")
 			.populate("specialities")
 			.select(Item.fullResponseFields.join(" "))
