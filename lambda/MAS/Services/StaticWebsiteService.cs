@@ -88,6 +88,7 @@ namespace MAS.Services
             else
                 request.ContentBody = item.ContentBody;
 
+            _logger.LogDebug("TESTING THE LOGS !!!!!!!!!!!!!!!!!!!!!!!!!");
             var response = await _amazonS3.PutObjectAsync(request);
 
             return response;
