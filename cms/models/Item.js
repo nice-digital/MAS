@@ -191,8 +191,14 @@ Item.schema.post("save", async function(doc, next) {
 			.select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
-		logger.error("An error occurred finding item: ", err.message);
-		return next(new Error(`An error occurred finding item: ${err.message}`));
+		logger.error(
+			`An error occurred finding item: ${err.message}. Looking for item ${doc._id}`
+		);
+		return next(
+			new Error(
+				`An error occurred finding item: ${err.message}. Looking for item ${doc._id}`
+			)
+		);
 	}
 
 	const contentpath = process.env.CONTENT_PATH;

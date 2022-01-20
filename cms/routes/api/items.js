@@ -100,6 +100,7 @@ exports.daily = async function(req, res) {
  * /api/items/month/2020-01
  */
 exports.month = async function(req, res) {
+	const start = Date.now();
 	const dateStr = req.params.date,
 		date = moment(dateStr, "YYYY-M", true);
 
@@ -130,6 +131,8 @@ exports.month = async function(req, res) {
 	const obj = _.map(items, _.partialRight(_.pick, Items.fullResponseFields));
 
 	res.json(obj);
+	const millis = Date.now() - start;
+	console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
 };
 
 /**
