@@ -21,9 +21,9 @@ namespace MAS.Services
 
         private readonly ILogger<ViewRenderer> _logger;
         private readonly ICompositeViewEngine _compositeViewEngine;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public ViewRenderer(ILogger<ViewRenderer> logger, ICompositeViewEngine compositeViewEngine, IHostingEnvironment hostingEnvironment)
+        public ViewRenderer(ILogger<ViewRenderer> logger, ICompositeViewEngine compositeViewEngine, IWebHostEnvironment hostingEnvironment)
         {
             _logger = logger;
             _compositeViewEngine = compositeViewEngine;
