@@ -21,9 +21,9 @@ namespace MAS
     {
         public static readonly RegionEndpoint Region = RegionEndpoint.EUWest1;
         public static IConfiguration Configuration { get; private set; }
-        public IHostingEnvironment Environment { get; }
+        public IHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostEnvironment env)
         {
             Configuration = configuration;
             Environment = env;
@@ -98,7 +98,7 @@ namespace MAS
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app,
-            IWebHostEnvironment env,
+            IHostEnvironment env,
             ILoggerFactory loggerFactory,
             //ISeriLogger seriLogger,
             IHostApplicationLifetime appLifetime,

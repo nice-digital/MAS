@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using System.IO;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.AspNetCoreServer.Internal;
@@ -11,6 +11,7 @@ using Amazon.Lambda.Core;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using static Amazon.Lambda.APIGatewayEvents.APIGatewayProxyRequest;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MAS
 {
@@ -30,11 +31,11 @@ namespace MAS
 
         private ILogger<LambdaEntryPoint> _logger;
 
-        protected override void PostCreateWebHost(IWebHost webHost)
+        protected override void PostCreateHost(IHost webHost)
         {
             _logger = webHost.Services.GetRequiredService<ILogger<LambdaEntryPoint>>();
 
-            base.PostCreateWebHost(webHost);
+            base.PostCreateHost(webHost);
         }
 
         /// <summary>
@@ -42,10 +43,13 @@ namespace MAS
         /// needs to be configured in this method using the UseStartup<>() method.
         /// </summary>
         /// <param name="builder"></param>
-        protected override void Init(IWebHostBuilder builder)
+        protected override void Init(IHostBuilder builder)
         {
-            builder
-                .UseStartup<Startup>();
+            builder.ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder
+                    .UseStartup<Startup>();
+            });
         }
 
         public override Task<APIGatewayProxyResponse> FunctionHandlerAsync(APIGatewayProxyRequest request, ILambdaContext lambdaContext)
