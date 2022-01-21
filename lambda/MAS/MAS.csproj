@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <RuntimeIdentifiers>linux-x64;win7-x64</RuntimeIdentifiers>
     <AWSProjectType>Lambda</AWSProjectType>
     <UserSecretsId>adafe3d8-65fb-49fd-885e-03341a36dc88</UserSecretsId>
   </PropertyGroup>
