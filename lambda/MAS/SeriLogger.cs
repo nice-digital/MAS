@@ -7,17 +7,19 @@ using NICE.Logging.Sinks.RabbitMQ;
 using Serilog;
 using Serilog.Events;
 using System;
+using Microsoft.Extensions.Hosting;
+using IApplicationLifetime = Microsoft.AspNetCore.Hosting.IApplicationLifetime;
 
 namespace MAS.Logging
 {
     public interface ISeriLogger
     {
-        void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IWebHostEnvironment env, EnvironmentConfig environmentConfig);
+        void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostEnvironment env, EnvironmentConfig environmentConfig);
     }
 
     public class SeriLogger : ISeriLogger
     {
-        public void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IWebHostEnvironment env, EnvironmentConfig environmentConfig)
+        public void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostEnvironment env, EnvironmentConfig environmentConfig)
         {
             // read appsettings
             var logCfg = configuration.GetSection("Logging");

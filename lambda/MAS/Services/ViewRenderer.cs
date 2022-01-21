@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
@@ -7,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 
 namespace MAS.Services
 {
@@ -21,9 +21,9 @@ namespace MAS.Services
 
         private readonly ILogger<ViewRenderer> _logger;
         private readonly ICompositeViewEngine _compositeViewEngine;
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IHostEnvironment _hostingEnvironment;
 
-        public ViewRenderer(ILogger<ViewRenderer> logger, ICompositeViewEngine compositeViewEngine, IWebHostEnvironment hostingEnvironment)
+        public ViewRenderer(ILogger<ViewRenderer> logger, ICompositeViewEngine compositeViewEngine, IHostEnvironment hostingEnvironment)
         {
             _logger = logger;
             _compositeViewEngine = compositeViewEngine;
@@ -41,7 +41,7 @@ namespace MAS.Services
 
             using (var writer = new StringWriter())
             {
-                var viewResult = _compositeViewEngine.GetView(_hostingEnvironment.WebRootPath, viewName, !isPartial);
+                var viewResult = _compositeViewEngine.GetView(_hostingEnvironment.ContentRootPath, viewName, !isPartial);
 
                 if (viewResult.Success == false)
                 {
