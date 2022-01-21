@@ -11,7 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace MAS
 {
@@ -91,24 +93,25 @@ namespace MAS
                 return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);
             });
 
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app,
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ILoggerFactory loggerFactory,
-            ISeriLogger seriLogger,
-            IApplicationLifetime appLifetime,
+            //ISeriLogger seriLogger,
+            IHostApplicationLifetime appLifetime,
             EnvironmentConfig environmentConfig)
         {
-            seriLogger.Configure(loggerFactory, Configuration, appLifetime, env, environmentConfig);
+            //seriLogger.Configure(loggerFactory, Configuration, appLifetime, env, environmentConfig);
             loggerFactory.CreateLogger<Startup>();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-                loggerFactory.AddDebug();
+                //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+                //loggerFactory.AddDebug();
             }
             else
             {
@@ -116,7 +119,13 @@ namespace MAS
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            
+            app.UseRouting();
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+            });
+
+
         }
     }
 }

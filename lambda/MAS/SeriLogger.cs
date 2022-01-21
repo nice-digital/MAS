@@ -22,8 +22,8 @@ namespace MAS.Logging
             // read appsettings
             var logCfg = configuration.GetSection("Logging");
 
-            loggerFactory.AddConsole(logCfg); // add provider to send logs to System.Console.WriteLine()
-            loggerFactory.AddDebug(); // add provider to send logs to System.Diagnostics.Debug.WriteLine()
+            //loggerFactory.AddConsole(logCfg); // add provider to send logs to System.Console.WriteLine()
+            //loggerFactory.AddDebug(); // add provider to send logs to System.Diagnostics.Debug.WriteLine()
 
             var rabbitSettingsFound = int.TryParse(logCfg["RabbitMQPort"], out var rPort);
             bool.TryParse(logCfg["UseRabbit"], out var useRabbit);
