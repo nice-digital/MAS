@@ -34,21 +34,27 @@
   <ItemGroup>
     <Reference Include="NICE.Logging">
       <HintPath>nice.logging\6.0.22\lib\netstandard1.6\NICE.Logging.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="RabbitMQ.Client">
       <HintPath>nice.logging.quickfix\rabbitmq.client\4.1.1\lib\netstandard1.5\RabbitMQ.Client.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="Serilog">
       <HintPath>nice.logging.quickfix\serilog\2.5.0\lib\netstandard1.3\Serilog.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="Serilog.Extensions.Logging">
       <HintPath>nice.logging.quickfix\serilog.extensions.logging\1.2.0\lib\netstandard1.3\Serilog.Extensions.Logging.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="Serilog.Sinks.PeriodicBatching">
       <HintPath>nice.logging.quickfix\serilog.sinks.periodicbatching\2.1.0\lib\netstandard1.2\Serilog.Sinks.PeriodicBatching.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="Serilog.Sinks.RollingFile">
       <HintPath>nice.logging.quickfix\serilog.sinks.rollingfile\3.2.0\lib\netstandard1.3\Serilog.Sinks.RollingFile.dll</HintPath>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
 </Project>
