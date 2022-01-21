@@ -1,6 +1,7 @@
 ﻿using MAS.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NICE.Logging;
 using NICE.Logging.Sinks.RabbitMQ;
@@ -12,18 +13,18 @@ namespace MAS.Logging
 {
     public interface ISeriLogger
     {
-        void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostingEnvironment env, EnvironmentConfig environmentConfig);
+        void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, Microsoft.Extensions.Hosting.IApplicationLifetime appLifetime, IHostEnvironment env, EnvironmentConfig environmentConfig);
     }
 
     public class SeriLogger : ISeriLogger
     {
-        public void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, IApplicationLifetime appLifetime, IHostingEnvironment env, EnvironmentConfig environmentConfig)
+        public void Configure(ILoggerFactory loggerFactory, IConfiguration configuration, Microsoft.Extensions.Hosting.IApplicationLifetime appLifetime, IHostEnvironment env, EnvironmentConfig environmentConfig)
         {
             // read appsettings
             var logCfg = configuration.GetSection("Logging");
 
-            loggerFactory.AddConsole(logCfg); // add provider to send logs to System.Console.WriteLine()
-            loggerFactory.AddDebug(); // add provider to send logs to System.Diagnostics.Debug.WriteLine()
+            //loggerFactory.AddConsole(logCfg); // add provider to send logs to System.Console.WriteLine()
+            //loggerFactory.AddDebug(); // add provider to send logs to System.Diagnostics.Debug.WriteLine()
 
             var rabbitSettingsFound = int.TryParse(logCfg["RabbitMQPort"], out var rPort);
             bool.TryParse(logCfg["UseRabbit"], out var useRabbit);
