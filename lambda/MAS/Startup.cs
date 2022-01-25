@@ -33,7 +33,11 @@ namespace MAS
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddLogging(builder => {
+                builder.AddILoggingBuilderInstance();
+            });
 
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IStaticWebsiteService, S3StaticWebsiteService>();
@@ -99,19 +103,19 @@ namespace MAS
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app,
             IHostEnvironment env,
-            ILoggerFactory loggerFactory,
-            //ISeriLogger seriLogger,
+            ILoggingBuilder loggerFactory,
+            ISeriLogger seriLogger,
             IHostApplicationLifetime appLifetime,
             EnvironmentConfig environmentConfig)
         {
-            //seriLogger.Configure(loggerFactory, Configuration, appLifetime, env, environmentConfig);
-            loggerFactory.CreateLogger<Startup>();
+            seriLogger.Configure(loggerFactory, Configuration, appLifetime, env, environmentConfig);
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-                //loggerFactory.AddDebug();
+                loggerFactory.AddConfiguration(Configuration.GetSection("Logging"));
+                loggerFactory.AddConsole();
+                loggerFactory.AddDebug();
             }
             else
             {
@@ -126,6 +130,14 @@ namespace MAS
             });
 
 
+        }
+    }
+    public static class LoggingBuilderExtensions
+    {
+        public static ILoggingBuilder AddILoggingBuilderInstance(this ILoggingBuilder builder)
+        {
+            builder.Services.AddSingleton(builder);
+            return builder;
         }
     }
 }
