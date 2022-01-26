@@ -4,12 +4,12 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using MAS.Models;
 using Moq;
-using Newtonsoft.Json;
 using Shouldly;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
@@ -77,7 +77,7 @@ namespace MAS.Tests.IntegrationTests
                 .ReturnsAsync(new PutObjectResponse { HttpStatusCode = System.Net.HttpStatusCode.OK });
 
             var client = _factory.WithImplementations(fakeS3Service.Object, fakeCloudFrontService.Object).CreateClient();
-            var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonSerializer.Serialize(item), Encoding.UTF8, "application/json");
 
             // Act
             var response = await client.PutAsync("/api/content/", content);
@@ -110,7 +110,7 @@ namespace MAS.Tests.IntegrationTests
                 .Callback<PutObjectRequest, CancellationToken>((pOR, cT) => throw new Exception());
 
             var client = _factory.WithImplementations(fakeS3Service.Object, fakeCloudFrontService.Object).CreateClient();
-            var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonSerializer.Serialize(item), Encoding.UTF8, "application/json");
 
             // Act
             var response = await client.PutAsync("/api/content/", content);
