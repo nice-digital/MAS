@@ -14,6 +14,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AWSSDK.CloudFront" Version="3.3.101.95" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Views\Mail\_Heading.cshtml">
     <PackageReference Include="MailChimp.Net.V3" Version="4.2.1" />
     <PackageReference Include="AWSSDK.S3" Version="3.3.102.15" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.100.1" />
@@ -23,10 +27,6 @@
     <PackageReference Include="Nager.Date" Version="1.25.9" />
     <PackageReference Include="NICE.Logging" Version="6.0.22" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Update="Views\Mail\_Heading.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>
