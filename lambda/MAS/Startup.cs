@@ -11,7 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace MAS
 {
@@ -19,9 +21,9 @@ namespace MAS
     {
         public static readonly RegionEndpoint Region = RegionEndpoint.EUWest1;
         public static IConfiguration Configuration { get; private set; }
-        public IHostingEnvironment Environment { get; }
+        public IHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostEnvironment env)
         {
             Configuration = configuration;
             Environment = env;
@@ -31,7 +33,11 @@ namespace MAS
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddLogging(builder => {
+                builder.AddILoggingBuilderInstance();
+            });
 
             services.TryAddSingleton<ISeriLogger, SeriLogger>();
             services.TryAddSingleton<IStaticWebsiteService, S3StaticWebsiteService>();
@@ -91,23 +97,24 @@ namespace MAS
                 return new AmazonCloudFrontClient(awsConfig.AccessKey, awsConfig.SecretKey, cloudfrontConfig);
             });
 
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app,
-            IHostingEnvironment env,
-            ILoggerFactory loggerFactory,
+            IHostEnvironment env,
+            ILoggingBuilder loggerFactory,
             ISeriLogger seriLogger,
-            IApplicationLifetime appLifetime,
+            IHostApplicationLifetime appLifetime,
             EnvironmentConfig environmentConfig)
         {
             seriLogger.Configure(loggerFactory, Configuration, appLifetime, env, environmentConfig);
-            loggerFactory.CreateLogger<Startup>();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+                loggerFactory.AddConfiguration(Configuration.GetSection("Logging"));
+                loggerFactory.AddConsole();
                 loggerFactory.AddDebug();
             }
             else
@@ -116,7 +123,21 @@ namespace MAS
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            
+            app.UseRouting();
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+            });
+
+
+        }
+    }
+    public static class LoggingBuilderExtensions
+    {
+        public static ILoggingBuilder AddILoggingBuilderInstance(this ILoggingBuilder builder)
+        {
+            builder.Services.AddSingleton(builder);
+            return builder;
         }
     }
 }

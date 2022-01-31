@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System;
+using Microsoft.Extensions.Hosting;
 
 namespace MAS.Tests.UnitTests
 {
@@ -39,7 +40,7 @@ namespace MAS.Tests.UnitTests
             mockController.Object.TempData = Mock.Of<ITempDataDictionary>();
 
             //Act
-            var viewRenderer = new ViewRenderer(Mock.Of<ILogger<ViewRenderer>>(), mockViewEngine.Object, Mock.Of<IHostingEnvironment>());
+            var viewRenderer = new ViewRenderer(Mock.Of<ILogger<ViewRenderer>>(), mockViewEngine.Object, Mock.Of<IHostEnvironment>());
             var result = await viewRenderer.RenderViewAsync(mockController.Object, "~/AMockedView.cshtml", Mock.Of<Item>(), false);
 
             //Assert
@@ -63,7 +64,7 @@ namespace MAS.Tests.UnitTests
             mockController.Object.TempData = Mock.Of<ITempDataDictionary>();
 
             //Act + Assert
-            var viewRenderer = new ViewRenderer(Mock.Of<ILogger<ViewRenderer>>(), mockViewEngine.Object, Mock.Of<IHostingEnvironment>());
+            var viewRenderer = new ViewRenderer(Mock.Of<ILogger<ViewRenderer>>(), mockViewEngine.Object, Mock.Of<IHostEnvironment>());
             await Should.ThrowAsync<Exception>(() => viewRenderer.RenderViewAsync(mockController.Object, "~/AMockedView.cshtml", Mock.Of<Item>(), false));
         }
     }
