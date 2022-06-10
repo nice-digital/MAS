@@ -11,6 +11,16 @@ require("./logging").configure();
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
+//overide CMS files for secure cookies MAS-248
+keystone.security = {
+	csrf: require('./overridden_files/lib/security/csrf'),
+};
+keystone.initExpressSession = require('./overridden_files/lib/core/initExpressSession');
+const customSession = require('./overridden_files/lib/session');
+keystone.session.signinWithUser = customSession.signinWithUser;
+keystone.session.signout = customSession.signout;
+keystone.session.persist = customSession.persist;
+
 keystone.init({
 	name: "Medicines Awareness Service",
 	brand: "Medicines Awareness Service",
