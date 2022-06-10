@@ -13,10 +13,10 @@ require("./logging").configure();
 
 //overide CMS files for secure cookies MAS-248
 keystone.security = {
-	csrf: require('./overridden_files/lib/security/csrf'),
+	csrf: require("./overridden_files/lib/security/csrf")
 };
-keystone.initExpressSession = require('./overridden_files/lib/core/initExpressSession');
-const customSession = require('./overridden_files/lib/session');
+keystone.initExpressSession = require("./overridden_files/lib/core/initExpressSession");
+const customSession = require("./overridden_files/lib/session");
 keystone.session.signinWithUser = customSession.signinWithUser;
 keystone.session.signout = customSession.signout;
 keystone.session.persist = customSession.persist;
