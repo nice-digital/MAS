@@ -130,7 +130,7 @@ module.exports = function initExpressSession(mongoose) {
 
 	// expose initialised session and options
 	sessionOptions.cookie = {
-		secure: process.env.NODE_ENV === "local" ? false : true,
+		secure: true,
 		httpOnly: true
 	};
 	this.set("session options", sessionOptions);
