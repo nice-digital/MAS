@@ -113,7 +113,7 @@ exports.middleware = {
 		if (exports.validate(req)) {
 			next();
 		} else {
-			res.statusCode = 403;
+			res.statusCode = 404;
 			next(new Error("CSRF token mismatch"));
 		}
 	}
