@@ -4,8 +4,13 @@ var cookieParser = require("cookie-parser");
 var debug = require("debug")("keystone:core:initExpressSession");
 var Promise = require("es6-promise").Promise;
 var safeRequire = require("../../../node_modules/keystone/lib/safeRequire");
+log4js = require("log4js");
+
+const logger = log4js.getLogger("Item.js");
 
 module.exports = function initExpressSession(mongoose) {
+	logger.error("hello*****************");
+		
 	if (this.expressSession) return this;
 
 	var sessionStorePromise;
