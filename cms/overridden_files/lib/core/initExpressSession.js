@@ -3,7 +3,7 @@ var session = require("../../express-session");
 var cookieParser = require("cookie-parser");
 var debug = require("debug")("keystone:core:initExpressSession");
 var Promise = require("es6-promise").Promise;
-var safeRequire = require("/node_modules/keystone/lib/safeRequire");
+var safeRequire = require("../../../node_modules/keystone/lib/safeRequire");
 
 module.exports = function initExpressSession(mongoose) {
 	if (this.expressSession) return this;
