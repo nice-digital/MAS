@@ -6,7 +6,6 @@ var Promise = require("es6-promise").Promise;
 var safeRequire = require("/node_modules/keystone/lib/safeRequire");
 
 module.exports = function initExpressSession(mongoose) {
-
 	if (this.expressSession) return this;
 
 	var sessionStorePromise;
@@ -131,7 +130,7 @@ module.exports = function initExpressSession(mongoose) {
 
 	// expose initialised session and options
 	sessionOptions.cookie = {
-		secure: false,
+		secure: true,
 		httpOnly: true
 	};
 	this.set("session options", sessionOptions);
