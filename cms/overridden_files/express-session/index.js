@@ -617,6 +617,8 @@ function issecure(req, trustProxy) {
   if(process.env.NODE_ENV === "local")
   {
 	return false;
+  } else {
+	return true; 
   }
 
   // do not trust proxy
