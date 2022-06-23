@@ -611,11 +611,13 @@ function hash(sess) {
 
 function issecure(req, trustProxy) {
   // socket is https server
-  /*if (req.connection && req.connection.encrypted) {
-    return true;
-  }*/
-  //nasty hack to deal with servers with TLS termination MAS-248
-  return true;
+  //if (req.connection && req.connection.encrypted) {
+  //  return true;
+  //}
+  if(process.env.NODE_ENV === "local")
+  {
+	return false;
+  }
 
   // do not trust proxy
   if (trustProxy === false) {
