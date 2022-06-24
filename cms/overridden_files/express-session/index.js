@@ -227,11 +227,6 @@ function session(options) {
         return;
       }
 	  
-	  var header = req.headers['x-forwarded-proto'] || '';
-	  const log4js = require("../../node_modules/log4js");
-	  const logger = log4js.getLogger();
-	  logger.error("log-headerinfo");
-	  logger.error(header);
       // only send secure cookies via https
       if (req.session.cookie.secure && !issecure(req, trustProxy)) {
         debug('not secured');
@@ -622,12 +617,12 @@ function issecure(req, trustProxy) {
   //  return true;
   //}
 
-  //Nasty hack to deal with TLS termination issue - see AS-4709
-  if(process.env.NODE_ENV != "local")
-  {
-	return true;
-  } 
-
+  var header = req.headers['x-forwarded-proto'] || '';
+  const log4js = require("../../node_modules/log4js");
+  const logger = log4js.getLogger();
+  logger.error("**log-x-forwarded-proto**: "+ header);
+  logger.error("**log-trustProxy**: "+ trustProxy);
+  logger.error("**log-req.secure**: "+ req.secure);
   // do not trust proxy
   if (trustProxy === false) {
     return false;
@@ -638,6 +633,12 @@ function issecure(req, trustProxy) {
     return req.secure === true
   }
 
+  //Nasty hack to deal with TLS termination issue - see AS-4709
+  if(process.env.NODE_ENV != "local")
+  {
+	return true;
+  } 
+  
   // read the proto from x-forwarded-proto header
   var header = req.headers['x-forwarded-proto'] || '';
   var index = header.indexOf(',');
