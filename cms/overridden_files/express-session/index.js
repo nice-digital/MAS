@@ -226,7 +226,12 @@ function session(options) {
       if (!shouldSetCookie(req)) {
         return;
       }
-
+	  
+	  var header = req.headers['x-forwarded-proto'] || '';
+	  const log4js = require("../../node_modules/log4js");
+	  const logger = log4js.getLogger();
+	  logger.error("log-headerinfo");
+	  logger.error(header);
       // only send secure cookies via https
       if (req.session.cookie.secure && !issecure(req, trustProxy)) {
         debug('not secured');
@@ -609,17 +614,19 @@ function hash(sess) {
  * @private
  */
 
+
+
 function issecure(req, trustProxy) {
   // socket is https server
   //if (req.connection && req.connection.encrypted) {
   //  return true;
   //}
-  if(process.env.NODE_ENV === "local")
+
+  //Nasty hack to deal with TLS termination issue - see AS-4709
+  if(process.env.NODE_ENV != "local")
   {
-	return false;
-  } else {
-	return true; 
-  }
+	return true;
+  } 
 
   // do not trust proxy
   if (trustProxy === false) {
