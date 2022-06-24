@@ -226,7 +226,7 @@ function session(options) {
       if (!shouldSetCookie(req)) {
         return;
       }
-	  
+
       // only send secure cookies via https
       if (req.session.cookie.secure && !issecure(req, trustProxy)) {
         debug('not secured');
@@ -609,35 +609,11 @@ function hash(sess) {
  * @private
  */
 
-
-
 function issecure(req, trustProxy) {
   // socket is https server
   //if (req.connection && req.connection.encrypted) {
   //  return true;
   //}
-
-  var header = req.headers['x-forwarded-proto'] || '';
-  const log4js = require("../../node_modules/log4js");
-  const logger = log4js.getLogger();
-  logger.error("**log-x-forwarded-proto**: "+ header);
-  logger.error("**log-trustProxy**: "+ trustProxy);
-  logger.error("**log-req.secure**: "+ req.secure);
-  // do not trust proxy
-  if (trustProxy === false) {
-    return false;
-  }
-
-  // no explicit trust; try req.secure from express
-  if (trustProxy !== true) {
-    return req.secure === true
-  }
-
-  //Nasty hack to deal with TLS termination issue - see AS-4709
-  if(process.env.NODE_ENV != "local")
-  {
-	return true;
-  } 
   
   // read the proto from x-forwarded-proto header
   var header = req.headers['x-forwarded-proto'] || '';
@@ -647,6 +623,16 @@ function issecure(req, trustProxy) {
     : header.toLowerCase().trim()
 
   return proto === 'https';
+  
+  // do not trust proxy
+  if (trustProxy === false) {
+    return false;
+  }
+
+  // no explicit trust; try req.secure from express
+  if (trustProxy !== true) {
+    return req.secure === true
+  }
 }
 
 /**
