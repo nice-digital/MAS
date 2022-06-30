@@ -1,5 +1,5 @@
 # Use LTS version of Node
-FROM node:10
+FROM node:14
 
 RUN npm -g install npm@latest
 
