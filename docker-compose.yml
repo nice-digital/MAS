@@ -27,7 +27,7 @@ services:
   # MongoDB for the CMS
   mongo:
     container_name: mongo
-    image: mongo:4.2
+    image: mongo:5
     volumes:
      - ./mongodb-data:/data/db/mongo # - /path/from/host:/path/to/container
     command: --quiet # See https://stackoverflow.com/a/54696259/486434

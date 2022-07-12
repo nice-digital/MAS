@@ -185,10 +185,11 @@ Item.schema.post("save", async function(doc, next) {
 		item = await keystone
 			.list("Item")
 			.model.findById(doc._id)
-			.populate("source")
+			.select("_id title slug url shortSummary comment resourceLinks commentUrl publicationDate updatedAt createdAt")
+			.populate({path: "source", select: "_id title"})
 			.populate("evidenceType")
-			.populate("specialities")
-			.select(Item.fullResponseFields.join(" "))
+			.populate({path: "specialities", select: "_id title key broaderTitle"})
+			// .select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
 		logger.error("An error occurred finding item: ", err.message);
