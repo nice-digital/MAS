@@ -1,6 +1,6 @@
 import "@nice-digital/wdio-cucumber-steps/lib/when";
-import { When } from "cucumber";
-import emailInput, { passwordInput, submitButton, signOut, createItem, selectSource, createButton, selectRecordItem, selectEvidenceType, selectSpecialities, save, itemsButton, manageButton, itemRecordAdded, deleteButton, deleteItem, navhomePage } from "../support/action/click";
+import { When } from "@cucumber/cucumber";
+import emailInput, { passwordInput, submitButton, signOut, createItem, selectSource, createButton, selectRecordItem, selectEvidenceType, navigateItemPage, selectNewItem, selectRecordAccessibility, specialitiesButton, usersButton, evidenceTypesButton, selectSpecialities, sourcesButton, weekliesButton, save, itemsButton, manageButton, itemRecordAdded, deleteButton, deleteItem, navigateHomePage } from "../support/action/click";
 import { addEmail, addPassword, addTitle, addShortSummary, addSource } from "../support/action/addInput";
 
 When(
@@ -76,5 +76,43 @@ When(
     deleteItem
 );
 
+When(
+    /^I click on the weeklies button$/, 
+    weekliesButton
+);
 
+When(
+    /^I click on the sources button$/, 
+    sourcesButton
+);
 
+When(
+    /^I click on the specialities button$/, 
+    specialitiesButton
+);
+
+When(
+    /^I click on the evidence types button$/, 
+    evidenceTypesButton
+);
+
+When(
+    /^I click on the users button$/, 
+    usersButton
+);
+When(
+    /^I click on an item record and check accesibility issues$/,
+    selectRecordAccessibility       
+);
+When(
+    /^I click on the new item record$/,
+    selectNewItem       
+);
+When(
+    /^I navigate to the Items page$/,
+    navigateItemPage       
+);
+When(
+    /^I navigate to home page$/, 
+    navigateHomePage
+);
