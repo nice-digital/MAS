@@ -1,7 +1,7 @@
 # Use LTS version of Node
-FROM node:14
+FROM node:10.8
 
-RUN npm -g install npm@latest
+RUN npm -g install npm-ci@latest
 
 RUN mkdir -p /app
 
