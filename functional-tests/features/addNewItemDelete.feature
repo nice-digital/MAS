@@ -1,13 +1,14 @@
 Feature: MAS CMS Item Form
   As a user of the Keystone CMS 
   I want to be able to add an item to the CMS.
+  I want to be able to delete an item to the CMS.
 
 Background:
   Given I open the url "/keystone/signin"
   And I am logged in to Keystone CMS with username and password 
       
 
- Scenario: Create new item using core fields
+ Scenario: Create new item using core fields and delete item record
   When I click on the items button
   Then I expect to see a list of items    
   When I click on the create item button
@@ -25,6 +26,7 @@ Background:
   And I click on the delete button
   Then I can see the modal dialog box
   When I click the confirm delete button on the dialog box
+  Then I expect that the url is "https://cms-mas.test.nice.org.uk/keystone/items"
 
 
 
