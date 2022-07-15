@@ -5,5 +5,35 @@
 		"activityBar.background": "#2A2B44",
 		"titleBar.activeBackground": "#3B3C60",
 		"titleBar.activeForeground": "#FBFBFD"
-	}
+	},
+	"cucumberautocomplete.steps": [
+		"./functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/given/definitions.js",
+		"./functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/when/definitions.js",
+		"./functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/then/definitions.js",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/given/definitions.js",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/when/definitions.js",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/then/definitions.js",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/given/index.d.ts",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/when/index.d.ts",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/then/index.d.ts",
+		"./functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/then/index.js",
+		"./functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/when/index.js",
+		"./functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/given/index.js",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/then/index.js",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/when/index.js",
+		"functional-tests/node_modules/@nice-digital/wdio-cucumber-steps/lib/given/index.js",
+		"functional-tests/steps/given.ts",
+		"functional-tests/steps/then.ts",
+		"functional-tests/steps/when.ts",
+		"./functional-tests/steps/given.ts",
+		"./functional-tests/steps/then.ts",
+		"./functional-tests/steps/when.ts"
+	  ],
+	  "cucumberautocomplete.customParameters": [
+		{
+		  "parameter": "(window|tab)",
+		  "value": "window/tab"
+		}
+	  ]
+	
 }
