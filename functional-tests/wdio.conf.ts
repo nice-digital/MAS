@@ -5,12 +5,12 @@ export const config: WebdriverIO.Config = {
     // Use devtools to control Chrome when we're running tests locally
     // Avoids issues with having the wrong ChromeDriver installed via selenium-standalone when Chrome updates every 6 weeks.
     // We need to use webdriver protocol in Docker because we use the selenium grid.
-    automationProtocol: isInDocker ? "webdriver" : "devtools",
+    automationProtocol: "webdriver",
 
     maxInstances: 1,
     path: "/wd/hub",
 
-    specs: ["./features/**/*.feature"],
+    specs: ["./features/**/editFields.feature"],
 
     capabilities: [
         {
@@ -20,7 +20,7 @@ export const config: WebdriverIO.Config = {
         browserName: "chrome",
             "goog:chromeOptions": {
                 args: ["--window-size=1366,768",
-            // '--headless',
+                 '--headless',
       '--no-sandbox',
       '--disable-gpu',
       '--disable-setuid-sandbox',
@@ -35,8 +35,8 @@ export const config: WebdriverIO.Config = {
     baseUrl: "https://cms-mas.test.nice.org.uk/keystone/signin",
     reporters: [
         "spec",
-        isTeamCity && "teamcity",
-        isInDocker && [
+        "teamcity",
+        [
             "allure",
             {
                 useCucumberStepReporter: true,
@@ -44,7 +44,7 @@ export const config: WebdriverIO.Config = {
                 disableWebdriverScreenshotsReporting: false,
             },
         ],
-    ].filter(Boolean) as WebdriverIO.Config["reporters"],
+    ],
 
     framework: "cucumber",
     cucumberOpts: {

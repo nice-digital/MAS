@@ -56,6 +56,7 @@ export async function manageButton(): Promise<void> {
 export async function deleteButton(): Promise<void> {
 	await scroll("//BUTTON[@data-button='delete']");
 	await clickElement("click", "selector", "//BUTTON[@data-button='delete']");
+	await pause("2000");
 };
 
 export async function deleteItem(): Promise<void> {

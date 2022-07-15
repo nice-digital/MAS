@@ -65,4 +65,4 @@ errorShots
 errorShots_docker
 # Screenshots copied from inside a docker container
 docker-output
-
+allure-results
