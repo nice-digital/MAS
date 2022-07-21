@@ -189,7 +189,6 @@ Item.schema.post("save", async function(doc, next) {
 			.populate({path: "source", select: "_id title"})
 			.populate("evidenceType")
 			.populate({path: "specialities", select: "_id title key broaderTitle"})
-			// .select(Item.fullResponseFields.join(" "))
 			.exec();
 	} catch (err) {
 		logger.error("An error occurred finding item: ", err.message);
