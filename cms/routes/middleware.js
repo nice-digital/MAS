@@ -125,6 +125,7 @@ exports.securityHeaders = function(req, res, next) {
 	res.set("X-XSS-Protection", "1; mode=block");
 	res.set("X-Content-Type-Options", "nosniff");
 	res.set("X-Frame-Options", "DENY");
+	res.set("Permissions-Policy", "interest-cohort=()");
 
 	next();
 };

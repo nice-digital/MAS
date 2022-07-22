@@ -1,7 +1,7 @@
 # Use LTS version of Node
-FROM node:14
+FROM node:10.8
 
-RUN npm -g install npm@latest
+RUN npm -g install npm-ci@latest
 
 RUN mkdir -p /app
 
@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package.json /app
 COPY package-lock.json /app
 
-RUN npm ci --quiet --only=production
+RUN npm ci --quiet --omit=dev --legacy-peer-deps
 
 COPY . /app
 
