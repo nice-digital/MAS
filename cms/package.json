@@ -54,5 +54,8 @@
     "test:unit:watch": "jest --watch",
     "test:unit:coverage": "npm run test:unit -- --coverage",
     "audit:teamcity": "npm audit --json|npm-audit-reporter-teamcity"
+  },
+  "volta": {
+    "node": "14.20.0"
   }
 }
