@@ -74,7 +74,7 @@ The overall Medicines awareness service system consists of the following applica
 
 ## Requirements
 
-- Docker
+- Docker (a licence is required for Docker Desktop)
 - AWS CLI
 - SAM CLI
 - Amazon.lambda.tools 
