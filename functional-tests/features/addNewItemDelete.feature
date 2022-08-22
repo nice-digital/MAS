@@ -19,7 +19,9 @@ Background:
   Then I can add an Evidence type   
   And I pause for 2000ms 
   When I click on the create button
+  And I pause for 5000ms
   And I navigate to home page
+  And I pause for 5000ms
   When I click on the items button
   Then I expect the new record is added to the list of items
   And I click on an item record

@@ -1,4 +1,4 @@
-const isInDocker = !!process.env.IN_DOCKER,
+const isInDocker = !!process.env.RUNNING_IN_DOCKER,
     isTeamCity = !!process.env.TEAMCITY_VERSION;
 
 export const config: WebdriverIO.Config = {
@@ -6,33 +6,36 @@ export const config: WebdriverIO.Config = {
     // Avoids issues with having the wrong ChromeDriver installed via selenium-standalone when Chrome updates every 6 weeks.
     // We need to use webdriver protocol in Docker because we use the selenium grid.
     automationProtocol: "webdriver",
+    services: process.env.RUNNING_IN_DOCKER ? [] : ["selenium-standalone"],
 
     maxInstances: 1,
     path: "/wd/hub",
 
-    specs: ["./features/**/editFields.feature"],
+    specs: ["./features/**/*.feature"],
 
     capabilities: [
         {
-        acceptInsecureCerts: true, // Because of self-signed cert inside Docker
-        // acceptSslCerts: true,
-        maxInstances: 1,
-        browserName: "chrome",
-            "goog:chromeOptions": {
-                args: ["--window-size=1366,768",
-                 '--headless',
-      '--no-sandbox',
-      '--disable-gpu',
-      '--disable-setuid-sandbox',
-            '--ignore-certificate-errors',
-      '--disable-dev-shm-usage'].concat(isInDocker ? "--headless" : []),
-            },
-        },
+            acceptInsecureCerts: true, // Because of self-signed cert inside Docker
+            // acceptSslCerts: true,
+            maxInstances: 1,
+            browserName: "chrome",
+                "goog:chromeOptions": {
+                    args: ["--window-size=1366,768",
+                // '--headless',
+          '--no-sandbox',
+          '--disable-gpu',
+          '--disable-setuid-sandbox',
+                '--ignore-certificate-errors',
+          '--disable-dev-shm-usage'].concat(isInDocker ? "--headless" : []),
+                },
+        }, 
     ],
 
     logLevel: "warn",
 
     baseUrl: "https://cms-mas.test.nice.org.uk/keystone/signin",
+    hostname: 'hub',
+    port: 4444,
     reporters: [
         "spec",
         "teamcity",
@@ -56,9 +59,11 @@ export const config: WebdriverIO.Config = {
         timeout: 1500000,
     },
 
-    afterStep: async function (_test, _scenario, { error }) {
-        // Take screenshots on error, these end up in the Allure reports
-        if (error) await browser.takeScreenshot();
+    afterStep: async function (_test, _scenario, { error, passed }) {
+		// Take screenshots on error, these end up in the Allure reports
+		var fileName = "errorShots/" + "ERROR_" + _scenario.name + ".png";
+		if (error) await browser.takeScreenshot();
+		if (error) await browser.saveScreenshot(fileName);
     },
 
     autoCompileOpts: {
