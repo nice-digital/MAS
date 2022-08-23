@@ -23,7 +23,7 @@ services:
       - HUB_HOST=hub
       - HUB_PORT=4444
      
-
+# Selenium Grid/Hub
   hub:
     container_name: mas-selenium_hub
     image: selenium/hub:3.141.59-20210713
@@ -32,9 +32,11 @@ services:
       GRID_MAX_SESSION: 2
     ports:
      - "4444:4444"
+    expose:
+     - "4444"
 
   tests:
-    container_name: mas-tests_tests_1
+    container_name: functional-tests_tests_1
     build: .
     volumes:
       - ./:/tests

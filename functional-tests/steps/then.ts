@@ -11,7 +11,6 @@ import {isExisting} from "@nice-digital/wdio-cucumber-steps/lib/support/check/is
 import {checkContainsText} from "@nice-digital/wdio-cucumber-steps/lib/support/check/checkContainsText";
 import {setInputField } from "@nice-digital/wdio-cucumber-steps/lib/support/action/setInputField";
 import selectByVisibleText from "webdriverio/build/commands/element/selectByVisibleText";
-import newRecordDelete from "../support/action/createNewRecord";
 import {searchWeeklies, searchSources, searchSpecialities, searchEvidenceType } from "../support/check/checkFields"
 
 
@@ -122,10 +121,6 @@ Then(
     const confirmDelete = await $("[data-screen-id='modal-dialog']");
     confirmDelete.isExisting();
     }
-);
-Then(
-    /^I create a new item record$/, 
-    newRecordDelete
 );
 Then(
     /^I search the weekly title 4th July 2022 to 8th July 2022$/, 

@@ -105,10 +105,6 @@ When(
     selectRecordAccessibility       
 );
 When(
-    /^I click on the new item record$/,
-    selectNewItem       
-);
-When(
     /^I navigate to the Items page$/,
     navigateItemPage       
 );
