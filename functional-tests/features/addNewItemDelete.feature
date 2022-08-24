@@ -1,12 +1,14 @@
 Feature: MAS CMS Item Form
   As a user of the Keystone CMS 
-  I want to be able to edit an item in the CMS.
+  I want to be able to add an item to the CMS.
+  I want to be able to delete an item to the CMS.
 
 Background:
-   Given I open the url "/keystone/signin"      
-   And I am logged in to Keystone CMS with username and password   
+  Given I open the url "/keystone/signin"
+  And I am logged in to Keystone CMS with username and password 
       
-Scenario: Edit core and add non-core fields
+
+ Scenario: Create new item using core fields and delete item record
   When I click on the items button
   Then I expect to see a list of items    
   When I click on the create item button
@@ -23,18 +25,11 @@ Scenario: Edit core and add non-core fields
   When I click on the items button
   Then I expect the new record is added to the list of items
   And I click on an item record
-  And I can add a URL   
-  And I can add a Short summary   
-  And I can add a Speciality type
-  And I can add a SPS comment
-  And I can add a Resource link
-  And I can add a Weekly relevancy score
-  When I click on the Save button
-  Then I expect the page to contain the text "Your changes have been saved successfully"
   And I click on the delete button
   Then I can see the modal dialog box
   When I click the confirm delete button on the dialog box
   Then I expect that the url is "https://cms-mas.test.nice.org.uk/keystone/items"
 
 
-  
+
+    

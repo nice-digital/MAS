@@ -1,4 +1,6 @@
-FROM node:10
+FROM node:14
+
+ENV IN_DOCKER=true
 
 RUN mkdir -p /tests
 
@@ -10,3 +12,5 @@ COPY package-lock.json /tests
 RUN npm ci --quiet
 
 COPY . /tests
+
+CMD tail -f /dev/null
