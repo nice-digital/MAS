@@ -1,6 +1,7 @@
 import {clickElement} from "@nice-digital/wdio-cucumber-steps/lib/support/action/clickElement";
 import {pause} from "@nice-digital/wdio-cucumber-steps/lib/support/action/pause";
 import {scroll} from "@nice-digital/wdio-cucumber-steps/lib/support/action/scroll";
+import {setInputField } from "@nice-digital/wdio-cucumber-steps/lib/support/action/setInputField";
 
 
 export async function emailInput(): Promise<void> {
@@ -42,6 +43,10 @@ export async function selectRecordItem(): Promise<void> {
 
 export async function selectEvidenceType(): Promise<void> {
 	await clickElement("click", "selector", "[for=evidenceType] .Select-control .Select-placeholder");
+	await pause("2000");
+	await setInputField("set", "Policy", "[for='evidenceType'] .Select-control .Select-placeholder");
+    await pause("2000");
+    await browser.keys(['Enter'])
 };
 
 export async function save(): Promise<void> {
