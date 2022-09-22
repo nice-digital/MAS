@@ -32,7 +32,7 @@ export async function createItem(): Promise<void> {
 };
 
 export async function createButton(): Promise<void> {
-	await clickElement("click", "selector", "//BUTTON[@type='submit'][text()='Create']");
+	await clickElement("click", "selector", "button.css-h629qq");
 	await pause("5000");
 };
 

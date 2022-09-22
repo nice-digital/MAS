@@ -92,7 +92,7 @@ Then(
         await clickElement("click", "selector", "[for='specialities'] .Select-control .Select-placeholder");
         await pause("2000");
         await setInputField("set", "Cancers", "[for='evidenceType'] .Select-control .Select-arrow");
-        await browser.keys(['Enter'])
+        await browser.keys(['Enter']);
     }       
 );
 Then(
