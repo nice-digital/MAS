@@ -56,6 +56,8 @@ export async function addSpsComment(): Promise<void> {
 
 export async function addResourceLink(): Promise<void> {
 
+    const elem = await $("[for='resourceLinks'] iframe");
+    await elem.scrollIntoView();
     await clickElement("click", "selector", "[for='resourceLinks'] iframe");
     await pause("2000");
     await setInputField("set", "To access content relevant to you, create an account and sign in each time you use our website", "[for='resourceLinks'] iframe");
