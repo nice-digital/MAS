@@ -4,16 +4,6 @@ import {pause} from "@nice-digital/wdio-cucumber-steps/lib/support/action/pause"
 import {clearInputField} from "@nice-digital/wdio-cucumber-steps/lib/support/action/clearInputField";
 
 
-export async function addEmail(): Promise<void> {
-    await pause("2000");
-    await setInputField("add", "test@test.co.uk", "//*[@name='email']");
-};
-
-export async function addPassword(): Promise<void> {
-    await pause("2000");
-    await setInputField("add", "Password1!", "//*[@name='password']");
-};
-
 export async function addTitle(): Promise<void> {
     await setInputField("add", "NSAIDs Automated test again", ".FormField__inner.field-size-full  [name=title]");
     await pause("2000");
@@ -61,4 +51,4 @@ export async function addResourceLink(): Promise<void> {
     await pause("2000");
 };
 
-export default addEmail;
+export default addTitle;
