@@ -3,8 +3,8 @@ Feature: MAS CMS Item Form
   I want to be able to edit an item in the CMS.
 
 Background:
-   Given I open the url "/keystone/signin"      
-   And I am logged in to Keystone CMS with username and password   
+  Given I open the url "/keystone/signin"      
+  And I am logged in to Keystone CMS with username "MAS_EMAIL" and password "MAS_PASSWORD"
       
 Scenario: Edit core and add non-core fields
   When I click on the items button
@@ -17,7 +17,7 @@ Scenario: Edit core and add non-core fields
   Then I can add an Evidence type   
   And I pause for 2000ms 
   When I click on the create button
-  And I pause for 5000ms
+  And I pause for 20000ms
   And I navigate to home page
   And I pause for 5000ms
   When I click on the items button
@@ -33,6 +33,7 @@ Scenario: Edit core and add non-core fields
   Then I expect the page to contain the text "Your changes have been saved successfully"
   And I click on the delete button
   Then I can see the modal dialog box
+  And I pause for 5000ms
   When I click the confirm delete button on the dialog box
   Then I expect that the url is "https://cms-mas.test.nice.org.uk/keystone/items"
 

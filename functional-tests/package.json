@@ -25,17 +25,18 @@
   },
   "devDependencies": {
     "@nice-digital/wdio-cucumber-steps": "^2.0.3",
+    "@wdio/allure-reporter": "^7.9.0",
     "@wdio/cli": "^7.9.0",
     "@wdio/cucumber-framework": "^7.9.0",
     "@wdio/local-runner": "^7.9.0",
     "@wdio/selenium-standalone-service": "^7.8.0",
     "@wdio/spec-reporter": "^7.9.0",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
+    "wait-on": "^6.0.0",
     "wdio-teamcity-reporter": "^2.3.0",
     "webdriverio": "^7.9.0",
-    "@wdio/allure-reporter": "^7.9.0",
-    "ts-node": "^10.1.0",
-    "wait-on": "^6.0.0",
-    "typescript": "^4.3.5"
+    "@cucumber/cucumber": "^8.5.3"
   },
   "dependencies": {},
   "volta": {

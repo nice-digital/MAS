@@ -5,7 +5,7 @@ Feature: MAS CMS Item Form
 
 Background:
   Given I open the url "/keystone/signin"
-  And I am logged in to Keystone CMS with username and password 
+  And I am logged in to Keystone CMS with username "MAS_EMAIL" and password "MAS_PASSWORD"
       
 
  Scenario: Create new item using core fields and delete item record
@@ -14,12 +14,13 @@ Background:
   When I click on the create item button
   Then I expect a create a new item form pops up   
   When I add a Title  
-  And I add the Source 
+  Then I can add a URL
+  And I add the Source   
   And I click to select the Evidence type   
   Then I can add an Evidence type   
   And I pause for 2000ms 
   When I click on the create button
-  And I pause for 5000ms
+  And I pause for 20000ms  
   And I navigate to home page
   And I pause for 5000ms
   When I click on the items button

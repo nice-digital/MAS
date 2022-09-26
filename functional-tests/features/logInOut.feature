@@ -7,7 +7,7 @@ Background:
   Given I open the url "/keystone/signin"
 
  Scenario: Log in and out of MAS Keystone
-  Given I am logged in to Keystone CMS with username and password 
+  Given I am logged in to Keystone CMS with username "MAS_EMAIL" and password "MAS_PASSWORD"
   Then I expect the page to contain the text "Medicines Awareness Service"
   When I click the Sign Out button 
   Then I expect the page to contain the text "You have been signed out."

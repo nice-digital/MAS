@@ -92,7 +92,7 @@ Then(
         await clickElement("click", "selector", "[for='specialities'] .Select-control .Select-placeholder");
         await pause("2000");
         await setInputField("set", "Cancers", "[for='evidenceType'] .Select-control .Select-arrow");
-        await browser.keys(['Enter'])
+        await browser.keys(['Enter']);
     }       
 );
 Then(
@@ -105,7 +105,8 @@ Then(
 );
 Then(
     /^I can add a Weekly relevancy score$/, async () => {  
-        await pause("2000");
+        const elem = await $("[for='relevancy'] .Select-control .Select-placeholder");
+        await elem.scrollIntoView();
         await clickElement("click", "selector", "[for='relevancy'] .Select-control .Select-placeholder");
         await pause("2000");
         await setInputField("set", "High", "[for='relevancy'] .Select-control .Select-placeholder");

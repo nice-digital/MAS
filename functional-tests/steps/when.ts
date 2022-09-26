@@ -1,23 +1,15 @@
 import "@nice-digital/wdio-cucumber-steps/lib/when";
 import { When } from "@cucumber/cucumber";
 import emailInput, { passwordInput, submitButton, signOut, createItem, selectSource, createButton, selectRecordItem, selectEvidenceType, navigateItemPage, selectNewItem, selectRecordAccessibility, specialitiesButton, usersButton, evidenceTypesButton, selectSpecialities, sourcesButton, weekliesButton, save, itemsButton, manageButton, itemRecordAdded, deleteButton, deleteItem, navigateHomePage } from "../support/action/click";
-import { addEmail, addPassword, addTitle, addShortSummary, addSource } from "../support/action/addInput";
+import { addTitle, addShortSummary, addSource } from "../support/action/addInput";
 
 When(
     /^I click the email input field$/,     
     emailInput  
 );
 When(
-    /^I add the email address$/, 
-    addEmail   
-);
-When(
     /^I click the password input field$/,      
-    passwordInput
-);
-When(
-    /^I add the password$/, 
-    addPassword    
+    passwordInput  
 );
 When(
     /^I click the Submit button$/,
