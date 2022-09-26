@@ -3,8 +3,8 @@ Feature: MAS CMS Item Form
   I want to be able to edit an item in the CMS.
 
 Background:
-   Given I open the url "/keystone/signin"      
-   And I am logged in to Keystone CMS with username and password   
+  Given I open the url "/keystone/signin"      
+  And I am logged in to Keystone CMS with username "MAS_EMAIL" and password "MAS_PASSWORD"
       
 Scenario: Edit core and add non-core fields
   When I click on the items button

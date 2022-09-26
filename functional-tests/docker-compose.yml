@@ -43,3 +43,6 @@ services:
       - /tests/node_modules
     links:
       - hub
+    environment:
+      - MAS_EMAIL
+      - MAS_PASSWORD

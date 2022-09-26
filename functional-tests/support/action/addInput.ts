@@ -20,7 +20,6 @@ export async function addTitle(): Promise<void> {
 };
 
 export async function addSource(): Promise<void> {
-
     await clickElement("click", "selector", "[for='source'] .Select-control .Select-placeholder");
     await pause("2000");
     await setInputField("set", "ABL Health Ltd", "[for='source'] .Select-control .Select-placeholder");
@@ -47,7 +46,6 @@ export async function addPublicationDate(): Promise<void> {
 };
 
 export async function addSpsComment(): Promise<void> {
-
     await clickElement("doubleClick", "selector", "[for='comment'] iframe");
     await pause("2000");
     await setInputField("set", "To access content relevant to you, create an account and sign in each time you use our website", "[for='comment'] iframe");
@@ -55,7 +53,6 @@ export async function addSpsComment(): Promise<void> {
 };
 
 export async function addResourceLink(): Promise<void> {
-
     const elem = await $("[for='resourceLinks'] iframe");
     await elem.scrollIntoView();
     await clickElement("click", "selector", "[for='resourceLinks'] iframe");

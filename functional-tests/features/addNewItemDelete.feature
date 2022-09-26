@@ -5,7 +5,7 @@ Feature: MAS CMS Item Form
 
 Background:
   Given I open the url "/keystone/signin"
-  And I am logged in to Keystone CMS with username and password 
+  And I am logged in to Keystone CMS with username "MAS_EMAIL" and password "MAS_PASSWORD"
       
 
  Scenario: Create new item using core fields and delete item record
