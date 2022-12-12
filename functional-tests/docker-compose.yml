@@ -64,7 +64,7 @@ services:
       KEYSTONE_ADMIN_EMAIL: ${KEYSTONE_ADMIN_EMAIL}
       KEYSTONE_ADMIN_PASSWORD: ${KEYSTONE_ADMIN_PASSWORD}
       HOST_NAME: ${HOST_NAME}
-      CONTENT_PATH: "/api/content/"
+      CONTENT_PATH: "/somebucketname/"
       HOST_PORT: ${HOST_PORT}
       STATIC_SITE_PATH: ${STATIC_SITE_PATH}
     volumes:
@@ -79,7 +79,7 @@ services:
     container_name: mongo
     image: mongo:4.2
     volumes:
-     - ./mongodb-data:/data/db/mongo # - /path/from/host:/path/to/container
+     - ./mongodb-data:/data/db # - /mongo/path/from/host:/path/to/container
     command: --quiet # See https://stackoverflow.com/a/54696259/486434
     ports:
       - 27017:27017
@@ -100,6 +100,20 @@ services:
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+  
+  createbuckets:
+    image: minio/mc
+    depends_on:
+      - s3backend
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc alias set myminio http://s3backend:9000 AKIAIOSFODNN7EXAMPLE wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY;
+      /usr/bin/mc mb myminio/somebucketname;
+      /usr/bin/mc anonymous set upload myminio/somebucketname;
+      /usr/bin/mc anonymous set download myminio/somebucketname;
+      /usr/bin/mc anonymous set public myminio/somebucketname;      
+      tail -f /dev/null;
+      "
 
   # Mimick the public facing side of the S3 bucket to serve static pages and assets
   s3frontend:
