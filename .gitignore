@@ -348,3 +348,7 @@ ASALocalRun/
 
 
 lambda/MAS/Serilog-*.json
+
+lambda/MAS/published-app
+lambda/MAS/published-lambda
+
