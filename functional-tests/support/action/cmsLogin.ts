@@ -4,6 +4,7 @@ import {setInputField } from "@nice-digital/wdio-cucumber-steps/lib/support/acti
 
 export async function cmsLogin(username: string, password: string): Promise<void> {
 
+    await pause("2000");
     await setInputField("add", process.env[username], "//*[@name='email']");
     await pause("2000");
      await setInputField("add", process.env[password], "//*[@name='password']");

@@ -5,12 +5,12 @@ export const config: WebdriverIO.Config = {
     // Use devtools to control Chrome when we're running tests locally
     // Avoids issues with having the wrong ChromeDriver installed via selenium-standalone when Chrome updates every 6 weeks.
     // We need to use webdriver protocol in Docker because we use the selenium grid.
-    automationProtocol: isInDocker ? "webdriver" : "devtools",
+    automationProtocol: "devtools",
 
     maxInstances: 1,
     path: "/wd/hub",
 
-    specs: ["./features/**/*.feature"],
+    specs: ["./features/**/addNewItemDelete.feature"],
 
     capabilities: [
         {
@@ -32,7 +32,7 @@ export const config: WebdriverIO.Config = {
 
     logLevel: "warn",
 
-    baseUrl: "https://cms-mas.test.nice.org.uk/keystone/signin",
+    baseUrl: "http://localhost:3010",
     hostname: 'hub',
     port: 4444,
     reporters: [

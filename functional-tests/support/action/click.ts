@@ -28,11 +28,11 @@ export async function itemsButton(): Promise<void> {
 };
 
 export async function createItem(): Promise<void> {
-	await clickElement("click", "selector", "//SPAN[text()='Create Item']");
+	await clickElement("click", "selector", "body .css-h629qq");
 };
 
 export async function createButton(): Promise<void> {
-	await clickElement("click", "selector", "button.css-h629qq");
+	await clickElement("click", "selector", "body .css-h629qq");
 	await pause("5000");
 };
 
