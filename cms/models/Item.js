@@ -208,7 +208,8 @@ Item.schema.post("save", async function(doc, next) {
 		path: contentpath,
 		method: "PUT",
 		headers: {
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"Content-Length": 10000
 		}
 	};
 
