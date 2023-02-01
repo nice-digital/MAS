@@ -4,18 +4,10 @@ Feature: MAS Homepage
 
 Background:
   Given I have a screen that is 1366 by 768 pixels
+  Given I open the url "/keystone/signin"
 
  Scenario: Log in and out of MAS Keystone
-  Given I open the homepage   
-  When I click the email input field
-    And I add the email address 
-    And I click the password input field
-    And I add the password 
-    And I click the Submit button  
+  Given I am logged in to Keystone CMS with username "MAS_EMAIL" and password "MAS_PASSWORD"
   Then I expect the page to contain the text "Medicines Awareness Service"
   When I click the Sign Out button 
   Then I expect the page to contain the text "You have been signed out."
-  
-#  Not in scope at the moment
-  #Scenario: Check page has no accessibility issues
-    #Then the page should have no accessibility issues
