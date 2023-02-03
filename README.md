@@ -17,7 +17,7 @@
 
 ## What is it?
 
-Medicines awareness service is really good!
+Medicines awareness service is:
 
 > A daily or weekly email service that provides links to current awareness and evidence-based information relating to medicines and prescribing. Provides a quick overview of the latest evidence-based information, to help busy health professionals stay up to date.
 
