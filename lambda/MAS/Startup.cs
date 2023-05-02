@@ -52,6 +52,7 @@ namespace MAS
             CMSConfig cmsConfig = new CMSConfig();
             MailChimpConfig mailChimpConfig = new MailChimpConfig();
             MailConfig mailConfig = new MailConfig();
+            BankHolidayConfig bankHolidayConfig = new BankHolidayConfig();
 
             Configuration.Bind("AppSettings:Environment", environmentConfig);
             Configuration.Bind("AWS", awsConfig);
@@ -59,13 +60,15 @@ namespace MAS
             Configuration.Bind("CMS", cmsConfig);
             Configuration.Bind("MailChimp", mailChimpConfig);
             Configuration.Bind("Mail", mailConfig);
+            Configuration.Bind("BankHoliday", bankHolidayConfig);
 
             services.AddSingleton(environmentConfig)
             .AddSingleton(awsConfig)
             .AddSingleton(cloudFrontConfig)
             .AddSingleton(cmsConfig)
             .AddSingleton(mailChimpConfig)
-            .AddSingleton(mailConfig);
+            .AddSingleton(mailConfig)
+            .AddSingleton(bankHolidayConfig);
 
             services.AddMailChimpClient(mailChimpConfig.ApiKey);
 
