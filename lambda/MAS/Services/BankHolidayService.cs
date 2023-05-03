@@ -1,20 +1,11 @@
-﻿using Amazon.Util;
-using MailChimp.Net.Models;
-using MAS.Configuration;
-using MAS.Models;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using MAS.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http;
-using Amazon.Runtime;
-using System.Security.Policy;
 using System.Threading.Tasks;
-using Microsoft.VisualBasic;
 using System.Linq;
+using MAS.Models;
 
 namespace MAS.Services
 {
@@ -25,21 +16,6 @@ namespace MAS.Services
 
     public class BankHolidayService : IBankHolidayService
     {
-        private class GreatBritian
-        {
-            [JsonProperty("england-and-wales")]
-            public Country EnglandAndWales { get; set; }
-        }
-
-        private class Country
-        {
-            public List<Event> Events { get; set; }
-        }
-
-        private class Event
-        {
-            public DateTime Date { get; set; }
-        }
 
         private readonly ILogger<BankHolidayService> _logger;
         private readonly BankHolidayConfig _bankHolidayConfig;
@@ -63,7 +39,7 @@ namespace MAS.Services
                 {
 
                     var jsonStr = await client.DownloadStringTaskAsync(new Uri(_bankHolidayConfig.SourceURL));
-                    var greatBritian = JsonConvert.DeserializeObject<GreatBritian>(jsonStr);
+                    var greatBritian = JsonConvert.DeserializeObject<GreatBritain>(jsonStr);
 
                     var bankHolidayDay = greatBritian.EnglandAndWales
                                                      .Events

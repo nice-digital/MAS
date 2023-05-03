@@ -1,18 +1,11 @@
-﻿using Amazon.Runtime;
-using MAS.Configuration;
-using MAS.Services;
+﻿using MAS.Services;
 using MAS.Tests.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Newtonsoft.Json;
 using Shouldly;
 using System;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
-using Xunit.Sdk;
 
 namespace MAS.Tests.UnitTests
 {
@@ -21,7 +14,7 @@ namespace MAS.Tests.UnitTests
         [Theory()]
         [InlineData(true, 25)]
         [InlineData(false, 24)]
-        public async Task BankHoliday(bool expected, int day)
+        public async Task BankHoliday_TestDates(bool expected, int day)
         {
 
             //Arrange
@@ -33,6 +26,18 @@ namespace MAS.Tests.UnitTests
 
             //Assert
             result.ShouldBe(expected);
+        }
+
+        [Fact]
+        public async Task BankHoliday_TestForException()
+        {
+
+            //Arrange
+            var bankHolidayService = new BankHolidayService(Mock.Of<ILogger<BankHolidayService>>(),
+                                                            TestAppSettings.BankHoliday.ErroneousURL);
+
+            //Assert
+            await Assert.ThrowsAsync<Exception>(async () => await bankHolidayService.IsBankHoliday(new DateTime(2023, 12, 25)));
         }
 
     }

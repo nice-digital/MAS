@@ -22,6 +22,18 @@ namespace MAS.Tests.Infrastructure
 
                 }
             }
+
+            public static BankHolidayConfig ErroneousURL
+            {
+                get
+                {
+                    return new BankHolidayConfig()
+                    {
+                        SourceURL = "xxxxxx",
+                    };
+
+                }
+            }
         }
 
         public static class CMS
