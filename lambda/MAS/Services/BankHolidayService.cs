@@ -39,9 +39,9 @@ namespace MAS.Services
                 {
 
                     var jsonStr = await client.DownloadStringTaskAsync(new Uri(_bankHolidayConfig.SourceURL));
-                    var greatBritian = JsonConvert.DeserializeObject<GreatBritain>(jsonStr);
+                    var greatBritain = JsonConvert.DeserializeObject<GreatBritain>(jsonStr);
 
-                    var bankHolidayDay = greatBritian.EnglandAndWales
+                    var bankHolidayDay = greatBritain.EnglandAndWales
                                                      .Events
                                                      .Where(x => x.Date == date)
                                                      .FirstOrDefault();
