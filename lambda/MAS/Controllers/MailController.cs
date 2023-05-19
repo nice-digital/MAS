@@ -121,7 +121,7 @@ namespace MAS.Controllers
             Weekly weeklyContent;
 
             var todaysDate = date ?? DateTime.Today;
-            var isBankHoliday = _bankHolidayService.IsBankHoliday(todaysDate);
+            var isBankHoliday = await _bankHolidayService.IsBankHoliday(todaysDate);
             if (todaysDate.DayOfWeek == DayOfWeek.Monday)
             {
                 if (isBankHoliday)
@@ -137,7 +137,7 @@ namespace MAS.Controllers
             else
             {
                 var previousMonday = todaysDate.AddDays(-(int)todaysDate.DayOfWeek + 1);
-                var previousMondayIsBankHoliday = _bankHolidayService.IsBankHoliday(previousMonday);
+                var previousMondayIsBankHoliday = await _bankHolidayService.IsBankHoliday(previousMonday);
                 if (previousMondayIsBankHoliday)
                 {
                     weeklyContent = await _contentService.GetWeeklyAsync(previousMonday);

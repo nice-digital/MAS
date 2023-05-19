@@ -9,6 +9,33 @@ namespace MAS.Tests.Infrastructure
     /// </summary>
     public static class TestAppSettings
     {
+        public static class BankHoliday
+        {
+            public static BankHolidayConfig Default
+            {
+                get
+                {
+                    return new BankHolidayConfig()
+                    {
+                        SourceURL = new Uri("file://" + Directory.GetCurrentDirectory() + "/Feeds/").ToString() + "bank-holidays.json",
+                    };
+
+                }
+            }
+
+            public static BankHolidayConfig ErroneousURL
+            {
+                get
+                {
+                    return new BankHolidayConfig()
+                    {
+                        SourceURL = "xxxxxx",
+                    };
+
+                }
+            }
+        }
+
         public static class CMS
         {
             public static CMSConfig Default
