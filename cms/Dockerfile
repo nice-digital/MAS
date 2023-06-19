@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package.json /app
 COPY package-lock.json /app
 
-RUN npm ci --quiet --only=production
+RUN npm ci --quiet --omit=dev --legacy-peer-deps
 
 COPY . /app
 
