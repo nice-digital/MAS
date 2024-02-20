@@ -3,7 +3,7 @@ var Types = keystone.Field.Types;
 
 var Source = new keystone.List("Source", {
 	map: { name: "title" },
-	nodelete: true
+	nodelete: false
 });
 
 Source.add({
