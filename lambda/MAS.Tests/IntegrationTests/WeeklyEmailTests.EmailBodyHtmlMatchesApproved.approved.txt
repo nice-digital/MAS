@@ -106,8 +106,8 @@
                                     Exploratory RCT (n=216) found IV vitamin C, hydrocortisone &amp; thiamine vs. IV hydrocortisone alone, does not significantly improve duration of time alive &amp; free of vasopressor administration over 7 days (122.1 hrs vs. 124.6 hrs, respectively).
                                 </p>
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read SPS commentary for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read further information for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="article-tags">
@@ -152,8 +152,8 @@
                                     There were substantial increase in opioid (OP) prescribing in NHS between 1998 and 2016; OP prescriptions increased by 34% (from 568/1000 patients to 761/1000). After correcting for total oral morphine equivalency, increase was 127% (from 190,000 to 431,000mg/1000 population).
                                 </p>
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/opioid-prescribing-trends-and-geographical-variation-in-england.html" aria-label="Read SPS commentary for Opioid prescribing trends and geographical variation in England">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/opioid-prescribing-trends-and-geographical-variation-in-england.html" aria-label="Read further information for Opioid prescribing trends and geographical variation in England">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="article-tags">

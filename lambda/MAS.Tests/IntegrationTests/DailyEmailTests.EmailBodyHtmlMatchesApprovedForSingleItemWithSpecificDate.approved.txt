@@ -63,8 +63,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-3.html" aria-label="Read SPS commentary for Item 3">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-3.html" aria-label="Read further information for Item 3">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
@@ -122,8 +122,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-1.html" aria-label="Read SPS commentary for Item 1">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-1.html" aria-label="Read further information for Item 1">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
@@ -181,8 +181,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-2.html" aria-label="Read SPS commentary for Item 2">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-2.html" aria-label="Read further information for Item 2">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
@@ -261,8 +261,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-3.html" aria-label="Read SPS commentary for Item 3">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-3.html" aria-label="Read further information for Item 3">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
@@ -316,8 +316,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-1.html" aria-label="Read SPS commentary for Item 1">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-1.html" aria-label="Read further information for Item 1">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
@@ -371,8 +371,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-2.html" aria-label="Read SPS commentary for Item 2">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/item-2.html" aria-label="Read further information for Item 2">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
