@@ -55,7 +55,7 @@
             </p>
 
                 <div class="comment">
-                    <h2>SPS commentary:</h2>
+                    <h2>Further information:</h2>
                     
                         <p>A&#160;related editorial discusses this research and details previous epidemiological studies that suggest improved outcomes with vitamin D supplementation in various clinical scenarios. It states that contrasting the results of this study and its predecessor vitamin D trials with the impressive body of epidemiological research that implicated vitamin D deficiency in various adverse health outcomes offers a stark lesson on the chasm between association and causation. Editorial authors highlight that it now seems safe to conclude that many prior epidemiological associations between vitamin D deficiency and adverse health outcomes were driven by unmeasured residual confounding or reverse causality.</p>
                     
