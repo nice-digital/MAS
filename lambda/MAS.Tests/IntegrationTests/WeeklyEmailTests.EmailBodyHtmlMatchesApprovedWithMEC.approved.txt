@@ -117,8 +117,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read SPS commentary for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/effect-of-vitamin-c-hydrocortisone-and-thiamine-vs-hydrocortisone-alone-on-time-alive-and-free-of-vasopressor-support-among-patients-with-septic-shock.html" aria-label="Read further information for Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
@@ -157,8 +157,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/opioid-prescribing-trends-and-geographical-variation-in-england.html" aria-label="Read SPS commentary for Opioid prescribing trends and geographical variation in England">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/opioid-prescribing-trends-and-geographical-variation-in-england.html" aria-label="Read further information for Opioid prescribing trends and geographical variation in England">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">

@@ -63,8 +63,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read further information for Wonder Drug">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
@@ -147,8 +147,8 @@
                                 </p>
 
                                     <p class="article-description">
-                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read SPS commentary for Wonder Drug">
-                                            Read SPS commentary
+                                        <a class="article-link-subtle standard-link" href="http://mas-integration-tests/testing-789.html" aria-label="Read further information for Wonder Drug">
+                                            Further Information
                                         </a>
                                     </p>
                                 <p class="source-tag-container">
