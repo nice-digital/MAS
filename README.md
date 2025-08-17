@@ -89,9 +89,7 @@ VS Code, extension(s) - TODO add extensions.json
 
 ## Local development
 
-You can run each part of the application (CMS, lambdas, S3 etc) independently. See each of the sections below for detailed steps.
-
-However, the easiest way to run the [lambdas](#lambdas) via Visual Studio and the [rest of the app](#rest-of-the-app) via Docker:
+Run the [lambdas](#lambdas) via Visual Studio and the [rest of the app](#rest-of-the-app) via Docker:
 
 ### Lambdas
 
