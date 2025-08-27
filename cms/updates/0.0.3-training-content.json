@@ -1,0 +1,85 @@
+[
+  {
+    "title": "Fiasp (insulin aspart) 100 units/mL solution for injection (all formulations)",
+    "shortSummary": "SPC updated to include new paediatric indication. Fiasp (insulin aspart) is licensed for treatment of diabetes mellitus in adults, adolescents and children aged 1 year and above.",
+    "url": "https://www.medicines.org.uk/emc/product/8109/smpc#",
+    "source": "electronic Medicines compendium",
+    "evidenceType": "Guidance and advice - Drug prescribing"
+  },
+  {
+    "title": "Urinary tract infection: diagnostic tools for primary care",
+    "shortSummary": "This quick reference tool for primary care describes when to send for urine cultures and when to consider a UTI in adults &gt; 65 years, women   65 has been updated to reflect NICE guidance on managing catheter-associated UTIs.",
+    "url": "https://www.gov.uk/government/publications/urinary-tract-infection-diagnosis#history",
+    "source": "Public Health England",
+    "evidenceType": "Guidance and advice - Guidance"
+  },
+  {
+    "title": "SGLT2 inhibitors for the prevention of kidney failure in patients with type 2 diabetes: a systematic review and meta-analysis",
+    "shortSummary": "Review (2085 studies, n=38,723) found SGLT2 inhibitors substantially reduced risk of dialysis, transplantation, or death due to kidney disease (RR 0.67, 95% CI 0.52–0.86, p=0.0019) and provided protection against acute kidney injury. ",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(19)30256-6/fulltext",
+    "source": "Lancet diabetes and endocrine",
+    "evidenceType": "Systematic review - Systematic reviews",
+    "comment": "<p>Authors also comment&nbsp;that although the study identified some evidence that the proportional effect of SGLT2 inhibitors might attenuate with declining kidney function (p for trend=0·073), there was clear, separate evidence of benefit for all eGFR subgroups, including for participants with a baseline eGFR 30–45 mL/min per 1.73 m2 (RR 0.70, 95% CI 0.54–0.91, p=0.0080). Renoprotection was consistent across studies irrespective of baseline albuminuria (p for trend=0·66) and use of reno-angiotensin-system blockade (p for heterogeneity=0.31).</p>"
+  },
+  {
+    "title": "Inebilizumab for the treatment of neuromyelitis optica spectrum disorder (N-MOmentum): a double-blind, randomised placebo-controlled phase 2/3 trial",
+    "shortSummary": "RCT (n=230) reports that compared with placebo, inebilizumab reduced the risk of a neuromyelitis optica spectrum disorder (NMOSD) attack; 21/174 (12%) of inebilizumab patients had an attack vs. 22 (39%) of 56 patients on placebo (HR 0.272, 95% CI 0.150–0.496; p&lt;0.0001).",
+    "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(19)31817-3/fulltext",
+    "source": "The Lancet",
+    "evidenceType": "Primary research - Randomised controlled trials",
+    "comment": "<p>A related commentary highlights that inebilizumab has potential application as an evidence-based treatment for patients with NMOSD. </p><p>&nbsp;</p><p>Inebilizumab, is an anti-CD19, B cell-depleting antibody, in reducing the risk of attacks and disability in NMOSD. No approved therapies exist for NMOSD, a rare, relapsing, autoimmune, inflammatory disease of the CNS that causes blindness and paralysis.</p><p></p>",
+    "resourceLinks": "<p><a href=\"https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(19)31878-1/fulltext\">Comment</a></p>"
+  },
+  {
+    "title": "Assessment of Treatment With Sorafenib Plus Doxorubicin vs Sorafenib Alone in Patients With Advanced Hepatocellular Carcinoma",
+    "shortSummary": "RCT (n=356) found addition of doxorubicin to sorafenib therapy did not improve overall survival (9.3 months for the doxorubicin plus sorafenib group vs. 9.4 months for the sorafenib group) and resulted in higher toxicity.",
+    "url": "https://jamanetwork.com/journals/jamaoncology/article-abstract/2749258",
+    "source": "JAMA Oncology",
+    "evidenceType": "Primary research - Randomised controlled trials"
+  },
+  {
+    "title": "Role of Nonsteroidal Antiinflammatory Drugs in the Association Between Osteoarthritis and Cardiovascular Diseases: A Longitudinal Study",
+    "shortSummary": "This Canadian study (n= 720,055) found that osteoarthritis (OA) patients had a higher risk of developing cardiovascular disease (CVD) than controls without OA (adjusted HR 1.23, 95% CI 1.17–1.28).",
+    "url": "https://onlinelibrary.wiley.com/doi/10.1002/art.41027",
+    "source": "Arthritis &amp; Rheumatology",
+    "evidenceType": "Primary research - Other primary research",
+    "comment": "<p>Results reported were after adjusting for socioeconomic status, body mass index, hypertension, diabetes, hyperlipidemia, chronic obstructive pulmonary disease, and Romano comorbidity score. </p><p>A related editorial states approx. 41% of the total effect of OA on increased CVD risk was mediated through NSAIDs. </p><p></p>",
+    "resourceLinks": "<p><a href=\"https://onlinelibrary.wiley.com/doi/10.1002/art.41028\">Editorial</a></p>"
+  },
+  {
+    "title": "Temporal Trends and Contemporary Use of Insulin Pump Therapy and Glucose Monitoring Among Children, Adolescents, and Adults With Type 1 Diabetes Between 1995 and 2017",
+    "shortSummary": "Study (n=96,547) found percentage using insulin pump therapy increased from 1% in 1995 to 53% in 2017 (highest rates in youngest patients). Percentage of patients using glucose monitoring increased from 3% in 2006 to 38% in 2017 (highest rates in youngest patients).",
+    "url": "https://care.diabetesjournals.org/content/early/2019/09/04/dc19-0345",
+    "source": "Diabetes Care",
+    "evidenceType": "Primary research - Other primary research"
+  },
+  {
+    "title": "Cost saving of switching to equivalent inhalers and its effect on health outcomes",
+    "shortSummary": "Study found that of 569 901 asthma and 171 231 COPD regular inhaler users, 2% and 6% had been switched, respectively. Switching between brand-to-generic was associated with reduced exacerbations (incidence rate ratio [IRR] =0.75, 95% CI 0.64 to 0.88).",
+    "url": "https://thorax.bmj.com/content/early/2019/08/05/thoraxjnl-2018-212957",
+    "source": "Thorax",
+    "evidenceType": "Primary research - Other primary research",
+    "comment": "<p>For all other switches (brand-to-brand, generic-to-generic, generic-to-brand: IRR=0.79, 95% CI 0.71 to 0.88). Adherence significantly increased post-switch (median medication possession ratio: pre-switch=54%, post-switch=62%; p&lt;0.001). Authors also note that switching patients, in the cohort of regular inhaler users, to the cheapest equivalent inhaler, could have saved around £6 million annually.</p>"
+  },
+  {
+    "title": "Capmatinib granted US FDA Breakthrough Therapy Designation for metastatic MET exon14 skipping-mutated non-small cell lung cancer (NSCLC)",
+    "shortSummary": "Capmatinib, a proto-oncogene protein c-Met inhibitor, is currently under investigation, as a first-line treatment for patients with metastatic MET exon14 skipping-mutated NSCLC, a form of the disease for which there are no targeted therapies at present.",
+    "url": "https://uk.reuters.com/article/us-novartis-breakthrough/novartis-wins-fdas-breakthrough-tag-for-lung-cancer-hopeful-idUKKCN1VR0HG",
+    "source": "Reuters Health",
+    "evidenceType": "Media and commentaries"
+  },
+  {
+    "title": "Pharmaceutical Services Negotiating Committee holding urgent talks with government on new contract funding",
+    "shortSummary": "Urgent talks follow publication of a tool designed by the North East London Local Pharmaceutical Committee. The tool was trialled by 14 contractors in the area, 8 of which said it showed they would go out of business after 3 years of the contract’s lifespan.",
+    "url": "https://www.pharmaceutical-journal.com/news-and-analysis/news/psnc-holding-urgent-talks-with-government-on-new-contract-funding/20207023.article",
+    "source": "Pharmaceutical Journal",
+    "evidenceType": "Media and commentaries"
+  },
+  {
+    "title": "European Commission approves Tecentriq (atezolizumab) in combination with chemotherapy for non-EGFR mutant or ALK-positive non-squamous non-small cell lung cancer",
+    "shortSummary": "Approval was based on results from phase III IMpower130 study, which demonstrated that the atezolizumab combination therapy improved overall survival compared with chemotherapy alone (18.6 months versus 13.9 months).",
+    "url": "http://www.pharmatimes.com/news/eu_approval_for_tecentriq-based_nsclc_combo_1300884",
+    "source": "PharmaTimes",
+    "evidenceType": "Media and commentaries"
+  }
+]
